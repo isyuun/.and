@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_record_before_certify"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/my_record_before_certify_bg"
+        android:orientation="vertical" >
+        
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="337"
+	        android:orientation="horizontal" >
+	    </LinearLayout>
+	    
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="56"
+	        android:orientation="horizontal" >
+	        
+            <LinearLayout
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="73"
+		        android:orientation="horizontal" >
+		    </LinearLayout>
+		    
+            <Button
+		        android:id="@+id/btn_already_certify_re"
+		    	android:layout_width="0dp"
+		    	android:layout_height="match_parent"
+		    	android:layout_weight="244"
+		    	android:textColor="@android:color/white"
+				android:text="인증 번호 등록"
+				android:background="@drawable/my_record_btn_off" >
+			</Button>
+		    
+            <LinearLayout
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="759"
+		        android:orientation="horizontal" >
+		    </LinearLayout>
+		    
+            <Button
+		        android:id="@+id/btn_already_certify_help"
+		    	android:layout_width="0dp"
+		    	android:layout_height="match_parent"
+		    	android:layout_weight="244"
+		    	android:textColor="@android:color/white"
+				android:text="이용권 구매하기"
+				android:background="@drawable/my_record_btn_off" >
+			</Button>
+		    
+            <LinearLayout
+		        android:layout_width="0dp"
+		        android:layout_height="match_parent"
+		        android:layout_weight="346"
+		        android:orientation="horizontal" >
+		    </LinearLayout>
+            
+	    </LinearLayout>
+	    
+        <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="0dp"
+	        android:layout_weight="27"
+	        android:orientation="horizontal" >
+	    </LinearLayout>
+        
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,1449 @@
+package kr.kymedia.kykaraoke;
+
+import java.io.*;
+import java.util.*;
+
+import org.apache.http.*;
+import org.apache.http.client.*;
+import org.apache.http.client.methods.*;
+import org.apache.http.impl.client.*;
+import org.json.*;
+
+import android.os.*;
+import android.util.*;
+
+public class KPRequest extends Thread implements Const {
+	Handler m_handler;
+	
+	// Common
+	int m_iRequestID;
+	int m_iTotalPage;
+	String m_strUrl;
+	String m_strResultCode;
+	String m_strResultMessage;
+	
+	// Base
+	String m_strRequestDomain = "";
+	String m_strAppName = "";
+	String m_strDebug = "";
+	String m_strMarket = "";
+	String m_strVersion = "";
+	String m_strMid = "";
+	String m_strSTBID = "";
+	String m_strAccount = "";
+	String m_strNCode = "";
+	String m_strLCode = "";
+	String m_strModel = "";
+	String m_strMac = "";
+	String m_strOS = "";
+	String m_strOSVersion = "";
+	String m_strAPIVersion = "";
+	String m_strPassType = "";
+	String m_strPassCount = "";
+	String m_strAPIKey = "";
+	
+	// 곡번호 검색
+	String m_strNumberSearchResult = "";
+	
+	// 홈
+	String m_strMainSingTitle = "";
+	String m_strMainSingArtist = "";
+	String m_strMainSingID = "";
+	String m_strMainListenProfileUrl = "";
+	String m_strMainListenTitle = "";
+	String m_strMainListenArtist = "";
+	String m_strMainListenID = "";
+	String m_strMainEventImgUrl = "";
+	String m_strMainCustomerTitle = "";
+	String m_strMainCustomerID = "";
+	String m_strMainEventID = "";
+	String m_strPlayVideoUrl = "";
+	String m_strMainQuickBtnOnUrl01 = "";
+	String m_strMainQuickBtnOffUrl01 = "";
+	String m_strMainQuickBtnOnUrl02 = "";
+	String m_strMainQuickBtnOffUrl02 = "";
+	String m_strMainBackgroundVideoUrl = "";
+	SubMenuItem subMainQuickBtn01 = new SubMenuItem();
+	SubMenuItem subMainQuickBtn02 = new SubMenuItem();
+	
+	// 애창곡 등록or삭제
+	String m_strFavorResult = "";
+	
+	// 공지사항or이용안내 내용
+	String m_strCustomerDetailTitle = "";
+	String m_strCustomerDetailDate = "";
+	
+	// 재생 반주곡 번호
+	String m_strRequestPlaySongID = "";
+	
+	// 재생 반주곡 정보
+	String m_strPlaySongUrl = "";
+	String m_strPlaySongType = "";
+	
+	// 재생 녹음곡 정보
+	String m_strListenSongUrl = "";
+	String m_strListeningSongID = "";
+	
+	// 인증 상태
+	String m_strAuthDate = "";
+	String m_strAuthMark = "";
+	String m_strAuthModify = "";
+	String m_strAuthButton = "";
+	String m_strAuthProfileURL = "";
+	
+	// (마이)녹음곡 프로필 상태
+	String m_strMyProfileURL = "";
+	String m_strMyNickName = "";
+	String m_strMyHit = "";
+	String m_strMyHeart = "";
+	String m_strMyDate = "";
+	String m_strMyMark = "";
+	String m_strMyModify = "";
+	String m_strMyButton = "";
+	
+	// 휴대폰 인증번호
+	String m_strResponseAuthNumber = "";
+	
+	// 판매 이용권 정보
+	TicketItem ticketitem01 = new TicketItem();
+	TicketItem ticketitem02 = new TicketItem();
+	
+	ArrayList<SongListItem> arraySongItem = new ArrayList<SongListItem>();
+	ArrayList<CustomerListItem> arrayCustomerItem = new ArrayList<CustomerListItem>();
+	ArrayList<String> arrayCustomerDetailUrl = new ArrayList<String>();
+	ArrayList<ListenListItem> arrayListenItem = new ArrayList<ListenListItem>();
+	ArrayList<SubMenuItem> arraySubMenuItem = new ArrayList<SubMenuItem>();
+	ListenListItem listenItem = new ListenListItem();
+	
+	static InputStream en;
+	
+	final String CLASS = "KPRequest";
+	
+	public KPRequest(Handler h) {
+		m_handler= h;
+		en = null;
+		m_iRequestID = 0;
+		m_iTotalPage = 0;
+		m_strUrl = "";
+		m_strResultCode = "";
+		m_strResultMessage = "";
+	}
+	
+	public void sendMessage(int state) {
+		Bundle b = new Bundle();
+		b.putInt("state", state);
+		
+		Message msg = m_handler.obtainMessage();
+		msg.setData(b);
+		m_handler.sendMessage(msg);
+	}
+	
+	public void setKPParam(String domain, String appname, String debug, String market, String version, String mid, String stbid, String account, String ncode, String lcode, String model, String mac, String os, String osversion, String apiversion, String passtype, String passcount, String apikey) {
+		m_strRequestDomain = domain;
+		m_strAppName = appname;
+		m_strDebug = debug;
+		m_strMarket = market;
+		m_strVersion = version;
+		m_strMid = mid;
+		m_strSTBID = stbid;
+		m_strAccount = account;
+		m_strNCode = ncode;
+		m_strLCode = lcode;
+		m_strModel = model;
+		m_strMac = mac;
+		m_strOS = os;
+		m_strOSVersion = osversion;
+		m_strAPIVersion = apiversion;
+		m_strPassType = passtype;
+		m_strPassCount = passcount;
+		m_strAPIKey = apikey;
+	}
+	
+	public String setKPBase() {
+		String strUrl = "";
+		strUrl = m_strRequestDomain;
+		strUrl = strUrl + "?p_appname=" + m_strAppName;
+		strUrl = strUrl + "&p_debug=" + m_strDebug;
+		strUrl = strUrl + "&market=" + m_strMarket;
+		strUrl = strUrl + "&p_ver=" + m_strVersion;
+		strUrl = strUrl + "&p_mid=" + m_strMid;
+		strUrl = strUrl + "&p_stbid=" + m_strSTBID;
+		strUrl = strUrl + "&p_account=" + m_strAccount;
+		strUrl = strUrl + "&p_ncode=" + m_strNCode;
+		strUrl = strUrl + "&p_lcode=" + m_strLCode;
+		strUrl = strUrl + "&model=" + m_strModel;
+		strUrl = strUrl + "&p_mac=" + m_strMac;
+		strUrl = strUrl + "&p_os=" + m_strOS;
+		strUrl = strUrl + "&p_osversion=" + m_strOSVersion;
+		strUrl = strUrl + "&p_apiversion=" + m_strAPIVersion;
+		strUrl = strUrl + "&p_passtype=" + m_strPassType;
+		strUrl = strUrl + "&p_passcnt=" + m_strPassCount;
+		strUrl = strUrl + "&p_apikey=" + m_strAPIKey;
+		
+		return strUrl;
+	}
+	
+	/*
+	 * 마이노래방 메뉴 리스트
+	 */
+	public void setMyMenuUrl() {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=KP_1500";
+		m_strUrl = m_strUrl + "&p_m1=MENU";
+		m_strUrl = m_strUrl + "&p_m2=MENU_MYLIST";
+	}
+	
+	/*
+	 * 노래방샵 메뉴 리스트
+	 */
+	public void setShopMenuUrl() {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=KP_1500";
+		m_strUrl = m_strUrl + "&p_m1=MENU";
+		m_strUrl = m_strUrl + "&p_m2=MENU_SHOP";
+	}
+	
+	/*
+	 * 메인
+	 * KP_0000
+	 */
+	public void setMainUrl(String op, String m1, String m2) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MAIN";
+		m_strUrl = m_strUrl + "&p_m2=MENU";
+	}
+	
+	/*
+	 * 반주곡 목록
+	 * KP_1000(노래부르기), KP_3010(마이노래방)
+	 */
+	public void setSongListUrl(String op, String m1, String m2, int page) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&page=" + String.valueOf(page);
+	}
+	
+	/*
+	 * 반주곡 재생
+	 * KP_1016
+	 */
+	public void setSongPlayUrl(String op, String m1, String m2, String id) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&song_id=" + id;
+	}
+	
+	/*
+	 * 반주곡 재생 시간 로그
+	 * KP_1012
+	 */
+	public void setSongPlayedTimeUrl(String op, String m1, String m2, String id, String type) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&play_id=" + id;
+		m_strUrl = m_strUrl + "&type=" + type;
+	}
+	
+	/*
+	 * 애창곡 등록/삭제
+	 * KP_3010
+	 */
+	public void setFavorUrl(String op, String m1, String m2, String id) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&song_id=" + id;
+	}
+	
+	/*
+	 * 녹음곡 목록
+	 * KP_2100
+	 * MENU_LISTEN
+	 * LISTEN_TIMELINE
+	 */
+	public void setListenListUrl(String op, String m1, String m2, int page) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&page=" + String.valueOf(page);
+	}
+	
+	/*
+	 * 공지사항or이용안내 목록
+	 * KP_0010
+	 */
+	public void setCustomerListUrl(String op, String m1, String m2, int page) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&page=" + String.valueOf(page);
+	}
+	
+	/*
+	 * 공지사항or이용안내 상세내용
+	 * KP_0011
+	 */
+	public void setCustomerListDetailUrl(String op, String m1, String m2, String id) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&id=" + id;
+	}
+	
+	/*
+	 * 검색
+	 * KP_0020
+	 * SEARCH_1 : 제목명
+	 * SEARCH_2 : 가수명
+	 * SEARCH_3 : 곡번호
+	 * SEARCH_4 : 색인
+	 */
+	public void setSearchListUrl(String op, String m1, String m2, String keyword, int page) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&search_word=" + keyword;
+		m_strUrl = m_strUrl + "&page=" + String.valueOf(page);
+	}
+	
+	/*
+	 * 검색
+	 * KP_0020
+	 * SEARCH_1 : 제목명
+	 * SEARCH_2 : 가수명
+	 * SEARCH_3 : 곡번호
+	 * SEARCH_4 : 색인
+	 */
+	public void setNumberSearchUrl(String op, String m1, String m2, String num) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&search_word=" + num;
+		m_strUrl = m_strUrl + "&page=1";
+	}
+	
+	/*
+	 * 녹음곡 재생
+	 * KP_2016
+	 * MENU_LISTEN
+	 * LISTEN_TIMELINE
+	 * LISTEN_WEEK
+	 * LISTEN_TOP100
+	 */
+	public void setListenSongUrl(String op, String m1, String m2, String id, String uid) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=" + m1;
+		m_strUrl = m_strUrl + "&p_m2=" + m2;
+		m_strUrl = m_strUrl + "&record_id=" + id;
+		if (!uid.equals("")) {
+			m_strUrl = m_strUrl + "&uid=" + m_strMid;
+		}
+	}
+	
+	/*
+	 * 이 녹음곡의 다른 사람 녹음곡
+	 * KP_2001
+	 */
+	
+	public void setListenOtherUrl(String op, String id, int page) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MENU_LISTEN";
+		m_strUrl = m_strUrl + "&p_m2=LISTEN_TIMELINE";
+		m_strUrl = m_strUrl + "&song_id=" + id;
+		m_strUrl = m_strUrl + "&page=" + String.valueOf(page);
+	}
+	
+	/*
+	 * 휴대폰 인증번호 요청
+	 * KP_9001
+	 */
+	public void setAuthNumberUrl(String op, String phoneno, String authno) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MAIN";
+		m_strUrl = m_strUrl + "&p_m2=MENU";
+		m_strUrl = m_strUrl + "&p_phoneno=" + phoneno;
+		m_strUrl = m_strUrl + "&auth_num=" + authno;
+	}
+	
+	/*
+	 * 인증 상태 요청
+	 * KP_9000
+	 */
+	public void setCertifyStateUrl(String op) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MAIN";
+		m_strUrl = m_strUrl + "&p_m2=MENU";
+	}
+	
+	/*
+	 * 휴대폰 인증번호 일치 요청
+	 * KP_9000
+	 */
+	public void setAuthNumberCorrectUrl(String op, String phoneno, String authno) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MAIN";
+		m_strUrl = m_strUrl + "&p_m2=MENU";
+		m_strUrl = m_strUrl + "&p_phoneno=" + phoneno;
+		m_strUrl = m_strUrl + "&auth_num=" + authno;
+	}
+	
+	/*
+	 * 판매 이용권 정보
+	 * KP_4000
+	 * MENU_SHOP
+	 * SHOP_TICKET
+	 */
+	public void setTicketSalesStateUrl(String op) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MENU_SHOP";
+		m_strUrl = m_strUrl + "&p_m2=SHOP_TICKET";
+	}
+	
+	/*
+	 * 월정액 이용권 구매 결과
+	 * KP_4001
+	 */
+	public void setPurchaseCompleteUrl(String op, String result) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MENU_SHOP";
+		m_strUrl = m_strUrl + "&p_m2=SHOP_TICKET";
+		m_strUrl = m_strUrl + "&RETURN_DATA=" + result;
+	}
+	
+	/*
+	 * 월정액 이용권 구매 결과
+	 * KP_4001
+	 */
+	public void setDayPurchaseCompleteUrl(String op, String result) {
+		m_strUrl = setKPBase();
+		m_strUrl = m_strUrl + "&p_opcode=" + op;
+		m_strUrl = m_strUrl + "&p_m1=MENU_SHOP";
+		m_strUrl = m_strUrl + "&p_m2=SHOP_TICKET";
+		m_strUrl = m_strUrl + "&RETURN_DATA=" + result;
+	}
+	
+	public void setRequestType(int requestID) {
+		m_iRequestID = requestID;
+	}
+	
+	@Override
+	public void run() {
+		try{
+			sendRequest();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void sendRequest() {
+		try{
+			DefaultHttpClient client = new DefaultHttpClient();
+			
+			//m_strUrl = URLEncoder.encode(m_strUrl, "UTF-8");
+			//HttpPost post = new HttpPost(tempUrl);
+			HttpPost post = new HttpPost(m_strUrl);
+			LOG(CLASS, "[" + m_strUrl + "]");
+			/*
+			HttpParams param = client.getParams();
+			HttpConnectionParams.setConnectionTimeout(param, 5000);
+			HttpConnectionParams.setSoTimeout(param, 5000);
+			*/
+			HttpResponse response = client.execute(post);
+			
+			HttpEntity httpEntity = response.getEntity();
+            en = httpEntity.getContent();
+		} catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		
+		try{
+			BufferedReader bufReader = new BufferedReader(new InputStreamReader(en, "UTF-8"));
+			
+			String line = null;
+			String result = "";
+			int iReadCount = 0;
+			
+			while((line = bufReader.readLine()) != null) {
+				LOG("JSON", line);
+				if (iReadCount > 0) {
+					result += "\r\n";
+				}
+				
+				result += line;
+				iReadCount++;
+			}
+			
+			switch(m_iRequestID)
+			{
+			case REQUEST_MAIN :
+				parseMain(result);
+				break;
+			case REQUEST_MY_SUB_MENU :
+				parseMySubMenu(result);
+				break;
+			case REQUEST_SHOP_SUB_MENU :
+				parseShopSubMenu(result);
+				break;
+			case REQUEST_SONG_LIST :
+				parseSongList(result);
+				break;
+			case REQUEST_FAVOR :
+				parseFavor(result);
+				break;
+			case REQUEST_CUSTOMER_LIST :
+				parseCustomerList(result);
+				break;
+			case REQUEST_CUSTOMER_LIST_DETAIL :
+				parseCustomerListDetail(result);
+				break;
+			case REQUEST_SEARCH_LIST :
+				parseSearchList(result);
+				break;
+			case REQUEST_SONG_PLAY :
+				parsePlaySong(result);
+				break;
+			case REQUEST_LISTEN_LIST :
+				parseListenList(result);
+				break;
+			case REQUEST_LISTEN_SONG :
+			case REQUEST_LISTEN_OTHER_SONG :
+				parseListenSong(result);
+				break;
+			case REQUEST_LISTEN_OTHER :
+				parseListenList(result);
+				break;
+			case REQUEST_NUMBER_SEARCH :
+				parseNumberSearch(result);
+				break;
+			case REQUEST_SONG_PLAYED_TIME :
+			case REQUEST_LISTEN_PLAYED_TIME :
+				parseSongPlayedTime(result);
+				break;
+			case REQUEST_AUTH_NUMBER :
+				parseAuthNumber(result);
+				break;
+			case REQUEST_CERTIFY_STATE :
+				parseCertifyState(result);
+				break;
+			case REQUEST_AUTH_NUMBER_CORRECT :
+				parseAuthNumberCorrect(result);
+				break;
+			case REQUEST_MY_RECORD_LIST :
+				parseMyRecordList(result);
+				break;
+			case REQUEST_TICKET_SALES_STATE :
+				parseTicketSalesState(result);
+				break;
+			case REQUEST_MONTH_PURCHASE_COMPLETE :
+			case REQUEST_DAY_PURCHASE_COMPLETE :
+				break;
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseMain(String response) {
+		try{
+			LOG(CLASS, "parseMain >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+			
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        m_strMainBackgroundVideoUrl = info.getString("video_url");
+		        
+		        if (m_strResultCode.equals("00000")) {
+		        	m_strMid = info.getString("mid");
+		        } else {
+		        	sendMessage(COMPLETE_MAIN);
+		        	return;
+		        }
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			JSONObject list1 = jArrList.getJSONObject(5);			// 6. 부르기
+			m_strMainSingID = list1.getString("song_id");
+			m_strMainSingTitle = list1.getString("title");
+			m_strMainSingArtist = list1.getString("artist");
+			
+			JSONObject list2 = jArrList.getJSONObject(6);			// 7. 듣기
+			m_strMainListenProfileUrl = list2.getString("url_img");
+			m_strMainListenID = list2.getString("record_id");
+			m_strMainListenTitle = list2.getString("title");
+			m_strMainListenArtist = list2.getString("nickname");
+			/*
+			JSONObject list5 = jArrList.getJSONObject(6);			// 8. 퀵메뉴1
+			subMainQuickBtn01.op =  list5.getString("go_opcode");
+			subMainQuickBtn01.m1 =  list5.getString("m1");
+			subMainQuickBtn01.m2 =  list5.getString("m2");
+			m_strMainQuickBtnOnUrl01 = list5.getString("url_img_on");
+			m_strMainQuickBtnOffUrl01 = list5.getString("url_img_off");
+			*/
+			JSONObject list6 = jArrList.getJSONObject(8);			// 9. 퀵메뉴2
+			subMainQuickBtn02.op =  list6.getString("go_opcode");
+			subMainQuickBtn02.m1 =  list6.getString("m1");
+			subMainQuickBtn02.m2 =  list6.getString("m2");
+			m_strMainQuickBtnOnUrl02 = list6.getString("url_img_on");
+			m_strMainQuickBtnOffUrl02 = list6.getString("url_img_off");
+					
+			JSONObject list3 = jArrList.getJSONObject(9);			// 10. 이벤트
+			m_strMainEventImgUrl = list3.getString("url_img");
+			m_strMainEventID = list3.getString("id");
+				
+			JSONObject list4 = jArrList.getJSONObject(10);			// 11. 공지사항
+			m_strMainCustomerTitle = list4.getString("title");
+			m_strMainCustomerID = list4.getString("id");
+			
+			sendMessage(COMPLETE_MAIN);
+			
+			LOG(CLASS, "parseMain <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseSongList(String response) {
+		try{
+			LOG(CLASS, "parseSongList >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			String strTotalPage = "";
+			
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_SONG_LIST);
+		        	return;
+		        }
+		        
+		        strTotalPage = info.getString("total_page");
+		        m_iTotalPage = Integer.parseInt(strTotalPage);
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				SongListItem item = new SongListItem();
+				
+		        item.m_strSongId = list.getString("song_id");
+		        item.m_strSongTitle = list.getString("title");
+		        item.m_strSongArtist = list.getString("artist");
+		        item.m_strFavor = list.getString("mark_favorite");
+		        
+		        arraySongItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_SONG_LIST);
+			
+			LOG(CLASS, "parseSongList <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parsePlaySong(String response) {
+		try{
+			LOG(CLASS, "parsePlaySong >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+	
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				m_strPlaySongUrl = list.getString("url_lyric");
+				m_strPlaySongType = list.getString("type");
+				m_strPlayVideoUrl = list.getString("video_url");
+		    }
+			
+			sendMessage(COMPLETE_SONG_PLAY);
+			
+			LOG(CLASS, "parsePlaySong <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void parseFavor(String response) {
+		try{
+			LOG(CLASS, "parseFavor >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_FAVOR);
+		        	return;
+		        }
+		        
+		        m_strFavorResult = info.getString("result_message");
+		    }
+			
+			sendMessage(COMPLETE_FAVOR);
+			
+			LOG(CLASS, "parseFavor <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void parseCustomerList(String response) {
+		try{
+			LOG(CLASS, "parseCustomerList >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			String strTotalPage = "";
+			
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_CUSTOMER_LIST);
+		        	return;
+		        }
+		      
+		        strTotalPage = info.getString("total_page");
+		        m_iTotalPage = Integer.parseInt(strTotalPage);
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				CustomerListItem item = new CustomerListItem();
+				
+		        item.m_strCustomerID = list.getString("id");
+		        item.m_strCustomerTitle = list.getString("title");
+		        item.m_strCustomerDate = list.getString("reg_date");
+		        
+		        arrayCustomerItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_CUSTOMER_LIST);
+			
+			LOG(CLASS, "parseCustomerList <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseCustomerListDetail(String response) {
+		try{
+			LOG(CLASS, "parseCustomerListDetail >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_CUSTOMER_LIST_DETAIL);
+		        	return;
+		        }
+		        
+		        m_strCustomerDetailTitle = info.getString("title");
+		        m_strCustomerDetailDate = info.getString("reg_date");
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				String temp = list.getString("url_img");
+				arrayCustomerDetailUrl.add(temp);
+		    }
+			
+			sendMessage(COMPLETE_CUSTOMER_LIST_DETAIL);
+			
+			LOG(CLASS, "parseCustomerListDetail <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseSearchList(String response) {
+		try{
+			LOG(CLASS, "parseSearchList >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			String strTotalPage = "";
+			
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_SEARCH_LIST);
+		        	return;
+		        }
+		        
+		        strTotalPage = info.getString("total_page");
+		        m_iTotalPage = Integer.parseInt(strTotalPage);
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				SongListItem item = new SongListItem();
+				
+		        item.m_strSongId = list.getString("song_id");
+		        item.m_strSongTitle = list.getString("title");
+		        item.m_strSongArtist = list.getString("artist");
+		        item.m_strFavor = list.getString("mark_favorite");
+		        
+		        arraySongItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_SEARCH_LIST);
+			
+			LOG(CLASS, "parseSearchList <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseListenList(String response) {
+		try{
+			LOG(CLASS, "parseListenList >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	switch(m_iRequestID)
+					{
+					case REQUEST_LISTEN_LIST :
+						sendMessage(COMPLETE_LISTEN_LIST);
+						break;
+					case REQUEST_LISTEN_OTHER :
+						sendMessage(COMPLETE_LISTEN_OTHER);
+						break;
+					}
+					return;
+				}
+		        
+		        String strTotalPage = info.getString("total_page");
+		        m_iTotalPage = Integer.parseInt(strTotalPage);
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+				
+				ListenListItem item = new ListenListItem();
+				
+				item.mStrProfileImageUrl = list.getString("url_profile");
+				item.mStrRecordID = list.getString("record_id");
+				item.mStrTitle = list.getString("title");
+				item.mStrArtist = list.getString("artist");
+				item.mStrNick = list.getString("nickname");
+				item.mStrRecommandCount = list.getString("heart");
+				item.mStrListenCount = list.getString("hit");
+				item.mStrDate = list.getString("reg_date");
+				
+				arrayListenItem.add(item);
+		    }
+			
+			switch(m_iRequestID)
+			{
+			case REQUEST_LISTEN_LIST :
+				sendMessage(COMPLETE_LISTEN_LIST);
+				break;
+			case REQUEST_LISTEN_OTHER :
+				sendMessage(COMPLETE_LISTEN_OTHER);
+				break;
+			}
+			
+			LOG(CLASS, "parseListenList <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseListenOther(String response) {
+		try{
+			LOG(CLASS, "parseListenOther >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_LISTEN_LIST);
+		        	return;
+		        }
+		        
+		        String strTotalPage = info.getString("total_page");
+		        m_iTotalPage = Integer.parseInt(strTotalPage);
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+				
+				ListenListItem item = new ListenListItem();
+				
+				item.mStrProfileImageUrl = list.getString("url_profile");
+				item.mStrRecordID = list.getString("record_id");
+				item.mStrSongID = list.getString("song_id");
+				item.mStrTitle = list.getString("title");
+				item.mStrArtist = list.getString("artist");
+				item.mStrNick = list.getString("nickname");
+				item.mStrRecommandCount = list.getString("heart");
+				item.mStrListenCount = list.getString("hit");
+				item.mStrDate = list.getString("reg_date");
+				
+				arrayListenItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_LISTEN_LIST);
+			
+			LOG(CLASS, "parseListenOther <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void parseListenSong(String response) {
+		try{
+			LOG(CLASS, "parseListenSong >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+		        	if (m_iRequestID == REQUEST_LISTEN_SONG) {
+						sendMessage(COMPLETE_LISTEN_SONG);
+					} else {
+						sendMessage(COMPLETE_LISTEN_OTHER_SONG);
+					}
+		        	return;
+		        }
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+	
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				m_strListenSongUrl = list.getString("url_record");
+				listenItem.mStrProfileImageUrl = list.getString("url_profile");
+				listenItem.mStrRecordID = list.getString("record_id");
+				listenItem.mStrTitle = list.getString("title");
+				listenItem.mStrArtist = list.getString("artist");
+				listenItem.mStrNick = list.getString("nickname");
+				listenItem.mStrRecommandCount = list.getString("heart");
+				listenItem.mStrListenCount = list.getString("hit");
+				//listenItem.mStrDate = list.getString("reg_date");
+				m_strListeningSongID = list.getString("song_id");
+		    }
+			
+			if (m_iRequestID == REQUEST_LISTEN_SONG) {
+				sendMessage(COMPLETE_LISTEN_SONG);
+			} else {
+				sendMessage(COMPLETE_LISTEN_OTHER_SONG);
+			}
+			
+			LOG(CLASS, "parseListenSong <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void parseNumberSearch(String response) {
+		try{
+			LOG(CLASS, "parseNumberSearch >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+					sendMessage(COMPLETE_NUMBER_SEARCH);
+					return;
+				}
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+	
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				m_strNumberSearchResult = list.getString("title");
+				m_strNumberSearchResult = m_strNumberSearchResult + "-" + list.getString("artist");
+		    }
+			
+			sendMessage(COMPLETE_NUMBER_SEARCH);
+			
+			LOG(CLASS, "parseNumberSearch <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseSongPlayedTime(String response) {
+		LOG(CLASS, "parseSongPlayedTime >");
+		
+		sendMessage(COMPLETE_SONG_PLAYED_TIME);
+		
+		LOG(CLASS, "parseSongPlayedTime <");
+	}
+	
+	public void parseAuthNumber(String response) {
+		LOG(CLASS, "parseAuthNumber >");
+		
+		try{
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+
+		        if (!m_strResultCode.equals("00000") && !m_strResultCode.equals("00901")) {
+		        	sendMessage(COMPLETE_AUTH_NUMBER);
+					return;
+				}
+		        
+		        m_strResponseAuthNumber = info.getString("auth_num");
+		    }
+			
+			sendMessage(COMPLETE_AUTH_NUMBER);
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+		
+		LOG(CLASS, "parseAuthNumber <");
+	}
+	
+	public void parseCertifyState(String response) {
+		LOG(CLASS, "parseCertifyState >");
+		
+		try{
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_CERTIFY_STATE);
+					return;
+				}
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+	
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+		        
+				m_strAuthDate = list.getString("auth_date");
+				m_strAuthMark = list.getString("mark_auth_idx");
+				m_strAuthModify = list.getString("modify_idx");
+				m_strAuthButton = list.getString("btn_type");
+				m_strAuthProfileURL = list.getString("url_profile");
+		    }
+			
+			sendMessage(COMPLETE_CERTIFY_STATE);
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+		
+		LOG(CLASS, "parseCertifyState <");
+	}
+	
+	public void parseAuthNumberCorrect(String response) {
+		LOG(CLASS, "parseAuthNumberCorrect >");
+		
+		try{
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+	
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+
+		        if (!m_strResultCode.equals("00000")) {
+		        	sendMessage(COMPLETE_AUTH_NUMBER_CORRECT);
+					return;
+				}
+		    }
+			
+			sendMessage(COMPLETE_AUTH_NUMBER_CORRECT);
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+		
+		LOG(CLASS, "parseAuthNumberCorrect <");
+	}
+	
+	public void parseMyRecordList(String response) {
+		try{
+			LOG(CLASS, "parseMyRecordList >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        /*
+		        if (!m_strResultCode.equals("00000")) {
+					sendMessage(COMPLETE_MY_RECORD_LIST);
+					return;
+				}
+				*/
+		        
+		        m_strMyProfileURL = info.getString("url_profile");
+		    	m_strMyNickName = info.getString("my_nickname");
+		    	m_strMyHit = info.getString("my_hit");
+		    	m_strMyHeart = info.getString("my_heart");
+		    	m_strMyDate = info.getString("auth_date");
+		    	m_strMyMark = info.getString("mark_auth_idx");
+		    	m_strMyModify = info.getString("modify_idx");
+		    	m_strMyButton = info.getString("btn_type");
+		        
+		        String strTotalPage = info.getString("total_page");
+		        m_iTotalPage = Integer.parseInt(strTotalPage);
+		    }
+			
+			if (m_iTotalPage == 0) {
+				sendMessage(COMPLETE_MY_RECORD_LIST);
+				return;
+			}
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+				
+				ListenListItem item = new ListenListItem();
+				
+				item.mStrRecordID = list.getString("record_id");
+				item.mStrTitle = list.getString("title");
+				item.mStrArtist = list.getString("artist");
+				item.mStrRecommandCount = list.getString("heart");
+				item.mStrDate = list.getString("reg_date");
+				
+				arrayListenItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_MY_RECORD_LIST);
+			
+			LOG(CLASS, "parseMyRecordList <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseMySubMenu(String response) {
+		try{
+			LOG(CLASS, "parseMySubMenu >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+					sendMessage(COMPLETE_MY_SUB_MENU);
+					return;
+				}
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+				
+				SubMenuItem item = new SubMenuItem();
+				
+				item.op = list.getString("go_opcode");
+				item.m1 = list.getString("m1");
+				item.m2 = list.getString("m2");
+				item.name = list.getString("menu_name");
+				
+				arraySubMenuItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_MY_SUB_MENU);
+			
+			LOG(CLASS, "parseMySubMenu <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseShopSubMenu(String response) {
+		try{
+			LOG(CLASS, "parseShopSubMenu >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+					sendMessage(COMPLETE_SHOP_SUB_MENU);
+					return;
+				}
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+				
+				SubMenuItem item = new SubMenuItem();
+				
+				item.op = list.getString("go_opcode");
+				item.m1 = list.getString("m1");
+				item.m2 = list.getString("m2");
+				item.name = list.getString("menu_name");
+				
+				arraySubMenuItem.add(item);
+		    }
+			
+			sendMessage(COMPLETE_SHOP_SUB_MENU);
+			
+			LOG(CLASS, "parseShopSubMenu <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	public void parseTicketSalesState(String response) {
+		try{
+			LOG(CLASS, "parseTicketSalesState >");
+			
+			JSONObject json = new JSONObject(response);
+			JSONObject record = json.getJSONObject("record");
+			
+			//Parse Info
+			JSONArray jArrInfo = record.getJSONArray("info");
+
+			for(int i = 0; i < jArrInfo.length(); i++){
+		        JSONObject info = jArrInfo.getJSONObject(i);
+		        
+		        m_strResultCode = info.getString("result_code");
+		        m_strResultMessage = info.getString("result_message");
+		        
+		        if (!m_strResultCode.equals("00000")) {
+					sendMessage(COMPLETE_TICKET_SALES_STATE);
+					return;
+				}
+		    }
+			
+			//Parse List
+			JSONArray jArrList = record.getJSONArray("list");
+
+			for(int i = 0; i < jArrList.length(); i++){
+				JSONObject list = jArrList.getJSONObject(i);
+				
+				TicketItem item = new TicketItem();
+				
+				item.productid = list.getString("service_item_id");
+				item.name = list.getString("product_name");
+				item.prise = list.getString("price");
+				item.realprise = list.getString("real_price");
+				item.productcode = list.getString("id_product");
+				item.url = list.getString("url_img");
+				
+				if (i == 0) { 
+					ticketitem01 = item;
+				} else {
+					ticketitem02 = item;
+				}
+		    }
+			
+			sendMessage(COMPLETE_TICKET_SALES_STATE);
+			
+			LOG(CLASS, "parseTicketSalesState <");
+		}catch(JSONException e){
+			e.printStackTrace();
+		}
+	}
+	
+	private void LOG(String tag, String msg) {
+		if (P_DEBUG == "debug") {
+			Log.i(tag, msg);
+		}
+	}
+}

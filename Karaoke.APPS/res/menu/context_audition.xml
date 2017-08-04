@@ -1,0 +1,64 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<!-- SING -->
+	<item
+		android:id="@+id/context_play_sing"
+		android:icon="@drawable/ic_song"
+		android:title="@string/context_play_sing"/>
+
+	<!-- LISTEN -->
+	<!-- <item -->
+	<!-- android:id="@+id/context_play_listen" -->
+	<!-- android:icon="@drawable/ic_listen" -->
+	<!-- android:title="@string/context_play_listen"/> -->
+
+
+	<!-- M/V -->
+	<item
+		android:id="@+id/context_play_movie"
+		android:icon="@drawable/ic_mv"
+		android:title="@string/context_play_movie"/>
+
+	<!-- 무료이용 -->
+	<!-- <item -->
+	<!-- android:id="@+id/context_free_song" -->
+	<!-- android:title="@string/context_free_song"/> -->
+
+
+	<!-- 가사보기 -->
+	<!-- <item -->
+	<!-- android:id="@+id/context_lylic_info" -->
+	<!-- android:title="@string/context_lylic_info"/> -->
+
+
+	<!-- ARTIST's (이 가수의 다른 곡) -->
+	<item
+		android:id="@+id/context_artist_song"
+		android:icon="@drawable/ic_artist"
+		android:title="@string/context_artist_song"/>
+
+	<!-- SONG's (이 노래의 녹음곡) -->
+	<item
+		android:id="@+id/context_song_record"
+		android:icon="@drawable/ic_song"
+		android:title="@string/context_song_record"/>
+
+	<!-- BEST HOLIC -->
+	<!-- <item -->
+	<!-- android:id="@+id/context_best_holic" -->
+	<!-- android:icon="@drawable/ic_best" -->
+	<!-- android:title="@string/context_best_holic"/> -->
+
+
+	<!-- 곡소개 -->
+	<!-- <item -->
+	<!-- android:id="@+id/context_song_info" -->
+	<!-- android:title="@string/context_song_info"/> -->
+
+
+	<!-- 공유 -->
+	<!-- <item -->
+	<!-- android:id="@+id/context_share" -->
+	<!-- android:title="@string/context_share"/> -->
+
+</menu>

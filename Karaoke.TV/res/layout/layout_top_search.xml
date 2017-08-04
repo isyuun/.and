@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_top_search"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_top_search_bar"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="8dp"
+    android:visibility="visible" >
+
+    <!-- <android.support.v4.widget.Space -->
+    <!-- android:layout_width="0dp" -->
+    <!-- android:layout_height="match_parent" -->
+    <!-- android:layout_weight="5" -->
+    <!-- android:visibility="invisible" /> -->
+
+    <TextView
+        android:id="@+id/txt_top_search_number"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        android:gravity="center"
+        android:lines="1"
+        android:maxLength="5"
+        android:maxLines="1"
+        android:text="@string/menu_top_song_num"
+        android:textColor="#FBF603"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8" >
+
+        <TextView
+            android:id="@+id/txt_top_search_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/txt_top_search_ok"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:paddingLeft="5dp"
+            android:maxLines="1"
+            android:text="@string/txt_top_search_item"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_top_search_ok"
+            android:layout_width="@dimen/txt_top_search_ok"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/txt_top_search_cancel"
+            android:drawableLeft="@drawable/btn_ok"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:maxLines="1"
+            android:text="@string/common_engage"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/txt_top_search_cancel"
+            android:layout_width="@dimen/txt_top_search_cancel"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_toLeftOf="@+id/txt_top_search_blank"
+            android:drawableLeft="@drawable/btn_return"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:maxLines="1"
+            android:text="@string/common_cancel"
+            android:textColor="@android:color/white"
+            android:textSize="12sp" />
+
+        <!-- <android.support.v4.widget.Space -->
+        <!-- android:id="@+id/txt_top_search_blank" -->
+        <!-- android:layout_width="@dimen/txt_top_search_blank" -->
+        <!-- android:layout_height="match_parent" -->
+        <!-- android:layout_alignParentRight="true" -->
+        <!-- android:orientation="horizontal" -->
+        <!-- android:visibility="invisible" /> -->
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,149 @@
+package kr.kymedia.kykaraoke.tv.dat;
+
+import java.nio.ByteBuffer;
+
+import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioRecord;
+import android.media.AudioTrack;
+import android.media.MediaRecorder;
+import android.media.audiofx.PresetReverb;
+import android.util.Log;
+
+class Microphone {
+	private boolean isPlaying;
+	private static final String APP_TAG = "Microphone";
+	/*
+	 * 140605 3.5파이 마이크
+	 * 샘플링레이트를 8000으로 설정
+	 */
+	private static final int mSampleRate = 8000;
+	private static final int mFormat = AudioFormat.ENCODING_PCM_16BIT;
+
+	private AudioTrack mAudioOutput;
+	private AudioRecord mAudioInput;
+	private int mInBufferSize;
+	private int mOutBufferSize;
+
+	final String P_DEBUG = "release";
+
+	public Microphone() {
+		isPlaying = false;
+	}
+
+	public boolean play() {
+		if (isPlaying) {
+			stop();
+		}
+
+		isPlaying = true;
+
+		mInBufferSize = AudioRecord.getMinBufferSize(mSampleRate, AudioFormat.CHANNEL_IN_MONO, mFormat);
+		/*
+		 * 140605 3.5파이 마이크
+		 * AudioRecord의 Min버퍼를 리턴받은 값의 2배로 처리
+		 */
+		// mInBufferSize = mInBufferSize * 2;
+		mOutBufferSize = AudioTrack.getMinBufferSize(mSampleRate, AudioFormat.CHANNEL_OUT_MONO, mFormat);
+		// mOutBufferSize = mOutBufferSize * 2;
+		mAudioInput = new AudioRecord(MediaRecorder.AudioSource.MIC, mSampleRate, AudioFormat.CHANNEL_IN_MONO, mFormat, mInBufferSize);
+		mAudioOutput = new AudioTrack(AudioManager.STREAM_MUSIC, mSampleRate, AudioFormat.CHANNEL_OUT_MONO, mFormat, mOutBufferSize, AudioTrack.MODE_STREAM);
+
+		Log.d(APP_TAG, "play");
+
+		record();
+
+		return true;
+	}
+
+	public void stop() {
+		Log.d(APP_TAG, "stop");
+
+		isPlaying = false;
+
+		mAudioInput.release();
+		mAudioOutput.release();
+	}
+
+	public void record() {
+		Thread t = new Thread() {
+			@Override
+			public void run() {
+				Log.d(APP_TAG, "Entered record loop");
+				recordLoop();
+				Log.d(APP_TAG, "Record loop finished");
+			}
+
+			private void recordLoop() {
+				if (mAudioOutput.getState() != AudioTrack.STATE_INITIALIZED || mAudioInput.getState() != AudioTrack.STATE_INITIALIZED) {
+					Log.d(APP_TAG, "state:" + mAudioOutput.getState() + ",input:" + mAudioInput.getState());
+					Log.d(APP_TAG, "Can't start. Race condition?");
+				} else {
+					try {
+						try {
+							PresetReverb mReverb = new PresetReverb(0, mAudioOutput.getAudioSessionId());
+							mReverb.setPreset(PresetReverb.PRESET_MEDIUMHALL);
+							mReverb.setEnabled(true);
+							mAudioOutput.attachAuxEffect(mReverb.getId());
+							mAudioOutput.setAuxEffectSendLevel(1.0f);
+
+							mAudioOutput.play();
+						} catch (Exception e) {
+							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Failed to start playback");
+							return;
+						}
+
+						try {
+							mAudioInput.startRecording();
+						} catch (Exception e) {
+							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Failed to start recording");
+							mAudioOutput.stop();
+							return;
+						}
+
+						try {
+							ByteBuffer bytes = ByteBuffer.allocateDirect(mInBufferSize);
+							int o = 0;
+							byte b[] = new byte[mInBufferSize];
+							while (isPlaying) {
+								o = mAudioInput.read(bytes, mInBufferSize);
+								bytes.get(b);
+								bytes.rewind();
+								mAudioOutput.write(b, 0, o);
+							}
+
+							Log.d(APP_TAG, "Finished recording");
+						}
+						catch (Exception e) {
+							Log.d(APP_TAG, "Error while recording, aborting.");
+							return;
+						}
+
+						try {
+							mAudioOutput.stop();
+						} catch (Exception e) {
+							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Can't stop playback");
+							mAudioInput.stop();
+							return;
+						}
+
+						try {
+							mAudioInput.stop();
+						} catch (Exception e) {
+							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Can't stop recording");
+							return;
+						}
+					}
+					catch (Exception e) {
+						Log.d(APP_TAG, "Error somewhere in record loop.");
+						return;
+					}
+				}
+			}
+		};
+
+		t.start();
+	}
+
+}

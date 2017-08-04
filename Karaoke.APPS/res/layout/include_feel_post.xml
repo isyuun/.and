@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/include_feel_post"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/listViewStyleItemBackground"
+                android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/include_feel_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_medium">
+
+        <include
+            android:id="@+id/include_feel_title"
+            layout="@layout/include_feel_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/include_feel_touch"
+        android:layout_alignBottom="@+id/include_feel_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/include_feel_content"
+        android:layout_below="@+id/include_feel_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium">
+
+        <LinearLayout
+            android:id="@+id/include_feel_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/feel_text"
+                style="@style/TextSmall"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
+                android:layout_weight="1.0"
+                android:background="?attr/listViewStyleItemBackground"
+                android:ems="10"
+                android:paddingBottom="@dimen/padding_medium"
+                android:paddingLeft="@dimen/padding_small"
+                android:paddingRight="@dimen/padding_small"
+                android:paddingTop="@dimen/padding_medium"
+                android:text="@string/hint_feel_text"/>
+
+            <kr.kymedia.karaoke.widget._ImageButton
+                android:id="@+id/btn_listen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:background="@drawable/bg_button_64x64"
+                android:contentDescription="@string/btn_title_play"
+                android:onClick="onClick"
+                android:padding="@dimen/padding_tiny"
+                android:scaleType="center"
+                android:src="@drawable/ic_listen"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/include_feel_html"
+            layout="@layout/include_html2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+
+        <include
+            android:id="@+id/include_player_people"
+            layout="@layout/include_player_people3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/feel_comment"
+            style="@style/TextTinyBlack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/listViewStyleItemBackground"
+            android:ems="10"
+            android:gravity="top|left"
+            android:padding="@dimen/padding_input_box"
+            android:text="@string/hint_feel_comment"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/include_player_emoticon"
+	android:layout_width="match_parent"
+	android:layout_height="53dp"
+	android:background="@drawable/bg_player_subject"
+	android:orientation="horizontal"
+	android:padding="@dimen/padding_input_bar" >
+
+	<kr.kymedia.karaoke.widget._ImageButton
+		android:id="@+id/arrow"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_marginLeft="@dimen/margin_input_bar"
+		android:layout_marginRight="@dimen/margin_input_bar"
+		android:background="@drawable/actionbar_compat_item"
+		android:contentDescription="@string/name_item_arrow"
+		android:onClick="onClick"
+		android:src="@drawable/btn_player_arrow_right" />
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_gravity="center" >
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_01"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/btn_player_emoticon_01"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_01" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_02"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/ic_player_emoticon_02"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_02" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_03"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/ic_player_emoticon_03"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_03" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_04"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/ic_player_emoticon_04"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_04" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_05"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/ic_player_emoticon_05"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_05" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_06"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/btn_player_emoticon_06"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_06" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_07"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/ic_player_emoticon_07"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_07" />
+
+			<kr.kymedia.karaoke.widget._ImageButton
+				android:id="@+id/btn_player_emoticon_08"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_marginLeft="@dimen/margin_tiny"
+				android:layout_marginRight="@dimen/margin_tiny"
+				android:layout_weight="1.0"
+				android:background="@drawable/actionbar_compat_item"
+				android:contentDescription="@drawable/ic_player_emoticon_08"
+				android:onClick="onClick"
+				android:src="@drawable/btn_player_emoticon_08" />
+		</LinearLayout>
+	</ScrollView>
+
+</LinearLayout>

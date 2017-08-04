@@ -1,0 +1,13 @@
+package kr.kymedia.kykaraoke;
+
+public class ListenListItem {
+	public String mStrProfileImageUrl;
+	public String mStrRecordID;
+	public String mStrSongID;
+	public String mStrTitle;
+	public String mStrArtist;
+	public String mStrNick;
+	public String mStrRecommandCount;
+	public String mStrListenCount;
+	public String mStrDate;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="87"
+        android:orientation="horizontal" />
+
+    <EditText
+        android:id="@+id/edit_message_hp_01"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="90"
+        android:background="@drawable/pop_input_01"
+        android:gravity="center"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLength="3"
+        android:maxLines="1" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="23"
+        android:orientation="horizontal" />
+
+    <EditText
+        android:id="@+id/edit_message_hp_02"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="103"
+        android:background="@drawable/pop_input_01"
+        android:gravity="center"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLength="4"
+        android:maxLines="1" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="23"
+        android:orientation="horizontal" />
+
+    <EditText
+        android:id="@+id/edit_message_hp_03"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="103"
+        android:background="@drawable/pop_input_01"
+        android:gravity="center"
+        android:imeOptions="flagNoExtractUi"
+        android:inputType="number"
+        android:lines="1"
+        android:maxLength="4"
+        android:maxLines="1" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="87"
+        android:orientation="horizontal" />
+
+</LinearLayout>

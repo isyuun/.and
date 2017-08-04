@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/include_setting_login"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/TextXLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_input_bar"
+        android:text="@string/category_setting_login" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="?attr/listViewStyleItemBackstroke"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_large" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/chk_pwd_check"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_login_findid"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_normal_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/title_setting_login_findid"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+
+            <Button
+                android:id="@+id/btn_login_findpwd"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_input_bar"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_normal_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/title_setting_login_findpwd"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edt_login_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/edt_login_email"
+            android:layout_alignRight="@id/edt_login_email"
+            android:layout_below="@id/edt_login_email"
+            android:layout_marginBottom="@dimen/margin_input_bar"
+            android:hint="@string/hint_setting_login_pwd"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingLeft="@dimen/padding_input_box" />
+
+        <EditText
+            android:id="@+id/edt_login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:layout_marginRight="115dp"
+            android:hint="@string/hint_setting_login_id"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/padding_input_box" />
+
+        <CheckBox
+            android:id="@+id/chk_login_check1"
+            style="@style/TextLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/edt_login_email"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/edt_login_email"
+            android:text="@string/title_setting_login_check" />
+
+        <Button
+            android:id="@+id/btn_login_login"
+            style="@style/TextLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/edt_login_pwd"
+            android:layout_below="@+id/chk_login_check1"
+            android:layout_toRightOf="@+id/edt_login_pwd"
+            android:background="@drawable/btn_normal_counter_01"
+            android:clickable="true"
+            android:maxLines="1"
+            android:onClick="onClick"
+            android:text="@string/title_setting_login_login"
+            android:textColor="@color/solid_white"
+            android:textSize="@dimen/text_medium" />
+
+        <Button
+            android:id="@+id/btn_login_register"
+            style="@style/TextLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_marginTop="@dimen/margin_input_bar"
+            android:background="@drawable/btn_normal_01"
+            android:clickable="true"
+            android:maxLines="1"
+            android:onClick="onClick"
+            android:text="@string/title_setting_login_register"
+            android:textColor="@color/solid_white"
+            android:textSize="@dimen/text_medium" />
+
+        <CheckBox
+            android:id="@+id/chk_pwd_check"
+            style="@style/TextLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/linearLayout1"
+            android:layout_below="@+id/edt_login_pwd"
+            android:text="@string/title_setting_login_showpwd" />
+    </RelativeLayout>
+
+</LinearLayout>

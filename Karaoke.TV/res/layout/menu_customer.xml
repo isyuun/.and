@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_customer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <android.support.v4.widget.Space
+            android:id="@+id/layout_customer_sub_blank_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="horizontal"/>
+
+        <Button
+            android:id="@+id/btn_customer_sub_event"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_event"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_customer_sub_notice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_notice"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_customer_sub_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_info"
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_customer_sub_app"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_app"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+        <Button
+            android:id="@+id/btn_customer_sub_mic"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_mic"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+        <android.support.v4.widget.Space
+            android:id="@+id/layout_my_sub_blank_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            android:orientation="horizontal"/>
+
+        <!--<TextView-->
+        <!--android:id="@+id/txt_customer_sub_page"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_weight="4"-->
+        <!--android:gravity="center"-->
+        <!--android:text="@string/hint_page_text"-->
+        <!--android:textColor="#dddddd"/>-->
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_customer_sub_page"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:text="@string/hint_page_text"
+        android:textColor="#dddddd"
+        android:visibility="invisible"/>
+</RelativeLayout>

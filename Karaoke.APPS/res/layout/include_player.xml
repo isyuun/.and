@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/solid_dark"
+    android:gravity="center" >
+
+    <!-- <include -->
+    <!-- android:id="@+id/include_loading_play" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="match_parent" -->
+    <!-- layout="@layout/include_loading_listen" -->
+    <!-- android:visibility="visible" /> -->
+
+    <kr.kymedia.karaoke.widget._ImageView
+        android:id="@+id/img_play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/hint_item_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_play"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/adview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/play"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical" />
+
+</RelativeLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/include_special_detail"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content" >
+
+	<LinearLayout
+		android:id="@+id/linearLayout2"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/img_special"
+			android:layout_width="match_parent"
+			android:layout_height="150dp"
+			android:contentDescription="@drawable/ic_menu_01"
+			android:padding="@dimen/padding_tiny"
+			android:scaleType="fitXY"
+			android:src="@drawable/ic_menu_01"
+			android:visibility="gone" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:id="@+id/linearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/linearLayout2"
+		android:background="@color/solid_thick"
+		android:padding="@dimen/padding_input_bar"
+		android:visibility="gone" >
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/imageView2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_marginRight="@dimen/margin_input_bar"
+			android:contentDescription="@string/hint_profile_image"
+			android:src="@drawable/tit_logo" />
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/img_profile_01"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginLeft="@dimen/margin_input_bar"
+			android:contentDescription="@string/hint_profile_image"
+			android:padding="2dp"
+			android:src="@drawable/ic_menu_01"
+			android:visibility="gone" />
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/img_profile_02"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginLeft="@dimen/margin_input_bar"
+			android:contentDescription="@string/hint_profile_image"
+			android:padding="2dp"
+			android:src="@drawable/ic_menu_01"
+			android:visibility="gone" />
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/img_profile_03"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginLeft="@dimen/margin_input_bar"
+			android:contentDescription="@string/hint_profile_image"
+			android:padding="2dp"
+			android:src="@drawable/ic_menu_01"
+			android:visibility="gone" />
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/img_profile_04"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginLeft="@dimen/margin_input_bar"
+			android:contentDescription="@string/hint_profile_image"
+			android:padding="2dp"
+			android:src="@drawable/ic_menu_01"
+			android:visibility="gone" />
+
+		<kr.kymedia.karaoke.widget._ImageView
+			android:id="@+id/img_profile_05"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginLeft="@dimen/margin_input_bar"
+			android:contentDescription="@string/hint_profile_image"
+			android:padding="2dp"
+			android:src="@drawable/ic_menu_01"
+			android:visibility="gone" />
+	</LinearLayout>
+
+	<View
+		android:id="@+id/view1"
+		android:layout_width="match_parent"
+		android:layout_height="2dp"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/linearLayout1"
+		android:background="@color/solid_light" />
+
+</RelativeLayout>

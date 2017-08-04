@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <!-- menu item -->
+    <!-- <item -->
+    <!-- android:id="@+id/menu_search" -->
+    <!-- android:icon="@drawable/btn_search_64x64" -->
+    <!-- android:showAsAction="always" -->
+    <!-- android:title="@string/menu_search" -->
+    <!-- android:visible="true"/> -->
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/btn_search_64x64"
+        android:showAsAction="always"
+        android:title="@string/menu_search"
+        android:visible="true"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/btn_refresh_64x64"
+        android:showAsAction="always"
+        android:title="@string/menu_refresh"
+        android:visible="false"/>
+    <item
+        android:id="@+id/menu_comment"
+        android:icon="@drawable/btn_write_64x64"
+        android:showAsAction="always"
+        android:title="@string/menu_feel"
+        android:visible="true"/>
+    <item
+        android:id="@+id/menu_audition_open"
+        android:icon="@drawable/btn_audition_open_64x64"
+        android:showAsAction="always"
+        android:title="@string/menu_audition_open"
+        android:visible="true"/>
+
+</menu>

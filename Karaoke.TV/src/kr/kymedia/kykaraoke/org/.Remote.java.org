@@ -1,0 +1,684 @@
+package kr.kymedia.kykaraoke;
+
+public class Remote implements Const {
+	int m_iState;
+	int m_iMainMenuFocus, m_iMainMenuFocusY;		// 메인메뉴(메인화면)
+	int m_iSubMainMenuFocus;								// 메인메뉴(서브화면)
+	int m_iSingSubMenuFocus;									//	1.노래부르기 서브메뉴
+	int m_iSingSubGenreMenuFocus;							//		장르 서브메뉴
+	int m_iSongListFocus;										//			곡목록 위치
+	int m_iCurrentSongListPage;								//			곡목록 현재 페이지
+	int m_iSongListDetailFocus;								//				반주곡 상세메뉴
+	int m_iListenSubMenuFocus;								//	2.녹음곡감상 서브메뉴
+	int m_iListenListFocusX;									//		녹음곡감상 포커스 가로
+	int m_iListenListFocusY;									//		녹음곡감상 포커스 세로
+	int m_iListenOther;											//			다른 녹음곡 포커스
+	int m_iListenOtherBefore = 0;								//			다른 녹음곡 포커스 (이전)
+	int m_iMySubMenuFocus;									//	3.마이노래방 서브메뉴
+	int m_iShopSubMenuFocus;								//	4.노래방샵 서브메뉴
+	int m_iShopTicketFocus;									//		노래방샵
+	int m_iCertifyHPFocusX = 1;								//				인증센터 - 휴대폰 번호 등록 팝업 가로
+	int m_iCertifyHPFocusY = 1;								//				인증센터 - 휴대폰 번호 등록 팝업 세로
+	int m_iCertifyFocusX = 1;									//				인증센터 - 인증 번호 등록 팝업 가로
+	int m_iCertifyFocusY = 1;									//				인증센터 - 인증 번호 등록 팝업 세로
+	int m_iCustomerSubMenuFocus;							//	5.고객센터 서브메뉴
+	int m_iCustomerListFocus;									//			공지/이용안내목록 위치
+	int m_iCurrentCustomerListPage;							//			공지/이용안내목록 현재 페이지
+	int m_iSearchSubMenuFocus;								// 6.곡찾기 서브메뉴
+	int m_iSearchSelfFocus;									//		직접검색 포커스
+	int m_iSearchLetterFocusX;								//		색인검색 포커스 가로
+	int m_iSearchLetterFocusY;								//		색인검색 포커스 세로
+	int m_iSearchListFocus;									//			곡찾기 목록 위치
+	
+	public Remote() {
+		m_iState = STATE_MAIN_MENU;
+		m_iMainMenuFocus = 1;
+		m_iMainMenuFocusY = 1;
+		m_iSingSubMenuFocus = 1;
+		m_iSongListFocus = 1;
+		m_iCurrentSongListPage = 1;
+		m_iSongListDetailFocus = 1;
+		m_iSingSubGenreMenuFocus = 1;
+		m_iSubMainMenuFocus = 1;
+		m_iMySubMenuFocus = 1;
+		m_iShopSubMenuFocus = 1;
+		m_iShopTicketFocus = 1;
+		m_iCustomerSubMenuFocus = 1;
+		m_iCustomerListFocus = 1;
+		m_iCurrentCustomerListPage = 1;
+		m_iSearchSubMenuFocus = 1;
+		m_iSearchSelfFocus = 1;
+		m_iSearchLetterFocusX = 0;
+		m_iSearchLetterFocusY = 1;
+		m_iSearchListFocus = 1;
+		m_iListenSubMenuFocus = 1;
+		m_iListenListFocusX = 1;
+		m_iListenListFocusY = 1;
+	}
+	
+	public void inputKey(int keyID) {
+		switch(m_iState)
+		{
+		case STATE_MAIN_MENU :
+			setMainMenuState(keyID);
+			break;
+		case STATE_SUB_MAIN_MENU :
+			setSubMainMenuState(keyID);
+			break;
+		case STATE_SING_SUB_MENU :
+			setSingSubState(keyID);
+			break;
+		case STATE_SING_SUB_GENRE :
+			setSingSubGenreState(keyID);
+			break;
+		case STATE_SONG_LIST :
+			setSongListState(keyID);
+			break;
+		case STATE_SONG_LIST_DETAIL :
+			setSongListDetailState(keyID);
+			break;
+		case STATE_MY_SUB_MENU :
+			setMySubMenuState(keyID);
+			break;
+		case STATE_MY_LIST :
+			setSongListState(keyID);
+			break;
+		case STATE_SHOP_SUB_MENU :
+			setShopSubMenuState(keyID);
+			break;
+		case STATE_SHOP_TICKET :
+			setShopTicketState(keyID);
+			break;
+		case STATE_CUSTOMER_SUB_MENU :
+			setCustomerSubMenuState(keyID);
+			break;
+		case STATE_CUSTOMER_LIST :
+			setCustomerListState(keyID);
+			break;
+		case STATE_SEARCH_SUB_MENU :
+			setSearchSubMenuState(keyID);
+			break;
+		case STATE_SEARCH_SELF :
+			setSearchSelfState(keyID);
+			break;
+		case STATE_SEARCH_LETTER_KOR :
+			setSearchLetterKorState(keyID);
+			break;
+		case STATE_SEARCH_LETTER_ENG :
+			setSearchLetterEngState(keyID);
+			break;
+		case STATE_SEARCH_LETTER_NUM :
+			setSearchLetterNumState(keyID);
+			break;
+		case STATE_SEARCH_LIST :
+			setSearchListState(keyID);
+			break;
+		case STATE_LISTEN_SUB_MENU :
+			setListenSubMenuState(keyID);
+			break;
+		case STATE_LISTEN_LIST :
+			setListenListState(keyID);
+			break;
+		case STATE_LISTENING_OTEHR :
+			setListenOtherState(keyID);
+			break;
+		case STATE_SEARCH_LIST_DETAIL :
+			setSongListDetailState(keyID);
+			break;
+		case STATE_CERTIFY_HP :
+			setCertifyHPState(keyID);
+			break;
+		case STATE_CERTIFY :
+			setCertifyState(keyID);
+			break;
+		case STATE_MY_RECORD_LIST :
+			setMyRecordListState(keyID);
+			break;
+		}
+	}
+	
+	public void setMainMenuState(int keyID) {
+		switch(keyID)
+		{
+		case RIGHT :
+			if (m_iMainMenuFocusY == 1) {
+				if (m_iMainMenuFocus < 5) {
+					m_iMainMenuFocus++;
+				} else if (m_iMainMenuFocus == 5) {
+					m_iMainMenuFocus = 1;
+				}
+			} else if (m_iMainMenuFocusY == 2) {
+				if (m_iMainMenuFocus == 6) {
+					m_iMainMenuFocus = 8;
+				} else if (m_iMainMenuFocus < 10) {
+					m_iMainMenuFocus++;
+				}
+			}
+			break;
+		case LEFT :
+			if (m_iMainMenuFocusY == 1) {
+				if (m_iMainMenuFocus > 1) {
+					m_iMainMenuFocus--;
+				} else if (m_iMainMenuFocus == 1) {
+					m_iMainMenuFocus = 5;
+				}
+			} else if (m_iMainMenuFocusY == 2) {
+				if (m_iMainMenuFocus == 8) {
+					m_iMainMenuFocus = 6;
+				} else if (m_iMainMenuFocus > 6) {
+					m_iMainMenuFocus--;
+				}
+			}
+			break;
+		case UP :
+			if (m_iMainMenuFocusY == 2) {
+				if (m_iMainMenuFocus == 7) {
+					m_iMainMenuFocus = 6;
+				} else {
+					m_iMainMenuFocusY = 1;
+					m_iMainMenuFocus = 1;
+				}
+			} else if (m_iMainMenuFocusY == 3) {
+				m_iMainMenuFocusY = 2;
+				m_iMainMenuFocus = 7;
+			}
+			break;
+		case DOWN :
+			if (m_iMainMenuFocusY == 1) {
+				m_iMainMenuFocusY = 2;
+				m_iMainMenuFocus = 6;
+			} else if (m_iMainMenuFocusY == 2) {
+				if (m_iMainMenuFocus == 6) {
+					m_iMainMenuFocus = 7;
+				} else {
+					m_iMainMenuFocusY = 3;
+					m_iMainMenuFocus = 11;
+				}
+			} else {
+				m_iMainMenuFocusY = 1;
+				m_iMainMenuFocus = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setSubMainMenuState(int keyID) {
+		switch(keyID)
+		{
+		case RIGHT :
+			if (m_iSubMainMenuFocus < 5) {
+				m_iSubMainMenuFocus++;
+			} else if (m_iSubMainMenuFocus == 5) {
+				m_iSubMainMenuFocus = 1;
+			}
+			break;
+		case LEFT :
+			if (m_iSubMainMenuFocus > 1) {
+				m_iSubMainMenuFocus--;
+			} else if (m_iSubMainMenuFocus == 1) {
+				m_iSubMainMenuFocus = 5;
+			}
+			break;
+		}
+	}
+	
+	public void setSingSubState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iSingSubMenuFocus > 1) {
+				m_iSingSubMenuFocus--;
+			} else {
+				m_iSingSubMenuFocus = 3;
+			}
+			break;
+		case RIGHT :
+			if (m_iSingSubMenuFocus < 3) {
+				m_iSingSubMenuFocus++;
+			} else {
+				m_iSingSubMenuFocus = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setSingSubGenreState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iSingSubGenreMenuFocus > 1) {
+				m_iSingSubGenreMenuFocus--;
+			} else {
+				m_iSingSubGenreMenuFocus = 6;
+			}
+			break;
+		case RIGHT :
+			if (m_iSingSubGenreMenuFocus < 6) {
+				m_iSingSubGenreMenuFocus++;
+			} else {
+				m_iSingSubGenreMenuFocus = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setSongListState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			if (m_iSongListFocus > 0) {
+				m_iSongListFocus--;
+			}
+			break;
+		case DOWN :
+			if (m_iSongListFocus < 6) {
+				m_iSongListFocus++;
+			}
+			break;
+		}
+	}
+	
+	public void setSongListDetailState(int keyID) {
+		switch(keyID)
+		{
+		case DOWN :
+			if (m_iSongListDetailFocus < 4) {
+				m_iSongListDetailFocus++;
+			}
+			break;
+		case UP :
+			if (m_iSongListDetailFocus > 1) {
+				m_iSongListDetailFocus--;
+			}
+			break;
+		}
+	}
+	
+	public void setMySubMenuState(int keyID) {
+		/*
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iMySubMenuFocus > 1) {
+				m_iMySubMenuFocus = 1;
+			} else {
+				m_iMySubMenuFocus = 2;
+			}
+			break;
+		case RIGHT :
+			if (m_iMySubMenuFocus < 2) {
+				m_iMySubMenuFocus = 2;
+			} else {
+				m_iMySubMenuFocus = 1;
+			}
+			break;
+		}
+		*/
+	}
+	
+	public void setShopSubMenuState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iShopSubMenuFocus > 1) {
+				m_iShopSubMenuFocus = 1;
+			} else {
+				m_iShopSubMenuFocus = 2;
+			}
+			break;
+		case RIGHT :
+			if (m_iShopSubMenuFocus < 2) {
+				m_iShopSubMenuFocus = 2;
+			} else {
+				m_iShopSubMenuFocus = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setShopTicketState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iShopTicketFocus > 1) {
+				m_iShopTicketFocus--;
+			}
+			break;
+		case RIGHT :
+			if (m_iShopTicketFocus < 2) {
+				m_iShopTicketFocus++;
+			}
+			break;
+		}
+	}
+	
+	public void setCustomerSubMenuState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iCustomerSubMenuFocus > 1) {
+				m_iCustomerSubMenuFocus--;
+			} else {
+				m_iCustomerSubMenuFocus = 4;
+			}
+			break;
+		case RIGHT :
+			if (m_iCustomerSubMenuFocus < 4) {
+				m_iCustomerSubMenuFocus++;
+			} else {
+				m_iCustomerSubMenuFocus = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setCustomerListState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			if (m_iCustomerListFocus > 0) {
+				m_iCustomerListFocus--;
+			}
+			break;
+		case DOWN :
+			if (m_iCustomerListFocus < 6) {
+				m_iCustomerListFocus++;
+			}
+			break;
+		}
+	}
+	
+	public void setSearchSubMenuState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			m_iSearchSubMenuFocus = 1;
+			break;
+		case RIGHT :
+			m_iSearchSubMenuFocus = 2;
+			break;
+		}
+	}
+	
+	public void setSearchSelfState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iSearchSelfFocus > 1) {
+				m_iSearchSelfFocus --;
+			}
+			break;
+		case RIGHT :
+			if (P_DEVICE == SMART_BOX) {
+				if (m_iSearchSelfFocus < 2) {
+					m_iSearchSelfFocus++;
+				}
+			} else {
+				if (m_iSearchSelfFocus < 3) {
+					m_iSearchSelfFocus++;
+				}
+			}
+			break;
+		}
+	}
+	
+	public void setSearchLetterKorState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			if (m_iSearchLetterFocusY > 0) {
+				m_iSearchLetterFocusY--;
+			}
+			break;
+		case DOWN :
+			if (m_iSearchLetterFocusX == 0 || m_iSearchLetterFocusX > 5) {
+				return;
+			}
+			
+			m_iSearchLetterFocusY = 2;
+			break;
+		case LEFT :
+			if (m_iSearchLetterFocusY == 1) {
+				if (m_iSearchLetterFocusX > 0) {
+					m_iSearchLetterFocusX--;
+				}
+			} else {
+				if (m_iSearchLetterFocusX > 1) {
+					m_iSearchLetterFocusX--;
+				}
+			}
+			break;
+		case RIGHT :
+			if (m_iSearchLetterFocusY == 1) {
+				if (m_iSearchLetterFocusX < 14) {
+					m_iSearchLetterFocusX++;
+				}
+			} else {
+				if (m_iSearchLetterFocusX < 5) {
+					m_iSearchLetterFocusX++;
+				}
+			}
+			break;
+		}
+	}
+	
+	public void setSearchLetterEngState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			if (m_iSearchLetterFocusY > 0) {
+				m_iSearchLetterFocusY--;
+			}
+			break;
+		case DOWN :
+			if (m_iSearchLetterFocusX == 0 || m_iSearchLetterFocusX > 12) {
+				return;
+			}
+			
+			m_iSearchLetterFocusY = 2;
+			break;
+		case LEFT :
+			if (m_iSearchLetterFocusY == 1) {
+				if (m_iSearchLetterFocusX > 0) {
+					m_iSearchLetterFocusX--;
+				}
+			} else {
+				if (m_iSearchLetterFocusX > 1) {
+					m_iSearchLetterFocusX--;
+				}
+			}
+			break;
+		case RIGHT :
+			if (m_iSearchLetterFocusY == 1) {
+				if (m_iSearchLetterFocusX < 14) {
+					m_iSearchLetterFocusX++;
+				}
+			} else {
+				if (m_iSearchLetterFocusX < 12) {
+					m_iSearchLetterFocusX++;
+				}
+			}
+			break;
+		}
+	}
+	
+	public void setSearchLetterNumState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			m_iSearchLetterFocusY = 0;
+		case LEFT :
+			if (m_iSearchLetterFocusX > 0) {
+				m_iSearchLetterFocusX--;
+			}
+			break;
+		case RIGHT :
+			if (m_iSearchLetterFocusX < 10) {
+				m_iSearchLetterFocusX++;
+			}
+			break;
+		}
+	}
+	
+	public void setSearchListState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			if (m_iSearchListFocus > 0) {
+				m_iSearchListFocus--;
+			}
+			break;
+		case DOWN :
+			if (m_iSearchSubMenuFocus == 1) {
+				if (m_iSearchListFocus < 5) {
+					m_iSearchListFocus++;
+				}
+			} else {
+				if (m_iSearchListFocus < 4) {
+					m_iSearchListFocus++;
+				}
+			}
+			break;
+		}
+	}
+	
+	public void setListenSubMenuState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iListenSubMenuFocus > 1) {
+				m_iListenSubMenuFocus--;
+			} else {
+				m_iListenSubMenuFocus = 3;
+			}
+			break;
+		case RIGHT :
+			if (m_iListenSubMenuFocus < 3) {
+				m_iListenSubMenuFocus++;
+			} else {
+				m_iListenSubMenuFocus = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setListenListState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iListenListFocusX > 0) {
+				m_iListenListFocusX--;
+			}
+			break;
+		case RIGHT :
+			if (m_iListenListFocusX < 5) {
+				m_iListenListFocusX++;
+			}
+			break;
+		case UP :
+			if (m_iListenListFocusY > 0) {
+				m_iListenListFocusY--;
+			}
+			break;
+		case DOWN :
+			m_iListenListFocusY = 2;
+			break;
+		}
+	}
+	
+	public void setListenOtherState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iListenOther > 0) {
+				m_iListenOtherBefore = m_iListenOther;
+				m_iListenOther--;
+			}
+			break;
+		case RIGHT :
+			if (m_iListenOther < 9) {
+				m_iListenOtherBefore = m_iListenOther;
+				m_iListenOther++;
+			}
+			break;
+		}
+	}
+	
+	public void setCertifyHPState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iCertifyHPFocusX > 1) {
+				m_iCertifyHPFocusX--;
+			}
+			break;
+		case RIGHT :
+			if (m_iCertifyHPFocusY == 1) {
+				if (m_iCertifyHPFocusX < 3) {
+					m_iCertifyHPFocusX++;
+				}
+			} else {
+				if (m_iCertifyHPFocusX < 2) {
+					m_iCertifyHPFocusX++;
+				}
+			}
+			break;
+		case DOWN :
+			if (m_iCertifyHPFocusY == 1) {
+				m_iCertifyHPFocusY = 2;
+				m_iCertifyHPFocusX = 1;
+			}
+			break;
+		case UP :
+			if (m_iCertifyHPFocusY == 2) {
+				m_iCertifyHPFocusY = 1;
+				m_iCertifyHPFocusX = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setCertifyState(int keyID) {
+		switch(keyID)
+		{
+		case LEFT :
+			if (m_iCertifyFocusX > 1) {
+				m_iCertifyFocusX--;
+			}
+			break;
+		case RIGHT :
+			if (m_iCertifyFocusX < 2) {
+				m_iCertifyFocusX++;
+			}
+			break;
+		case DOWN :
+			if (m_iCertifyFocusY == 1) {
+				m_iCertifyFocusY = 2;
+				m_iCertifyFocusX = 1;
+			}
+			break;
+		case UP :
+			if (m_iCertifyFocusY == 2) {
+				m_iCertifyFocusY = 1;
+				m_iCertifyFocusX = 1;
+			}
+			break;
+		}
+	}
+	
+	public void setMyRecordListState(int keyID) {
+		switch(keyID)
+		{
+		case UP :
+			if (m_iSongListFocus > 0) {
+				m_iSongListFocus--;
+			}
+			break;
+		case DOWN :
+			if (m_iSongListFocus < 6) {
+				m_iSongListFocus++;
+			}
+			break;
+		}
+	}
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="@dimen/padding_input_bar" >
+
+	<TextView
+		android:id="@+id/txt_title_eula1"
+		style="@style/TextLargeThick"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/margin_large"
+		android:text="@string/category_setting_eula1" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1.0"
+		android:background="@drawable/bg_trans_stroke"
+		android:orientation="vertical" >
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_marginLeft="@dimen/margin_tiny"
+			android:layout_marginRight="@dimen/margin_tiny"
+			android:layout_marginTop="5dp"
+			android:layout_weight="1.0" >
+
+			<TextView
+				android:id="@+id/txt_summary_eula1"
+				style="@style/TextMediumThick"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/padding_input_bar"
+				android:text="@string/summary_setting_eula1" />
+		</ScrollView>
+
+		<CheckBox
+			android:id="@+id/chk_hint_eula1"
+			style="@style/TextMedium"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_large"
+			android:layout_marginRight="@dimen/margin_large"
+			android:text="@string/hint_setting_eula1" />
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/txt_title_eula2"
+		style="@style/TextLargeThick"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/margin_large"
+		android:layout_marginTop="@dimen/margin_large"
+		android:text="@string/category_setting_eula2" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_weight="1.0"
+		android:background="@drawable/bg_trans_stroke"
+		android:orientation="vertical" >
+
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:layout_marginLeft="@dimen/margin_tiny"
+			android:layout_marginRight="@dimen/margin_tiny"
+			android:layout_marginTop="5dp"
+			android:layout_weight="1.0" >
+
+			<TextView
+				android:id="@+id/txt_summary_eula2"
+				style="@style/TextMediumThick"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/padding_input_bar"
+				android:text="@string/summary_setting_eula2" />
+		</ScrollView>
+
+		<CheckBox
+			android:id="@+id/chk_hint_eula2"
+			style="@style/TextMedium"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_large"
+			android:layout_marginRight="@dimen/margin_large"
+			android:text="@string/hint_setting_eula2" />
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/btn_login_next"
+		style="@style/TextMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="@dimen/margin_large"
+		android:layout_marginTop="@dimen/margin_large"
+		android:background="@drawable/btn_normal_01"
+		android:onClick="onClick"
+		android:text="@string/btn_title_next"
+		android:textColor="@color/solid_white" />
+
+</LinearLayout>

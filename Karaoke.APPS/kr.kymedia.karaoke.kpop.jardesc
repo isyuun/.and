@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="MS949" standalone="no"?>
+<jardesc>
+    <jar path="Karaoke.KPOP/kr.kymedia.karaoke.kpop.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/Karaoke.KPOP/kr.kymedia.karaoke.kpop.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <file path="/Karaoke.KPOP/libs/metaps_sdk_android_ver2_1_2.jar"/>
+        <file path="/Karaoke.KPOP/libs/playhaven-1.12.5.jar"/>
+        <file path="/Karaoke.KPOP/libs/greystripe-android-sdk-2.3.0.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.billing.r1"/>
+        <file path="/Karaoke.KPOP/libs/sponsorpay-android-sdk-3.0.0.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;com.loopj.android.http"/>
+        <file path="/Karaoke.KPOP/libs/InMobiAndroidSDK.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.data.util"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.record.tmp"/>
+        <folder path="/Karaoke.KPOP/libs/armeabi-v7a"/>
+        <file path="/Karaoke.KPOP/libs/KiipSDK_2.0.2_1.jar"/>
+        <folder path="/Karaoke.KPOP/assets"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;com.example.android.xmladapters"/>
+        <file path="/Karaoke.KPOP/libs/AdamPublisherSDK-2.2.1.0.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;com.android.vending.billing"/>
+        <folder path="/Karaoke.KPOP/libs/armeabi"/>
+        <file path="/Karaoke.KPOP/libs/VunglePub.1.2.2.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;net.pikanji.camerapreviewsample"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/liblame.src"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.app.billing.r1"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;com.facebook.android"/>
+        <file path="/Karaoke.KPOP/libs/MonetizationSDK_v4.1.1.jar"/>
+        <file path="/Karaoke.KPOP/libs/chartboost_3.1.5.jar"/>
+        <file path="/Karaoke.KPOP/libs/libGoogleAnalytics.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.info"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;com.kakao.talk"/>
+        <file path="/Karaoke.KPOP/libs/tnkad_sdk_android_v2.2.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.kpop.util"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.billing.r2"/>
+        <file path="/Karaoke.KPOP/libs/CaulySDK-3.0.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.app.billing.r2"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.http"/>
+        <file path="/Karaoke.KPOP/libs/gcm.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;com.igaworks.AdPOPcornSDKExample"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.kpop.data"/>
+        <file path="/Karaoke.KPOP/libs/tad_sdk_v3.0.1.6.jar"/>
+        <folder path="/Karaoke.KPOP/libs/x86"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.data"/>
+        <file path="/Karaoke.KPOP/libs/GoogleAdMobAdsSdk-6.4.1.jar"/>
+        <file path="/Karaoke.KPOP/libs/gson-2.2.2.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.record"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.data"/>
+        <file path="/Karaoke.KPOP/libs/AdPOPcornSDK_android_v3.0.3a.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;kr.kymedia.karaoke.kpop.info"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;com.iwe.tapadfull.sample"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.data.youtube"/>
+        <folder path="/Karaoke.KPOP/res"/>
+        <file path="/Karaoke.KPOP/libs/adcolony_1.9.12.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.PLAY3.src"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.app"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;com.google.android.gms.samples.plus"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.billing.r2.util"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.widget"/>
+        <file path="/Karaoke.KPOP/libs/FlurryAgent-3.2.0.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/Karaoke.KPOP.LIB.src&lt;com.fedorvlasov.lazylist"/>
+        <file path="/Karaoke.KPOP/libs/nbpmobilead_1.2.1.jar"/>
+        <file path="/Karaoke.KPOP/libs/README.txt"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.app.impl"/>
+        <file path="/Karaoke.KPOP/libs/tapadmedia_2.0.7.jar"/>
+        <javaElement handleIdentifier="=Karaoke.KPOP/src&lt;kr.kymedia.karaoke.kpop.data.adpt"/>
+        <file path="/Karaoke.KPOP/libs/tapjoyconnectlibrary_9.0.0.jar"/>
+    </selectedElements>
+</jardesc>

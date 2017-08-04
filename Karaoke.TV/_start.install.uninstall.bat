@@ -1,0 +1,11 @@
+cd /d "%~dp0"
+cmd /c "..\Karaoke.TV.APP\_adb.disconnect.bat"
+cmd /c "..\Karaoke.TV.APP\_adb.connect.bat"
+cmd /c "..\Karaoke.TV.APP\_install.uninstall.bat"
+cmd /c "..\Karaoke.TV.BTV\_adb.disconnect.bat"
+cmd /c "..\Karaoke.TV.BTV\_adb.connect.bat"
+cmd /c "..\Karaoke.TV.BTV\_install.uninstall.bat"
+cmd /c "..\Karaoke.TV.GTV\_adb.disconnect.bat"
+cmd /c "..\Karaoke.TV.GTV\_adb.connect.bat"
+cmd /c "..\Karaoke.TV.GTV\_install.uninstall.bat"
+pause

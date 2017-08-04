@@ -1,0 +1,76 @@
+package kr.kymedia.kykaraoke.tv.dat;
+
+import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+@SuppressLint("ParcelCreator")
+public class SyncItem implements android.os.Parcelable {
+	public int m_iStart;
+	public int m_iEnd;
+	public int m_iLyrics;
+	public int m_iLen;
+	public int m_iOneLine;
+	public int m_iDisplay;
+	public int m_iAttribute;
+	public int m_iNextDisplay;
+
+	public SyncItem() {
+	}
+
+	public SyncItem(Parcel in) {
+		readFromParcel(in);
+	}
+
+	public SyncItem(int start, int end, int lyrics, int len, int oneline, int display, int attribute, int nextdisplay) {
+		this.m_iStart = start;
+		this.m_iEnd = end;
+		this.m_iLyrics = lyrics;
+		this.m_iLen = len;
+		this.m_iOneLine = oneline;
+		this.m_iDisplay = display;
+		this.m_iAttribute = attribute;
+		this.m_iNextDisplay = nextdisplay;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(m_iStart);
+		dest.writeInt(m_iEnd);
+		dest.writeInt(m_iLyrics);
+		dest.writeInt(m_iLen);
+		dest.writeInt(m_iOneLine);
+		dest.writeInt(m_iDisplay);
+		dest.writeInt(m_iAttribute);
+		dest.writeInt(m_iNextDisplay);
+	}
+
+	public void readFromParcel(Parcel in) {
+		m_iStart = in.readInt();
+		m_iEnd = in.readInt();
+		m_iLyrics = in.readInt();
+		m_iLen = in.readInt();
+		m_iOneLine = in.readInt();
+		m_iDisplay = in.readInt();
+		m_iAttribute = in.readInt();
+		m_iNextDisplay = in.readInt();
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+		@Override
+		public SyncItem createFromParcel(Parcel in) {
+			return new SyncItem(in);
+		}
+
+		@Override
+		public SyncItem[] newArray(int size) {
+			return new SyncItem[size];
+		}
+	};
+}

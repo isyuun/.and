@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    android:id="@+id/sing_list"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:columnCount="1"
+    android:rowCount="6"
+    android:visibility="visible">
+
+    <include
+        android:id="@+id/sing_item_1"
+        layout="@layout/sing_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        />
+
+    <include
+        android:id="@+id/sing_item_2"
+        layout="@layout/sing_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        />
+
+    <include
+        android:id="@+id/sing_item_3"
+        layout="@layout/sing_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        />
+
+    <include
+        android:id="@+id/sing_item_4"
+        layout="@layout/sing_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        />
+
+    <include
+        android:id="@+id/sing_item_5"
+        layout="@layout/sing_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        />
+
+    <include
+        android:id="@+id/sing_item_6"
+        layout="@layout/sing_item"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:visibility="invisible"
+        />
+
+</GridLayout>

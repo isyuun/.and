@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/include_reply"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/listViewStyleItemBackground"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/padding_small"
+    android:paddingRight="@dimen/padding_medium"
+    android:paddingTop="@dimen/padding_small" >
+
+    <EditText
+        android:id="@+id/edt_reply_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginBottom="@dimen/margin_input_box"
+        android:layout_marginTop="@dimen/margin_input_box"
+        android:layout_weight="1.0"
+        android:ems="10"
+        android:gravity="top|left"
+        android:hint="@string/hint_profile_commet"
+        android:textSize="@dimen/text_large" />
+
+    <kr.kymedia.karaoke.widget._ImageButton
+        android:id="@+id/btn_reply_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:background="@drawable/btn_normal_04"
+        android:contentDescription="@string/btn_title_message_reply"
+        android:src="@drawable/ic_write" />
+
+</LinearLayout>

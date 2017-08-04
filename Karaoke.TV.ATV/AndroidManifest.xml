@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ATV -->
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.kymedia.kykaraoke.tv.atv"
+    android:versionCode="1"
+    android:versionName="1.0.ATV.CBT">
+
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false"/>
+
+    <!-- November 2012: Android 4.2, Moar jelly beans! JELLY_BEAN_MR1 = 17; -->
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="23"/>
+
+    <application
+        android:name="kr.kymedia.kykaraoke.tv.app._Application"
+        android:banner="@drawable/banner"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:isGame="false"
+        android:label="@string/app_name"
+        android:largeHeap="true">
+
+        <!-- Video -->
+        <activity
+            android:name="kr.kymedia.kykaraoke.tv.atv.__Video"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|layoutDirection|fontScale"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <!-- 안드로이드 L(Android TV) 대응 관련:Lolli Pop -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Main -->
+        <activity
+            android:name="kr.kymedia.kykaraoke.tv.atv.__Main"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|layoutDirection|fontScale"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/include_profile_activity"
+	android:layout_width="match_parent"
+	android:layout_height="60dp"
+	android:background="@drawable/bg_myholic_thirdbar"
+	android:baselineAligned="false"
+	android:orientation="horizontal"
+	android:paddingBottom="@dimen/padding_small"
+	android:paddingLeft="@dimen/padding_tiny"
+	android:paddingRight="@dimen/padding_tiny"
+	android:paddingTop="@dimen/padding_small" >
+
+	<RelativeLayout
+		android:id="@+id/context_feel"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_micro"
+		android:layout_marginRight="@dimen/margin_micro"
+		android:layout_weight="1.0"
+		android:onClick="onClick"
+		android:orientation="vertical"
+		android:visibility="gone" >
+
+		<Button
+			android:id="@+id/btn_feel"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:gravity="center"
+			android:paddingBottom="@dimen/padding_large"
+			android:text="@string/hint_item_heart"
+			android:textSize="@dimen/text_small" />
+
+		<TextView
+			android:id="@+id/txt_feel"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentRight="true"
+			android:gravity="center"
+			android:text="@string/context_feel" />
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/context_record"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_micro"
+		android:layout_marginRight="@dimen/margin_micro"
+		android:layout_weight="1.0"
+		android:onClick="onClick"
+		android:orientation="vertical" >
+
+		<Button
+			android:id="@+id/btn_record"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="30dp"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:background="@drawable/btn_counter"
+			android:gravity="center"
+			android:text="@string/hint_item_heart"
+			android:textSize="@dimen/text_tiny"
+			android:textStyle="bold" />
+
+		<TextView
+		    android:id="@+id/txt_record"
+		    style="@style/TextTinyWhite"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:gravity="center"
+		    android:text="@string/context_record"
+		    android:textSize="11sp"
+		    android:textStyle="bold" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/context_follower"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_micro"
+		android:layout_marginRight="@dimen/margin_micro"
+		android:layout_weight="1.0"
+		android:onClick="onClick"
+		android:orientation="vertical" >
+
+		<Button
+			android:id="@+id/btn_follower"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="30dp"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:background="@drawable/btn_counter"
+			android:gravity="center"
+			android:text="@string/hint_item_heart"
+			android:textSize="@dimen/text_tiny"
+			android:textStyle="bold" />
+
+		<TextView
+		    android:id="@+id/txt_follower"
+		    style="@style/TextTinyWhite"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:gravity="center"
+		    android:text="@string/context_follower"
+		    android:textSize="11sp"
+		    android:textStyle="bold" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/context_following"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_micro"
+		android:layout_marginRight="@dimen/margin_micro"
+		android:layout_weight="1.0"
+		android:onClick="onClick"
+		android:orientation="vertical" >
+
+		<Button
+			android:id="@+id/btn_following"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="30dp"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:background="@drawable/btn_counter"
+			android:gravity="center"
+			android:text="@string/hint_item_heart"
+			android:textSize="@dimen/text_tiny"
+			android:textStyle="bold" />
+
+		<TextView
+		    android:id="@+id/txt_following"
+		    style="@style/TextTinyWhite"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:gravity="center"
+		    android:text="@string/context_following"
+		    android:textSize="11sp"
+		    android:textStyle="bold" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:id="@+id/context_guestbook"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/margin_micro"
+		android:layout_marginRight="@dimen/margin_micro"
+		android:layout_weight="1.0"
+		android:onClick="onClick"
+		android:orientation="vertical" >
+
+		<Button
+			android:id="@+id/btn_guestbook"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="30dp"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:background="@drawable/btn_counter"
+			android:gravity="center"
+			android:text="@string/hint_item_heart"
+			android:textSize="@dimen/text_tiny"
+			android:textStyle="bold" />
+
+		<TextView
+		    android:id="@+id/txt_guestbook"
+		    style="@style/TextTinyWhite"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:gravity="center"
+		    android:text="@string/context_guestbook"
+		    android:textSize="11sp"
+		    android:textStyle="bold" />
+
+	</RelativeLayout>
+
+	<RelativeLayout
+	    android:id="@+id/context_message"
+	    android:layout_width="0dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="@dimen/margin_micro"
+	    android:layout_marginRight="@dimen/margin_micro"
+	    android:layout_weight="1.0"
+	    android:onClick="onClick"
+	    android:orientation="vertical" >
+
+		<Button
+			android:id="@+id/btn_message"
+			style="@style/TextTinyWhite"
+			android:layout_width="match_parent"
+			android:layout_height="30dp"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:background="@drawable/btn_counter"
+			android:gravity="center"
+			android:text="@string/hint_item_heart"
+			android:textSize="@dimen/text_tiny"
+			android:textStyle="bold" />
+
+		<TextView
+		    android:id="@+id/txt_message"
+		    style="@style/TextTinyWhite"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:gravity="center"
+		    android:text="@string/context_message"
+		    android:textSize="11sp"
+		    android:textStyle="bold" />
+
+	</RelativeLayout>
+
+</LinearLayout>

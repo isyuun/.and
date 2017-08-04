@@ -1,0 +1,310 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!-- 텍스트관련스타일설정 -->
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pull to Refresh Loading Text -->
+    <style name="TextPtrHeaderTextAppearance">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- Pull to Refresh Loading Text -->
+    <style name="TextPtrSubHeaderTextAppearance">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="TextTime1">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/body_time_1</item>
+    </style>
+
+    <style name="TextTime2">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/body_time_2</item>
+    </style>
+
+    <style name="TextTime3">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/solid_white</item>
+    </style>
+
+    <style name="TextTime4">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+        <item name="android:textColor">@color/solid_thick</item>
+    </style>
+
+    <!-- body content -->
+    <style name="TextXLarge">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <!-- <item name="android:textColor">@color/text_white</item> -->
+    </style>
+
+    <style name="TextXLargeWhite">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="TextXLargeThick">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_thick</item>
+    </style>
+
+    <style name="TextXTextXLargeBlack">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextXTextXLargeDark">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextXLargeGray">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="TextXLargePink">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textColor">@color/solid_pink</item>
+    </style>
+
+    <style name="TextXLargeOrange">
+        <item name="android:textSize">@dimen/text_xlarge</item>
+        <item name="android:textColor">@color/solid_orange</item>
+    </style>
+
+    <style name="TextLarge">
+        <item name="android:textSize">@dimen/text_large</item>
+        <!-- <item name="android:textColor">@color/text_white</item> -->
+    </style>
+
+    <style name="TextLargeWhite">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="TextLargeTitle">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/solid_white_choco</item>
+    </style>
+
+    <style name="TextLargeThick">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/text_thick</item>
+    </style>
+
+    <style name="TextTextXLargeBlack">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextTextXLargeDark">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextLargeGray">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="TextLargePink">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/solid_pink</item>
+    </style>
+
+    <style name="TextLargeOrange">
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:textColor">@color/solid_orange</item>
+    </style>
+
+    <style name="TextMedium">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <!-- <item name="android:textColor">@color/text_white</item> -->
+    </style>
+
+    <style name="TextMediumWhite">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="TextMediumThick">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_thick</item>
+    </style>
+
+    <style name="TextMediumBlack">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextMediumDark">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextMediumGray">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="TextMediumPink">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/solid_pink</item>
+    </style>
+
+    <style name="TextMediumOrange">
+        <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:textColor">@color/solid_orange</item>
+    </style>
+
+    <style name="TextSmall">
+        <item name="android:textSize">@dimen/text_small</item>
+        <!-- <item name="android:textColor">@color/text_white</item> -->
+    </style>
+
+    <style name="TextSmallWhite">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="TextSmallThick">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/text_thick</item>
+    </style>
+
+    <style name="TextSmallBlack">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextSmallDark">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextSmallGray">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="TextSmallPink">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/solid_pink</item>
+    </style>
+
+    <style name="TextSmallOrange">
+        <item name="android:textSize">@dimen/text_small</item>
+        <item name="android:textColor">@color/solid_orange</item>
+    </style>
+
+    <style name="TextTiny">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <!-- <item name="android:textColor">@color/text_white</item> -->
+    </style>
+
+    <style name="TextTinyWhite">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="TextTinyThick">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/text_thick</item>
+    </style>
+
+    <style name="TextTinyBlack">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextTinyDark">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextTinyGray">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="TextTinyPink">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/solid_pink</item>
+    </style>
+
+    <style name="TextTinyOrange">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/solid_orange</item>
+    </style>
+
+    <style name="TextMicro">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <!-- <item name="android:textColor">@color/text_white</item> -->
+    </style>
+
+    <style name="TextMicroWhite">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+
+    <style name="TextMicroThick">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/text_thick</item>
+    </style>
+
+    <style name="TextMicroBlack">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="TextMicroDark">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/text_dark</item>
+    </style>
+
+    <style name="TextMicroGray">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="TextMicroPink">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/solid_pink</item>
+    </style>
+
+    <style name="TextMicroOrange">
+        <item name="android:textSize">@dimen/text_micro</item>
+        <item name="android:textColor">@color/solid_orange</item>
+    </style>
+
+</resources>

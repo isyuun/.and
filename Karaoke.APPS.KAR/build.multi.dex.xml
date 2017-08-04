@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="android.multi.dex" default="help">
+
+<!-- Packages the application. Overriden in order to add  "-post-package-resources"" dependency-->
+    <target name="-package" depends="-dex, -package-resources, -post-package-resources">
+        <!-- only package apk if *not* a library project -->
+        <do-only-if-not-library elseText="Library project: do not package apk..." >
+            <if condition="${build.is.instrumented}">
+                <then>
+                    <package-helper>
+                        <extra-jars>
+                            <!-- Injected from external file -->
+                            <jarfile path="${emma.dir}/emma_device.jar" />
+                        </extra-jars>
+                    </package-helper>
+                </then>
+                <else>
+                    <package-helper />
+                </else>
+            </if>
+        </do-only-if-not-library>
+    </target>
+
+    <target name="-post-package-resources">
+        <property name="second_dex" value="classes2.dex" />
+        <property name="third_dex" value="classes3.dex" />
+        <property name="second_dex_path" value="${out.absolute.dir}/${second_dex}" />
+        <if>
+            <condition>
+              <and>
+                <available file="${second_dex_path}" />
+                <or>
+                  <not>
+                    <uptodate srcfile="${second_dex_path}" targetfile="${out.absolute.dir}/${resource.package.file.name}" />
+                  </not>
+                  <uptodate srcfile="${out.absolute.dir}/${resource.package.file.name}" targetfile="${out.absolute.dir}/${resource.package.file.name}.d" />
+                </or>
+              </and>
+            </condition>
+            <then>
+                <echo>Adding classes2.dex to ${resource.package.file.name}</echo>
+                <exec executable="${aapt}" dir="${out.absolute.dir}" failonerror="true">
+                    <arg line='add -v "${out.absolute.dir}/${resource.package.file.name}" ${second_dex}'/>
+                </exec>
+                <if>
+                    <condition>
+                        <available file="${out.absolute.dir}/classes3.dex"/>
+                    </condition>
+                    <then>
+                        <echo>Adding classes3.dex to ${resource.package.file.name}</echo>
+                        <exec executable="${aapt}" dir="${out.absolute.dir}" failonerror="true">
+                            <arg line='add -v "${out.absolute.dir}/${resource.package.file.name}" ${third_dex}'/>
+                        </exec> 
+                    </then>
+                </if>
+            </then>
+        </if>
+    </target> 
+
+<!-- builds dex in regular way and if it fails, switches to multidex-->
+    <macrodef name="dex-helper">
+        <element name="external-libs" optional="yes" />
+        <attribute name="nolocals" default="false" />
+        <sequential>
+            <condition property="verbose.option" value="--verbose" else="">
+                <istrue value="${verbose}" />
+            </condition>
+            <condition property="jumbo.option" value="--force-jumbo" else="">
+                <istrue value="${dex.force.jumbo}" />
+            </condition>
+
+            <!-- Regular DEX process.  We would prefer to use the Android SDK
+                 ANT target, but we need to detect the "use multidex" error.
+                 https://android.googlesource.com/platform/sdk/+/tools_r21.1/anttasks/src/com/android/ant/DexExecTask.java
+            -->
+            <mapper id="pre-dex-mapper" type="glob" from="libs/*.jar" to="bin/dexedLibs/*-dexed.jar"/>
+
+            <apply executable="${dx}" failonerror="true" parallel="false" dest="${out.dexed.absolute.dir}" relative="true">
+                        <arg value="--dex" />
+                        <arg value="--output" />
+                        <targetfile/>
+                        <arg line="${jumbo.option}" />
+                        <arg line="${verbose.option}" />
+                        <fileset dir="." includes="libs/*" />
+                        <external-libs />
+                        <mapper refid="pre-dex-mapper"/>
+            </apply>
+
+            <apply executable="${dx}" resultproperty="dex.merge.result" outputproperty="dex.merge.output" parallel="true">
+                <arg value="--dex" />
+                <arg value="--output=${intermediate.dex.file}" />
+                <arg line="${jumbo.option}" />
+                <arg line="${verbose.option}" />
+                <path path="${out.dex.input.absolute.dir}"/>
+                <path refid="out.dex.jar.input.ref" />
+                <external-libs />
+            </apply>
+
+            <if>
+                <condition>
+                    <or>
+                        <contains string="${dex.merge.output}" substring="Too many field references"/>
+                        <contains string="${dex.merge.output}" substring="Too many method references"/>
+                    </or>
+                </condition>
+                <then>
+                    <echo message="Number of field or method references is too big.  Switching to multi-dex build." />
+                    <multi-dex-helper>
+                        <external-libs>
+                        <external-libs/>
+                        </external-libs>
+                    </multi-dex-helper>
+                </then>
+                <else>
+                    <echo message="${dex.merge.output}"/>
+                    <fail status="${dex.merge.result}">
+                        <condition>
+                            <not>
+                                <equals arg1="${dex.merge.result}" arg2="0"/>
+                            </not>
+                        </condition>
+                    </fail>
+                </else>
+            </if>
+
+      </sequential>
+    </macrodef>
+
+    <macrodef name="multi-dex-helper">
+        <element name="external-libs" optional="yes" />
+        <sequential>
+            <property name="mainDexClasses" location="${android.build.tools.dir}/mainDexClasses" />
+
+            <exec executable="${mainDexClasses}" failonerror="true" >
+                <arg line="--output ${out.absolute.dir}/classes_to_kepp_in_main_dex"/>
+                <arg file="${out.absolute.dir}/proguard/obfuscated.jar"/>
+            </exec>
+            <echo>Converting compiled files and external libraries into ${out.absolute.dir} (multi-dex)</echo>
+            <echo>Dexing ${out.classes.absolute.dir} and ${toString:out.dex.jar.input.ref}</echo>
+            <apply executable="${dx}" failonerror="true" parallel="true">
+                <arg value="--dex" />
+                <arg value="--multi-dex" />
+                <arg value="--main-dex-list=${out.absolute.dir}/classes_to_kepp_in_main_dex" />
+                <arg value="--output=${out.absolute.dir}" />
+
+                <arg line="${jumbo.option}" />
+                <arg line="${verbose.option}" />
+                <arg path="${out.absolute.dir}/proguard/obfuscated.jar" />
+                <path refid="out.dex.jar.input.ref" />
+                <external-libs />
+            </apply>
+        </sequential>
+    </macrodef>
+
+</project>

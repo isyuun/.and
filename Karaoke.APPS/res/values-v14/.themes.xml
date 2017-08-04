@@ -1,0 +1,77 @@
+<!--
+  Copyright 2011 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- <style name="Theme.KPOP.Dark" parent="android:style/Theme.Holo"> -->
+    <style name="Theme.KPOP.Dark" parent="@style/Theme.AppCompat">
+        <item name="android:actionBarStyle">@style/Widget.KPOP.ActionBar</item>
+        <!-- <item name="android:windowContentOverlay">@drawable/actionbar_shadow</item> -->
+        <!-- <item name="android:listViewStyle">@style/listViewStyle.Dark</item> -->
+        <item name="listViewStyleItemBackground">@drawable/list_selector_black</item>
+        <item name="listViewStyleItemBackstroke">@drawable/bg_solid_black_stroke</item>
+        <item name="listViewStyleItemForegournd">@style/listViewStyle.Default</item>
+        <item name="listViewStyleLineBackground">@color/solid_dark</item>
+        <!-- Android-ViewPagerIndicator -->
+        <item name="vpiCirclePageIndicatorStyle">@style/Widget.CirclePageIndicator</item>
+        <item name="vpiTitlePageIndicatorStyle">@style/Widget.TitlePageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+        <!-- Theme.Holo -->
+        <!-- <item name="android:windowBackground">@color/background_holo_dark</item> -->
+        <!-- <item name="android:colorForeground">@color/bright_foreground_holo_dark</item> -->
+        <!-- <item name="android:colorForegroundInverse">@color/bright_foreground_inverse_holo_dark</item> -->
+        <!-- <item name="android:colorBackground">@color/background_holo_dark</item> -->
+    </style>
+
+    <!-- <style name="Theme.KPOP.Light" parent="android:style/Theme.Holo.Light"> -->
+    <style name="Theme.KPOP.Light" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/Widget.KPOP.ActionBar</item>
+        <!-- <item name="android:windowContentOverlay">@drawable/actionbar_shadow</item> -->
+        <!-- <item name="android:listViewStyle">@style/listViewStyle.Light</item> -->
+        <item name="listViewStyleItemBackground">@drawable/list_selector_white</item>
+        <item name="listViewStyleItemBackstroke">@drawable/bg_solid_white_stroke</item>
+        <item name="listViewStyleItemForegournd">@style/listViewStyle.Default</item>
+        <item name="listViewStyleLineBackground">@color/solid_gray</item>
+        <!-- Android-ViewPagerIndicator -->
+        <item name="vpiCirclePageIndicatorStyle">@style/Widget.CirclePageIndicator</item>
+        <item name="vpiTitlePageIndicatorStyle">@style/Widget.TitlePageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
+        <!-- Theme.Holo.Light -->
+        <!-- <item name="android:windowBackground">@color/background_holo_light</item> -->
+        <!-- <item name="android:colorForeground">@color/bright_foreground_holo_light</item> -->
+        <!-- <item name="android:colorForegroundInverse">@color/bright_foreground_inverse_holo_light</item> -->
+        <!-- <item name="android:colorBackground">@color/background_holo_light</item> -->
+    </style>
+
+    <!-- ActionBar는하나로간다 -->
+    <style name="Widget.KPOP.ActionBar" parent="@android:style/Widget.ActionBar">
+        <item name="android:icon">@drawable/btn_home_64x64</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/actionbar_height</item>
+        <item name="android:titleTextStyle">@style/TextLargeTitle</item>
+        <item name="android:background">@drawable/actionbar_background</item>
+        <!-- <item name="android:backgroundStacked">@drawable/actionbar_background</item> -->
+        <!-- <item name="android:backgroundSplit">@drawable/actionbar_backgroundsplit</item> -->
+        <!-- <item name="android:actionButtonStyle">@style/ActionButton</item> -->
+        <!-- <item name="android:actionOverflowButtonStyle">@style/ActionButton.Overflow</item> -->
+        <!-- Theme.Holo.Light -->
+        <!-- <item name="android:windowBackground">@color/background_holo_light</item> -->
+        <!-- <item name="android:colorForeground">@color/bright_foreground_holo_light</item> -->
+        <!-- <item name="android:colorForegroundInverse">@color/bright_foreground_inverse_holo_light</item> -->
+        <!-- <item name="android:colorBackground">@color/background_holo_light</item> -->
+    </style>
+
+</resources>

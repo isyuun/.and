@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_sing_genre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/genre_menu_margin_bottom"
+    android:paddingTop="@dimen/genre_menu_margin_top">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <android.support.v4.widget.Space
+            android:id="@+id/layout_sing_sub_genre_blank_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+
+        <Button
+            android:id="@+id/btn_sing_sub_genre_ballad"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_genre_ballad"
+            android:textColor="@android:color/white"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_sing_sub_genre_dance"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_genre_dance"
+            android:textColor="@android:color/white"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_sing_sub_genre_trot"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_genre_trot"
+            android:textColor="@android:color/white"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_sing_sub_genre_rock"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_genre_rock"
+            android:textColor="@android:color/white"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_sing_sub_genre_pop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_genre_pop"
+            android:textColor="@android:color/white"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/btn_sing_sub_genre_ani"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/tab_focus_menu"
+            android:gravity="center"
+            android:text="@string/menu_sub_genre_ani"
+            android:textColor="@android:color/white"
+            android:visibility="visible"/>
+
+        <android.support.v4.widget.Space
+            android:id="@+id/layout_sing_sub_genre_blank_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_sing_sub_genre_page"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:text="@string/hint_page_text"
+        android:textColor="#dddddd"
+        android:visibility="invisible"/>
+</RelativeLayout>

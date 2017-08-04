@@ -1,0 +1,8 @@
+package kr.kymedia.kykaraoke;
+
+public class SongListItem {
+	public String m_strSongId;
+	public String m_strSongTitle;
+	public String m_strSongArtist;
+	public String m_strFavor;
+}

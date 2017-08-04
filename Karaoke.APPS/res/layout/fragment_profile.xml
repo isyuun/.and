@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="@dimen/margin_input_bar"
+    android:background="@drawable/bg_trans_stroke"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_input_bar" >
+
+    <!-- <LinearLayout -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="0dp" -->
+    <!-- android:layout_weight="1.0" -->
+    <!-- android:orientation="vertical" > -->
+    <!-- </LinearLayout> -->
+    <!-- <LinearLayout -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="0dp" -->
+    <!-- android:layout_weight="1.0" -->
+    <!-- android:orientation="vertical" -->
+    <!-- android:padding="@dimen/padding_tiny" > -->
+    <!-- </LinearLayout> -->
+
+    <kr.kymedia.karaoke.widget._ImageView
+        android:id="@+id/img_profile_image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:contentDescription="@string/hint_profile_image"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_menu_01" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_small"
+        android:paddingTop="@dimen/padding_small" >
+
+        <Button
+            android:id="@+id/btn_image_camera"
+            style="@style/TextLarge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_normal_counter_01"
+            android:clickable="true"
+            android:maxLines="1"
+            android:onClick="onClick"
+            android:text="@string/btn_title_pick_camera"
+            android:textColor="@color/solid_white"
+            android:textSize="@dimen/text_medium" />
+
+        <Button
+            android:id="@+id/btn_image_pick"
+            style="@style/TextLarge"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_normal_counter_01"
+            android:clickable="true"
+            android:maxLines="1"
+            android:onClick="onClick"
+            android:text="@string/btn_title_pick_image"
+            android:textColor="@color/solid_white"
+            android:textSize="@dimen/text_medium" />
+
+        <kr.kymedia.karaoke.widget._ImageButton
+            android:id="@+id/btn_image_crop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:background="@drawable/btn_normal_counter_01"
+            android:contentDescription="@string/btn_title_crop_image"
+            android:src="@drawable/ic_action_images_crop_on"
+            android:textColor="@color/solid_white" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/TextLarge"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_login_email" />
+
+        <EditText
+            android:id="@+id/edt_login_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="@string/title_setting_login_email"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:maxLines="1"
+            android:minLines="1"
+            android:paddingLeft="@dimen/padding_input_box" />
+
+        <Button
+            android:id="@+id/btn_email_check"
+            style="@style/TextTextXLargeBlack"
+            android:layout_width="55dp"
+            android:layout_height="28dp"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:background="@drawable/btn_normal_02"
+            android:text="@string/btn_title_input"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny" >
+
+        <TextView
+            style="@style/TextMedium"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_login_nickname" />
+
+        <EditText
+            android:id="@+id/edt_login_nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:hint="@string/hint_profile_nickname"
+            android:inputType="textPersonName"
+            android:textColor="@color/solid_black" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/TextLarge"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_login_pwd" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/edt_login_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="@string/summary_setting_pwd_check"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:minLines="1"
+                android:paddingLeft="@dimen/padding_input_box" />
+
+            <CheckBox
+                android:id="@+id/chk_pwd_check"
+                style="@style/TextXLarge"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="@dimen/padding_input_box"
+                android:layout_weight="1.0"
+                android:text="@string/title_setting_login_showpwd" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_pwd_check"
+            style="@style/TextTextXLargeBlack"
+            android:layout_width="55dp"
+            android:layout_height="28dp"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:background="@drawable/btn_normal_02"
+            android:text="@string/btn_title_input"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/TextLarge"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_login_gender" />
+
+        <RadioGroup
+            android:id="@+id/sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/male"
+                style="@style/TextLargeThick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_setting_login_gender_male" />
+
+            <RadioButton
+                android:id="@+id/female"
+                style="@style/TextLargeThick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/title_setting_login_gender_female" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/TextLarge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:layout_weight="1.0"
+            android:text="@string/title_setting_login_birthday" />
+
+        <TextView
+            android:id="@+id/edt_login_birthday"
+            style="@style/TextLargeThick"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_input_bar"
+            android:layout_weight="1.0"
+            android:drawableRight="@drawable/btn_list_arrow"
+            android:gravity="center_vertical"
+            android:text="@string/hint_setting_login_birthday" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny" >
+
+        <TextView
+            style="@style/TextLarge"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_login_nation" />
+
+        <kr.kymedia.karaoke.widget._ImageView
+            android:id="@+id/img_profile_country"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="@dimen/margin_input_bar"
+            android:contentDescription="@drawable/img_flag_kr"
+            android:src="@drawable/img_flag_kr"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/txt_login_country"
+                style="@style/TextLargeThick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/title_setting_login_nation"
+                android:textSize="@dimen/text_large"
+                android:visibility="invisible" />
+
+            <Spinner
+                android:id="@+id/spn_login_country"
+                style="@style/TextLargeThick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableRight="@drawable/btn_list_arrow"
+                android:gravity="center_vertical"
+                android:text="@string/title_setting_login_nation"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_tiny"
+        android:visibility="gone" >
+
+        <TextView
+            style="@style/TextMedium"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_profile_tab_profile_comment" />
+
+        <EditText
+            android:id="@+id/edt_profile_comment"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top|left"
+            android:hint="@string/hint_profile_commet"
+            android:inputType="textMultiLine"
+            android:textSize="@dimen/text_medium" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:background="?attr/listViewStyleLineBackground"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_login_register"
+        style="@style/TextXLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_input_bar"
+        android:background="@drawable/btn_normal_counter_01"
+        android:text="@string/title_setting_login_register"
+        android:textColor="@color/solid_white" />
+
+</LinearLayout>

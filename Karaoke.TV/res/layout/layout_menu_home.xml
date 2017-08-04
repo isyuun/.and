@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_menu_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_main_menu"
+        android:layout_marginBottom="@dimen/main_menu_margin_bottom"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.06"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/layout_home_main_menu2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="visible" >
+
+            <Button
+                android:id="@+id/btn_home_main_01"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="5"
+                android:background="@drawable/main_icon_01"
+                android:onClick="onBtnHomeSing" />
+
+            <Button
+                android:id="@+id/btn_home_main_02"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="3"
+                android:background="@drawable/main_icon_02"
+                android:onClick="onBtnHomeListen" />
+
+            <Button
+                android:id="@+id/btn_home_main_03"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="3"
+                android:background="@drawable/main_icon_03"
+                android:onClick="onBtnHomeMy" />
+
+            <Button
+                android:id="@+id/btn_home_main_04"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="3"
+                android:background="@drawable/main_icon_04"
+                android:onClick="onBtnHomeShop" />
+
+            <Button
+                android:id="@+id/btn_home_main_05"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="3"
+                android:background="@drawable/main_icon_05"
+                android:onClick="onBtnHomeCustomer" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_small"
+    android:background="?attr/listViewStyleItemBackstroke"
+    android:padding="1dp" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+        android:background="@drawable/actionbar_compat_item"
+        android:paddingBottom="@dimen/padding_tiny"
+        android:paddingTop="@dimen/padding_tiny" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/margin_medium"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_button_medium" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/html_image"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:contentDescription="@string/hint_item_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_trans" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/margin_large"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <!-- <TextView -->
+                <!-- android:id="@+id/html_title" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:text="@string/hint_item_title" -->
+                <!-- android:textSize="@dimen/text_medium" -->
+                <!-- android:visibility="visible" /> -->
+                <!-- <TextView -->
+                <!-- android:id="@+id/html_text" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:layout_marginTop="@dimen/margin_medium" -->
+                <!-- android:text="@string/hint_item_text" -->
+                <!-- android:textSize="@dimen/text_small" -->
+                <!-- android:visibility="visible" /> -->
+
+                <TextView
+                    android:id="@+id/html_html"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/html_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center" />
+
+        <kr.kymedia.karaoke.widget._ImageButton
+            android:id="@+id/html_del"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_alignRight="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/btn_normal_04"
+            android:checked="false"
+            android:contentDescription="@string/hint_item_delimiter"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:onClick="onListItemClick"
+            android:padding="@dimen/padding_tiny"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_action_delete_off"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</RelativeLayout>

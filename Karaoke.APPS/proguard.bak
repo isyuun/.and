@@ -1,0 +1,287 @@
+# KPOP HOLIC 프로젝트
+# This is a configuration file for ProGuard.
+# http://proguard.sourceforge.net/index.html#manual/usage.html
+
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-verbose
+
+# Optimization is turned off by default. Dex does not like code run
+# through the ProGuard optimize and preverify steps (and performs some
+# of these optimizations on its own).
+-dontoptimize
+-dontpreverify
+# Note that if you want to enable optimization, you cannot just
+# include optimization flags in your own project configuration file;
+# instead you will need to point to the
+# "proguard-android-optimize.txt" file instead of this one from your
+# project.properties file.
+
+# If you want to enable optimization, you should include the
+# following:
+# -optimizations !code/simplification/arithmetic,!code/simplification/cast,!field/*,!class/merging/*
+# -optimizationpasses 5
+# -allowaccessmodification
+#
+# Note that you cannot just include these flags in your own
+# configuration file; if you are including this file, optimization
+# will be turned off. You'll need to either edit this file, or
+# duplicate the contents of this file and remove the include of this
+# file from your project's proguard.config path property.
+
+-keepattributes *Annotation*
+#-keep public class com.android.vending.licensing.ILicensingService
+#-keep public class com.android.vending.billing.**
+#-keep public class com.google.vending.licensing.ILicensingService
+-keep public class com.android.vending.licensing.ILicensingService
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgent
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.support.v4.app.Fragment
+-keep public class * extends android.app.Fragment
+-keep public class android.webkit.**
+
+# For native methods, see http://proguard.sourceforge.net/manual/examples.html#native
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keep public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+    public void set*(...);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
+# For enumeration classes, see http://proguard.sourceforge.net/manual/examples.html#enumerations
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# The support library contains references to newer platform versions.
+# Don't warn about those in case this app is linking against an older
+# platform version.  We know about them, and they are safe.
+#android.support.v4
+-dontwarn android.support.**
+-keep class android.support.v4.app.** { *; }
+-keep interface android.support.v4.app.** { *; }
+
+#KPOP설정시작
+#jsoup-1.7.2.jar
+-keep class org.jsoup.** { *; }
+
+#ActionBarSherlock-4.4.0
+-keep class com.actionbarsherlock.** { *; }
+-keep interface com.actionbarsherlock.** { *; }
+
+#Android-universal-image-loader-1.8.5
+-keep class com.nostra13.universalimageloader.** { *; }
+-keep interface com.nostra13.universalimageloader.** { *; }
+
+#안드로이드인앱빌링
+-keep public class kr.kymedia.karaoke.billing.**
+
+# 자바스크립트인터페이스:웹앱연동
+# JavascriptInterface Proguard obfuscation EXCEPTION
+-keep public class kr.kymedia.karaoke.api.util.JavascriptCallback
+-keep public class * implements kr.kymedia.karaoke.api.util.JavascriptCallback
+-keepclassmembers class * implements kr.kymedia.karaoke.api.util.JavascriptCallback {
+    <methods>;
+}
+-keepattributes JavascriptInterface
+
+# API.18이상 광고라이브러리 웹킷셋팅오류
+# http://stackoverflow.com/questions/18360268/cant-find-referenced-method-void-setpluginsenabledboolean-in-class-android
+# http://developer.android.com/reference/android/webkit/WebSettings.html#setPluginState(android.webkit.WebSettings.PluginState)
+-dontwarn android.webkit.**
+-dontwarn android.webkit.WebSettings.**
+
+# Setting Up Google Play Services
+# GooglePlayServicesSDK난독화하기
+# GooglePlayServicesSDK 를반드시난독화대상에서제외합니다.
+# 이에대한자세한내용은 http://developer.android.com/google/play-services/setup.html 페이지의#1Proguard항목을참고하십시오.
+-dontwarn com.google.android.gms.**
+-keep class com.google.android.gms.**{ *; }
+
+-keep class * extends java.util.ListResourceBundle {
+    protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+    public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+    @com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+    public static final ** CREATOR;
+}
+
+# SAMSUNG IAP
+-keep class com.sec.android.iap.** {*;}
+-dontwarn com.sec.android.iap.**
+
+# 0) 애드립 - AD
+-keep class com.mocoplex.adlib.** { *; }
+
+# 1) 구글애드몹 - G 
+-dontwarn com.google.ads.**
+-keep class com.google.ads.** {
+    *;
+}
+-dontwarn com.google.ads.**
+
+# 3) 에어푸쉬
+-keep class com.twwpc.duzea106950.** {*;}
+-dontwarn com.twwpc.duzea106950.**
+#add the following for Google play services.
+-keep class * extends java.util.ListResourceBundle {
+	protected Object[][] getContents();
+}
+
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+	public static final *** NULL;
+}
+
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+	@com.google.android.gms.common.annotation.KeepName *;
+}
+
+-keepnames class * implements android.os.Parcelable {
+	public static final ** CREATOR;
+}
+
+-dontwarn com.google.android.gms.**
+
+-keepclasseswithmembers class **.R$** {
+	public static <fields>;
+}
+
+-keep class * extends android.view.View { 
+	public <init>(android.content.Context); 
+	public <init>(android.content.Context, android.util.AttributeSet); 
+	public <init>(android.content.Context, android.util.AttributeSet, int); 
+	void set*(***);
+	 *** get*();
+}
+
+-keepclassmembers class * {
+	static final %                *;
+	static final java.lang.String *;
+}
+
+-keepattributes SetJavaScriptEnabled
+-keepattributes JavascriptInterface
+-keepattributes InlinedApi
+
+# 8) TNK팩토리 - N
+-keep class com.tnkfactory.**
+-keep class com.flurry.** { *; }
+-dontwarn com.flurry.**
+
+# 4) 카울리 - C
+# E. proguard 설정 하는 경우 cauly SDK 포함된 Class 는 난독화 시키시면 안됩니다.
+-keep public class com.fsn.cauly.** {
+	public protected *;
+}
+-keep public class com.trid.tridad.** {
+	public protected *;
+}
+
+# 5) T애드
+# Tad SDK는 ProGuard를 사용하여 난독화(obfuscated)되어 있습니다.
+# 개발이 완료된 Android 어플리케이션에 ProGuard를 사용할 때 ProGuard 설정에 다음 예외문을 추가해야 합니다.
+# -dontwarn com.skplanet.tad.**
+-keep class com.skplanet.tad.** { *; }
+-keep class test.adlib.project.ads.SubAdlibAdViewTAD { *; }
+
+# 6) INMOBI - I
+# Inmobi 사용을 위한 설정입니다.
+-keep class com.inmobi.** { *; }
+-keep class test.adlib.project.ads.SubAdlibAdViewInmobi
+{ 
+  *;
+}
+
+# 7) Tapjoy - J
+# Proguard를 사용하실 경우 Configuration파일에 하기를 추가 하십시오.
+-keep class com.tapjoy.** { *; }
+-keepattributes JavascriptInterface
+-keep class * extends java.util.ListResourceBundle {
+protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+public static final *** NULL;
+}
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+@com.google.android.gms.common.annotation.KeepName *;
+}
+-keepnames class * implements android.os.Parcelable {
+public static final ** CREATOR;
+}
+-keep class com.google.android.gms.ads.identifier.** { *; }
+
+# 10) 미탭스 - M
+-keep class net.metaps.** { *; }
+
+# 11) 챠트부스트 - CB
+-keep class com.chartboost.** { *; }
+-dontwarn java.lang.management.**
+
+# 13) kiip - K - 보류
+-keep class com.squareup.okhttp.Job.** { *; }
+-dontwarn me.kiip.internal.**
+
+# 14) w3i - W
+-keep public class com.google.gson
+-keep class Gson**
+-keepclassmembers class Gson** { *; }
+-keepattributes Signature, *Annotation*
+#-dontwarn com.w3i.**
+#-keep class com.w3i.** { *; }
+-dontwarn com.nativex.**
+-keep class com.nativex.** { *; }
+
+# 22) SponsorPay - S
+#-dontwarn android.webkit.**
+#-keep android.webkit.** { *; }
+-dontwarn com.sponsorpay.**
+-keep class com.sponsorpay.** { *; }
+
+# 24) DirectTap
+-keep class com.directtap.** { *; }
+
+# 25) StartApp
+-keep class com.startapp.** { *; }
+-keepattributes Exceptions, InnerClasses, Signature, Deprecated, SourceFile, LineNumberTable, *Annotation*, EnclosingMethod
+-dontwarn android.webkit.JavascriptInterface
+-dontwarn com.startapp.** 

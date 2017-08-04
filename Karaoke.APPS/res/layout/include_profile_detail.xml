@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/list_selector_default"
+	android:fillViewport="true" >
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+
+		<TextView
+			style="@style/TextMediumThick"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_medium"
+			android:text="@string/title_profile_new_song" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginRight="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_tiny"
+			android:background="@drawable/bg_list"
+			android:orientation="vertical"
+			android:paddingLeft="@dimen/padding_large"
+			android:paddingRight="@dimen/padding_large" >
+
+			<TextView
+				android:id="@+id/new_song_title_0"
+				style="@style/TextSmall"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.0"
+				android:background="@drawable/list_selector_trans"
+				android:drawableLeft="@drawable/ic_myholic_dot"
+				android:drawablePadding="@dimen/padding_medium"
+				android:ellipsize="end"
+				android:maxLines="1"
+				android:padding="@dimen/margin_small"
+				android:text="@string/hint_no_new_song"
+				android:visibility="gone" />
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.0" >
+
+				<TextView
+					android:id="@+id/new_song_title_1"
+					style="@style/TextSmall"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:layout_weight="1.0"
+					android:background="@drawable/list_selector_trans"
+					android:drawableLeft="@drawable/ic_myholic_dot"
+					android:drawablePadding="@dimen/padding_medium"
+					android:ellipsize="end"
+					android:maxLines="1"
+					android:padding="@dimen/margin_small"
+					android:text="@string/hint_no_new_song"
+					android:visibility="gone" />
+
+				<LinearLayout
+					android:id="@+id/new_song_mark_1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:gravity="center_vertical" >
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/best"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_best"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/hot"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_hot"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/audition"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_audition"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/first"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_1st"
+						android:visibility="gone" />
+				</LinearLayout>
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.0" >
+
+				<TextView
+					android:id="@+id/new_song_title_2"
+					style="@style/TextSmall"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:layout_weight="1.0"
+					android:background="@drawable/list_selector_trans"
+					android:drawableLeft="@drawable/ic_myholic_dot"
+					android:drawablePadding="@dimen/padding_medium"
+					android:ellipsize="end"
+					android:maxLines="1"
+					android:padding="@dimen/margin_small"
+					android:text="@string/hint_item_title"
+					android:visibility="gone" />
+
+				<LinearLayout
+					android:id="@+id/new_song_mark_2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:gravity="center_vertical" >
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/best"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_best"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/hot"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_hot"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/audition"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_audition"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/first"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_1st"
+						android:visibility="gone" />
+				</LinearLayout>
+			</RelativeLayout>
+		</LinearLayout>
+
+		<TextView
+			style="@style/TextMediumThick"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_medium"
+			android:text="@string/title_profile_best_song" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginRight="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_tiny"
+			android:background="@drawable/bg_list"
+			android:orientation="vertical"
+			android:paddingLeft="@dimen/padding_large"
+			android:paddingRight="@dimen/padding_large" >
+
+			<TextView
+				android:id="@+id/best_song_title_0"
+				style="@style/TextSmall"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_weight="1.0"
+				android:background="@drawable/list_selector_trans"
+				android:drawableLeft="@drawable/ic_myholic_dot"
+				android:drawablePadding="@dimen/padding_medium"
+				android:ellipsize="end"
+				android:maxLines="1"
+				android:padding="@dimen/margin_small"
+				android:text="@string/hint_no_best_song"
+				android:visibility="gone" />
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.0" >
+
+				<TextView
+					android:id="@+id/best_song_title_1"
+					style="@style/TextSmall"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:layout_weight="1.0"
+					android:background="@drawable/list_selector_trans"
+					android:drawableLeft="@drawable/ic_myholic_dot"
+					android:drawablePadding="@dimen/padding_medium"
+					android:ellipsize="end"
+					android:maxLines="1"
+					android:padding="@dimen/margin_small"
+					android:text="@string/hint_item_title"
+					android:visibility="gone" />
+
+				<LinearLayout
+					android:id="@+id/best_song_mark_1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:gravity="center_vertical" >
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/best"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_best"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/hot"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_hot"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/audition"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_audition"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/first"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_1st"
+						android:visibility="gone" />
+				</LinearLayout>
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_weight="1.0" >
+
+				<TextView
+					android:id="@+id/best_song_title_2"
+					style="@style/TextSmall"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_centerVertical="true"
+					android:layout_weight="1.0"
+					android:background="@drawable/list_selector_trans"
+					android:drawableLeft="@drawable/ic_myholic_dot"
+					android:drawablePadding="@dimen/padding_medium"
+					android:ellipsize="end"
+					android:maxLines="1"
+					android:padding="@dimen/margin_small"
+					android:text="@string/hint_item_title"
+					android:visibility="gone" />
+
+				<LinearLayout
+					android:id="@+id/best_song_mark_2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_centerVertical="true"
+					android:gravity="center_vertical" >
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/best"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_best"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/hot"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_hot"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/audition"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_audition"
+						android:visibility="gone" />
+
+					<kr.kymedia.karaoke.widget._ImageView
+						android:id="@+id/first"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_margin="1dp"
+						android:contentDescription="@string/name_item_best"
+						android:src="@drawable/ic_list_1st"
+						android:visibility="gone" />
+				</LinearLayout>
+			</RelativeLayout>
+		</LinearLayout>
+
+		<TextView
+			style="@style/TextMediumThick"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_medium"
+			android:text="@string/title_profile_new_follower" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_small"
+			android:layout_marginRight="@dimen/margin_small"
+			android:layout_marginTop="@dimen/margin_tiny"
+			android:background="@drawable/bg_list"
+			android:paddingBottom="@dimen/padding_medium"
+			android:paddingLeft="@dimen/padding_large"
+			android:paddingRight="@dimen/padding_large"
+			android:paddingTop="@dimen/padding_medium" >
+
+			<TextView
+				android:id="@+id/new_follower_title_0"
+				style="@style/TextSmall"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_centerVertical="true"
+				android:layout_weight="1.0"
+				android:background="@drawable/list_selector_trans"
+				android:drawableLeft="@drawable/ic_myholic_dot"
+				android:drawablePadding="@dimen/padding_medium"
+				android:ellipsize="end"
+				android:maxLines="1"
+				android:padding="@dimen/margin_small"
+				android:text="@string/hint_no_new_folower"
+				android:visibility="gone" />
+
+			<include
+				android:id="@+id/include_player_people"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				layout="@layout/include_player_people2"
+				android:visibility="gone" />
+		</LinearLayout>
+	</LinearLayout>
+
+</ScrollView>

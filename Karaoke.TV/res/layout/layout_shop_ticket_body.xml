@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_shop_ticket_body"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="ContentDescription"
+    android:baselineAligned="false"
+    tools:showIn="@layout/main"
+    android:orientation="horizontal">
+
+    <android.support.v4.widget.Space
+        android:id="@+id/layout_shop_ticket_left"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:orientation="vertical"/>
+
+    <LinearLayout
+        android:id="@+id/layout_shop_ticket_right"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="@dimen/text_padding_normal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/icon_money"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/icon_money"/>
+
+            <TextView
+                android:id="@+id/txt_shop_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/ticket_year_price"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:visibility="visible"
+                android:layout_centerInParent="false"/>
+
+            <TextView
+                android:layout_below="@+id/txt_shop_price"
+                android:id="@+id/txt_shop_real_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@string/ticket_year_price"
+                android:textColor="@color/solid_yellow"
+                android:textSize="20sp"
+                android:visibility="visible"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_shop_purchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tab_focus_long"
+                android:text="@string/ticket_purchase"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

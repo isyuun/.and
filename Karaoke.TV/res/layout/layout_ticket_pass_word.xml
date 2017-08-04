@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    tools:ignore="ContentDescription,HardcodedText" >
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="113"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layout_ticket_pass_01"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="38"
+        android:background="@drawable/ticket_popup_pass_on"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/img_ticket_pass_01"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layout_ticket_pass_02"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="38"
+        android:background="@drawable/ticket_popup_pass"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/img_ticket_pass_02"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layout_ticket_pass_03"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="38"
+        android:background="@drawable/ticket_popup_pass"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/img_ticket_pass_03"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/layout_ticket_pass_04"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="38"
+        android:background="@drawable/ticket_popup_pass"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/img_ticket_pass_04"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" />
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="113"
+        android:orientation="horizontal" />
+
+</LinearLayout>

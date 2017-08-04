@@ -1,0 +1,8 @@
+package kr.kymedia.kykaraoke;
+
+public class SubMenuItem {
+	public String op;
+	public String m1;
+	public String m2;
+	public String name;
+}
