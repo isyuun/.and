@@ -214,7 +214,7 @@ public class KPlay
 	}
 
 	/**
-	 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
+	 * isyoon:싱크오류발생:패티김:겨울나그네
 	 */
 	private void task_envr_song(int msg)
 	{
@@ -250,7 +250,7 @@ public class KPlay
 				Log.d(TAG, "free use.");
 			} else if (ret == 1 || Global.isTestPayment.booleanValue()) {
 				/**
-				 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
+				 * isyoon:싱크오류발생:패티김:겨울나그네
 				 */
 				if (BuildConfig.DEBUG) Log.wtf("[KP]" + TAG, +ret + ":" + Global.isTestPayment.booleanValue());
 				/**

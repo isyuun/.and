@@ -28,7 +28,7 @@ class LY
 	}
 
 	/**
-	 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
+	 * isyoon:싱크오류발생:패티김:겨울나그네
 	 */
 	boolean valid(int inx)
 	{
