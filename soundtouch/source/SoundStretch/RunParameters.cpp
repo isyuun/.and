@@ -8,10 +8,10 @@
 ///
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Last changed  : $Date: 2014-04-07 00:57:21 +0900 (Mon, 07 Apr 2014) $
+// Last changed  : $Date: 2017-08-30 01:10:45 +0900 (Wed, 30 Aug 2017) $
 // File revision : $Revision: 4 $
 //
-// $Id: RunParameters.cpp 195 2014-04-06 15:57:21Z oparviai $
+// $Id: RunParameters.cpp 257 2017-08-29 16:10:45Z oparviai $
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -267,7 +267,7 @@ void RunParameters::parseSwitchParam(const string &str)
             {
                 goalBPM = parseSwitchValue(str);
             } 
-            catch (const runtime_error)
+            catch (const runtime_error &)
             {
                 // illegal or missing bpm value => just calculate bpm
                 goalBPM = 0;

@@ -41,10 +41,10 @@
 ///
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Last changed  : $Date: 2016-10-16 04:34:59 +0900 (Sun, 16 Oct 2016) $
+// Last changed  : $Date: 2017-11-11 01:38:36 +0900 (Sat, 11 Nov 2017) $
 // File revision : $Revision: 4 $
 //
-// $Id: SoundTouch.h 243 2016-10-15 19:34:59Z oparviai $
+// $Id: SoundTouch.h 261 2017-11-10 16:38:36Z oparviai $
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -79,10 +79,10 @@ namespace soundtouch
 {
 
 /// Soundtouch library version string
-#define SOUNDTOUCH_VERSION          "1.9.3pre"
+#define SOUNDTOUCH_VERSION          "2.0.1pre"
 
 /// SoundTouch library version id
-#define SOUNDTOUCH_VERSION_ID       (10903)
+#define SOUNDTOUCH_VERSION_ID       (20001)
 
 //
 // Available setting IDs for the 'setSetting' & 'get_setting' functions:
@@ -335,6 +335,11 @@ public:
     /// Returns number of samples currently unprocessed.
     virtual uint numUnprocessedSamples() const;
 
+    /// Return number of channels
+    uint numChannels() const
+    {
+        return channels;
+    }
 
     /// Other handy functions that are implemented in the ancestor classes (see
     /// classes 'FIFOProcessor' and 'FIFOSamplePipe')

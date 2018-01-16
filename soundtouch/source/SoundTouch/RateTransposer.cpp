@@ -10,10 +10,10 @@
 ///
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Last changed  : $Date: 2016-10-16 04:34:59 +0900 (Sun, 16 Oct 2016) $
+// Last changed  : $Date: 2017-09-08 02:04:02 +0900 (Fri, 08 Sep 2017) $
 // File revision : $Revision: 4 $
 //
-// $Id: RateTransposer.cpp 243 2016-10-15 19:34:59Z oparviai $
+// $Id: RateTransposer.cpp 258 2017-09-07 17:04:02Z oparviai $
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -57,7 +57,13 @@ TransposerBase::ALGORITHM TransposerBase::algorithm = TransposerBase::CUBIC;
 // Constructor
 RateTransposer::RateTransposer() : FIFOProcessor(&outputBuffer)
 {
-    bUseAAFilter = true;
+    bUseAAFilter = 
+#ifndef SOUNDTOUCH_PREVENT_CLICK_AT_RATE_CROSSOVER
+        true;
+#else
+        // Disable Anti-alias filter if desirable to avoid click at rate change zero value crossover
+        false;
+#endif
 
     // Instantiates the anti-alias filter
     pAAFilter = new AAFilter(64);
@@ -77,7 +83,10 @@ RateTransposer::~RateTransposer()
 /// Enables/disables the anti-alias filter. Zero to disable, nonzero to enable
 void RateTransposer::enableAAFilter(bool newMode)
 {
+#ifndef SOUNDTOUCH_PREVENT_CLICK_AT_RATE_CROSSOVER
+    // Disable Anti-alias filter if desirable to avoid click at rate change zero value crossover
     bUseAAFilter = newMode;
+#endif
 }
 
 

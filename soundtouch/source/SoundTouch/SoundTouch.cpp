@@ -41,10 +41,10 @@
 ///
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Last changed  : $Date: 2016-10-16 04:34:59 +0900 (Sun, 16 Oct 2016) $
+// Last changed  : $Date: 2017-08-28 00:23:28 +0900 (Mon, 28 Aug 2017) $
 // File revision : $Revision: 4 $
 //
-// $Id: SoundTouch.cpp 243 2016-10-15 19:34:59Z oparviai $
+// $Id: SoundTouch.cpp 256 2017-08-27 15:23:28Z oparviai $
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -286,9 +286,9 @@ void SoundTouch::calcEffectiveRateAndTempo()
 // Sets sample rate.
 void SoundTouch::setSampleRate(uint srate)
 {
-    bSrateSet = true;
     // set sample rate, leave other tempo changer parameters as they are.
     pTDStretch->setParameters((int)srate);
+    bSrateSet = true;
 }
 
 

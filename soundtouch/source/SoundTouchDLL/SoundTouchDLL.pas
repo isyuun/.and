@@ -10,7 +10,7 @@ unit SoundTouchDLL;
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-// $Id: SoundTouchDLL.pas 198 2014-04-06 18:06:50Z oparviai $
+// $Id: SoundTouchDLL.pas 262 2017-11-26 09:10:41Z oparviai $
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -168,6 +168,7 @@ var
   SoundTouchSetSampleRate         : TSoundTouchSetSampleRate;
   SoundTouchFlush                 : TSoundTouchFlush;
   SoundTouchPutSamples            : TSoundTouchPutSamples;
+  SoundTouchPutSamplesI16         : TSoundTouchPutSamplesI16;
   SoundTouchClear                 : TSoundTouchClear;
   SoundTouchSetSetting            : TSoundTouchSetSetting;
   SoundTouchGetSetting            : TSoundTouchGetSetting;
@@ -422,6 +423,13 @@ var
   SoundTouchLibHandle: HINST;
   SoundTouchDLLFile: PAnsiChar = 'SoundTouch.dll';
 
+  // bpm detect functions. untested -- if these don't work then remove:
+  bpm_createInstance: function(chan: CInt32; sampleRate : CInt32): THandle; cdecl;
+  bpm_destroyInstance: procedure(h: THandle); cdecl;
+  bpm_getBpm: function(h: THandle): cfloat; cdecl;
+  bpm_putSamples: procedure(h: THandle; const samples: pcfloat;
+  numSamples: cardinal); cdecl;
+
 procedure InitDLL;
 begin
   SoundTouchLibHandle := LoadLibrary(SoundTouchDLLFile);
@@ -443,14 +451,21 @@ begin
     Pointer(SoundTouchSetSampleRate)         := GetProcAddress(SoundTouchLibHandle, 'soundtouch_setSampleRate');
     Pointer(SoundTouchFlush)                 := GetProcAddress(SoundTouchLibHandle, 'soundtouch_flush');
     Pointer(SoundTouchPutSamples)            := GetProcAddress(SoundTouchLibHandle, 'soundtouch_putSamples');
+    Pointer(SoundTouchPutSamplesI16)         := GetProcAddress(SoundTouchLibHandle, 'soundtouch_putSamples_i16');
     Pointer(SoundTouchClear)                 := GetProcAddress(SoundTouchLibHandle, 'soundtouch_clear');
     Pointer(SoundTouchSetSetting)            := GetProcAddress(SoundTouchLibHandle, 'soundtouch_SetSetting');
     Pointer(SoundTouchGetSetting)            := GetProcAddress(SoundTouchLibHandle, 'soundtouch_setSetting');
     Pointer(SoundTouchNumUnprocessedSamples) := GetProcAddress(SoundTouchLibHandle, 'soundtouch_numUnprocessedSamples');
     Pointer(SoundTouchReceiveSamples)        := GetProcAddress(SoundTouchLibHandle, 'soundtouch_receiveSamples');
+    Pointer(SoundTouchReceiveSamplesI16)     := GetProcAddress(SoundTouchLibHandle, 'soundtouch_receiveSamples_i16');
     Pointer(SoundTouchNumSamples)            := GetProcAddress(SoundTouchLibHandle, 'soundtouch_numSamples');
     Pointer(SoundTouchIsEmpty)               := GetProcAddress(SoundTouchLibHandle, 'soundtouch_isEmpty');
 
+    Pointer(bpm_createInstance)             :=GetProcAddress(SoundTouchLibHandle, 'bpm_createInstance');
+    Pointer(bpm_destroyInstance)            :=GetProcAddress(SoundTouchLibHandle, 'bpm_destroyInstance');
+    Pointer(bpm_getBpm)                     :=GetProcAddress(SoundTouchLibHandle, 'bpm_getBpm');
+    Pointer(bpm_putSamples)                 :=GetProcAddress(SoundTouchLibHandle, 'bpm_putSamples');
+        
   except
     FreeLibrary(SoundTouchLibHandle);
     SoundTouchLibHandle := 0;
