@@ -505,7 +505,7 @@ public class KMidi
 	}
 
 	/**
-	 * isyoon:싱크오류발생:패티김:겨울나그네
+	 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
 	 */
 	public static midi_pos_t skip_midi(midi_pos_t p, char type, int inx, mtrk_t mp)
 	{
@@ -671,7 +671,7 @@ public class KMidi
 				case 255:
 					char cmdx = MainBuffer.get_midi_byte(p);
 					/**
-					 * isyoon:싱크오류발생:패티김:겨울나그네
+					 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
 					 */
 					switch (cmdx) {
 						case 47: // '/'
@@ -682,7 +682,7 @@ public class KMidi
 						//case 88: // 'X'
 						//	{
 						//		/**
-						//		 * isyoon:싱크오류발생:패티김:겨울나그네
+						//		 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
 						//		 */
 						//		long length = KMemory.get_midi_tick(p);
 						//		char numerator = MainBuffer.get_midi_byte(p);
@@ -699,7 +699,7 @@ public class KMidi
 						//case 81: // 'Q'
 						//	{
 						//		/**
-						//		 * isyoon:싱크오류발생:패티김:겨울나그네
+						//		 * isyoon:기본도안되는게병신지랄을하고자빠졌네.테스트나똑바로해.이병신아.
 						//		 */
 						//		long length = KMemory.get_midi_tick(p);
 						//		try {
