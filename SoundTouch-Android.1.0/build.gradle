@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         //classpath 'com.android.tools.build:gradle-experimental:0.7.3'
     }
 }
@@ -11,7 +11,7 @@ buildscript {
 apply plugin: 'com.android.library'
 android {
     compileSdkVersion 23
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "27.0.3"
 
     /**
      * 전체빌드에서오류난다...jni는 따로 빌드한다.
@@ -55,7 +55,7 @@ android {
 //model {
 //    android {
 //        compileSdkVersion 23
-//        buildToolsVersion "24.0.2"
+//        buildToolsVersion "27.0.3"
 //
 //        ndk {
 //            moduleName "soundtouch"
