@@ -30,7 +30,7 @@ LOCAL_SRC_FILES := soundtouch-jni.cpp ../../soundtouch/source/SoundTouch/AAFilte
                 ../../soundtouch/source/SoundTouch/BPMDetect.cpp ../../soundtouch/source/SoundTouch/PeakFinder.cpp
 
 # for native audio
-LOCAL_SHARED_LIBRARIES += -lgcc
+#LOCAL_SHARED_LIBRARIES += -lgcc
 # --whole-archive -lgcc
 # for logging
 LOCAL_LDLIBS    += -llog
