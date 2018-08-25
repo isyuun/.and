@@ -1,9 +1,10 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.1.4'
     }
     //BTV.tvcontextmanager.변경내용
     gradle.projectsEvaluated {
@@ -15,11 +16,11 @@ buildscript {
 apply plugin: 'com.android.application'
 
 dependencies {
-    compile 'com.android.support:multidex:1.0.1'
-    //compile project(':Karaoke.TV')
-    debugCompile project(path: ':Karaoke.TV', configuration: 'debug')
-    releaseCompile project(path: ':Karaoke.TV', configuration: 'release')
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation project(':Karaoke.TV')
+    //debugimplementation project(path:':Karaoke.TV', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.TV', configuration: 'release')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
@@ -71,7 +72,7 @@ android {
         }
 
         // Move the tests to tests/java, tests/res, etc...
-        instrumentTest.setRoot('tests')
+        androidTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...

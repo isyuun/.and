@@ -1,12 +1,12 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        //classpath 'com.android.tools.build:gradle-experimental:0.7.3'
-    }
-}
+//buildscript {
+//    repositories {
+//        jcenter()
+//        google()
+//    }
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:3.1.4'
+//    }
+//}
 
 apply plugin: 'com.android.library'
 android {
@@ -37,7 +37,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
 
-        instrumentTest.setRoot('tests')
+        androidTest.setRoot('tests')
 
         // Move the build types to build-types/<type>
         // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
@@ -51,72 +51,6 @@ android {
 
 }
 
-//apply plugin: 'com.android.model.library'
-//model {
-//    android {
-//        compileSdkVersion 23
-//        buildToolsVersion "27.0.3"
-//
-//        ndk {
-//            moduleName "soundtouch"
-//            stl "stlport_static"
-//            cppFlags.add('-I' + file("../soundtouch/include"))
-//        }
-//
-//        // Configures source set directory.
-//        sources {
-//            main {
-//                jni {
-//                    source {
-//                        srcDirs += ['jni']
-//                        include "../soundtouch/source/SoundTouch/AAFilter.cpp"
-//                        include "../soundtouch/source/SoundTouch/FIFOSampleBuffer.cpp"
-//                        include "../soundtouch/source/SoundTouch/FIRFilter.cpp"
-//                        include "../soundtouch/source/SoundTouch/cpu_detect_x86.cpp"
-//                        include "../soundtouch/source/SoundTouch/sse_optimized.cpp"
-//                        include "../soundtouch/source/SoundStretch/WavFile.cpp"
-//                        include "../soundtouch/source/SoundTouch/RateTransposer.cpp"
-//                        include "../soundtouch/source/SoundTouch/SoundTouch.cpp"
-//                        include "../soundtouch/source/SoundTouch/InterpolateCubic.cpp"
-//                        include "../soundtouch/source/SoundTouch/InterpolateLinear.cpp"
-//                        include "../soundtouch/source/SoundTouch/InterpolateShannon.cpp"
-//                        include "../soundtouch/source/SoundTouch/TDStretch.cpp"
-//                        include "../soundtouch/source/SoundTouch/BPMDetect.cpp"
-//                        include "../soundtouch/source/SoundTouch/PeakFinder.cpp"
-//                    }
-//                }
-//                jniLibs {
-//                    source {
-//                        srcDir "libs"
-//                    }
-//                }
-//                manifest {
-//                    source {
-//                        srcDirs += ['./']
-//                        include "AndroidManifest.xml"
-//                    }
-//                }
-//                java {
-//                    source {
-//                        srcDirs += ['src']
-//                    }
-//                }
-//                resources {
-//                    source {
-//                        srcDir "src"
-//                    }
-//                }
-//                res {
-//                    source {
-//                        srcDir "res"
-//                    }
-//                }
-//            }
-//        }
-//    }
-//
-//}
-
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 }
