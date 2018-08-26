@@ -53,12 +53,10 @@ public class _ImageView extends ImageView {
 
 	public _ImageView(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public _ImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public _ImageView(Context context, AttributeSet attrs, int defStyle) {

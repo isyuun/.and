@@ -115,7 +115,6 @@ class Download2 extends Download implements _Const {
 
 	public Download2(Handler h) {
 		super(h);
-		// TODO Auto-generated constructor stub
 		handler = h;
 	}
 

@@ -70,7 +70,6 @@ class Util2 extends Util {
 
 	public Util2(_Activity activity, Handler h) {
 		super(h);
-		// TODO Auto-generated constructor stub
 		this.activity = activity;
 	}
 

@@ -78,19 +78,16 @@ public class MusicVideoView extends android.widget.VideoView {
 
 	public MusicVideoView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
 		this.context = context;
 	}
 
 	public MusicVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		// TODO Auto-generated constructor stub
 		this.context = context;
 	}
 
 	public MusicVideoView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		this.context = context;
 	}
 

@@ -17,7 +17,7 @@ android {
      * 전체빌드에서오류난다...jni는 따로 빌드한다.
      */
     task ndkBuild(type: Exec) {
-        commandLine 'ndk-build.cmd', '-C', file('jni').absolutePath
+        commandLine project.android.ndkDirectory.absolutePath + '\\build\\ndk-build.cmd', '-C', file('jni').absolutePath
     }
 
     tasks.withType(JavaCompile) {

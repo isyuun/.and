@@ -48,7 +48,6 @@ public class _Util extends Util {
 
 	public _Util(Handler h) {
 		super(h);
-		// TODO Auto-generated constructor stub
 	}
 
 	protected void removeCallbacks(Runnable r) {

@@ -74,7 +74,6 @@ public class HtmlBubble {
 	}
 
 	public HtmlBubble() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

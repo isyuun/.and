@@ -121,12 +121,10 @@ public class SongRecorder4 extends SongRecorder1 {
 
 	public SongRecorder4(String songNumber) throws Exception {
 		super(songNumber);
-		// TODO Auto-generated constructor stub
 	}
 
 	public SongRecorder4(String songNumber, boolean compressed) throws Exception {
 		super(songNumber, compressed);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

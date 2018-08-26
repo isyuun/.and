@@ -63,7 +63,6 @@ public class GCM2IntentService extends IntentService {
 
 	public GCM2IntentService(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 	protected String getMethodName() {

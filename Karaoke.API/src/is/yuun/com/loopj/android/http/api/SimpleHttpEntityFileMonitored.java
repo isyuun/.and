@@ -106,7 +106,6 @@ public class SimpleHttpEntityFileMonitored {
 	};
 
 	public SimpleHttpEntityFileMonitored(HttpResponse response, File file, String[] allowedContentTypes) throws IOException {
-		// TODO Auto-generated constructor stub
 		reset();
 		this.response = response;
 		this.file = file;
@@ -114,7 +113,6 @@ public class SimpleHttpEntityFileMonitored {
 	}
 
 	public SimpleHttpEntityFileMonitored(HttpResponse response, File file, String[] allowedContentTypes, ProgressListener listener) throws IOException {
-		// TODO Auto-generated constructor stub
 		this(response, file, allowedContentTypes);
 		this.mProgressListener = listener;
 	}

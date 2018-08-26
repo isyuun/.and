@@ -72,7 +72,6 @@ class LyricsPlay4X extends LyricsPlay3X {
 
 	public LyricsPlay4X(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	private SongPlay song;

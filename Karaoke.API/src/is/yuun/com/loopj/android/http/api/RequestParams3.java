@@ -65,18 +65,15 @@ public class RequestParams3 extends RequestParams2 {
 
 	public RequestParams3() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public RequestParams3(final String params) {
 		super();
-		// TODO Auto-generated constructor stub
 		putParams(params);
 	}
 
 	public RequestParams3(final String params, File file) {
 		super();
-		// TODO Auto-generated constructor stub
 		putParams(params);
 		this.file = file;
 	}

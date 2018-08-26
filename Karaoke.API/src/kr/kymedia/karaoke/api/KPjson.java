@@ -90,7 +90,6 @@ public class KPjson extends AsyncHttpAgent implements _IKaraoke, JsonHttpRespons
 
 	public KPjson() {
 		super();
-		// TODO Auto-generated constructor stub
 		mLists = new ArrayList<KPItem>();
 	}
 
@@ -103,7 +102,6 @@ public class KPjson extends AsyncHttpAgent implements _IKaraoke, JsonHttpRespons
 	 * @param handler
 	 */
 	public KPjson(Handler handler) {
-		// TODO Auto-generated constructor stub
 		super();
 		mLists = new ArrayList<KPItem>();
 	}

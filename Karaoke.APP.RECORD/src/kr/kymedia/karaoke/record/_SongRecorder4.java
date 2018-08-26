@@ -82,7 +82,6 @@ class _SongRecorder4 extends SongRecorder implements ISongRecorder {
 	};
 
 	public _SongRecorder4(String path, boolean mCompressed) throws Exception {
-		// TODO Auto-generated constructor stub
 		mRecorderThread = new RecorderThread();
 		File file = new File(path);
 		mRecorderThread.setFileName(file);

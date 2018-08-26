@@ -57,7 +57,6 @@ public class _Download extends Download2 {
 
 	public _Download(Handler h) {
 		super(h);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

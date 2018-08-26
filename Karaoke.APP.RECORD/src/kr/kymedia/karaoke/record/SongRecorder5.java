@@ -57,12 +57,10 @@ public class SongRecorder5 extends SongRecorder2 {
 
 	public SongRecorder5(String name, boolean compressed) throws Exception {
 		super(name, compressed);
-		// TODO Auto-generated constructor stub
 	}
 
 	public SongRecorder5(String name, boolean compressed, CameraPreview2 preview)
 			throws Exception {
-		// TODO Auto-generated constructor stub
 		Log.e(__CLASSNAME__, getMethodName() + preview);
 
 		// Create an instance of Camera

@@ -73,7 +73,6 @@ class SongServiceFragment extends Fragment implements ISongService {
 
 	public SongServiceFragment() {
 		super();
-		// TODO Auto-generated constructor stub
 		Log.i(__CLASSNAME__, getMethodName());
 	}
 

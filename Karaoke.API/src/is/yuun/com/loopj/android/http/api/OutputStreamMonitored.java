@@ -73,7 +73,6 @@ public class OutputStreamMonitored extends FilterOutputStream {
 
 	public OutputStreamMonitored(OutputStream out) {
 		super(out);
-		// TODO Auto-generated constructor stub
 		reset();
 	}
 

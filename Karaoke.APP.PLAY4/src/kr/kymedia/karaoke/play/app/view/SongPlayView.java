@@ -78,7 +78,6 @@ public class SongPlayView extends LinearLayout implements ISongPlay, _SoundTouch
 	public SongPlayView(Context context) {
 		super(context);
 		Log.i(__CLASSNAME__, getMethodName() + type);
-		// TODO Auto-generated constructor stub
 		if (!isInEditMode()) {
 			init(type);
 		}
@@ -87,7 +86,6 @@ public class SongPlayView extends LinearLayout implements ISongPlay, _SoundTouch
 	public SongPlayView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		Log.i(__CLASSNAME__, getMethodName() + type);
-		// TODO Auto-generated constructor stub
 		if (!isInEditMode()) {
 			init(type);
 		}
@@ -97,7 +95,6 @@ public class SongPlayView extends LinearLayout implements ISongPlay, _SoundTouch
 	public SongPlayView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		Log.i(__CLASSNAME__, getMethodName() + type);
-		// TODO Auto-generated constructor stub
 		if (!isInEditMode()) {
 			init(type);
 		}

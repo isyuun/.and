@@ -61,7 +61,6 @@ public class KakaoLink2 extends KakaoLink {
 
 	protected KakaoLink2(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

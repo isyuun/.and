@@ -53,7 +53,6 @@ public class StoryLink2 extends StoryLink {
 
 	protected StoryLink2(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public static StoryLink2 getLink(Context context) {

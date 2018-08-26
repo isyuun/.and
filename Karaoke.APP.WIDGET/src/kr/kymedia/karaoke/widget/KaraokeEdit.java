@@ -82,19 +82,16 @@ public class KaraokeEdit extends RelativeLayout {
 
 	public KaraokeEdit(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		this.edit = new KaraokePath(context);
 	}
 
 	public KaraokeEdit(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		this.edit = new KaraokePath(context);
 	}
 
 	public KaraokeEdit(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 		this.edit = new KaraokePath(context);
 	}
 

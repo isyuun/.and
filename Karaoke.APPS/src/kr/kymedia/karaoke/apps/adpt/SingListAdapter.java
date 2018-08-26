@@ -70,7 +70,6 @@ public class SingListAdapter extends _BaseListAdapter {
 	public SingListAdapter(Context context, int resource, List<KPItem> items,
 			OnClickListener listener, IImageDownLoader imageDownLoader) {
 		super(context, resource, items, listener, imageDownLoader);
-		// TODO Auto-generated constructor stub
 		locale = context.getResources().getConfiguration().locale;
 	}
 

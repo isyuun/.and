@@ -84,7 +84,6 @@ public class ListDialogFragment extends DialogFragment implements OnItemClickLis
 
 	public ListDialogFragment() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	protected int getResource(String name, String defType) {

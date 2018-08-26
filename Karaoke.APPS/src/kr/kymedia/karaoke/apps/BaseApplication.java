@@ -108,7 +108,6 @@ class BaseApplication extends MultiDexApplication {
 	 * 
 	 */
 	public BaseApplication() {
-		// TODO Auto-generated constructor stub
 		__CLASSNAME__ = this.getClass().getSimpleName();
 	}
 

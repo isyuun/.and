@@ -78,7 +78,6 @@ public class SongService extends IntentService {
 	 */
 	public SongService(String name) {
 		super(name);
-		// TODO Auto-generated constructor stub
 	}
 
 	private Looper mServiceLooper;

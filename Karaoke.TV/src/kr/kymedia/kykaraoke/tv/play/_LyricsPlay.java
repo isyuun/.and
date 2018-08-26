@@ -48,7 +48,6 @@ public class _LyricsPlay extends LyricsPlay4X {
 
 	public _LyricsPlay(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 }

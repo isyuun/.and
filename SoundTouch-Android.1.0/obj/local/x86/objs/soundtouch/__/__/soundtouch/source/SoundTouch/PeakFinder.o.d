@@ -1,11 +1,11 @@
 C:/.prj/.and/SoundTouch-Android.1.0/obj/local/x86/objs/soundtouch/__/__/soundtouch/source/SoundTouch/PeakFinder.o: \
   C:/.prj/.and/SoundTouch-Android.1.0/jni/../../soundtouch/source/SoundTouch/PeakFinder.cpp \
-  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\math.h \
-  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config \
+  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\math.h \
+  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config \
   C:/.prj/.and/SoundTouch-Android.1.0/jni/../../soundtouch/source/SoundTouch/PeakFinder.h
 
-C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\math.h:
+C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\math.h:
 
-C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config:
+C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config:
 
 C:/.prj/.and/SoundTouch-Android.1.0/jni/../../soundtouch/source/SoundTouch/PeakFinder.h:

@@ -61,7 +61,6 @@ public class NotificationListAdapter extends _BaseListAdapter {
 	public NotificationListAdapter(Context context, int resource, List<KPItem> items,
 			OnClickListener listener, IImageDownLoader imageDownLoader) {
 		super(context, resource, items, listener, imageDownLoader);
-		// TODO Auto-generated constructor stub
 	}
 
 	class ViewHolder {

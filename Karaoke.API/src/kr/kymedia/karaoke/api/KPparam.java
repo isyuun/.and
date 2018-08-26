@@ -349,7 +349,6 @@ public class KPparam {
 	 * @see #getAdvertisingIdInfo()
 	 */
 	public KPparam(Context context, boolean adsID) {
-		// TODO Auto-generated constructor stub
 		mContext = context;
 
 		init(context, adsID);

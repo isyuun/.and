@@ -164,7 +164,6 @@ public class CameraPreview2 extends CameraPreview {
 	public CameraPreview2(Context context, int cameraId, LayoutMode mode) {
 		super(context, cameraId, mode);
 
-		// TODO Auto-generated constructor stub
 		Log.e(__CLASSNAME__, getMethodName());
 
 		addCamcorderProfile(cameraId);

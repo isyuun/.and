@@ -81,22 +81,18 @@ class PlayView4 extends PlayView3X implements ISongPlay.Listener {
 
 	public PlayView4(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView4(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView4(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView4(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	final static private int TIMER_RETRY = _Const.TIMER_MP3_RETRY;

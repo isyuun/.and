@@ -77,7 +77,6 @@ public class CheckableRelativeLayout extends RelativeLayout implements Checkable
 
 	public CheckableRelativeLayout(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		initialise(null);
 	}
 

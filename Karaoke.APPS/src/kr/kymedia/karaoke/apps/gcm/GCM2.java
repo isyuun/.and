@@ -94,7 +94,6 @@ public class GCM2 {
 	public GCM2(Context context) {
 		if (_IKaraoke.DEBUG) Log2.e(__CLASSNAME__, getMethodName());
 
-		// TODO Auto-generated constructor stub
 		this.context = context;
 
 		if (gcm == null) {

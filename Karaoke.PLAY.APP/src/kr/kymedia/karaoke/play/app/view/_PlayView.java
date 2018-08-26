@@ -51,18 +51,15 @@ public class _PlayView extends PlayViewFileDialogMulti {
 
 	public _PlayView(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		Log.w(__CLASSNAME__, toString());
 	}
 
 	public _PlayView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public _PlayView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

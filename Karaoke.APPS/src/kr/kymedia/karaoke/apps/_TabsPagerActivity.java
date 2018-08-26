@@ -53,7 +53,6 @@ public class _TabsPagerActivity extends TabsPagerActivity2 {
 
 	public _TabsPagerActivity() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

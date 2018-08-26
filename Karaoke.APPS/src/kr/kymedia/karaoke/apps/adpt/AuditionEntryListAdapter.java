@@ -67,7 +67,6 @@ public class AuditionEntryListAdapter extends _BaseListAdapter {
 	public AuditionEntryListAdapter(Context context, int resource, List<KPItem> items,
 	                                OnClickListener listener, IImageDownLoader imageDownLoader) {
 		super(context, resource, items, listener, imageDownLoader);
-		// TODO Auto-generated constructor stub
 	}
 
 	class ViewHolder {

@@ -69,7 +69,6 @@ class LyricsPlay3 extends LyricsPlay2 {
 
 	public LyricsPlay3(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

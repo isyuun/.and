@@ -70,7 +70,6 @@ public class FeelListAdapter extends _BaseListAdapter {
 	public FeelListAdapter(Context context, int resource, List<KPItem> items,
 			OnClickListener listener, IImageDownLoader imageDownLoader) {
 		super(context, resource, items, listener, imageDownLoader);
-		// TODO Auto-generated constructor stub
 	}
 
 	class ViewHolder {

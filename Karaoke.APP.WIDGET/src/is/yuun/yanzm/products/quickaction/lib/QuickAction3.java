@@ -56,17 +56,14 @@ public class QuickAction3 extends QuickAction2 {
 
 	public QuickAction3(View anchor) {
 		super(anchor);
-		// TODO Auto-generated constructor stub
 	}
 
 	public QuickAction3(View anchor, int layoutId, int layoutStyle, int itemLayoutId) {
 		super(anchor, layoutId, layoutStyle, itemLayoutId);
-		// TODO Auto-generated constructor stub
 	}
 
 	public QuickAction3(View anchor, int layoutId, int layoutStyle) {
 		super(anchor, layoutId, layoutStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	public ViewGroup getTrack() {

@@ -119,7 +119,6 @@ class SoundTouchPlay extends SongPlay implements ISongPlay, ISongPlay.Listener, 
 	private volatile boolean isPlaying = false;
 
 	public SoundTouchPlay(Context context) {
-		// TODO Auto-generated constructor stub
 		super();
 		Log.i(_toString(), getMethodName());
 		this.context = context;

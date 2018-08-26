@@ -70,22 +70,18 @@ class PlayView40 extends PlayView4 implements OnTouchListener {
 
 	public PlayView40(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView40(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView40(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView40(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

@@ -74,17 +74,14 @@ public class PlayViewTempo extends PlayViewPitch {
 
 	public PlayViewTempo(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayViewTempo(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayViewTempo(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	private TextView textTempo;

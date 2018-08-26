@@ -66,7 +66,6 @@ class LyricsPlay3X extends LyricsPlay3 {
 
 	public LyricsPlay3X(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

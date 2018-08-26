@@ -51,12 +51,10 @@ public class EnabledRadioGroup extends RadioGroup {
 
 	public EnabledRadioGroup(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public EnabledRadioGroup(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

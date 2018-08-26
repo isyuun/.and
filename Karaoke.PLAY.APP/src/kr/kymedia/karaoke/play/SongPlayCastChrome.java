@@ -139,7 +139,6 @@ public class SongPlayCastChrome extends SongPlayCast implements ISongPlayCast, I
 	public SongPlayCastChrome(Context context, String app_id) {
 		// super("SongPlayCastChrome");
 		super();
-		// TODO Auto-generated constructor stub
 		this.context = context;
 		this.app_id = app_id;
 

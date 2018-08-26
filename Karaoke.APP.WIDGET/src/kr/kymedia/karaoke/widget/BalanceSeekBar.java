@@ -65,18 +65,15 @@ public class BalanceSeekBar extends SeekBar implements SeekBar.OnSeekBarChangeLi
 
 	public BalanceSeekBar(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		super.setOnSeekBarChangeListener(this);
 	}
 
 	public BalanceSeekBar(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public BalanceSeekBar(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

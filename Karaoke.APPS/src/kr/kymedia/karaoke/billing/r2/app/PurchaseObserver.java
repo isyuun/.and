@@ -56,7 +56,6 @@ class PurchaseObserver extends kr.kymedia.karaoke.billing.PurchaseObserver {
 
 	public PurchaseObserver(Activity activity, Handler handler) {
 		super(activity, handler);
-		// TODO Auto-generated constructor stub
 		if (_IKaraoke.DEBUG) Log2.i(__CLASSNAME__, "PurchaseObserver(...)");
 
 		mPurchaseActivity = (PurchaseActivity) activity;

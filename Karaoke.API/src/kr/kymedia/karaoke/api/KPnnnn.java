@@ -518,7 +518,6 @@ public class KPnnnn extends KPjson {
 
 	public KPnnnn() {
 		super();
-		// TODO Auto-generated constructor stub
 		__CLASSNAME__ = this.getClass().getSimpleName();
 
 	}
@@ -571,7 +570,6 @@ public class KPnnnn extends KPjson {
 
 		this.mHandler = handler;
 
-		// TODO Auto-generated constructor stub
 		// if (_IKaraoke.DEBUG)Log.e(__CLASSNAME__, "mid:" + mid + ", passtype:" + passtype + ", passcnt:" + passcnt);
 		isQuerying = false;
 

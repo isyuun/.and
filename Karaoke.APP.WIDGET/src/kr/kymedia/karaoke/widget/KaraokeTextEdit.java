@@ -71,17 +71,14 @@ public class KaraokeTextEdit extends KaraokeText implements OnClickListener, OnL
 
 	public KaraokeTextEdit(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public KaraokeTextEdit(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public KaraokeTextEdit(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	@SuppressLint("NewApi")

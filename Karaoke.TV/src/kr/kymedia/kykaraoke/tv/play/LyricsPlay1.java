@@ -52,7 +52,6 @@ class LyricsPlay1 extends SurfaceView {
 
 	public LyricsPlay1(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		this.context = context;
 	}
 

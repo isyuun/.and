@@ -49,7 +49,6 @@ public class _BaseListFragment extends BaseListFragment2 {
 
 	public _BaseListFragment() {
 		super();
-		// TODO Auto-generated constructor stub
 		__CLASSNAME__ = this.getClass().getSimpleName();
 
 	}

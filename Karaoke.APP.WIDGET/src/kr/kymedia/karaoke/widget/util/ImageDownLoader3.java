@@ -114,7 +114,6 @@ public class ImageDownLoader3 implements ImageLoadingListener, IImageDownLoader 
 
 	public ImageDownLoader3() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void init(ImageLoaderConfiguration config) {
@@ -232,7 +231,6 @@ public class ImageDownLoader3 implements ImageLoadingListener, IImageDownLoader 
 
 	public ImageDownLoader3(Context context) {
 		super();
-		// TODO Auto-generated constructor stub
 		this.context = context;
 		initImageLoader(context);
 	}

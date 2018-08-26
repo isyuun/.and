@@ -72,22 +72,18 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 
 	public PlayView4X(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView4X(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView4X(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView4X(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		Log.e(_toString(), getMethodName() + ":" + type + ":" + isPitchTempo + ":" + song);
 		// setType(TYPE.SOUNDTOUCHPLAY);
 	}

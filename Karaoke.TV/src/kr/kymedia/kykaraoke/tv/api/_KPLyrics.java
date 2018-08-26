@@ -46,7 +46,6 @@ public class _KPLyrics extends KPLyricsX {
 
 	public _KPLyrics(_LyricsPlay LyricsPlay) {
 		super(LyricsPlay);
-		// TODO Auto-generated constructor stub
 	}
 
 }

@@ -344,8 +344,7 @@ public class RequestParams {
 
 		@Deprecated
 		public FileWrapper(File file, String contentType2) {
-			// TODO Auto-generated constructor stub
-		}
+			}
 
 		public String getFileName() {
 			if (fileName != null) {

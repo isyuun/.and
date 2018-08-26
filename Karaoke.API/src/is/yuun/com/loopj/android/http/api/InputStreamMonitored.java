@@ -75,7 +75,6 @@ public class InputStreamMonitored extends FilterInputStream {
 
 	protected InputStreamMonitored(InputStream in) {
 		super(in);
-		// TODO Auto-generated constructor stub
 		reset();
 	}
 
@@ -83,7 +82,6 @@ public class InputStreamMonitored extends FilterInputStream {
 
 	protected InputStreamMonitored(InputStream in, long length) {
 		this(in);
-		// TODO Auto-generated constructor stub
 		this.total = length;
 		m_stream = in;
 		setProgress(size, total);
@@ -91,7 +89,6 @@ public class InputStreamMonitored extends FilterInputStream {
 
 	protected InputStreamMonitored(InputStream in, long total, ProgressListener listener) {
 		this(in);
-		// TODO Auto-generated constructor stub
 		this.total = total;
 		m_stream = in;
 		mProgressListener = listener;

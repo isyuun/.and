@@ -54,7 +54,6 @@ public class LocalMp3Server extends NanoHTTPD {
 
 	public LocalMp3Server(String path) {
 		super(8089);
-		// TODO Auto-generated constructor stub
 		this.path = path;
 	}
 

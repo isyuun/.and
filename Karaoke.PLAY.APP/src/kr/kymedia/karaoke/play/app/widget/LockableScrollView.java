@@ -51,22 +51,18 @@ public class LockableScrollView extends ScrollView {
 
 	public LockableScrollView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
 	}
 
 	public LockableScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		// TODO Auto-generated constructor stub
 	}
 
 	public LockableScrollView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public LockableScrollView(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	// true if we can scroll (not locked)

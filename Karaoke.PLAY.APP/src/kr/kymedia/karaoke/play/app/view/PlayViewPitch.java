@@ -79,17 +79,14 @@ public class PlayViewPitch extends PlayViewValance2 {
 
 	public PlayViewPitch(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayViewPitch(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayViewPitch(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	private CheckBox checkPitch;

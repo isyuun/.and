@@ -118,7 +118,6 @@ class KPLyricsX extends KPLyrics {
 	 */
 	KPLyricsX(_LyricsPlay lyricsPlay) {
 		super(lyricsPlay);
-		// TODO Auto-generated constructor stub
 
 		metrics = getDisplayMetrics();
 

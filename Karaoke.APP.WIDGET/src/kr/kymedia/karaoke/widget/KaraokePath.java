@@ -70,17 +70,14 @@ public class KaraokePath extends EditText {
 
 	public KaraokePath(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	public KaraokePath(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public KaraokePath(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO Auto-generated constructor stub
 	}
 
 	boolean isAttached = false;

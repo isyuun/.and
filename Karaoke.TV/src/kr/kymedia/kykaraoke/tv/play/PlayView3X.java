@@ -68,22 +68,18 @@ class PlayView3X extends PlayView3 {
 
 	public PlayView3X(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 		super(context, attrs, defStyleAttr, defStyleRes);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView3X(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView3X(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 	}
 
 	public PlayView3X(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

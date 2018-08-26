@@ -94,7 +94,6 @@ public class FileAdapter extends ArrayAdapter<HashMap<String, Object>> {
 	public FileAdapter(Context context, ArrayList<HashMap<String, Object>> data, int resource,
 			String[] from, int[] to) {
 		super(context, resource, data);
-		// TODO Auto-generated constructor stub
 
 		mResource = mDropDownResource = resource;
 		mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

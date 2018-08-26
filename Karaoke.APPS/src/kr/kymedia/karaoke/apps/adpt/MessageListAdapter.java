@@ -74,7 +74,6 @@ public class MessageListAdapter extends _BaseListAdapter {
 	public MessageListAdapter(Context context, int resource[], List<KPItem> items,
 			OnClickListener listener, IImageDownLoader imageDownLoader) {
 		super(context, resource[0], items, listener, imageDownLoader);
-		// TODO Auto-generated constructor stub
 		for (int i = 0; i < resource.length; i++) {
 			mResouces.add(resource[i]);
 			mViews.add(layoutInflater.inflate(resource[i], null));
