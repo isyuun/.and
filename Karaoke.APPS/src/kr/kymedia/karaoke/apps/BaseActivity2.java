@@ -1,8 +1,8 @@
 /**
- * // * 2012 All rights (c)KYmedia Co.,Ltd. reserved.
+ * // * 2012 All rights (c)KYGroup Co.,Ltd. reserved.
  * <p/>
  * This software is the confidential and proprietary information
- * of (c)KYmedia Co.,Ltd. ("Confidential Information").
+ * of (c)KYGroup Co.,Ltd. ("Confidential Information").
  * <p/>
  * 프로젝트:	Karaoke.KPOP
  * 파일명:	base.java

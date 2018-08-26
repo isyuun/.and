@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 /**
- * 2016 All rights (c)KYmedia Co.,Ltd. reserved.
+ * 2016 All rights (c)KYGroup Co.,Ltd. reserved.
  * <p/>
  * This software is the confidential and proprietary information
- * of (c)KYmedia Co.,Ltd. ("Confidential Information").
+ * of (c)KYGroup Co.,Ltd. ("Confidential Information").
  * <p/>
  * project	:	.prj
  * filename	:	_NoticeFragment.java

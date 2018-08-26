@@ -196,7 +196,7 @@
     <string name="message_error_unknown">알수없는오류</string>
     <string name="message_error_close_beta_warging">[릴리스버전(CBT)이 아닙니다.]</string>
     <string name="message_error_close_debug_warging">[릴리스버전(DEBUG)이 아닙니다.]</string>
-    <string name="message_error_copyright_warging">(주)KYmedia 고유자산입니다.</string>
+    <string name="message_error_copyright_warging">(주)KYGroup 고유자산입니다.</string>
     <string name="message_error_illegal_warging">경고:임의적 개변조및 무단배포시 민/형법에 따라\n10년이하의 직역 또는 2천만원 이하의\n벌금형 및 손해배상이 청구됩니다.</string>
     <string name="message_error_killing_warging">(한마디로 아주 뒈진다!)</string>
     <string name="message_error_stb_info">셋탑정보 확인오류가 발생하였습니다.\n고객센터에 문의하시기 바랍니다.</string>

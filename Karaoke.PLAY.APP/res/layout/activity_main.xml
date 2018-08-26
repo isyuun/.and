@@ -29,7 +29,7 @@
             android:id="@+id/checkKYmedia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="KYmedia"
+            android:text="KYGroup"
             android:visibility="gone" />
 
         <kr.kymedia.karaoke.view.EnabledRadioGroup

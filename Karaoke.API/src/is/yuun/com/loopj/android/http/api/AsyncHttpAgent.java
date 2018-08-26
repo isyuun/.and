@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 /**
- * 2012 All rights (c)KYmedia Co.,Ltd. reserved.
+ * 2012 All rights (c)KYGroup Co.,Ltd. reserved.
  * 
  * This software is the confidential and proprietary information
- *  of (c)KYmedia Co.,Ltd. ("Confidential Information").
+ *  of (c)KYGroup Co.,Ltd. ("Confidential Information").
  * 
  * project	:	Karaoke.KPOP.LIB.LGE.SMARTPHONE
  * filename	:	AsyncHttpAgent.java

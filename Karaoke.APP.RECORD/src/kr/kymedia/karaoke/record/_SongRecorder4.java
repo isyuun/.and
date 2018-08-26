@@ -1,8 +1,8 @@
 /**
- * 2011 All rights (c)KYmedia Co.,Ltd. reserved.
+ * 2011 All rights (c)KYGroup Co.,Ltd. reserved.
  * 
  * This software is the confidential and proprietary information
- *  of (c)KYmedia Co.,Ltd. ("Confidential Information").
+ *  of (c)KYGroup Co.,Ltd. ("Confidential Information").
  * 
  * 프로젝트:	Karaoke.new
  * 파일명:	SongRecorder2.java	

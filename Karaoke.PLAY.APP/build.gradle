@@ -14,6 +14,7 @@ dependencies {
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:mediarouter-v7:27.1.1'
     implementation 'com.google.android.gms:play-services-cast:15.0.1'
+    implementation project(':AndroidJaudiotagger')
     implementation project(':AndroidSlidingUpPanel.library')
     implementation project(':Karaoke.APP.FILEEX')
     //debugimplementation project(path:':Karaoke.APP.FILEEX', configuration: 'debug')
