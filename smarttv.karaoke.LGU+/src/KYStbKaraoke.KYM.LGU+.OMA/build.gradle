@@ -14,7 +14,7 @@ dependencies {
     implementation project(':KYStbKaraoke.KYM')
     //debugimplementation project(path:':KYStbKaraoke.KYM', configuration: 'debug')
     //releaseimplementation project(path:':KYStbKaraoke.KYM', configuration: 'release')
-    //implementation fileTree(dir: 'libs', include: '*.jar')
+    //api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

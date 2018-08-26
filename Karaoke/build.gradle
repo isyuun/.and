@@ -10,8 +10,8 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    implementation 'com.google.android.gms:play-services-auth:9.4.0'
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation 'com.google.android.gms:play-services-auth:15.0.1'
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

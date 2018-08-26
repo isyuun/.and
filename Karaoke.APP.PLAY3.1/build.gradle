@@ -13,7 +13,7 @@ dependencies {
     implementation project(':Karaoke')
     //debugimplementation project(path:':Karaoke', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke', configuration: 'release')
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

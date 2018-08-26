@@ -10,12 +10,13 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:24.2.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation project(':FileExplorer.isyoon')
     implementation project(':Karaoke.APP')
     //debugimplementation project(path:':Karaoke.APP', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP', configuration: 'release')
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation project(':Karaoke')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

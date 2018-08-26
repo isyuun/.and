@@ -10,7 +10,7 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    implementation 'com.google.android.gms:play-services-base:9.4.0'
+    implementation 'com.google.android.gms:play-services-base:15.0.1'
     implementation project(':Karaoke')
     //debugimplementation project(path:':Karaoke', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke', configuration: 'release')
@@ -18,7 +18,7 @@ dependencies {
     implementation project(':RoundedImageView')
     //debugimplementation project(path:':RoundedImageView', configuration: 'debug')
     //releaseimplementation project(path:':RoundedImageView', configuration: 'release')
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

@@ -10,6 +10,10 @@
 apply plugin: 'com.android.library'
 
 dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    implementation 'com.android.support:gridlayout-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
     implementation project(':Karaoke')
     //debugimplementation project(path:':Karaoke', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke', configuration: 'release')
@@ -22,10 +26,13 @@ dependencies {
     implementation project(':Karaoke.APP.WIDGET')
     //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
+    implementation project(':Karaoke.APP.PLAY3.1')
+    //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
     implementation project(':Karaoke.APP.PLAY4')
     //debugimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'release')
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

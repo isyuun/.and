@@ -14,7 +14,7 @@ dependencies {
     implementation project(':Karaoke.APPS')
     //debugimplementation project(path:':Karaoke.APPS', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APPS', configuration: 'release')
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

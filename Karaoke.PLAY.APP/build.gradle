@@ -10,24 +10,28 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    implementation 'com.android.support:appcompat-v7:24.2.1'
-    implementation 'com.android.support:gridlayout-v7:24.2.1'
-    implementation 'com.android.support:mediarouter-v7:24.2.1'
-    implementation 'com.google.android.gms:play-services-cast:9.4.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:gridlayout-v7:27.1.1'
+    implementation 'com.android.support:mediarouter-v7:27.1.1'
+    implementation 'com.google.android.gms:play-services-cast:15.0.1'
     implementation project(':AndroidSlidingUpPanel.library')
-    implementation project(':FileExplorer.isyoon')
+    implementation project(':Karaoke.APP.FILEEX')
     //debugimplementation project(path:':Karaoke.APP.FILEEX', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.FILEEX', configuration: 'release')
     implementation project(':Karaoke.APP.WIDGET')
     //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
+    implementation project(':Karaoke.APP.PLAY3.1')
+    //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
     implementation project(':Karaoke.APP.PLAY4')
     //debugimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'release')
     implementation project(':Karaoke.APP')
     //debugimplementation project(path:':Karaoke.APP', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP', configuration: 'release')
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation project(':Karaoke')
+    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
