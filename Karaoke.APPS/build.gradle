@@ -10,6 +10,7 @@
 apply plugin: 'com.android.library'
 
 dependencies {
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.android.gms:play-services-gcm:9.4.0'
     implementation 'com.android.support:gridlayout-v7:24.2.1'
     implementation 'com.android.support:design:24.2.1'
@@ -51,8 +52,8 @@ android {
 
     publishNonDefault true
 
-    compileSdkVersion 23
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 27
+    //buildToolsVersion"27.0.3"
 
     useLibrary 'org.apache.http.legacy'
 

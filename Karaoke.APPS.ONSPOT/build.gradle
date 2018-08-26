@@ -10,7 +10,7 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation project(':Karaoke.APPS')
     //debugimplementation project(path:':Karaoke.APPS', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APPS', configuration: 'release')
@@ -28,8 +28,8 @@ android {
 
     publishNonDefault true
 
-    compileSdkVersion 23
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 27
+    //buildToolsVersion"27.0.3"
 
     defaultConfig {
         applicationId "kr.kymedia.karaoke.kpop.onspot"

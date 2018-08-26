@@ -7,11 +7,11 @@
 //        classpath 'com.android.tools.build:gradle:3.1.4'
 //    }
 //}
-
 apply plugin: 'com.android.library'
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 27
+    //buildToolsVersion"27.0.3"
 
     /**
      * 전체빌드에서오류난다...jni는 따로 빌드한다.
