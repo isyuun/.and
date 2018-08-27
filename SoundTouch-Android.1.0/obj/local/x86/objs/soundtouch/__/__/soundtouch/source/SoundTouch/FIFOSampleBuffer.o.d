@@ -1,47 +1,47 @@
 C:/.prj/.and/SoundTouch-Android.1.0/obj/local/x86/objs/soundtouch/__/__/soundtouch/source/SoundTouch/FIFOSampleBuffer.o: \
   C:/.prj/.and/SoundTouch-Android.1.0/jni/../../soundtouch/source/SoundTouch/FIFOSampleBuffer.cpp \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdlib.h \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdlib.h \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config \
   ../../soundtouch/source/../include\FIFOSampleBuffer.h \
   ../../soundtouch/source/../include/FIFOSamplePipe.h \
   ../../soundtouch/source/../include/STTypes.h \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdexcept \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\exception \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstddef \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdlib \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\type_traits \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iosfwd \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wchar.h \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string_view \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__string \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\algorithm \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\initializer_list \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstring \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\utility \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__tuple \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdint \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__debug \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\memory \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\typeinfo \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\new \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\limits \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iterator \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__functional_base \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\tuple \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cassert \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\atomic \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdio \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdio.h \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwchar \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwctype \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cctype \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\ctype.h \
-  C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wctype.h
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdexcept \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\exception \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstddef \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdlib \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\type_traits \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iosfwd \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wchar.h \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string_view \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__string \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\algorithm \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\initializer_list \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstring \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\utility \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__tuple \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdint \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__debug \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\memory \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\typeinfo \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\new \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\limits \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iterator \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__functional_base \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\tuple \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cassert \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\atomic \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdio \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdio.h \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwchar \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwctype \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cctype \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\ctype.h \
+  C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wctype.h
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdlib.h:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdlib.h:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config:
 
 ../../soundtouch/source/../include\FIFOSampleBuffer.h:
 
@@ -49,68 +49,68 @@ C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__config
 
 ../../soundtouch/source/../include/STTypes.h:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdexcept:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdexcept:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\exception:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\exception:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstddef:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstddef:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdlib:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdlib:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\type_traits:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\type_traits:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iosfwd:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iosfwd:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wchar.h:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wchar.h:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string_view:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\string_view:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__string:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__string:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\algorithm:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\algorithm:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\initializer_list:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\initializer_list:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstring:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstring:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\utility:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\utility:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__tuple:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__tuple:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdint:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdint:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__debug:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__debug:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\memory:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\memory:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\typeinfo:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\typeinfo:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\new:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\new:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\limits:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\limits:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iterator:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\iterator:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__functional_base:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\__functional_base:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\tuple:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\tuple:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cassert:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cassert:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\atomic:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\atomic:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdio:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cstdio:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdio.h:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\stdio.h:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwchar:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwchar:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwctype:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cwctype:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cctype:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\cctype:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\ctype.h:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\ctype.h:
 
-C:/android/sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wctype.h:
+C:/Users/isyuun/AppData/Local/Android/Sdk/ndk-bundle/build//../sources/cxx-stl/llvm-libc++/include\wctype.h:
