@@ -22,7 +22,7 @@ dependencies {
     implementation project(':Karaoke.APP.WIDGET')
     //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
-    implementation project(':Karaoke.APP.PLAY3.1')
+    implementation project(':Karaoke.APP.PLAY3')
     //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
     implementation project(':Karaoke.APP.PLAY4')

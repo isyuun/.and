@@ -15,7 +15,7 @@ dependencies {
     implementation project(':Karaoke')
     //debugimplementation project(path:':Karaoke', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke', configuration: 'release')
-    implementation project(':Karaoke.APP.PLAY3.1')
+    implementation project(':Karaoke.APP.PLAY3')
     //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
     api project(':SoundTouch-Android.1.0')

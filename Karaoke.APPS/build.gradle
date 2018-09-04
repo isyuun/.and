@@ -35,7 +35,7 @@ dependencies {
     api project(':Karaoke.APP.HTML')
     //debugimplementation project(path:':Karaoke.APP.HTML', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.HTML', configuration: 'release')
-    api project(':Karaoke.APP.PLAY3.1')
+    api project(':Karaoke.APP.PLAY3')
     //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
     api project(':Karaoke.APP.RECORD')
