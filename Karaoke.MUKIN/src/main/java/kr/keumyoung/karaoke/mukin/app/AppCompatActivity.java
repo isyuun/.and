@@ -3,7 +3,7 @@ package kr.keumyoung.karaoke.mukin.app;
 import android.accounts.Account;
 
 import kr.keumyoung.karaoke.mukin.BuildConfig;
-import kr.keumyoung.karaoke.mukin.util.EnvironmentUtils;
+import kr.kymedia.karaoke.util.EnvironmentUtils;
 
 public class AppCompatActivity extends android.support.v7.app.AppCompatActivity {
 	private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();

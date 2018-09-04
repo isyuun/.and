@@ -6,7 +6,7 @@ import android.support.annotation.IdRes;
 import android.view.View;
 
 import kr.keumyoung.karaoke.mukin.BuildConfig;
-import kr.keumyoung.karaoke.mukin.util.EnvironmentUtils;
+import kr.kymedia.karaoke.util.EnvironmentUtils;
 
 public class PreferenceFragment extends android.preference.PreferenceFragment {
     private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
