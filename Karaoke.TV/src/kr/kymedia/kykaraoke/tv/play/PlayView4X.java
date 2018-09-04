@@ -41,7 +41,7 @@ import kr.kymedia.karaoke.play.SongPlay;
 import kr.kymedia.karaoke.play._SoundTouchPlay;
 import kr.kymedia.karaoke.play.impl.ISongPlay;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.app._Thread;
 
 /**
@@ -88,7 +88,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 		// setType(TYPE.SOUNDTOUCHPLAY);
 	}
 
-	void setPlayView() {
+	protected void setPlayView() {
 	}
 
 	protected _SoundTouchPlay song;
@@ -175,7 +175,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 	@Override
 	protected void init() {
 
-		Log.i(_toString(), getMethodName() + ":" + type + ":" + isPitchTempo + ":" + song);
+		Log.wtf(_toString(), getMethodName() + ":" + type + ":" + isPitchTempo + ":" + song);
 
 		if (type == TYPE.SOUNDTOUCHPLAY) {
 			reset();
@@ -240,14 +240,14 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 
 		try {
 			if (type == TYPE.SOUNDTOUCHPLAY) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + path);
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + path);
 				this.path = path;
 
 				Log.i(_toString(), getMethodName() + "[getSongData]");
 				getSongData().release();
 				getSongData().load(path);
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + mp3);
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp3);
 
 				Log.i(_toString(), getMethodName() + "[init]");
 				init();
@@ -338,11 +338,11 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 				getSongData().release();
 
 				if (song != null/* && song.isPlaying() */) {
-					if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[STOP]" + isPlaying() + ":" + getPlayState());
+					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[STOP]" + isPlaying() + ":" + getPlayState());
 					song.stop();
 				}
 
-				if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + getPlayState());
+				if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + getPlayState());
 				reset();
 			} else {
 				super.stop();
@@ -653,7 +653,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 	@Override
 	public boolean isPlaying() {
 		if (type == TYPE.SOUNDTOUCHPLAY) {
-			//if (IKaraokeTV.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + song);
+			//if (BuildConfig.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + song);
 			if (song != null) {
 				return song.isPlaying();
 			} else {
@@ -692,7 +692,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 	@Override
 	public void setOnListener(Listener listener) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + (listener instanceof Listener) + ":" + listener);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + (listener instanceof Listener) + ":" + listener);
 		super.setOnListener(listener);
 		if (song != null) {
 			song.setOnListener(this);

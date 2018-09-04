@@ -32,8 +32,6 @@
 
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-
 /**
  * <pre>
  * 동영상사용여부

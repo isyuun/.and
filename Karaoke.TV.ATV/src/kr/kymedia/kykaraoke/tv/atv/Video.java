@@ -33,7 +33,7 @@
 package kr.kymedia.kykaraoke.tv.atv;
 
 import kr.kymedia.kykaraoke.tv._Video;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -68,14 +68,14 @@ class Video extends _Video {
 	public void startMainActivity(Bundle bundle) {
 
 		// super.startMainActivity(bundle);
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
 		Intent intent = new Intent(getApplicationContext(), __Main.class);
 		if (bundle != null) {
 			intent.putExtras(bundle);
 		}
 		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		// intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + intent + bundle);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + intent + bundle);
 		startActivity(intent);
 	}
 
@@ -86,29 +86,29 @@ class Video extends _Video {
 	@Override
 	public void start() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 		super.start();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void onResume() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onResume();
 	}
 
 	@Override
 	protected void onStop() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onStop();
 	}
 
 	@Override
 	protected void onPause() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onPause();
 	}
 

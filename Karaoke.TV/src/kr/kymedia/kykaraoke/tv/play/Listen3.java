@@ -42,7 +42,7 @@ import android.util.Log;
 import java.io.IOException;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -77,20 +77,20 @@ class Listen3 extends Listen2 {
 	private PLAY_ENGAGE m_state = PLAY_ENGAGE.PLAY_STOP;
 
 	public void setPlayState(PLAY_ENGAGE state) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + state);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + state);
 		this.m_state = state;
 	}
 
 	public PLAY_ENGAGE getPlayState() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + m_state);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + m_state);
 		return m_state;
 	}
 
 	public void open() throws Exception {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		open(this.url);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	String path;
@@ -98,15 +98,15 @@ class Listen3 extends Listen2 {
 	@Override
 	protected void setFile(String path) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		// super.setFile(path);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected boolean open(String path) throws Exception {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + path);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + path);
 		this.path = path;
 
 		try {
@@ -131,7 +131,7 @@ class Listen3 extends Listen2 {
 				@Override
 				public void onPrepared(MediaPlayer mp) {
 
-					if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + mp);
+					if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + mp);
 					if (mOnPreparedListener != null) {
 						mOnPreparedListener.onPrepared(mp);
 					}
@@ -144,7 +144,7 @@ class Listen3 extends Listen2 {
 				@Override
 				public void onCompletion(MediaPlayer mp) {
 
-					if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + mp);
+					if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + mp);
 					if (mOnCompletionListener != null) {
 						mOnCompletionListener.onCompletion(mp);
 					}
@@ -156,7 +156,7 @@ class Listen3 extends Listen2 {
 				@Override
 				public boolean onError(MediaPlayer mp, int what, int extra) {
 
-					if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+					if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
 					if (mOnErrorListener != null) {
 						mOnErrorListener.onError(mp, what, extra);
 					}

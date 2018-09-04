@@ -47,7 +47,7 @@ import android.widget.TextView;
 import java.util.Collections;
 
 import kr.kymedia.karaoke.widget.util.WidgetUtils;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.app._Thread;
 import kr.kymedia.kykaraoke.tv.data.ListenItem;
 import kr.kymedia.kykaraoke.tv.data.SongItem;
@@ -93,18 +93,18 @@ class Main2XXXX extends Main2XXX {
 	 */
 	@Override
 	protected void KP(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 		super.KP(msg);
 
 		int state = msg.getData().getInt("state");
 
 		switch (state) {
 			case COMPLETE_SONG_LIST: // 반주곡 리스트
-				//if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+				//if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 				postDelayed(showSingList, 100);
 				break;
 			case COMPLETE_LISTEN_LIST: // 녹음곡 리스트
-				//if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+				//if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 				postDelayed(showListenList, 100);
 				break;
 			case COMPLETE_CUSTOMER_LIST: // 공지사항 or 이용안내 리스트
@@ -129,9 +129,9 @@ class Main2XXXX extends Main2XXX {
 
 	@Override
 	protected void addViewSingMenu() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.addViewSingMenu();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	private void addKaraokeViewSongList() {
@@ -144,16 +144,16 @@ class Main2XXXX extends Main2XXX {
 	@Override
 	protected void addViewSingList() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		addKaraokeViewSongList();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	protected void addViewMyList() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		addKaraokeViewSongList();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	Drawable draNote;
@@ -162,7 +162,7 @@ class Main2XXXX extends Main2XXX {
 
 	@Override
 	protected void inflateListSong(int res) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		sing_list = (ViewGroup) layout_content.findViewById(res);
 		sing_list.setId(res);
@@ -198,7 +198,7 @@ class Main2XXXX extends Main2XXX {
 		int w = (layout_content.getWidth() / c);
 		int h = (layout_content.getHeight() / r);
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[WH]" + layout_content.getWidth() + "," + layout_content.getHeight() + "->" + +w + "," + h + ":" + r + "," + c);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[WH]" + layout_content.getWidth() + "," + layout_content.getHeight() + "->" + +w + "," + h + ":" + r + "," + c);
 
 		for (SingLine line : sing_line) {
 			if (line.layout instanceof GridLayout) {
@@ -230,12 +230,12 @@ class Main2XXXX extends Main2XXX {
 			line.layout.setPressed(false);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	public void displayMenuSing(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 
 		if (remote.m_iState == STATE_SING_MENU) {
 			if (keyID == REMOTE_LEFT || keyID == REMOTE_RIGHT) {
@@ -262,15 +262,15 @@ class Main2XXXX extends Main2XXX {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 	}
 
 	TextView txtPage;
 
 	@Override
 	protected void setPageTextSongList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + remote.isGenre());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewSongListPage + "/" + m_iTotalSongListPage);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewSongListPage + "/" + m_iTotalSongListPage);
 		try {
 			int count = 6;
 
@@ -289,14 +289,14 @@ class Main2XXXX extends Main2XXX {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + remote.isGenre());
 	}
 
 	@Override
 	protected void resetSongList() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.resetSongList();
 		for (SingLine line : sing_line) {
 			switch (remote.m_iMenuSingFocus) {
@@ -316,7 +316,7 @@ class Main2XXXX extends Main2XXX {
 			line.txt_title.setText("");
 			line.txt_singer.setText("");
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	/**
@@ -325,8 +325,8 @@ class Main2XXXX extends Main2XXX {
 	 * </pre>
 	 */
 	protected void unselectListenList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
 
 		for (ListenLine line : listen_line) {
 			if (line.img_focus != null) {
@@ -338,12 +338,12 @@ class Main2XXXX extends Main2XXX {
 			//}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
 	}
 
 	private void selectListenList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
 
 		if (remote.m_iListenListFocusY > 0) {
 			int focus = remote.m_iListenListFocusX + ((remote.m_iListenListFocusY - 1) * 4) - 1;
@@ -360,7 +360,7 @@ class Main2XXXX extends Main2XXX {
 			unselectListenList();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
@@ -378,7 +378,7 @@ class Main2XXXX extends Main2XXX {
 	};
 
 	private void setSongListIcons() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		int index = 0;
 		for (SingLine line : sing_line) {
@@ -431,7 +431,7 @@ class Main2XXXX extends Main2XXX {
 			}
 			index++;
 		}
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	private final Runnable moveSongListLines = new Runnable() {
@@ -443,7 +443,7 @@ class Main2XXXX extends Main2XXX {
 	};
 
 	private void moveSongListLines() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
 
 		int index = 0;
 		int idx = 0;
@@ -503,7 +503,7 @@ class Main2XXXX extends Main2XXX {
 					item = mSongItems.get(index);
 				}
 
-				if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + index + "-" + item);
+				if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + index + "-" + item);
 
 				if (item != null) {
 					line.layout.setVisibility(View.VISIBLE);
@@ -532,20 +532,20 @@ class Main2XXXX extends Main2XXX {
 
 				idx++;
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 
 		m_iSongItemCount = idx;
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
 	}
 
 	@Override
 	public void moveSingListPage() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
 		moveSongListPage();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
 	}
 
 	/**
@@ -553,15 +553,15 @@ class Main2XXXX extends Main2XXX {
 	 */
 	@Override
 	public void moveMyListPage() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
 		moveSongListPage();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
 	}
 
 	private void moveSongListPage() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.isGenre());
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "moveSongListPage >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "moveSongListPage >");
 
 		setPageTextSongList();
 
@@ -577,44 +577,44 @@ class Main2XXXX extends Main2XXX {
 
 		//showSingList();
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "moveSongListPage <");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "moveSongListPage <");
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.isGenre());
 	}
 
 	@Override
 	public void displayDetailSong(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 
 		super.displayDetailSong(keyID);
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 	}
 
 	@Override
 	public void displayListSing(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 
 		displayListSong(keyID);
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 	}
 
 	@Override
 	public void displayListMy(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 
 		displayListSong(keyID);
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 	}
 
 	protected void displayListSong(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), getMethodName() + layoutList);
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSongListPage + "/toPage=" + m_iTotalSongListPage);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSongListPage + "/toPage=" + m_iTotalSongListPage);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), getMethodName() + layoutList);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSongListPage + "/toPage=" + m_iTotalSongListPage);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSongListPage + "/toPage=" + m_iTotalSongListPage);
 
 		if (mSongItems == null || mSongItems.size() == 0) {
 			Log.wtf(_toString(), "displayListSong()" + "[NO]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
@@ -703,7 +703,7 @@ class Main2XXXX extends Main2XXX {
 
 		if (keyID == REMOTE_RIGHT) {
 			if (m_iCurrentViewSongListPage < m_iTotalSongListPage) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "next");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "next");
 				remote.m_iSongListFocus = 1;
 				//인기장르
 				if (remote.m_iMenuSingFocus == 3) {
@@ -745,7 +745,7 @@ class Main2XXXX extends Main2XXX {
 			}
 		} else if (keyID == REMOTE_LEFT) {
 			if (m_iCurrentViewSongListPage > 1) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "prev");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "prev");
 				remote.m_iSongListFocus = 1;
 				//인기장르
 				if (remote.m_iMenuSingFocus == 3) {
@@ -797,7 +797,7 @@ class Main2XXXX extends Main2XXX {
 
 		setListBackground(getMethodName());
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.isGenre());
 	}
 
 	/**
@@ -807,10 +807,10 @@ class Main2XXXX extends Main2XXX {
 	 */
 	@Override
 	protected void unselectSongList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
 		super.unselectSongList();
 
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + sing_list);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + sing_list);
 
 		for (SingLine line : sing_line) {
 			line.layout.setSelected(false);
@@ -820,11 +820,11 @@ class Main2XXXX extends Main2XXX {
 			//}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
 	}
 
 	private void selectSongList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]");
 
 		if (remote.m_iSongListFocus > 0) {
 			int index = remote.m_iSongListFocus - 1;
@@ -839,7 +839,7 @@ class Main2XXXX extends Main2XXX {
 			unselectSongList();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]");
 	}
 
 	protected void hideListArrows() {
@@ -980,12 +980,12 @@ class Main2XXXX extends Main2XXX {
 			hideListArrows();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + method + ":" + remote.getState() + ":" + remote.m_iMenuMainFocus + ":" + list + ":" + count);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + method + ":" + remote.getState() + ":" + remote.m_iMenuMainFocus + ":" + list + ":" + count);
 	}
 
 	@Override
 	public void displayListCustomer(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
 
 		if (m_iEnterCustomerMenu == CUSTOMER_ENTER_KEY && (mCustomerItems == null || mCustomerItems.size() == 0)) {
 			Log.wtf(_toString(), "displayListCustomer()" + "[NO]" + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
@@ -1011,7 +1011,7 @@ class Main2XXXX extends Main2XXX {
 	 */
 	@Override
 	protected int setSelectedOkCancel(final int ok, final int cancel, final int val, final int keyID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + val + ":" + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + val + ":" + REMOTE_STATE.get(keyID));
 
 		int ret = val;
 
@@ -1047,7 +1047,7 @@ class Main2XXXX extends Main2XXX {
 	 */
 	@Override
 	protected int setSelectedOkBackCancel(final int ok, final int back, final int cancel, final int val, final int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + val + ":" + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + val + ":" + REMOTE_STATE.get(keyID));
 
 		int ret = val;
 
@@ -1102,69 +1102,69 @@ class Main2XXXX extends Main2XXX {
 	protected void ShowMessageExit(int state) {
 		popup_type = POPUP_EXIT;
 		super.ShowMessageExit(state);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
 	public void ShowMessageAlert(String message) {
 		popup_type = POPUP_NONE;
 		super.ShowMessageAlert(message);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
 	protected void ShowMessageCommon(int close, String title, String message) {
 		popup_type = POPUP_NONE;
 		super.ShowMessageCommon(close, title, message);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
 	protected void ShowMessageNotResponse(String title, String message) {
 		popup_type = POPUP_NONE;
 		super.ShowMessageNotResponse(title, message);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
 	public void ShowMessageOk(int type, String title, String message) {
 		popup_type = POPUP_NONE;
 		super.ShowMessageOk(type, title, message);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
 	protected void ShowMessageOkCancel(String title, String message) {
 		popup_type = POPUP_NONE;
 		super.ShowMessageOkCancel(title, message);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	//@Override
 	//protected void HideMessageCommon() {
 	//	super.HideMessageCommon();
-	//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+	//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	//}
 	//
 	//@Override
 	//public void HideMessageOk() {
 	//	popup_type = POPUP_NONE;
 	//	super.HideMessageOk();
-	//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+	//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	//}
 	//
 	//@Override
 	//protected void HideMessageOkCancel() {
 	//	popup_type = POPUP_NONE;
 	//	super.HideMessageOkCancel();
-	//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+	//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	//}
 
 	@Override
 	protected void exitPopups() {
 		popup_type = POPUP_NONE;
 		super.exitPopups();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "onKeyDown()" + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
@@ -1187,12 +1187,12 @@ class Main2XXXX extends Main2XXX {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "onKeyDown()" + REMOTE_STATE.get(keyID) + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "onKeyDown()" + REMOTE_STATE.get(keyID) + ":popup_type:" + popup_type + ":m_bIsExit:" + m_bIsExit);
 	}
 
 	@Override
 	public void setSelectedPPXInfoOkCancel(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		super.setSelectedPPXInfoOkCancel(keyID);
 
@@ -1201,7 +1201,7 @@ class Main2XXXX extends Main2XXX {
 
 	@Override
 	public void resetPPMNotice() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 
 		ImageView imgNarrowUp = (ImageView) findViewById(R.id.img_message_ticket_narrow_up);
 		imgNarrowUp.setImageResource(R.drawable.ticket_popup_narrow_up_off);
@@ -1218,7 +1218,7 @@ class Main2XXXX extends Main2XXX {
 
 	@Override
 	public void setSelectedPPMNotice(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		switch (keyID) {
 			case REMOTE_UP:
@@ -1249,7 +1249,7 @@ class Main2XXXX extends Main2XXX {
 
 		resetPPMNotice();
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + m_iTicketMessageFocusY + ":" + m_iTicketMessageFocusX);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + m_iTicketMessageFocusY + ":" + m_iTicketMessageFocusX);
 
 		try {
 			switch (m_iTicketMessageFocusY) {
@@ -1266,13 +1266,13 @@ class Main2XXXX extends Main2XXX {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	@Override
 	public void resetPPXPass() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 
 		LinearLayout layoutPass01 = (LinearLayout) findViewById(R.id.layout_ticket_pass_01);
 		layoutPass01.setBackgroundResource(R.drawable.ticket_popup_pass);
@@ -1322,7 +1322,7 @@ class Main2XXXX extends Main2XXX {
 
 	@Override
 	public void displayPPXPass(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		switch (keyID) {
 			case REMOTE_UP:
@@ -1365,7 +1365,7 @@ class Main2XXXX extends Main2XXX {
 
 		resetPPXPass();
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + m_iTicketMessageFocusY + ":" + m_iTicketMessageFocusX);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + m_iTicketMessageFocusY + ":" + m_iTicketMessageFocusX);
 
 		try {
 			switch (m_iTicketMessageFocusY) {
@@ -1409,14 +1409,14 @@ class Main2XXXX extends Main2XXX {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	@Override
 	protected void setPageTextListenList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + remote.isGenre());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewListenListPage + "/" + m_iTotalListenListPage);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewListenListPage + "/" + m_iTotalListenListPage);
 		try {
 			m_iListenItemCount = (m_iCurrentListenListPage - 1) * 8;
 
@@ -1446,21 +1446,21 @@ class Main2XXXX extends Main2XXX {
 			}
 
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + remote.isGenre());
 	}
 
 	@Override
 	protected void addViewListenList() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
 		addView(layout_content, R.layout.listen_list3, R.id.listen_list);
 		inflateListListen(R.id.listen_list);
 	}
 
 	@Override
 	protected void inflateListListen(int res) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		listen_list = (ViewGroup) layout_content.findViewById(res);
 		listen_list.setId(res);
@@ -1486,7 +1486,7 @@ class Main2XXXX extends Main2XXX {
 		int w = (layout_content.getWidth() / c);
 		int h = (layout_content.getHeight() / r);
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[WH]" + layout_content.getWidth() + "," + layout_content.getHeight() + "->" + +w + "," + h + ":" + r + "," + c);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[WH]" + layout_content.getWidth() + "," + layout_content.getHeight() + "->" + +w + "," + h + ":" + r + "," + c);
 
 		for (final ListenLine line : listen_line) {
 			if (line.layout instanceof GridLayout) {
@@ -1521,12 +1521,12 @@ class Main2XXXX extends Main2XXX {
 		//	}
 		//}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void resetListenList() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.resetListenList();
 
 		for (ListenLine line : listen_line) {
@@ -1546,20 +1546,20 @@ class Main2XXXX extends Main2XXX {
 			// 등록일
 			line.txt_listen_day.setText("");
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	public void clickListListen() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.clickListListen();
 	}
 
 	@Override
 	public void displayListListen(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[BF]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[BF]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
 
 		if (mListenItems == null || mListenItems.size() == 0) {
 			Log.wtf(_toString(), "displayListListen()" + "[NO]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
@@ -1600,7 +1600,7 @@ class Main2XXXX extends Main2XXX {
 		if (keyID == REMOTE_RIGHT) {
 			if (remote.m_iListenListFocusX == 5) {
 				if (m_iCurrentViewListenListPage < m_iTotalListenListPage) {
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "next");
+					if (BuildConfig.DEBUG) Log.i(_toString(), "next");
 					remote.m_iListenListFocusX = 1;
 
 					m_iCurrentListenListPage++;
@@ -1610,14 +1610,14 @@ class Main2XXXX extends Main2XXX {
 					if (m_iCurrentViewListenListPage % 10 == 1) {
 						m_iRequestPage++;
 						m_iCurrentListenListPage = 1;
-						// if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+						// if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 						mListenListPage = m_iCurrentListenListPage;
 						KP(request, OP, M1, M2);
 					}
 					// 븅신아왜막았나맞춰봐
 					// else
 					// {
-					// // if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[MV]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+					// // if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[MV]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 					// // moveListenListPage();
 					// }
 				} else {
@@ -1630,14 +1630,14 @@ class Main2XXXX extends Main2XXX {
 
 					// 이전 Request했던 페이지와 다른 데이터(새로받음)이면 KP 새로 요청
 					if (temp != m_iRequestPage && m_iTotalListenListPage > 1) {
-						// if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+						// if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 						mListenListPage = m_iCurrentListenListPage;
 						KP(request, OP, M1, M2);
 					}
 					// 븅신아왜막았나맞춰봐
 					// else
 					// {
-					// // if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[MV]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+					// // if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[MV]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 					// // moveListenListPage();
 					// }
 				}
@@ -1645,7 +1645,7 @@ class Main2XXXX extends Main2XXX {
 		} else if (keyID == REMOTE_LEFT) {
 			if (remote.m_iListenListFocusX == 0) {
 				if (m_iCurrentViewListenListPage > 1) {
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "prev");
+					if (BuildConfig.DEBUG) Log.i(_toString(), "prev");
 
 					remote.m_iListenListFocusX = 4;
 
@@ -1657,21 +1657,21 @@ class Main2XXXX extends Main2XXX {
 						m_iRequestPage--;
 						m_iCurrentListenListPage = 10;
 
-						// if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+						// if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 						mListenListPage = m_iCurrentListenListPage;
 						KP(request, OP, M1, M2);
 					}
 					// 븅신아왜막았나맞춰봐
 					// else
 					// {
-					// // if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[MV]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+					// // if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[MV]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 					// // moveListenListPage();
 					// }
 					// 1페이지에서 LEFT키 입력 : 마지막 페이지로 이동
 				} else {
 					if (m_iTotalListenListPage > 1) {
 						// 최소한 1 페이지 이상 있을 때
-						if (IKaraokeTV.DEBUG) Log.i(_toString(), "GO Last Page");
+						if (BuildConfig.DEBUG) Log.i(_toString(), "GO Last Page");
 
 						remote.m_iListenListFocusX = 4;
 
@@ -1689,7 +1689,7 @@ class Main2XXXX extends Main2XXX {
 
 							// 이전 Request했던 페이지와 다른 데이터(새로받음)이면 KP 새로 요청
 							if (temp != m_iRequestPage) {
-								// if (IKaraokeTV.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
+								// if (BuildConfig.DEBUG) _LOG.wtf(_toString(), getMethodName() + "[KP]" + REMOTE_STATE.get(keyID) + ":" + m_iCurrentViewListenListPage + "," + m_iCurrentListenListPage + "," + m_iRequestPage);
 								mListenListPage = m_iCurrentListenListPage;
 								KP(request, OP, M1, M2);
 							}
@@ -1702,12 +1702,12 @@ class Main2XXXX extends Main2XXX {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[AF]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[AF]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
 
 		setPageTextListenList();
 
 		if (mListenListPage != m_iCurrentListenListPage) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[UP]" + REMOTE_STATE.get(keyID) + (mListenListPage != m_iCurrentListenListPage) + ":" + mListenListPage + ":" + m_iCurrentListenListPage);
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[UP]" + REMOTE_STATE.get(keyID) + (mListenListPage != m_iCurrentListenListPage) + ":" + mListenListPage + ":" + m_iCurrentListenListPage);
 			startListenListPage();
 		}
 
@@ -1719,16 +1719,16 @@ class Main2XXXX extends Main2XXX {
 
 		setListBackground(getMethodName());
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY);
 	}
 
 	@Override
 	protected void startListenListPage() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		postDelayed(startListenListPage, 200);
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	private final Runnable startListenListPage = new Runnable() {
@@ -1768,7 +1768,7 @@ class Main2XXXX extends Main2XXX {
 	};
 
 	public void moveListenListPage() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		startLoading(getMethodName(), LOADING_SHORT);
 
@@ -1784,7 +1784,7 @@ class Main2XXXX extends Main2XXX {
 
 		stopLoading(getMethodName());
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	private Runnable hideSingList = new Runnable() {
@@ -1800,7 +1800,7 @@ class Main2XXXX extends Main2XXX {
 				sing_list.setVisibility(View.INVISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1817,7 +1817,7 @@ class Main2XXXX extends Main2XXX {
 				sing_list.setVisibility(View.VISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1834,7 +1834,7 @@ class Main2XXXX extends Main2XXX {
 				line.layout.setVisibility(View.INVISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1851,7 +1851,7 @@ class Main2XXXX extends Main2XXX {
 				line.layout.setVisibility(View.VISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1868,7 +1868,7 @@ class Main2XXXX extends Main2XXX {
 				listen_list.setVisibility(View.INVISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1885,7 +1885,7 @@ class Main2XXXX extends Main2XXX {
 				listen_list.setVisibility(View.VISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1902,7 +1902,7 @@ class Main2XXXX extends Main2XXX {
 				line.layout.setVisibility(View.INVISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1919,7 +1919,7 @@ class Main2XXXX extends Main2XXX {
 				line.layout.setVisibility(View.VISIBLE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1934,7 +1934,7 @@ class Main2XXXX extends Main2XXX {
 	int mListenListPage = 0;
 
 	protected void moveListenListLines() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		int index = 0;
 		int i = 0;
@@ -1953,7 +1953,7 @@ class Main2XXXX extends Main2XXX {
 					item = mListenItems.get(index);
 				}
 
-				//if (IKaraokeTV.DEBUG) _LOG.i(_toString(), getMethodName() + idx + ":" + index + "-" + item);
+				//if (BuildConfig.DEBUG) _LOG.i(_toString(), getMethodName() + idx + ":" + index + "-" + item);
 
 				final int idx = i;
 
@@ -2010,7 +2010,7 @@ class Main2XXXX extends Main2XXX {
 				}
 
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 
 			i++;
@@ -2019,13 +2019,13 @@ class Main2XXXX extends Main2XXX {
 		// m_iSetListenItemCount = idx;
 		m_iListenItemCount = i;
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	private void putURLImage(ImageView v, String url, int idx) {
 		int h = v.getHeight();
 		int w = v.getWidth();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + idx + ":" + w + "," + h + ":" + v + url);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + idx + ":" + w + "," + h + ":" + v + url);
 
 		putURLImage(v, url, false);
 	}
@@ -2050,14 +2050,14 @@ class Main2XXXX extends Main2XXX {
 			try {
 				final ListenItem item = mListenItems.get(index);
 
-				//if (IKaraokeTV.DEBUG) _LOG.i(_toString(), getMethodName() + idx + ":" + index + "-" + item);
+				//if (BuildConfig.DEBUG) _LOG.i(_toString(), getMethodName() + idx + ":" + index + "-" + item);
 
 				final int idx = i;
 
 				//프로필
 				putURLImage(line.img_listen_profile, item.url_profile, idx);
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 
 			i++;

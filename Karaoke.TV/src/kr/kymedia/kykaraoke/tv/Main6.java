@@ -47,13 +47,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.TimeZone;
 
 import kr.kymedia.karaoke.util.CPUMEM;
 import kr.kymedia.karaoke.util.CPUMEM.CPUMEMListener;
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.karaoke.widget.util.WidgetUtils;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  *
@@ -132,7 +131,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	public void displayDetailSong(int keyID) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iSongListDetailFocus);
 
 		if (keyID == REMOTE_NONE) {
 			if (remote != null) {
@@ -145,7 +144,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 		}
 
 		super.displayDetailSong(keyID);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.m_iSongListDetailFocus);
 
 	}
 
@@ -155,7 +154,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * </pre>
 	 */
 	private void saveSongListDetail() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
 		m_iSongListDetailFocusSave = remote.m_iSongListDetailFocus;
 		// if (remote != null) {
@@ -181,7 +180,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * </pre>
 	 */
 	private void moveSongListDown() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
 		// 반주곡예약인경우한줄아래로
 		if (m_bSongListDetailFocusSave && m_iSongListDetailFocusSave == 2) {
@@ -205,7 +204,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	public void exitDetailSong() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
 		saveSongListDetail();
 
@@ -217,7 +216,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	public void exitDetailSearch() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
 		saveSongListDetail();
 
@@ -234,7 +233,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	public void exitListSong() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 		super.exitListSong();
 		m_iSongListDetailFocusSave = 0;
 	}
@@ -247,7 +246,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	public void exitListMy() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 		super.exitListMy();
 		m_iSongListDetailFocusSave = 0;
 	}
@@ -260,7 +259,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	public void exitListSearch() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 		super.exitListSearch();
 		m_iSongListDetailFocusSave = 0;
 	}
@@ -435,7 +434,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 		}
 
 		// ​테스트용으로 할당한 키목록(BTV제외)
-		if (IKaraokeTV.DEBUG || !isAPKNAMEBTV()) {
+		if (BuildConfig.DEBUG || !isAPKNAMEBTV()) {
 			switch (keyCode) {
 				case KeyEvent.KEYCODE_NUMPAD_0:
 					keyCode = KeyEvent.KEYCODE_0;
@@ -531,14 +530,14 @@ class Main6 extends Main5 implements CPUMEMListener {
 	}
 
 	private void clearList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		song_ids.clear();
 		delPlayList.clear();
 		displayEngageSong();
 	}
 
 	private void clearLast() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		if (song_ids.size() > 0) {
 			song_ids.remove(song_ids.size() - 1);
 			if (song_ids.size() == 0) {
@@ -551,7 +550,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	CPUMEM mCPUMEM = null;
 
 	private void showCPUMEM() {
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName());
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName());
 
 		try {
 			String text = "";
@@ -572,7 +571,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 				}
 			}
 
-			// if (IKaraokeTV.DEBUG) _LOG.w(_toString(), getMethodName() + lines);
+			// if (BuildConfig.DEBUG) _LOG.w(_toString(), getMethodName() + lines);
 
 			TextView info = (TextView) findViewById(R.id.txt_cpu_mem_info);
 
@@ -585,12 +584,12 @@ class Main6 extends Main5 implements CPUMEMListener {
 			}
 
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void hideCPUMEM() {
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName());
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName());
 
 		TextView info = (TextView) findViewById(R.id.txt_cpu_mem_info);
 		if (info != null) {
@@ -622,7 +621,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * </pre>
 	 */
 	private void startCPUMEM() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 
 		try {
 			post(new Runnable() {
@@ -634,31 +633,31 @@ class Main6 extends Main5 implements CPUMEMListener {
 					ActivityManager mgr = (ActivityManager) context.getSystemService(ACTIVITY_SERVICE);
 					List<RunningAppProcessInfo> processes = mgr.getRunningAppProcesses();
 
-					// if (IKaraokeTV.DEBUG) _LOG.d("DEBUG", "Running processes:");
+					// if (BuildConfig.DEBUG) _LOG.d("DEBUG", "Running processes:");
 					for (RunningAppProcessInfo p : processes) {
 						if (getPackageName().equalsIgnoreCase(p.processName)) {
 							Main6.this.pid = p.pid;
 
-							if (IKaraokeTV.DEBUG) Log.w(_toString(), "  process name: " + p.processName);
-							if (IKaraokeTV.DEBUG) Log.w(_toString(), "     pid: " + p.pid);
+							if (BuildConfig.DEBUG) Log.w(_toString(), "  process name: " + p.processName);
+							if (BuildConfig.DEBUG) Log.w(_toString(), "     pid: " + p.pid);
 
 							int[] pids = new int[1];
 							pids[0] = p.pid;
 							android.os.Debug.MemoryInfo[] MI = mgr.getProcessMemoryInfo(pids);
 
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     dalvik private: " + MI[0].dalvikPrivateDirty);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     dalvik shared: " + MI[0].dalvikSharedDirty);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     dalvik pss: " + MI[0].dalvikPss);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     native private: " + MI[0].nativePrivateDirty);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     native shared: " + MI[0].nativeSharedDirty);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     native pss: " + MI[0].nativePss);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     other private: " + MI[0].otherPrivateDirty);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     other shared: " + MI[0].otherSharedDirty);
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     other pss: " + MI[0].otherPss);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     dalvik private: " + MI[0].dalvikPrivateDirty);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     dalvik shared: " + MI[0].dalvikSharedDirty);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     dalvik pss: " + MI[0].dalvikPss);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     native private: " + MI[0].nativePrivateDirty);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     native shared: " + MI[0].nativeSharedDirty);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     native pss: " + MI[0].nativePss);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     other private: " + MI[0].otherPrivateDirty);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     other shared: " + MI[0].otherSharedDirty);
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     other pss: " + MI[0].otherPss);
 
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     total private dirty memory (KB): " + MI[0].getTotalPrivateDirty());
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     total shared (KB): " + MI[0].getTotalSharedDirty());
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "     total pss: " + MI[0].getTotalPss());
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     total private dirty memory (KB): " + MI[0].getTotalPrivateDirty());
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     total shared (KB): " + MI[0].getTotalSharedDirty());
+							if (BuildConfig.DEBUG) Log.i(_toString(), "     total pss: " + MI[0].getTotalPss());
 
 							break;
 						}
@@ -671,7 +670,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 				}
 			});
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -681,7 +680,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * </pre>
 	 */
 	private void stopCPUMEM() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 
 		if (mCPUMEM != null) {
 			mCPUMEM.stop();
@@ -729,13 +728,13 @@ class Main6 extends Main5 implements CPUMEMListener {
 			verionName = p_apkversionname.toUpperCase();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "isRelease()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "isRelease()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
 		return ret;
 	}
 
 	private boolean isDebug() {
-		boolean ret = (IKaraokeTV.DEBUG || ("DEBUG").equalsIgnoreCase(p_debug));
+		boolean ret = (BuildConfig.DEBUG || ("DEBUG").equalsIgnoreCase(p_debug));
 
 		String verionName = "";
 
@@ -743,7 +742,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 			verionName = p_apkversionname.toUpperCase();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "isDebug()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "isDebug()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
 		return ret;
 	}
@@ -769,7 +768,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 			ret = true;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "isCBT()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "isCBT()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
 		return ret;
 	}
@@ -786,7 +785,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 			verionName = p_apkversionname.toUpperCase();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), "isRCBelow()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.w(_toString(), "isRCBelow()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
 		return ret;
 	}
@@ -812,9 +811,9 @@ class Main6 extends Main5 implements CPUMEMListener {
 			ret = true;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "isRC()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "isRC()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
-		return (!IKaraokeTV.DEBUG && ret);
+		return (!BuildConfig.DEBUG && ret);
 	}
 
 	/**
@@ -829,7 +828,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 			verionName = p_apkversionname.toUpperCase();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), "isRCBelow()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.w(_toString(), "isRCBelow()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 		return ret;
 	}
 
@@ -854,9 +853,9 @@ class Main6 extends Main5 implements CPUMEMListener {
 			ret = true;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "isRTM()" + ":" + ret + "," + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "isRTM()" + ":" + ret + "," + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
-		return (!IKaraokeTV.DEBUG && ret);
+		return (!BuildConfig.DEBUG && ret);
 	}
 
 	/**
@@ -879,7 +878,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 			verionName = p_apkversionname.toUpperCase();
 		}
 
-		Log.i(_toString(), getMethodName() + p_debug + ":" + IKaraokeTV.DEBUG + ":" + verionName);
+		Log.i(_toString(), getMethodName() + p_debug + ":" + BuildConfig.DEBUG + ":" + verionName);
 
 		if (isCBT()) {
 			p_debug = "CBT";
@@ -893,7 +892,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 			p_debug = "RTM";
 		}
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			p_debug = "DEBUG";
 		}
 
@@ -920,7 +919,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * @see #p_debug
 	 */
 	protected void showCBT(boolean show) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		String message = "";
 
@@ -958,7 +957,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * 버전정보:보이기
 	 */
 	private void showVersion() {
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName());
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName());
 		findViewById(R.id.txt_setting_version).setVisibility(View.VISIBLE);
 	}
 
@@ -973,7 +972,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * 버전정보:숨기기
 	 */
 	private void hideVersion() {
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName());
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName());
 		findViewById(R.id.txt_setting_version).setVisibility(View.INVISIBLE);
 	}
 
@@ -981,7 +980,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	 * 버전정보:앱시작후 버전정보 표시숨기기(10초)
 	 */
 	protected void startVersion() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 
 		post(new Runnable() {
 
@@ -997,7 +996,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 						p_apkversioncode = pkgInfo.versionCode;
 						p_apkversionname = pkgInfo.versionName;
 						version += "(" + "OS-" + p_osversion + ":" + Build.VERSION.SDK_INT + ")";
-						if (IKaraokeTV.DEBUG) {
+						if (BuildConfig.DEBUG) {
 							version += ":" + "DEBUG";
 						}
 						version += ":" + p_apkversionname + "(" + p_apkversioncode + "-" + p_ver;
@@ -1039,7 +1038,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 					startCBT();
 
 				} catch (Exception e) {
-					if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+					if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 					ShowMessageAlert(getString(R.string.message_error_stb_info) + "\n" + "startVersion() " + "[NG]" + "\n" + Log.getStackTraceString(e));
 				}
 			}
@@ -1049,7 +1048,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	protected void onStart() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.onStart();
 
 		hideCPUMEM();
@@ -1058,7 +1057,7 @@ class Main6 extends Main5 implements CPUMEMListener {
 	@Override
 	protected void onStop() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.onStop();
 
 		stopCPUMEM();

@@ -33,7 +33,7 @@
 package kr.kymedia.kykaraoke.tv.app;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -104,7 +104,7 @@ public class _PlayActivity extends _Activity {
 	 * 필요에따라막는다.
 	 */
 	protected void volumeUp(int keyCode, KeyEvent event) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + keyCode + ", " + event);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + keyCode + ", " + event);
 		mAudioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_RAISE, AudioManager.FLAG_SHOW_UI);
 	}
 
@@ -112,7 +112,7 @@ public class _PlayActivity extends _Activity {
 	 * 필요에따라막는다.
 	 */
 	protected void volumeDown(int keyCode, KeyEvent event) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + keyCode + ", " + event);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + keyCode + ", " + event);
 		mAudioManager.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_LOWER, AudioManager.FLAG_SHOW_UI);
 	}
 

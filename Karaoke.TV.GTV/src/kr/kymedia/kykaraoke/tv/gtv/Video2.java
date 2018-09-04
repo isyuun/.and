@@ -52,7 +52,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -86,30 +86,30 @@ class Video2 extends Video {
 	 */
 	@Override
 	public void start() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 		if (remoteLG != null && !TextUtil.isEmpty(remoteLG.getMacAddress())) {
 			startMainActivity(null);
 		} else {
 			initRemoteLG();
 		}
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void onResume() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onResume();
 	}
 
 	@Override
 	protected void onStop() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onStop();
 	}
 
 	@Override
 	protected void onDestroy() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 		super.onDestroy();
 		// _LOG.d(TAG, "onDestroy");
 
@@ -138,7 +138,7 @@ class Video2 extends Video {
 		am.killBackgroundProcesses(getPackageName());
 		System.exit(0);
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	public static boolean isReachable(Context context) {
@@ -174,7 +174,7 @@ class Video2 extends Video {
 	}
 
 	private void initRemoteLG() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 		try {
 			if (remoteLG == null) {
@@ -186,15 +186,15 @@ class Video2 extends Video {
 			e.printStackTrace();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	_SIMClientHandlerLGU _SIMClientHandlerLGU;
 
 	private void putRemoteLG() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			Log.e(_toString(), getMethodName() + "mac " + remoteLG.mac);
 			Log.e(_toString(), getMethodName() + "subScriberNO " + remoteLG.subScriberNo);
 			Log.e(_toString(), getMethodName() + "secret num : " + SetopHandler.getInstance().getSecretNum());
@@ -206,8 +206,8 @@ class Video2 extends Video {
 		_SIMClientHandlerLGU.stb_mac_addr = remoteLG.mac;       // KY Ref. 0002.141c.eae7
 
 		if (remoteLG.configXml != null) {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), "remoteLG.configXml");
-			if (IKaraokeTV.DEBUG) Log.d(_toString(), remoteLG.configXml);
+			if (BuildConfig.DEBUG) Log.i(_toString(), "remoteLG.configXml");
+			if (BuildConfig.DEBUG) Log.d(_toString(), remoteLG.configXml);
 			XmlFinder xf = new XmlFinder();
 			// xf.setXml( remoteLG.configXml);
 			SharedPreferences pref = getSharedPreferences("Setting", 0);
@@ -243,15 +243,15 @@ class Video2 extends Video {
 		 * }
 		 * }
 		 */
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	String telephone;
 
 	private boolean getVenderLG() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]");
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			Log.wtf(_toString(), getMethodName() + "mac " + remoteLG.mac);
 			Log.wtf(_toString(), getMethodName() + "subScriberNO " + remoteLG.subScriberNo);
 			Log.wtf(_toString(), getMethodName() + "secret num : " + SetopHandler.getInstance().getSecretNum());
@@ -358,7 +358,7 @@ class Video2 extends Video {
 
 		} // Global.Inst().isRelease
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]");
 
 		return true;
 	}
@@ -383,14 +383,14 @@ class Video2 extends Video {
 	private class initAsyncTask extends AsyncTask<Void, Void, Void> {
 		@Override
 		protected Void doInBackground(Void... params) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 
 			if (getVenderLG()) {
 				startMainActivity(null);
 				//isReachable = isReachable(getApplicationContext());
 			}
 
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 			return null;
 		}
 	}
@@ -398,7 +398,7 @@ class Video2 extends Video {
 	private Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + msg);
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + msg);
 
 			if (msg.what == 0) {
 			}
@@ -406,7 +406,7 @@ class Video2 extends Video {
 			putRemoteLG();
 			new initAsyncTask().execute();
 
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + msg);
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + msg);
 		}
 	}; // Handler()
 

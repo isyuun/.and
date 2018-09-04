@@ -37,7 +37,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import kr.kymedia.karaoke.widget.util.WidgetUtils;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -97,8 +97,8 @@ class Main2XXX extends Main2XX {
 	 */
 	@Override
 	protected void setBaseLayout() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		super.setBaseLayout();
 
@@ -135,15 +135,15 @@ class Main2XXX extends Main2XX {
 		bg_main = findViewById(R.id.bg_main);
 		layout_body = findViewById(R.id.layout_body);
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	int resSing = 0;
 
 	@Override
 	public void displayMenuHome(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.displayMenuHome(keyID);
 
 
@@ -151,7 +151,7 @@ class Main2XXX extends Main2XX {
 			remote.m_iState = STATE_HOME_MENU;
 			remote.m_iMenuHomeFocus = 1;
 			remote.m_iMenuHomeFocusY = 1;
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState());
+			if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState());
 		}
 
 		if (resSing == 0) {
@@ -214,7 +214,7 @@ class Main2XXX extends Main2XX {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -224,18 +224,18 @@ class Main2XXX extends Main2XX {
 	 */
 	@Override
 	public void displayMenuMain(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.displayMenuMain(keyID);
 
 		if (m_iMainMenuFocusSave == remote.m_iMenuMainFocus) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), "[OK]" + getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
+			if (BuildConfig.DEBUG) Log.e(_toString(), "[OK]" + getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
 			m_bListAlreadyReflashed = true;
 		}
 
 		m_iMainMenuFocusSave = remote.m_iMenuMainFocus;
 
 		if (keyID == REMOTE_LEFT || keyID == REMOTE_RIGHT) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), "[NO]" + getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
+			if (BuildConfig.DEBUG) Log.e(_toString(), "[NO]" + getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
 			remote.m_iMenuHomeFocus = remote.m_iMenuMainFocus;
 			m_bListAlreadyReflashed = false;
 		}
@@ -365,14 +365,14 @@ class Main2XXX extends Main2XX {
 		}
 
 		if (layout_content.getChildCount() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO]" + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO]" + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
 			m_bListAlreadyReflashed = false;
 		}
 
 		this.keyID = keyID;
 
 		if (!m_bListAlreadyReflashed) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
 			HideGenre();
 			removeAllViewsContent();
 			hideBody();
@@ -385,7 +385,7 @@ class Main2XXX extends Main2XX {
 
 		setListBackground(getMethodName());
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	private int keyID = REMOTE_NONE;
@@ -398,7 +398,7 @@ class Main2XXX extends Main2XX {
 	};
 
 	private void displayMainBody() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		showBody();
 
@@ -429,16 +429,16 @@ class Main2XXX extends Main2XX {
 		KP(keyID);
 
 		if (m_iMainMenuFocusSave == remote.m_iMenuMainFocus) {
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), "[OK]" + getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
+			if (BuildConfig.DEBUG) Log.e(_toString(), "[OK]" + getMethodName() + "m_bListAlreadyReflashed:" + m_bListAlreadyReflashed + ":" + REMOTE_STATE.get(keyID));
 			m_bListAlreadyReflashed = true;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	protected void KP(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + "[KP]", getMethodName() + "[ST]" + REQUEST_KP.get(KP_REQUEST) + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.wtf(_toString() + "[KP]", getMethodName() + "[ST]" + REQUEST_KP.get(KP_REQUEST) + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 
 		switch (remote.m_iMenuMainFocus) {
 			// 노래부르기
@@ -480,7 +480,7 @@ class Main2XXX extends Main2XX {
 				break;
 			// 고객센터
 			case 5:
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + "m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + "m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
 				if (m_iEnterCustomerMenu == CUSTOMER_ENTER_KEY) {
 					switch (remote.m_iMenuCustomerFocus) {
 						case 1:
@@ -499,7 +499,7 @@ class Main2XXX extends Main2XX {
 				break;
 
 		}
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + "[KP]", getMethodName() + "[ED]" + REQUEST_KP.get(KP_REQUEST) + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString() + "[KP]", getMethodName() + "[ED]" + REQUEST_KP.get(KP_REQUEST) + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 }

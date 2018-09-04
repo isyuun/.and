@@ -44,7 +44,7 @@ import kr.kymedia.karaoke.widget.util.ImageDownLoader3;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
 import kr.kymedia.kykaraoke.tv._Main;
 import kr.kymedia.kykaraoke.tv._Video;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * TODO<br>
@@ -102,7 +102,7 @@ public class _Application extends kr.kymedia.karaoke.app.MultiDexApplication {
 	@Override
 	public void onCreate() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.onCreate();
 
 		initImageDownLoader();
@@ -111,21 +111,21 @@ public class _Application extends kr.kymedia.karaoke.app.MultiDexApplication {
 	@Override
 	public void onTerminate() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.onTerminate();
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + newConfig);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + newConfig);
 		super.onConfigurationChanged(newConfig);
 	}
 
 	@Override
 	public void onLowMemory() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.onLowMemory();
 	}
 

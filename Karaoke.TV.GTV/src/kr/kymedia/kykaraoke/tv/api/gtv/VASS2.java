@@ -50,7 +50,7 @@ import ac.rs.com.model.ResponseData;
 import ac.rs.lgd.svc.sim.RSRequestClient;
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -86,7 +86,7 @@ public class VASS2 extends VASS {
 
 	@Override
 	public void sendMessage(int state) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + request + "->" + COMPLETE_VASS.get(state));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + request + "->" + COMPLETE_VASS.get(state));
 		Bundle b = new Bundle();
 		b.putInt("state", state);
 
@@ -100,7 +100,7 @@ public class VASS2 extends VASS {
 
 	@Override
 	public void setVASSParam(String SBCCONTNO, String STBMAC) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "SBCCONTNO=" + SBCCONTNO + "|" + "SBCCONTNO=" + STBMAC);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "SBCCONTNO=" + SBCCONTNO + "|" + "SBCCONTNO=" + STBMAC);
 		this.SBCCONTNO = SBCCONTNO;
 		this.STBMAC = STBMAC;
 		__VASS.cont_no = SBCCONTNO;
@@ -111,7 +111,7 @@ public class VASS2 extends VASS {
 
 	@Override
 	public void setRequest(REQUEST_VASS request) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + request);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + request);
 		this.request = request;
 
 		switch (request) {
@@ -145,7 +145,7 @@ public class VASS2 extends VASS {
 	String password;
 	@Override
 	public void setVASSUrl(String password) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + request);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + request);
 
 		this.password = password;
 
@@ -179,7 +179,7 @@ public class VASS2 extends VASS {
 		boolean ret = false;
 
 		Log.i(_toString(), "[SEND]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m);
-		//if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m + "[" + this.url + "]"/* + getVASSParams()*/);
+		//if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m + "[" + this.url + "]"/* + getVASSParams()*/);
 
 		this.url = __VASS.VASS_REQUEST_PAGE;
 		this.url += String.format("CMD=confirmAuth&PARAM=SBCCONTNO=%s|STBMAC=%s|SEARCHTYPE=%d|PERSONALNO=%s|", SBCCONTNO, STBMAC, 3, SBCCONTNO);
@@ -188,8 +188,8 @@ public class VASS2 extends VASS {
 
 		ret = ("Y").equalsIgnoreCase(isSuccess);
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "[RECV]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m);
-		//if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[RECV]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m + "[" + this.url + "]"/* + getVASSParams()*/);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "[RECV]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m);
+		//if (BuildConfig.DEBUG) Log.wtf(_toString(), "[RECV]" + "confirmAuth()"/*getMethodName()*/ + ret + "[M]" + this.m + "[" + this.url + "]"/* + getVASSParams()*/);
 
 		return ret;
 	}
@@ -201,7 +201,7 @@ public class VASS2 extends VASS {
 			this.key = key;
 			TicketItem item = items.get(key);
 
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + item.product_name + ":" + item.id_product + ":" + item.product_type + ":" + item.product_type.value());
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + item.product_name + ":" + item.id_product + ":" + item.product_type + ":" + item.product_type.value());
 
 			switch (item.product_type) {
 				case NONE:
@@ -225,7 +225,7 @@ public class VASS2 extends VASS {
 
 	@Override
 	public void sendRequest() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		String response = null;
 
@@ -265,7 +265,7 @@ public class VASS2 extends VASS {
 	}
 
 	private String sendRequestISU() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + getMethodName() + "[M]" + this.m + "[" + this.url + "]"/* + getVASSParams()*/);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + getMethodName() + "[M]" + this.m + "[" + this.url + "]"/* + getVASSParams()*/);
 
 		String ret = null;
 
@@ -343,9 +343,9 @@ public class VASS2 extends VASS {
 	 * 요청메시지 전송 후 응답 메시시 수신 후 출력
 	 */
 	private void sendRequestRSi(String item_code) throws Exception {
-		//if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName()/* + "[" + this.url + "]"*/);
+		//if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName()/* + "[" + this.url + "]"*/);
 		Log.wtf(_toString(), "[SEND]" + getMethodName() + "[M]" + this.m + "[CODE]" + requestdata.biz_code + "," + requestdata.req_code + ":" + item_code);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), "[SEND]" + getMethodName() + "[REQUESTDATA]" + requestdata);
+		if (BuildConfig.DEBUG) Log.d(_toString(), "[SEND]" + getMethodName() + "[REQUESTDATA]" + requestdata);
 
 		RSRequestClient datatrans = new RSRequestClient(__VASS.hostname, __VASS.port, __VASS.hosturl);
 		responsedata = datatrans.sendData(requestdata);
@@ -417,7 +417,7 @@ public class VASS2 extends VASS {
 	 */
 	private void sendRequestRSi100n11(String item_cd) throws Exception {
 		this.url = "http://" + __VASS.hostname + ":" + __VASS.port + __VASS.hosturl;
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + getMethodName() + item_cd + "[" + this.url + "]");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + getMethodName() + item_cd + "[" + this.url + "]");
 
 		try {
 			//요청데이타 생성
@@ -446,7 +446,7 @@ public class VASS2 extends VASS {
 	 */
 	private void sendRequestRSi300n31(String item_id, int price, String end_date) throws Exception {
 		this.url = "http://" + __VASS.hostname + ":" + __VASS.port + __VASS.hosturl;
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + getMethodName() + item_id + "," + price + "," + end_date + "[M]" + this.m + "[" + "http://" + this.url + "]");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + getMethodName() + item_id + "," + price + "," + end_date + "[M]" + this.m + "[" + "http://" + this.url + "]");
 
 		try {
 			//요청데이타 생성
@@ -555,7 +555,7 @@ public class VASS2 extends VASS {
 			String ret = _99999.value();
 			for (ERROR_MSG_VASS state : ERROR_MSG_VASS.values()) {
 				if (null != state.name() && (state.name().equals(value) || state.name().substring(1).equals(value))) {
-					//if (IKaraokeTV.DEBUG) Log.i("ERROR_MSG_VASS", (state.name().equals(value) || state.name().substring(1).equals(value)) + "-" + value + ":" + state.name() + ":" + state.value());
+					//if (BuildConfig.DEBUG) Log.i("ERROR_MSG_VASS", (state.name().equals(value) || state.name().substring(1).equals(value)) + "-" + value + ":" + state.name() + ":" + state.value());
 					ret = state.value();
 				}
 			}
@@ -636,19 +636,19 @@ public class VASS2 extends VASS {
 	}
 
 	private void parseVASSResultISU(String response) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
 
 		String[] results = response.split("\\|");
 		if (null != results) {
 
 			for (String line : results) {
-				if (IKaraokeTV.DEBUG) Log.d(_toString(), "[RESULT]" + line);
+				if (BuildConfig.DEBUG) Log.d(_toString(), "[RESULT]" + line);
 			}
 
 			String[] codes = results[results.length - 1].split("\n");
 
 			for (String line : codes) {
-				if (IKaraokeTV.DEBUG) Log.d(_toString(), "[RETURN_CODE]" + line);
+				if (BuildConfig.DEBUG) Log.d(_toString(), "[RETURN_CODE]" + line);
 			}
 
 			Log.wtf(_toString(), "[RETURN_CODE]" + (codes[0]) + "[RETURN_MESSGE]" + getVASSErrorMsg(codes[0]));
@@ -662,7 +662,7 @@ public class VASS2 extends VASS {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + response);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + response);
 	}
 
 	private String isSuccess;
@@ -677,7 +677,7 @@ public class VASS2 extends VASS {
 	 */
 	@Override
 	public void parseVASSResult(String response) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
 
 		switch (request) {
 			case REQUEST_VASS_NONE:
@@ -699,13 +699,13 @@ public class VASS2 extends VASS {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + response);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + response);
 	}
 
 	private LinkedHashMap<String, TicketItem> items = new LinkedHashMap<>();
 
 	public void putTicketItems(LinkedHashMap<String, TicketItem> items) {
-		if (IKaraokeTV.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
+		if (BuildConfig.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
 		this.items = items;
 	}
 

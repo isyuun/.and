@@ -31,7 +31,7 @@
 
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.play.MusicVideoView;
 
 import android.content.res.Configuration;
@@ -118,7 +118,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState);
 		super.onCreate(savedInstanceState);
 
 		addMusicVideo();
@@ -126,7 +126,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 
 	public void hideBackBoard() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		postDelayed(new Runnable() {
 
 			@Override
@@ -144,7 +144,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 
 	public void showBackBoard() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		postDelayed(new Runnable() {
 
 			@Override
@@ -168,13 +168,13 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Deprecated
 	public void startBlankVideo(String url, int next) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url + ", next:" + next);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url + ", next:" + next);
 		isMusicVideo = false;
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			url = TEST_BG;
 		}
 		//startVideo(url, REDRAW);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url + ", next:" + next);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url + ", next:" + next);
 	}
 
 	/**
@@ -207,14 +207,14 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	 */
 	public void startMusicVideo(String url, final int playtype) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url + ", playtype:" + playtype);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url + ", playtype:" + playtype);
 		isMusicVideo = true;
 		startVideo(url, playtype);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url + ", playtype:" + playtype);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url + ", playtype:" + playtype);
 	}
 
 	private void addMusicVideo() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + layoutMusicVideo + ":" + mMusicVideo);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + layoutMusicVideo + ":" + mMusicVideo);
 
 		if (layoutMusicVideo == null) {
 			layoutMusicVideo = (LinearLayout) findViewById(R.id.layout_background_video);
@@ -233,7 +233,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	}
 
 	private void removeMusicVideo() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + layoutMusicVideo + ":" + mMusicVideo);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + layoutMusicVideo + ":" + mMusicVideo);
 
 		if (mMusicVideo != null) {
 			mMusicVideo.stopPlayback();
@@ -246,7 +246,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	}
 
 	private void startVideo(String url) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isMusicVideo + ":" + url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isMusicVideo + ":" + url);
 		stop();
 
 		mMusicVideo.setVideoPath(url);
@@ -256,7 +256,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 
 		setVideo();
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isMusicVideo + ":" + url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isMusicVideo + ":" + url);
 	}
 
 	protected void reset() {
@@ -272,7 +272,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	 * </pre>
 	 */
 	protected void startVideo(String url, int playtype) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isMusicVideo + ":" + url + ", playtype:" + playtype);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isMusicVideo + ":" + url + ", playtype:" + playtype);
 		Log.i(_toString() + TAG_VIDEO, "startVideo() " + isMusicVideo + ":" + "" + ", playtype:" + playtype);
 
 		showBackBoard();
@@ -300,11 +300,11 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 		this.url = url;
 
 		setVideo();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isMusicVideo + ":" + url + ", playtype:" + playtype);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isMusicVideo + ":" + url + ", playtype:" + playtype);
 	}
 
 	private void setVideo() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		if (mMusicVideo != null) {
 			mMusicVideo.setOnPreparedListener(Video3.this);
@@ -342,7 +342,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Override
 	public void onPrepared(MediaPlayer mp) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString() + TAG_VIDEO, "onPrepared() " + "[ST]" + mp + ":" + mp.isLooping() + ":" + isMusicVideo);
+		if (BuildConfig.DEBUG) Log.i(_toString() + TAG_VIDEO, "onPrepared() " + "[ST]" + mp + ":" + mp.isLooping() + ":" + isMusicVideo);
 		try {
 			mp.setLooping(this.isLooping);
 			play();
@@ -350,7 +350,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 
 			e.printStackTrace();
 		}
-		if (IKaraokeTV.DEBUG) Log.i(_toString() + TAG_VIDEO, "onPrepared() " + "[ED]" + mp + ":" + mp.isLooping() + ":" + isMusicVideo);
+		if (BuildConfig.DEBUG) Log.i(_toString() + TAG_VIDEO, "onPrepared() " + "[ED]" + mp + ":" + mp.isLooping() + ":" + isMusicVideo);
 		if (mOnPreparedListener != null) {
 			mOnPreparedListener.onPrepared(mp);
 		}
@@ -366,7 +366,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Override
 	public void onCompletion(MediaPlayer mp) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString() + TAG_VIDEO, "onCompletion() " + mp + ":" + mp.isLooping() + ":" + isMusicVideo);
+		if (BuildConfig.DEBUG) Log.i(_toString() + TAG_VIDEO, "onCompletion() " + mp + ":" + mp.isLooping() + ":" + isMusicVideo);
 		// 반복처리
 		if (!mp.isLooping()) {
 			// startVideo(Video3.this.url, REDRAW);
@@ -387,7 +387,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Override
 	public boolean onError(MediaPlayer mp, int what, int extra) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString() + TAG_VIDEO, "onError() " + mp + ":" + isMusicVideo);
+		if (BuildConfig.DEBUG) Log.i(_toString() + TAG_VIDEO, "onError() " + mp + ":" + isMusicVideo);
 		if (mOnErrorListener != null) {
 			mOnErrorListener.onError(mp, what, extra);
 		}
@@ -405,7 +405,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Override
 	public boolean onInfo(MediaPlayer mp, int what, int extra) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.w(_toString() + TAG_VIDEO, "onInfo() " + mp + "(" + what + ", " + extra + ")" + ":" + isMusicVideo);
+		// if (BuildConfig.DEBUG) _LOG.w(_toString() + TAG_VIDEO, "onInfo() " + mp + "(" + what + ", " + extra + ")" + ":" + isMusicVideo);
 		if (mOnInfoListener != null) {
 			mOnInfoListener.onInfo(mp, what, extra);
 		}
@@ -415,7 +415,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	@Override
 	public void stopMusicVideo(String url, int next) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url + ", next:" + next);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url + ", next:" + next);
 		if (mMusicVideo != null) {
 			mMusicVideo.setVisibility(View.INVISIBLE);
 		}
@@ -424,24 +424,24 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 
 		startBlankVideo(url, next);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url + ", next:" + next);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url + ", next:" + next);
 	}
 
 	@Deprecated
 	@Override
 	public void stopBlankVideo() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		// if (mBlankVideo != null) {
 		// mBlankVideo.setVisibility(View.INVISIBLE);
 		// }
 		super.stopBlankVideo();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	public void open() throws Exception {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		isMusicVideo = true;
 		open(this.url);
 	}
@@ -450,7 +450,7 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 
 	protected boolean open(String path) throws Exception {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + path);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + path);
 		this.path = path;
 		try {
 			startMusicVideo(path, NEWDRAW);
@@ -485,39 +485,39 @@ class Video3 extends Video2 implements OnPreparedListener, OnCompletionListener,
 	// @Override
 	// protected void onResume() {
 	//
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
 	// super.onResume();
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
 	// }
 	//
 	// @Override
 	// protected void onPause() {
 	//
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
 	// super.onPause();
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
 	// }
 	//
 	// @Override
 	// protected void onStop() {
 	//
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
 	// super.onStop();
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
 	// }
 	//
 	// @Override
 	// protected void onDestroy() {
 	//
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ST]");
 	// super.onDestroy();
-	// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
+	// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + "[ED]");
 	// }
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + newConfig);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + newConfig);
 		super.onConfigurationChanged(newConfig);
 	}
 

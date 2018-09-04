@@ -32,10 +32,9 @@
 
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -78,14 +77,14 @@ class VideoX extends Video6 implements OnTouchListener {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + event);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + event);
 		return super.onTouchEvent(event);
 	}
 
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ", " + event + ":" + v);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ", " + event + ":" + v);
 		return false;
 	}
 

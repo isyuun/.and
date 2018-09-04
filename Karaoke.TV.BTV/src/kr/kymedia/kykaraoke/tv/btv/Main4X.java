@@ -34,7 +34,7 @@ import android.media.MediaPlayer;
 import android.util.Log;
 
 import kr.kymedia.kykaraoke.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -68,7 +68,7 @@ class Main4X extends Main3X {
 
 	@Override
 	protected void setPlayer() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName());
 
 		super.setPlayer();
 
@@ -78,7 +78,7 @@ class Main4X extends Main3X {
 
 	@Override
 	protected void setListen() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName());
 
 		super.setListen();
 

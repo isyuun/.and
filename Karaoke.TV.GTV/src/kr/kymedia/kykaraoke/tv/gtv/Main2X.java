@@ -39,8 +39,8 @@ import android.widget.TextView;
 import com.kumyoung.gtvkaraoke.BuildConfig;
 import com.kumyoung.gtvkaraoke.R;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._KPRequest;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._KPRequest;
 import kr.kymedia.kykaraoke.tv.api.gtv.__VASS;
 
 /**
@@ -72,14 +72,14 @@ class Main2X extends Main2 {
 	@Override
 	protected _KPRequest KP(_KPRequest KP) {
 		p_domain = P_DOMAIN_GTV;
-		//if (IKaraokeTV.DEBUG) p_domain = P_DOMAIN_GTV_TEST;
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP()" + "[ST]" + p_domain);
+		//if (BuildConfig.DEBUG) p_domain = P_DOMAIN_GTV_TEST;
+		if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP()" + "[ST]" + p_domain);
 		return super.KP(KP);
 	}
 
 	@Override
 	public void KP(int request, String OP, String M1, String M2) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP()" + "[ST]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+		if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP()" + "[ST]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 		super.KP(request, OP, M1, M2);
 	}
 
@@ -94,10 +94,10 @@ class Main2X extends Main2 {
 		super.initVASS();
 		SharedPreferences pref = getSharedPreferences("Setting", 0);
 		__VASS.VASS_REQUEST_PAGE = "http://" + pref.getString("isu_hostname", "") + ":" + pref.getInt("isu_port", 0) + "/servlets/CommSvl?";
-		if (IKaraokeTV.DEBUG) Log.e("[VASS]" + _toString(), "[ISU]" + getMethodName() + __VASS.VASS_REQUEST_PAGE);
+		if (BuildConfig.DEBUG) Log.e("[VASS]" + _toString(), "[ISU]" + getMethodName() + __VASS.VASS_REQUEST_PAGE);
 		__VASS.hostname = pref.getString("dbs_hostname", "");
 		__VASS.port = pref.getInt("dbs_port", 8000);
-		if (IKaraokeTV.DEBUG) Log.e("[VASS]" + _toString(), "[RSi]" + getMethodName() + "http://" + __VASS.hostname + ":" + __VASS.port + __VASS.hosturl);
+		if (BuildConfig.DEBUG) Log.e("[VASS]" + _toString(), "[RSi]" + getMethodName() + "http://" + __VASS.hostname + ":" + __VASS.port + __VASS.hosturl);
 	}
 
 	/**
@@ -105,7 +105,7 @@ class Main2X extends Main2 {
 	 */
 	@Override
 	public void VASS(final REQUEST_VASS request) {
-		if (IKaraokeTV.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + request + ":" + VASS);
+		if (BuildConfig.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + request + ":" + VASS);
 
 		//!!!VASS!!!
 		VASS = new __VASS(handlerVASS);
@@ -120,8 +120,8 @@ class Main2X extends Main2 {
 	public void VASS(Message msg) {
 		// super.VASS(msg);
 		int state = msg.getData().getInt("state");
-		if (IKaraokeTV.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + COMPLETE_VASS.get(state) + ":" + msg);
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), "" + VASS);
+		if (BuildConfig.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + COMPLETE_VASS.get(state) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), "" + VASS);
 		try {
 			// test
 			switch (state) {
@@ -130,7 +130,7 @@ class Main2X extends Main2 {
 				// case COMPLETE_VASS_MONTH_CHECK:
 				// p_passtype = TICKET_TYPE_NONE;
 				// m_strPassType = TICKET_TYPE_NONE;
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[!!!주의:테스트!!!]" + VASS.isSuccess() + ":" + p_passtype + ":" + m_strPassType);
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[!!!주의:테스트!!!]" + VASS.isSuccess() + ":" + p_passtype + ":" + m_strPassType);
 				// setBottomProductText("[!!!주의:테스트!!!]" + getString(R.string.message_error_ticket_no));
 				// break;
 				// // 재생확인차단용:노래방샵 이동후 리모콘 입력안됨
@@ -138,7 +138,7 @@ class Main2X extends Main2 {
 				// case COMPLETE_VASS_MONTH_CHECK_PLAY:
 				// p_passtype = TICKET_TYPE_NONE;
 				// m_strPassType = TICKET_TYPE_NONE;
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[!!!주의:테스트!!!]" + VASS.isSuccess() + ":" + p_passtype + ":" + m_strPassType);
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[!!!주의:테스트!!!]" + VASS.isSuccess() + ":" + p_passtype + ":" + m_strPassType);
 				// setBottomProductText("[!!!주의:테스트!!!]" + getString(R.string.message_error_ticket_no));
 				// TryPlaySong();
 				// break;
@@ -164,8 +164,8 @@ class Main2X extends Main2 {
 	 */
 	@Override
 	public void TryPlaySong() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 		super.TryPlaySong();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 }

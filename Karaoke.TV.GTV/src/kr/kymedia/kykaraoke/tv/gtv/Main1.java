@@ -47,7 +47,7 @@ import android.util.Log;
 import com.kumyoung.gtvkaraoke.BuildConfig;
 import com.kumyoung.gtvkaraoke.LiveUpdateBroadcastReceiver;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -97,7 +97,7 @@ class Main1 extends Main {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + savedInstanceState);
 		super.onCreate(savedInstanceState);
 
 		// commonBtnSetting();
@@ -110,7 +110,7 @@ class Main1 extends Main {
 		filterAppKill.addAction(ACTION_DO_SUSPEND);
 		registerReceiver(receiverAppKill, filterAppKill);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + savedInstanceState);
 	}
 
 	// UI처리나 스케줄링을 위한 액티비티 마다있는 핸들러

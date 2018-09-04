@@ -35,12 +35,9 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
-import android.widget.Toast;
 
-import kr.kymedia.karaoke.net.NetworkUtil;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
 import kr.kymedia.kykaraoke.tv.R;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
 
 /**
  * <pre>

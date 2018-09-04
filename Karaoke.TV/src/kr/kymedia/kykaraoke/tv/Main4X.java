@@ -36,7 +36,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.play._PlayView;
 import kr.kymedia.kykaraoke.tv.widget.CircularSeekBar;
 
@@ -317,7 +317,7 @@ class Main4X extends Main4 {
 
 	@Override
 	protected void stop(int engage) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.stop(engage);
 
 		hidePitchTempoText();
@@ -325,7 +325,7 @@ class Main4X extends Main4 {
 
 	@Override
 	protected void stopListen() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.stopListen();
 		hidePitchTempoText();
 	}

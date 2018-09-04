@@ -1,6 +1,6 @@
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api._Const;
 
 /**
  * <pre>
@@ -14,7 +14,7 @@ class Remote implements _Const {
 	/**
 	 * 메뉴상태(위치)
 	 * 
-	 * @see kr.kymedia.kykaraoke.tv.api._Const.MENU_STATE
+	 * @see _Const.MENU_STATE
 	 */
 	public int m_iState;
 	/**

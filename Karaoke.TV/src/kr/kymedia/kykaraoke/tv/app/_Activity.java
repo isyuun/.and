@@ -61,7 +61,7 @@ import kr.kymedia.karaoke.widget.util.ImageDownLoader3;
 import kr.kymedia.karaoke.widget.util.WidgetUtils;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
 import kr.kymedia.kykaraoke.tv._Main;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -230,7 +230,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 
 	// @Deprecated
 	// public void startPlayActivity(Bundle bundle) {
-	// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
+	// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
 	// Intent intent = new Intent(getApplicationContext(), Play.class);
 	// if (bundle != null) {
 	// intent.putExtras(bundle);
@@ -240,7 +240,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	// }
 
 	// public void startVideoActivity(Bundle bundle) {
-	// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
+	// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
 	// Intent intent = new Intent(getApplicationContext(), _Video.class);
 	// if (bundle != null) {
 	// intent.putExtras(bundle);
@@ -276,7 +276,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 
 	@Override
 	public View findViewById(int id) {
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(id));
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(id));
 
 		return super.findViewById(id);
 	}
@@ -288,7 +288,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 				return getResources().getResourceEntryName(resid);
 			} catch (NotFoundException e) {
 
-				if (IKaraokeTV.DEBUG) e.printStackTrace();
+				if (BuildConfig.DEBUG) e.printStackTrace();
 				return "" + resid;
 			}
 		}
@@ -317,8 +317,8 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 			return getResources().getIdentifier(name, defType, getPackageName());
 		} catch (Exception e) {
 
-			// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), _LOG.getStackTraceString(e));
-			if (IKaraokeTV.DEBUG) e.printStackTrace();
+			// if (BuildConfig.DEBUG) _LOG.e(_toString(), _LOG.getStackTraceString(e));
+			if (BuildConfig.DEBUG) e.printStackTrace();
 			return 0;
 		}
 	}
@@ -332,20 +332,20 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
 
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "onTouch() " + getResourceEntryName(v) + ", " + event + ":" + v);
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "onTouch() " + getResourceEntryName(v) + ", " + event + ":" + v);
 		return false;
 	}
 
 	@Override
 	public void onClick(View v) {
 
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "onClick() " + getResourceEntryName(v) + ", " + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "onClick() " + getResourceEntryName(v) + ", " + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
 	}
 
 	@Override
 	public void onFocusChange(View v, boolean hasFocus) {
 
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "onFocusChange() " + getResourceEntryName(v) + ", " + hasFocus + ":" + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "onFocusChange() " + getResourceEntryName(v) + ", " + hasFocus + ":" + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
 	}
 
 	/**
@@ -354,7 +354,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	 * </pre>
 	 */
 	protected void clearFocus(View v) {
-		if (v instanceof EditText) if (IKaraokeTV.DEBUG) Log.v("[KYK.keyboard]", "clearFocus() " + getResourceEntryName(v) + ":" + v);
+		if (v instanceof EditText) if (BuildConfig.DEBUG) Log.v("[KYK.keyboard]", "clearFocus() " + getResourceEntryName(v) + ":" + v);
 		if (v != null) {
 			v.setSelected(false);
 			v.clearFocus();
@@ -369,7 +369,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	 * </pre>
 	 */
 	protected void requestFocus(View v) {
-		if (v instanceof EditText) if (IKaraokeTV.DEBUG) Log.v("[KYK.keyboard]", "requestFocus() " + getResourceEntryName(v) + ":" + v);
+		if (v instanceof EditText) if (BuildConfig.DEBUG) Log.v("[KYK.keyboard]", "requestFocus() " + getResourceEntryName(v) + ":" + v);
 		if (v != null) {
 			v.setFocusableInTouchMode(true);
 			v.setFocusable(true);
@@ -393,7 +393,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 
 			e.printStackTrace();
 		}
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "isShowSoftKeyboard() " + ":" + ret + ":" + getResourceEntryName(getFocusedChild()) + ":" + getFocusedChild());
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "isShowSoftKeyboard() " + ":" + ret + ":" + getResourceEntryName(getFocusedChild()) + ":" + getFocusedChild());
 		return ret;
 	}
 
@@ -406,7 +406,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	 */
 	protected void showSoftKeyboard(View v) {
 
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "showSoftKeyboard() " + getResourceEntryName(v) + ":" + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "showSoftKeyboard() " + getResourceEntryName(v) + ":" + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
 		try {
 			if (v != null) {
 				// 포커스먼저
@@ -428,7 +428,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	 * </pre>
 	 */
 	protected void hideSoftKeyboardNoWhereFast() {
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "hideSoftKeyboardNoWhereFast() " + getResourceEntryName(getFocusedChild()) + ":" + getFocusedChild());
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "hideSoftKeyboardNoWhereFast() " + getResourceEntryName(getFocusedChild()) + ":" + getFocusedChild());
 		try {
 			getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 			if (this.keyView != null) {
@@ -449,7 +449,7 @@ public class _Activity extends kr.kymedia.karaoke.app.Activity implements OnClic
 	 * </pre>
 	 */
 	protected void hideSoftKeyboard(View v) {
-		if (IKaraokeTV.DEBUG) Log.i("[KYK.keyboard]", "hideSoftKeyboard() " + getResourceEntryName(v) + ":" + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
+		if (BuildConfig.DEBUG) Log.i("[KYK.keyboard]", "hideSoftKeyboard() " + getResourceEntryName(v) + ":" + getResourceEntryName(getFocusedChild()) + ":" + v + ":" + getFocusedChild());
 		try {
 			if (v != null) {
 				// 키보드숨김

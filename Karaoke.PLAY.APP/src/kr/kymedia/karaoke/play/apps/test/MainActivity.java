@@ -230,7 +230,7 @@ public class MainActivity extends _Activity implements OnClickListener, OnLongCl
 	 * 버전정보
 	 */
 	protected void showVersion() {
-		// if (IKaraokeTV.DEBUG) Log.d(__CLASSNAME__, getMethodName());
+		// if (BuildConfig.DEBUG) Log.d(__CLASSNAME__, getMethodName());
 		findViewById(R.id.txt_setting_version).setVisibility(View.VISIBLE);
 	}
 
@@ -238,7 +238,7 @@ public class MainActivity extends _Activity implements OnClickListener, OnLongCl
 	 * 버전정보
 	 */
 	protected void hideVersion() {
-		// if (IKaraokeTV.DEBUG) Log.d(__CLASSNAME__, getMethodName());
+		// if (BuildConfig.DEBUG) Log.d(__CLASSNAME__, getMethodName());
 		findViewById(R.id.txt_setting_version).setVisibility(View.INVISIBLE);
 	}
 
@@ -246,7 +246,7 @@ public class MainActivity extends _Activity implements OnClickListener, OnLongCl
 	 * 버전정보
 	 */
 	protected void startVersion() {
-		// if (IKaraokeTV.DEBUG) Log.d(__CLASSNAME__, getMethodName());
+		// if (BuildConfig.DEBUG) Log.d(__CLASSNAME__, getMethodName());
 
 		try {
 			post(new Runnable() {

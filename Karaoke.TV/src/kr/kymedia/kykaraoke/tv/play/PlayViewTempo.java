@@ -138,7 +138,7 @@ class PlayViewTempo extends PlayViewPitch {
 	}
 
 	@Override
-	void setPlayView() {
+	protected void setPlayView() {
 
 		Log.e(_toString(), getMethodName());
 		super.setPlayView();

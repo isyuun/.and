@@ -2,7 +2,7 @@ package kr.kymedia.kykaraoke.tv.dat;
 
 import java.nio.ByteBuffer;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import IKaraokeTV;
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioRecord;
@@ -90,14 +90,14 @@ class Microphone {
 
 							mAudioOutput.play();
 						} catch (Exception e) {
-							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Failed to start playback");
+							if (BuildConfig.DEBUG) Log.i(APP_TAG, "Failed to start playback");
 							return;
 						}
 
 						try {
 							mAudioInput.startRecording();
 						} catch (Exception e) {
-							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Failed to start recording");
+							if (BuildConfig.DEBUG) Log.i(APP_TAG, "Failed to start recording");
 							mAudioOutput.stop();
 							return;
 						}
@@ -123,7 +123,7 @@ class Microphone {
 						try {
 							mAudioOutput.stop();
 						} catch (Exception e) {
-							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Can't stop playback");
+							if (BuildConfig.DEBUG) Log.i(APP_TAG, "Can't stop playback");
 							mAudioInput.stop();
 							return;
 						}
@@ -131,7 +131,7 @@ class Microphone {
 						try {
 							mAudioInput.stop();
 						} catch (Exception e) {
-							if (IKaraokeTV.DEBUG) Log.i(APP_TAG, "Can't stop recording");
+							if (BuildConfig.DEBUG) Log.i(APP_TAG, "Can't stop recording");
 							return;
 						}
 					}

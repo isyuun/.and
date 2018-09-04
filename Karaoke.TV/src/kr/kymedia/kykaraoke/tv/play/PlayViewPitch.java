@@ -233,7 +233,7 @@ class PlayViewPitch extends PlayView4X {
 	}
 
 	@Override
-	void setPlayView() {
+	protected void setPlayView() {
 
 		Log.e(_toString(), getMethodName());
 		super.setPlayView();

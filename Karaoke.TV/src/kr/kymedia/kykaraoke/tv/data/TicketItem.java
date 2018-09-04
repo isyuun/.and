@@ -2,7 +2,7 @@ package kr.kymedia.kykaraoke.tv.data;
 
 import android.widget.Button;
 
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api._Const;
 
 public class TicketItem implements _Const {
 	// private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();

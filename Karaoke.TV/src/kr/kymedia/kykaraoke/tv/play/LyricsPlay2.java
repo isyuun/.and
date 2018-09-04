@@ -37,15 +37,15 @@ import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.View;
 
-import kr.kymedia.kykaraoke.play._SongData;
+import kr.kymedia.kykaraoke.data._SongData;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._Const;
-import kr.kymedia.kykaraoke.tv.api._KPLyrics;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
+import kr.kymedia.kykaraoke.api._KPLyrics;
 
 /**
  * <pre>
- * Copy of {@link kr.kymedia.kykaraoke.play.SongPlayer.PlayView}
+ * Copy of {@link kr.kymedia.kykaraoke.data.SongPlayer.PlayView}
  * </pre>
  *
  * @author isyoon
@@ -81,7 +81,7 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 	}
 
 	public boolean isPlaying() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
+		//if (BuildConfig.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
 		if (m_mp != null && m_mp.isPlaying()) {
 			return true;
 		} else {
@@ -206,7 +206,7 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 	// private boolean hasSurface;
 
 	protected void init() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		// holder = getHolder();
 		// bgkim 배경을 투명하게
 		// getHolder().setFormat(PixelFormat.TRANSLUCENT);
@@ -237,7 +237,7 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 	}
 
 	public void play() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + ":" + mThreadSleepTime + ":" + mLyricsPlayThread + ":" + getHolder());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + ":" + mThreadSleepTime + ":" + mLyricsPlayThread + ":" + getHolder());
 
 		try {
 			setVisibility(View.VISIBLE);
@@ -257,11 +257,11 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 			throw (e);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + ":" + mThreadSleepTime + mLyricsPlayThread + ":" + getHolder());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + ":" + mThreadSleepTime + mLyricsPlayThread + ":" + getHolder());
 	}
 
 	public void stop() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + mLyricsPlayThread + ":" + getHolder());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mLyricsPlayThread + ":" + getHolder());
 
 		try {
 			setVisibility(View.INVISIBLE);
@@ -274,7 +274,7 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 			}
 		} catch (Exception e) {
 
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + mLyricsPlayThread + ":" + getHolder());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + mLyricsPlayThread + ":" + getHolder());
 			e.printStackTrace();
 			throw (e);
 		}
@@ -282,18 +282,18 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 	}
 
 	public void pause() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		setRedraw(true);
 	}
 
 	public void resume() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		setRedraw(false);
 	}
 
 	// @Override
 	// public void surfaceCreated(SurfaceHolder holder) {
-	// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + holder);
+	// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + holder);
 	// //this.holder = holder;
 	// //hasSurface = true;
 	// //if (mLyricsViewThread == null) {
@@ -303,7 +303,7 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 	//
 	// @Override
 	// public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
-	// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + holder + ":" + format + ", " + w + ", " + h);
+	// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + holder + ":" + format + ", " + w + ", " + h);
 	// //this.holder = holder;
 	// //hasSurface = true;
 	// //if (mLyricsViewThread != null) {
@@ -313,7 +313,7 @@ class LyricsPlay2 extends LyricsPlay1 implements _Const/* , SurfaceHolder.Callba
 	//
 	// @Override
 	// public void surfaceDestroyed(SurfaceHolder holder) {
-	// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + holder);
+	// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + holder);
 	// //this.holder = holder;
 	// //hasSurface = false;
 	//

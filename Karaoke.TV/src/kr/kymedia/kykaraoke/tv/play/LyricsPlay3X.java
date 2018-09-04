@@ -33,7 +33,6 @@
 package kr.kymedia.kykaraoke.tv.play;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
 import android.content.Context;
 
 /**

@@ -38,7 +38,7 @@ import android.widget.TextView;
 
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.kykaraoke.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <a href="http://pms.skdevice.net/redmine/issues/3430">3430 금영노래방앱에서 노래 실행 시 반주가 끊겨 들리는 현상(v9.0.21)</a><br>
@@ -90,7 +90,7 @@ class Main3 extends Main2X {
 	 * UHD(BHX-UH200)
 	 */
 	protected boolean isBHXUH200() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ("BHX-UH200").equals(p_model) + ":" + p_model);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ("BHX-UH200").equals(p_model) + ":" + p_model);
 
 		return ("BHX-UH200").equals(p_model);
 	}
@@ -103,7 +103,7 @@ class Main3 extends Main2X {
 	 * AOSP(BHX-S300)
 	 */
 	protected boolean isBHXS300() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ("BHX-S300").equals(p_model) + ":" + p_model);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ("BHX-S300").equals(p_model) + ":" + p_model);
 
 		return ("BHX-S300").equals(p_model);
 	}
@@ -116,7 +116,7 @@ class Main3 extends Main2X {
 	 * AOSP(BKO-S300)
 	 */
 	protected boolean isBKOS300() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ("BKO-S300").equals(p_model) + ":" + p_model);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ("BKO-S300").equals(p_model) + ":" + p_model);
 
 		return ("BKO-S300").equals(p_model);
 	}
@@ -129,7 +129,7 @@ class Main3 extends Main2X {
 	 * <a href="http://resource.kymedia.kr/record/kpop/20120712/89/120712BSJM92K89.m4a">Loving U(러빙유)-씨스타<</a>
 	 */
 	protected boolean isBKOS200() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ("BKO-S200").equals(p_model) + ":" + p_model);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ("BKO-S200").equals(p_model) + ":" + p_model);
 
 		return ("BKO-S200").equals(p_model);
 	}
@@ -138,7 +138,7 @@ class Main3 extends Main2X {
 	 * AOSP셋탑확인:디버그시제외
 	 */
 	private boolean isAOSPSTB() {
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			return false;
 		}
 		return (isBHXS300() || isBKOS300());
@@ -231,14 +231,14 @@ class Main3 extends Main2X {
 
 		//// UHD셋탑제외
 		//// 키연속입력차단:디버그/엔터/디패드센터제외
-		//if (/*!IKaraokeTV.DEBUG &&*/ !isUHD2STB() && keyCode != KeyEvent.KEYCODE_DPAD_CENTER && keyCode != KeyEvent.KEYCODE_ENTER) {
+		//if (/*!BuildConfig.DEBUG &&*/ !isUHD2STB() && keyCode != KeyEvent.KEYCODE_DPAD_CENTER && keyCode != KeyEvent.KEYCODE_ENTER) {
 		//	if (event.getRepeatCount() > 0) {
 		//		return true;
 		//	}
 		//}
 
 		//// 반주곡/녹음곡 재생시 중지제외한 모든 키차단
-		//if (!IKaraokeTV.DEBUG && !isUHD2STB() && (isPlaying() || isPlayingListen()) && isHotKeyCode(keyCode) && !isStopKeyCode(keyCode)) {
+		//if (!BuildConfig.DEBUG && !isUHD2STB() && (isPlaying() || isPlayingListen()) && isHotKeyCode(keyCode) && !isStopKeyCode(keyCode)) {
 		//	_LOG.e(_toString() + TAG_MAIN, "onKeyDown()" + "[BTV][재생][핫키][메뉴][차단]" + method + ":" + isLoading() + ":" + remote.getState() + ":" + event);
 		//	return true;
 		//}
@@ -262,7 +262,7 @@ class Main3 extends Main2X {
 
 		super.StartPlaying();
 
-		//if (/*!IKaraokeTV.DEBUG && */!isUHD2STB()) {
+		//if (/*!BuildConfig.DEBUG && */!isUHD2STB()) {
 		//	hideTopGuide01();
 		//	hideTopGuide02();
 		//	hideBottomGuide01();
@@ -283,11 +283,11 @@ class Main3 extends Main2X {
 	 */
 	@Override
 	protected void setListening() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.getState());
 
 		super.setListening();
 
-		//if (/*!IKaraokeTV.DEBUG && */!isUHD2STB()) {
+		//if (/*!BuildConfig.DEBUG && */!isUHD2STB()) {
 		//	hideTopGuide01();
 		//	hideTopGuide02();
 		//	//hideBottomGuide01();
@@ -320,7 +320,7 @@ class Main3 extends Main2X {
 		//Log.e(_toString() + TAG_MAIN, "ShowMenu() " + (!isUHD2STB() && isPlaying()));
 		super.ShowMenu(method);
 		//// 재생시 메뉴차단
-		//if (!IKaraokeTV.DEBUG && !isUHD2STB() && isPlaying()) {
+		//if (!BuildConfig.DEBUG && !isUHD2STB() && isPlaying()) {
 		//	super.HideMenu();
 		//} else {
 		//	super.ShowMenu();

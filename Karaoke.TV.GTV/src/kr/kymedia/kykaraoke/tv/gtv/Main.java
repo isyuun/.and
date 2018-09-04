@@ -39,7 +39,7 @@ import android.util.Log;
 import com.kumyoung.gtvkaraoke.BuildConfig;
 
 import kr.kymedia.kykaraoke.tv._Main;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -111,16 +111,16 @@ class Main extends _Main {
 	 */
 	@Override
 	protected void getVender() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + getIntent() + getIntent().getExtras());
 		super.getVender();
 	}
 
 	@Override
 	protected void onNewIntent(Intent intent) {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
 		super.onNewIntent(intent);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
 	}
 
 	/**
@@ -129,7 +129,7 @@ class Main extends _Main {
 	@Override
 	protected void onStart() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onStart();
 	}
 
@@ -139,7 +139,7 @@ class Main extends _Main {
 	@Override
 	protected void onStop() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onStop();
 	}
 

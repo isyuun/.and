@@ -32,7 +32,7 @@
 
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.util.Log;
 
 /**
@@ -65,28 +65,28 @@ class Main5 extends Main4XXX {
 	@Override
 	protected void start() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + video_url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + video_url);
 		super.start();
 		showBackBoard();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + video_url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + video_url);
 	}
 
 	@Override
 	protected void stop(int engage) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + video_url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + video_url);
 		super.stop(engage);
 		hideBackBoard();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + video_url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + video_url);
 	}
 
 	@Override
 	public void hideBackBoard() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + video + ":" + video_url);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + video + ":" + video_url);
 		// super.hideBackBoard();
 		if (video != null) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[OK]" + video.isPlaying() + ":" + video_url);
+			if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[OK]" + video.isPlaying() + ":" + video_url);
 			if (video.isPlaying()) {
 				super.hideBackBoard();
 			} else {
@@ -100,10 +100,10 @@ class Main5 extends Main4XXX {
 	@Override
 	public void showBackBoard() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + video + ":" + video_url);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + video + ":" + video_url);
 		// super.showBackBoard();
 		if (video != null) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[OK]" + video.isPlaying() + ":" + video_url);
+			if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[OK]" + video.isPlaying() + ":" + video_url);
 			if (!video.isPlaying()) {
 				super.showBackBoard();
 			} else {

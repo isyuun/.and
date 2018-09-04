@@ -38,8 +38,8 @@ import android.util.Log;
 
 import kr.kymedia.kykaraoke.BuildConfig;
 import kr.kymedia.kykaraoke.tv._Video;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
 
 /**
  * <pre>
@@ -90,7 +90,7 @@ class Video extends _Video {
 	@Override
 	public void start() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString() + TAG_VIDEO, "start() " + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString() + TAG_VIDEO, "start() " + "[ST]");
 		/**
 		 * 동영상재시작(시간:60초):많이도준다~~~
 		 */
@@ -100,7 +100,7 @@ class Video extends _Video {
 		 */
 		COUNT_RETRY = _Const.COUNT_MP4_RETRY;
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString() + TAG_VIDEO, "start() " + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString() + TAG_VIDEO, "start() " + "[ED]");
 	}
 
 }

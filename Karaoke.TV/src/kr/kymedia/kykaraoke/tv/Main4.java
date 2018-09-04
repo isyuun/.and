@@ -32,7 +32,6 @@
 package kr.kymedia.kykaraoke.tv;
 
 import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -41,7 +40,7 @@ import kr.kymedia.karaoke.play.MediaPlayerPlay2;
 import kr.kymedia.karaoke.play.SongPlay;
 import kr.kymedia.karaoke.play._SoundTouchPlay;
 import kr.kymedia.karaoke.play.impl.ISongPlay;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.play._Listener;
 
 /**
@@ -77,7 +76,7 @@ class Main4 extends Main3XXXXX {
 	@Override
 	void CANCEL() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.CANCEL();
 
 		if (player != null) {
@@ -97,7 +96,7 @@ class Main4 extends Main3XXXXX {
 	@Override
 	protected void setPlayer() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.setPlayer();
 
 		player.setType(ISongPlay.TYPE.SOUNDTOUCHPLAY);
@@ -107,13 +106,13 @@ class Main4 extends Main3XXXXX {
 			@Override
 			public void onPrepared() {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + player.getPath());
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + player.getPath());
 				onPlayerPrepared(null);
 			}
 
 			@Override
 			public void onTime(int t) {
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + player.getPath());
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + player.getPath());
 				super.onTime(t);
 				if (isLoading()) {
 					stopLoading(getMethodName());
@@ -122,7 +121,7 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onError() {
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + player.getPath());
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + player.getPath());
 				Log.wtf(_toString() + TAG_SING, "onError() ");
 				delEngageSong(true);
 				CANCEL();
@@ -133,13 +132,13 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onError(ISongPlay.ERROR t, Exception e) {
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + player.getPath());
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + player.getPath());
 				Log.wtf(_toString() + TAG_SING, "onError() " + "(" + t + ", " + e + ")"/* + player.getPath() */ + "\n" + Log.getStackTraceString(e));
 				delEngageSong(true);
 				CANCEL();
 				stop(PLAY_ERROR);
 				String msg = getString(R.string.message_error_sing) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-				if (IKaraokeTV.DEBUG) {
+				if (BuildConfig.DEBUG) {
 					msg += "\n" + e.getMessage();
 				} else {
 					msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -150,22 +149,22 @@ class Main4 extends Main3XXXXX {
 			@Override
 			public void onRetry(int count) {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + count);
-				if (IKaraokeTV.DEBUG) Toast.makeText(getApplicationContext(), player + ":Retry - " + count, Toast.LENGTH_LONG).show();
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + count);
+				if (BuildConfig.DEBUG) Toast.makeText(getApplicationContext(), player + ":Retry - " + count, Toast.LENGTH_LONG).show();
 				startLoading(getMethodName(), LOADING_LONG);
 			}
 
 			@Override
 			public void onTimeout(long timeout) {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + timeout);
-				if (IKaraokeTV.DEBUG) Toast.makeText(getApplicationContext(), player + ":Timeout - " + timeout, Toast.LENGTH_LONG).show();
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + timeout);
+				if (BuildConfig.DEBUG) Toast.makeText(getApplicationContext(), player + ":Timeout - " + timeout, Toast.LENGTH_LONG).show();
 			}
 
 			@Override
 			public void onCompletion() {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 				stop(PLAY_NEXT);
 				stopLoading(getMethodName());
 				ShowScore();
@@ -177,14 +176,14 @@ class Main4 extends Main3XXXXX {
 	@Override
 	protected void setVideo() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.setVideo();
 
 		video.setOnListener(new _Listener() {
 
 			@Override
 			public void onError() {
-				//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + video_url);
+				//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + video_url);
 				Log.wtf(_toString() + TAG_SING, "onError() ");
 				showBackBoard();
 				CANCEL();
@@ -195,14 +194,14 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onError(ISongPlay.ERROR t, Exception e) {
-				//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + video_url);
+				//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + video_url);
 				Log.wtf(_toString() + TAG_SING, "onError() " + "(" + t + ", " + e + ")"/* + player.getPath() */ + "\n" + Log.getStackTraceString(e));
 				e.printStackTrace();
 				showBackBoard();
 				CANCEL();
 				stop(PLAY_ERROR);
 				String msg = getString(R.string.message_error_video) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-				if (IKaraokeTV.DEBUG) {
+				if (BuildConfig.DEBUG) {
 					msg += "\n" + e.getMessage();
 				} else {
 					msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -212,21 +211,21 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onRetry(int count) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + count);
-				if (IKaraokeTV.DEBUG) Toast.makeText(getApplicationContext(), video + ":Retry - " + count, Toast.LENGTH_LONG).show();
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + count);
+				if (BuildConfig.DEBUG) Toast.makeText(getApplicationContext(), video + ":Retry - " + count, Toast.LENGTH_LONG).show();
 			}
 
 			@Override
 			public void onTimeout(long timeout) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + timeout);
-				if (IKaraokeTV.DEBUG) Toast.makeText(getApplicationContext(), player + ":Timeout - " + timeout, Toast.LENGTH_LONG).show();
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + timeout);
+				if (BuildConfig.DEBUG) Toast.makeText(getApplicationContext(), player + ":Timeout - " + timeout, Toast.LENGTH_LONG).show();
 			}
 		});
 	}
 
 	@Override
 	protected void setListen() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.setListen();
 
 		final SeekBar seekBar = (SeekBar) player.findViewById(R.id.seekBar);
@@ -253,7 +252,7 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onError() {
-				//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + m_strListenSongUrl);
+				//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + m_strListenSongUrl);
 				Log.wtf(_toString() + TAG_SING, "onError() ");
 				RemoveListenDisplay();
 				CANCEL();
@@ -264,14 +263,14 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onError(ISongPlay.ERROR t, Exception e) {
-				//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + m_strListenSongUrl);
+				//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + m_strListenSongUrl);
 				Log.wtf(_toString() + TAG_SING, "onError() " + "(" + t + ", " + e + ")"/* + player.getPath() */ + "\n" + Log.getStackTraceString(e));
 				e.printStackTrace();
 				RemoveListenDisplay();
 				CANCEL();
 				stop(PLAY_ERROR);
 				String msg = getString(R.string.message_error_listen) + "(" + getString(R.string.message_error_title_number) + record_id + ")";
-				if (IKaraokeTV.DEBUG) {
+				if (BuildConfig.DEBUG) {
 					msg += "\n" + e.getMessage();
 				} else {
 					msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -281,14 +280,14 @@ class Main4 extends Main3XXXXX {
 
 			@Override
 			public void onRetry(int count) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + count);
-				if (IKaraokeTV.DEBUG) Toast.makeText(getApplicationContext(), listen + ":Retry - " + count, Toast.LENGTH_LONG).show();
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + count);
+				if (BuildConfig.DEBUG) Toast.makeText(getApplicationContext(), listen + ":Retry - " + count, Toast.LENGTH_LONG).show();
 			}
 
 			@Override
 			public void onTimeout(long timeout) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + timeout);
-				if (IKaraokeTV.DEBUG) Toast.makeText(getApplicationContext(), player + ":Timeout - " + timeout, Toast.LENGTH_LONG).show();
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + timeout);
+				if (BuildConfig.DEBUG) Toast.makeText(getApplicationContext(), player + ":Timeout - " + timeout, Toast.LENGTH_LONG).show();
 			}
 
 			@Override

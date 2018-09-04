@@ -32,8 +32,8 @@ package kr.kymedia.kykaraoke.tv.api.gtv;
 
 import java.util.LinkedHashMap;
 
+import kr.kymedia.kykaraoke.api._VASS;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -45,7 +45,7 @@ import kr.kymedia.kykaraoke.tv.data.TicketItem;
  * @version 1.0
  * @since 2016-06-28
  */
-public class VASS extends Thread implements kr.kymedia.kykaraoke.tv.api._VASS {
+public class VASS extends Thread implements _VASS {
 	private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
 
 	private String _toString() {

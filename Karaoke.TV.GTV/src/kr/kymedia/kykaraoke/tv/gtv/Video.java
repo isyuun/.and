@@ -38,7 +38,7 @@ import com.kumyoung.gtvkaraoke.BuildConfig;
 
 import kr.kymedia.karaoke.util.Log;
 import kr.kymedia.kykaraoke.tv._Video;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -69,14 +69,14 @@ class Video extends _Video {
 	@Override
 	public void startMainActivity(Bundle bundle) {
 		// super.startMainActivity(bundle);
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + bundle);
 		Intent intent = new Intent(getApplicationContext(), __Main.class);
 		if (bundle != null) {
 			intent.putExtras(bundle);
 		}
 		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		// intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + intent + bundle);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + intent + bundle);
 		startActivity(intent);
 	}
 
@@ -174,7 +174,7 @@ class Video extends _Video {
 	}
 
 	//public void doAlert(String strMsg, final boolean needkill) {
-	//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + strMsg + ", " + needkill);
+	//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + strMsg + ", " + needkill);
 	//
 	//	/*
 	//	 * AlertDialog ad = new AlertDialog.Builder(ATVKaraokeActivity.this).create();

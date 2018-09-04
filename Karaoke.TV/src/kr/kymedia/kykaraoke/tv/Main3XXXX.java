@@ -40,8 +40,8 @@ import android.widget.TextView;
 import kr.kymedia.karaoke._IKaraoke;
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.karaoke.widget.util.WidgetUtils;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._KPRequest;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._KPRequest;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -101,18 +101,18 @@ class Main3XXXX extends Main3XXX {
 	 */
 	private void ShowMessageExitNetwork() {
 		Log.wtf("[KP]" + _toString(), getMethodName() + "[KP]" + REQUEST_KP.get(KP_REQUEST) + ":" + OP + ", " + M1 + ", " + M2);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		String message = getString(R.string.message_error_network_timeout);
 		message += "\n" + getString(R.string.message_error_network_timeout_exit_app);
 		ShowMessageOk(POPUP_EXIT, getString(R.string.common_exit), message);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
 	 * 홈화면에서오류발생시종료처리
 	 */
 	private void checkShowMessageExitNetwork() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		switch (remote.getState()) {
 			case STATE_HOME_MENU:
@@ -132,7 +132,7 @@ class Main3XXXX extends Main3XXX {
 				KP.join();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		KP = new _KPRequest(this, handlerKP);
@@ -438,7 +438,7 @@ class Main3XXXX extends Main3XXX {
 	 */
 	@Override
 	protected void stopLoading(String method) {
-		/*if (IKaraokeTV.DEBUG) */
+		/*if (BuildConfig.DEBUG) */
 		Log.d("[VASS]" + _toString(), "[VASS]" + "stopLoading() " + method + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.stopLoading(method);
 
@@ -452,7 +452,7 @@ class Main3XXXX extends Main3XXX {
 
 		try {
 			TicketItem item = null;
-			if (IKaraokeTV.DEBUG) Log.wtf("[VASS]" + _toString(), "[VASS]" + getMethodName() + item);
+			if (BuildConfig.DEBUG) Log.wtf("[VASS]" + _toString(), "[VASS]" + getMethodName() + item);
 			if (null != VASS && null != VASS.getTicketItems()) {
 				item = VASS.getTicketItems().get(p_passtype);
 			}

@@ -13,10 +13,10 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 
-import kr.kymedia.kykaraoke.play._SongData;
+import kr.kymedia.kykaraoke.data._SongData;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
 
 /**
  * Copy of {@link SongPlayer}
@@ -81,12 +81,12 @@ class PlayView2 extends PlayView1 implements _Const {
 	private PLAY_ENGAGE m_state = PLAY_ENGAGE.PLAY_STOP;
 
 	public void setPlayState(PLAY_ENGAGE state) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + state);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + state);
 		this.m_state = state;
 	}
 
 	public PLAY_ENGAGE getPlayState() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + m_state);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + m_state);
 		return m_state;
 	}
 
@@ -115,7 +115,7 @@ class PlayView2 extends PlayView1 implements _Const {
 	//public void setLyric(ArrayList<String> lyrics) {
 	//	this.m_lyrics = lyrics;
 	//	for (int i = 0; i < m_lyrics.size(); i++) {
-	//		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_PLAY, getMethodName() + m_lyrics.get(i));
+	//		if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_PLAY, getMethodName() + m_lyrics.get(i));
 	//	}
 	//}
 
@@ -138,7 +138,7 @@ class PlayView2 extends PlayView1 implements _Const {
 	//	if (m_lyrics != null && m_songIdx > -1 && m_songIdx < m_lyrics.size()) {
 	//		ret = m_lyrics.get(m_songIdx);
 	//	}
-	//	if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_PLAY, getMethodName() + ":" + ret + ":" + m_songIdx + ":" + m_lyrics);
+	//	if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_PLAY, getMethodName() + ":" + ret + ":" + m_songIdx + ":" + m_lyrics);
 	//	return ret;
 	//}
 
@@ -226,7 +226,7 @@ class PlayView2 extends PlayView1 implements _Const {
 	 * @see kr.kymedia.kykaraoke.tv.Main3XX#setListen()
 	 */
 	private void create() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		mLyricsPlay = new _LyricsPlay(context);
 
@@ -307,7 +307,7 @@ class PlayView2 extends PlayView1 implements _Const {
 	};
 
 	protected boolean open(String path) throws Exception {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "open()" + path + "()");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "open()" + path + "()");
 
 		try {
 			m_data.release();
@@ -322,7 +322,7 @@ class PlayView2 extends PlayView1 implements _Const {
 				m_mp.prepare();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), e.getLocalizedMessage());
+			if (BuildConfig.DEBUG) Log.i(_toString(), e.getLocalizedMessage());
 			e.printStackTrace();
 			close();
 			return false;
@@ -347,7 +347,7 @@ class PlayView2 extends PlayView1 implements _Const {
 	MediaPlayer.OnCompletionListener onMediaPlayerComplete = new MediaPlayer.OnCompletionListener() {
 		@Override
 		public void onCompletion(MediaPlayer mp) {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), "onCompletion()" + mp);
+			if (BuildConfig.DEBUG) Log.i(_toString(), "onCompletion()" + mp);
 			close();
 		}
 	};
@@ -356,13 +356,13 @@ class PlayView2 extends PlayView1 implements _Const {
 	MediaPlayer.OnErrorListener onMediaPlayerError = new MediaPlayer.OnErrorListener() {
 		@Override
 		public boolean onError(MediaPlayer mp, int what, int extra) {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), "onMediaPlayerError()" + m_songIdx + "()" + mp + "" + what + "()" + extra + "()");
+			if (BuildConfig.DEBUG) Log.i(_toString(), "onMediaPlayerError()" + m_songIdx + "()" + mp + "" + what + "()" + extra + "()");
 			return true;
 		}
 	};
 
 	public boolean isPlaying() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
+		//if (BuildConfig.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
 		if (m_mp != null && m_mp.isPlaying()) {
 			return true;
 		}
@@ -370,7 +370,7 @@ class PlayView2 extends PlayView1 implements _Const {
 	}
 
 	public boolean isPause() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
+		//if (BuildConfig.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
 		if (m_mp != null && !m_mp.isPlaying()) {
 			return true;
 		}
@@ -379,7 +379,7 @@ class PlayView2 extends PlayView1 implements _Const {
 
 	@Deprecated
 	public boolean play() throws Exception {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "play()");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "play()");
 		//
 		// try {
 		// if (m_state == _STATE_STOP) {
@@ -393,7 +393,7 @@ class PlayView2 extends PlayView1 implements _Const {
 		//
 		// } catch (Exception e) {
 		// e.printStackTrace();
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), e.getLocalizedMessage());
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), e.getLocalizedMessage());
 		// close();
 		// return false;
 		// }

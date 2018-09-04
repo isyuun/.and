@@ -47,7 +47,7 @@ import android.widget.Toast;
 import java.io.File;
 
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.play._Listen;
 import kr.kymedia.kykaraoke.tv.play._PlayView;
 
@@ -82,19 +82,19 @@ class Main3XX extends Main3X {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + savedInstanceState);
 		super.onCreate(savedInstanceState);
 		onCreate();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + savedInstanceState);
 	}
 
 	private void onCreate() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 	}
 
 	@Override
 	protected void startInit() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.startInit();
 	}
 
@@ -113,7 +113,7 @@ class Main3XX extends Main3X {
 	 */
 	@Override
 	protected void KP(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 
 		int state = msg.getData().getInt("state");
 
@@ -141,7 +141,7 @@ class Main3XX extends Main3X {
 				try {
 					super.KP(msg);
 				} catch (Exception e) {
-					if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+					if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 				}
 				break;
 		}
@@ -155,7 +155,7 @@ class Main3XX extends Main3X {
 	@Override
 	protected void down() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.down();
 	}
 
@@ -166,7 +166,7 @@ class Main3XX extends Main3X {
 	 */
 	@Override
 	protected void downListen(int state) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + COMPLETE_KP.get(state));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + COMPLETE_KP.get(state));
 		super.downListen(state);
 	}
 
@@ -185,7 +185,7 @@ class Main3XX extends Main3X {
 	 */
 	@Override
 	protected void setPlayer() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + findViewById(R.id.player));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + findViewById(R.id.player));
 
 		player = (_PlayView) findViewById(R.id.player);
 
@@ -260,7 +260,7 @@ class Main3XX extends Main3X {
 	 */
 	protected void onPlayerBufferingUpdate(MediaPlayer mp, int percent) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + percent + "%)");
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + percent + "%)");
 	}
 
 	/**
@@ -290,7 +290,7 @@ class Main3XX extends Main3X {
 	 */
 	protected boolean onPlayerInfo(MediaPlayer mp, int what, int extra) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
 		return true;
 	}
 
@@ -311,7 +311,7 @@ class Main3XX extends Main3X {
 
 	protected void setVideo() {
 		video = get_Application().getVideoActivity();
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + video);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + video);
 
 		video.setOnPreparedListener(new OnPreparedListener() {
 
@@ -381,7 +381,7 @@ class Main3XX extends Main3X {
 	 */
 	protected boolean onVideoInfo(MediaPlayer mp, int what, int extra) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString() + TAG_MAIN, "onVideoInfo() " + mp + "(" + what + ", " + extra + ")");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString() + TAG_MAIN, "onVideoInfo() " + mp + "(" + what + ", " + extra + ")");
 		return true;
 	}
 
@@ -404,7 +404,7 @@ class Main3XX extends Main3X {
 	COMPLETE_KP COMPLETE = null;
 
 	protected void setListening() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + this.COMPLETE);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + this.COMPLETE);
 
 		stopLoading(getMethodName());
 
@@ -421,12 +421,12 @@ class Main3XX extends Main3X {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + this.COMPLETE);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + this.COMPLETE);
 	}
 
 	private void startListen(int state) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + ":" + remote.getState() + ":" + COMPLETE_KP.get(state));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + ":" + remote.getState() + ":" + COMPLETE_KP.get(state));
 
 		String path = m_strListenSongUrl;
 		// test
@@ -440,10 +440,10 @@ class Main3XX extends Main3X {
 			listen.open();
 			this.COMPLETE = COMPLETE_KP.get(state);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			this.COMPLETE = null;
 			String msg = getString(R.string.message_error_listen) + "(" + getString(R.string.message_error_title_number) + record_id + ")";
-			if (IKaraokeTV.DEBUG) {
+			if (BuildConfig.DEBUG) {
 				msg += "\n" + e.getMessage();
 			} else {
 				msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -454,7 +454,7 @@ class Main3XX extends Main3X {
 	}
 
 	protected void setListen() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + listen);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + listen);
 
 		listen = new _Listen(this);
 
@@ -500,7 +500,7 @@ class Main3XX extends Main3X {
 	 */
 	protected void onListenBufferingUpdate(MediaPlayer mp, int percent) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + percent + "%)");
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + percent + "%)");
 	}
 
 	/**
@@ -509,7 +509,7 @@ class Main3XX extends Main3X {
 	protected void onListenPrepared(MediaPlayer mp) {
 
 		Log.i(_toString() + TAG_LISTEN, "onListenPrepared() " + remote.getState() + ":" + mp);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + isPlaying() + mp);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + isPlaying() + mp);
 		if (isPlaying()) {
 			listen.stop();
 		} else {
@@ -556,7 +556,7 @@ class Main3XX extends Main3X {
 	@Override
 	protected void stopListen() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + isListening() + ":" + listen);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + isListening() + ":" + listen);
 		super.stopListen();
 	}
 
@@ -566,7 +566,7 @@ class Main3XX extends Main3X {
 	@Override
 	@Deprecated
 	public void StartPlayActivity() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + findViewById(R.id.player));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + findViewById(R.id.player));
 		// HideLoading();
 		//
 		// Bundle bundle = new Bundle();
@@ -578,7 +578,7 @@ class Main3XX extends Main3X {
 		// }
 		// intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		// startActivity(intent);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + findViewById(R.id.player));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + findViewById(R.id.player));
 	}
 
 	/**
@@ -595,9 +595,9 @@ class Main3XX extends Main3X {
 				ret = true;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ret + ":" + song + "-" + number + ":" + url);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ret + ":" + song + "-" + number + ":" + url);
 		return ret;
 	}
 
@@ -632,7 +632,7 @@ class Main3XX extends Main3X {
 	 */
 	protected void start() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		// HideLoading();
 
 		//String temp = sdPath + File.separator + "sing.skym";
@@ -643,7 +643,7 @@ class Main3XX extends Main3X {
 		try {
 			number = Integer.parseInt(m_strRequestPlaySongID);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		boolean isMusicVideo = isMusicVideo(number, video_url);
@@ -661,9 +661,9 @@ class Main3XX extends Main3X {
 				try {
 					video.open();
 				} catch (Exception e) {
-					if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+					if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 					String msg = getString(R.string.message_error_video) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-					if (IKaraokeTV.DEBUG) {
+					if (BuildConfig.DEBUG) {
 						msg += "\n" + e.getMessage();
 					} else {
 						msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -721,7 +721,7 @@ class Main3XX extends Main3X {
 	}
 
 	protected void setKaraokeMP3Server() {
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			Toast toast = Toast.makeText(getApplicationContext(), player.setKaraokeMP3Server(), Toast.LENGTH_SHORT);
 			toast.show();
 		}
@@ -730,7 +730,7 @@ class Main3XX extends Main3X {
 	@Override
 	public void onClick(View v) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
 
 		super.onClick(v);
 
@@ -747,7 +747,7 @@ class Main3XX extends Main3X {
 	 * </pre>
 	 */
 	protected void open() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strRequestPlaySongID + ":" + url_lyric);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strRequestPlaySongID + ":" + url_lyric);
 		if (TextUtil.isEmpty(url_lyric)) {
 			return;
 		}
@@ -768,10 +768,10 @@ class Main3XX extends Main3X {
 
 			clear();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			e.printStackTrace();
 			String msg = getString(R.string.message_error_sing) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-			if (IKaraokeTV.DEBUG) {
+			if (BuildConfig.DEBUG) {
 				msg += "\n" + e.getMessage();
 			} else {
 				msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -780,27 +780,27 @@ class Main3XX extends Main3X {
 			CANCEL();
 			stop(PLAY_STOP);
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + m_strRequestPlaySongID + ":" + url_lyric);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + m_strRequestPlaySongID + ":" + url_lyric);
 	}
 
 	@Override
 	protected void play() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.play();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	void CANCEL() {
 		super.CANCEL();
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]");
 		if (download != null) {
 			download.interrupt();
 		}
 		stopPlay(PLAY_STOP);
 		stopLoading(getMethodName());
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]");
 	}
 
 	protected void clear() {
@@ -823,7 +823,7 @@ class Main3XX extends Main3X {
 	 */
 	@Override
 	protected void stop(int engage) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + engage);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + engage);
 
 		super.stop(engage);
 
@@ -841,7 +841,7 @@ class Main3XX extends Main3X {
 				video.startBlankVideo(video_url_back, PLAY_STOP);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		// 2. 녹음곡 STOP
@@ -868,7 +868,7 @@ class Main3XX extends Main3X {
 		//	HideMenu(getMethodName());
 		//}
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + delPlayList + m_strRequestPlaySongID + song_ids);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + delPlayList + m_strRequestPlaySongID + song_ids);
 		if (!TextUtil.isEmpty(getEngageSong())) {
 			startSing(null);
 			// stop(PLAY_NEXT);
@@ -897,7 +897,7 @@ class Main3XX extends Main3X {
 		//	HideMenu(getMethodName());
 		//}
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + delPlayList + m_strRequestPlaySongID + song_ids);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + delPlayList + m_strRequestPlaySongID + song_ids);
 		if (delPlayList.size() > 0) {
 			String curr = delPlayList.get(delPlayList.size() - 1);
 			// 지금재생하고있는곡을예약하면지랄이야
@@ -927,7 +927,7 @@ class Main3XX extends Main3X {
 
 	@Override
 	public void ShowMessageAlert(String message) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + message);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + message);
 		super.ShowMessageAlert(message);
 		setBottomProductText(message);
 	}

@@ -29,10 +29,12 @@ include ':QuickActionLib'
 include ':RoundedImageView'
 include ':SoundTouch-Android.1.0'
 include ':SoundTouch-Android.2.0'
-include ':KYStbKaraoke.KYM'
+//include ':KYStbKaraoke.KYM'
 //include ':KYStbKaraoke.KYM.LGU+.ATV', ':KYStbKaraoke.KYM.LGU+.GTV', ':KYStbKaraoke.KYM.LGU+.OMA'
 //project(':KYStbKaraoke.KYM').projectDir = new File('smarttv.karaoke.LGU+/src/KYStbKaraoke.KYM')
 //project(':KYStbKaraoke.KYM.LGU+.ATV').projectDir = new File('smarttv.karaoke.LGU+/src/KYStbKaraoke.KYM.LGU+.ATV')
 //project(':KYStbKaraoke.KYM.LGU+.GTV').projectDir = new File('smarttv.karaoke.LGU+/src/KYStbKaraoke.KYM.LGU+.GTV')
 //project(':KYStbKaraoke.KYM.LGU+.OMA').projectDir = new File('smarttv.karaoke.LGU+/src/KYStbKaraoke.KYM.LGU+.OMA')
+include ':Karaoke.APP.PLAY'
 include ':Karaoke.MUKIN.COUPON'
+include ':Karaoke.MUZZLE'

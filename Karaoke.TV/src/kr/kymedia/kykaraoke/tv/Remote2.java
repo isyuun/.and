@@ -32,8 +32,8 @@
 
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api._Const;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.util.Log;
 
 /**
@@ -88,7 +88,7 @@ class Remote2 extends Remote implements _Const {
 	 */
 	@Override
 	public void setSearchSelfState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":m_iSearchSelfFocus:" + m_iSearchSelfFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":m_iSearchSelfFocus:" + m_iSearchSelfFocus);
 
 		switch (keyID)
 		{
@@ -109,7 +109,7 @@ class Remote2 extends Remote implements _Const {
 			}
 			break;
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":m_iSearchSelfFocus:" + m_iSearchSelfFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":m_iSearchSelfFocus:" + m_iSearchSelfFocus);
 	}
 
 	/**
@@ -122,7 +122,7 @@ class Remote2 extends Remote implements _Const {
 	 */
 	@Override
 	public void setSongListDetailState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + m_iSongListDetailFocus);
 
 		switch (keyID) {
 		case REMOTE_DOWN:
@@ -145,7 +145,7 @@ class Remote2 extends Remote implements _Const {
 			break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + m_iSongListDetailFocus);
 	}
 
 	/**
@@ -157,7 +157,7 @@ class Remote2 extends Remote implements _Const {
 	 */
 	@Override
 	public void setMainMenuState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		switch (keyID)
 		{
@@ -229,7 +229,7 @@ class Remote2 extends Remote implements _Const {
 
 	@Override
 	public void setCertifyHPState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		switch (keyID)
 		{
@@ -276,7 +276,7 @@ class Remote2 extends Remote implements _Const {
 
 	@Override
 	public void setCertifyState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		switch (keyID)
 		{
@@ -311,15 +311,15 @@ class Remote2 extends Remote implements _Const {
 
 	@Override
 	public void setMyRecordListState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 		super.setMyRecordListState(keyID);
 	}
 
 	@Override
 	public void setCustomerSubMenuState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + m_iMenuCustomerFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + m_iMenuCustomerFocus);
 		super.setCustomerSubMenuState(keyID);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + m_iMenuCustomerFocus);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + m_iMenuCustomerFocus);
 	}
 
 }

@@ -32,13 +32,14 @@
 package kr.kymedia.kykaraoke.tv.play;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Point;
 import android.util.Log;
 import android.view.Display;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
 
 /**
  * <pre>
@@ -74,7 +75,7 @@ class LyricsPlay3 extends LyricsPlay2 {
 	@Override
 	protected void init() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.init();
 
 		// bgkim 각각의 폰트 사이즈는 비율로 조절
@@ -96,14 +97,24 @@ class LyricsPlay3 extends LyricsPlay2 {
 		Log.e(_toString() + _Const.TAG_LYRIC, "init() " + w + "," + h + ":" + displaySize);
 
 		int iSongInfoPosition = w / 2;
-		setSongInfoPosition(iSongInfoPosition);
 		int iTitleFontSize = h / 13;
-		setTitleFontSize(iTitleFontSize);
 		int iLyricsFontSize = h / 12;
-		setLyricsFontSize(iLyricsFontSize);
 		int iSingerFontSize = h / 14;
-		setSingerFontSize(iSingerFontSize);
 		int iReadyFontSize = h / 18;
+
+		int orientation = getResources().getConfiguration().orientation;
+		if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+			iSongInfoPosition /= 2;
+			iTitleFontSize /= 2;
+			iLyricsFontSize /= 2;
+			iSingerFontSize /= 2;
+			iReadyFontSize /= 2;
+		}
+
+		setSongInfoPosition(iSongInfoPosition);
+		setTitleFontSize(iTitleFontSize);
+		setLyricsFontSize(iLyricsFontSize);
+		setSingerFontSize(iSingerFontSize);
 		setReadyFontSize(iReadyFontSize);
 		setStrokeSize(4);
 	}

@@ -47,7 +47,7 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import kr.kymedia.karaoke.widget.util.ImageDownLoader3;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.data._Util;
 
 /**
@@ -89,12 +89,12 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void HideVirtualRemote() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		findViewById(R.id.layout_remote).setVisibility(View.INVISIBLE);
 	}
 
 	protected void ShowVirtualRemote() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		findViewById(R.id.layout_remote).setVisibility(View.VISIBLE);
 	}
 
@@ -113,7 +113,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void setBaseLayout() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		super.setBaseLayout();
 
@@ -161,7 +161,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void setVisibleTop(boolean visible) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + visible + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + visible + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (visible) {
 			mLayoutTop.setVisibility(View.VISIBLE);
 		} else {
@@ -172,7 +172,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void hideBackBoard() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":" + PANE_STATE.get(m_iPaneState));
 		// if (findViewById(R.id.img_background) != null) {
 		// findViewById(R.id.img_background).setVisibility(View.INVISIBLE);
 		// }
@@ -184,7 +184,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void showBackBoard() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":" + PANE_STATE.get(m_iPaneState));
 		// if (findViewById(R.id.img_background) != null) {
 		// findViewById(R.id.img_background).setVisibility(View.VISIBLE);
 		// }
@@ -202,8 +202,8 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void setContentView(View view) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + view + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + view + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		// super.setContentView(view);
 	}
 
@@ -216,15 +216,15 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void setContentView(View view, LayoutParams params) {
 
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + view + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + view + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		// super.setContentView(view, params);
 	}
 
 	@Override
 	public void setContentViewKaraoke(View view) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + view + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + view + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		super.setContentViewKaraoke(view);
 
@@ -243,7 +243,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void inflateListSong(int res) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(findViewById(res)) + ":" + findViewById(res));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(findViewById(res)) + ":" + findViewById(res));
 		super.inflateListSong(res);
 
 		for (SingLine line : sing_line) {
@@ -255,7 +255,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void inflateListListen(int res) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(findViewById(res)) + ":" + findViewById(res));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(findViewById(res)) + ":" + findViewById(res));
 		super.inflateListListen(res);
 		//for (ListenLine line : listen_line) {
 		//	line.layout.setClickable(true);
@@ -270,7 +270,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void onClick(View v) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
 		super.onClick(v);
 
 		HideMessageCommon();
@@ -310,7 +310,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected boolean CheckNotContentsSongList() {
 		boolean ret = true;
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + ret);
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + ret);
 		int index = 0;
 
 		index = (m_iCurrentSongListPage - 1) * 6 + remote.m_iSongListFocus;
@@ -326,7 +326,7 @@ class Main3 extends Main2XXXXX {
 			ret = true;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + ret + "-" + remote.isGenre() + ":" + m_iCurrentSongListPage + ":" + remote.m_iSongListFocus + ":" + index + "-" + mSongItems.size());
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + ret + "-" + remote.isGenre() + ":" + m_iCurrentSongListPage + ":" + remote.m_iSongListFocus + ":" + index + "-" + mSongItems.size());
 		return ret;
 	}
 
@@ -339,7 +339,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void CheckNotItemOnListenList() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.CheckNotItemOnListenList();
 	}
 
@@ -348,7 +348,7 @@ class Main3 extends Main2XXXXX {
 	 */
 	@Override
 	protected boolean CheckNotContentsCustomerList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":m_iCustomerListFocus:" + remote.m_iCustomerListFocus);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":m_iCustomerListFocus:" + remote.m_iCustomerListFocus);
 
 		boolean ret = true;
 		try {
@@ -363,9 +363,9 @@ class Main3 extends Main2XXXXX {
 				ret = true;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + ret);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + ret);
 		return ret;
 	}
 
@@ -373,14 +373,14 @@ class Main3 extends Main2XXXXX {
 	protected boolean CheckNotContentsSearchList() {
 
 		boolean ret = super.CheckNotContentsSearchList();
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ret);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ret);
 		return ret;
 	}
 
 	@Override
 	protected void clickGUI() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState());
 		hideSoftKeyboardNoWhereFast();
 		super.clickGUI();
 	}
@@ -388,7 +388,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void exitGUI() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState());
 		hideSoftKeyboardNoWhereFast();
 		super.exitGUI();
 	}
@@ -396,7 +396,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void HideMessageOk() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.HideMessageOk();
 		if (findViewById(R.id.message_ok) != null) {
 			findViewById(R.id.message_ok).setVisibility(View.INVISIBLE);
@@ -410,7 +410,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void HideMessageCommon() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.HideMessageCommon();
 
 	}
@@ -418,7 +418,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void ShowMessageNotResponse(String title, String message) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + title + ", " + message);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + title + ", " + message);
 		// super.ShowMessageNotResponse(title, message);
 		stopLoading(getMethodName());
 		ShowMessageCommon(CLOSE_AUTO, title, message);
@@ -427,7 +427,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void HideMessageOkCancel() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.HideMessageOkCancel();
 		if (message_okcancel != null) {
 			message_okcancel.setVisibility(View.INVISIBLE);
@@ -441,14 +441,14 @@ class Main3 extends Main2XXXXX {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState);
 		super.onCreate(savedInstanceState);
 	}
 
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState);
 		super.onPostCreate(savedInstanceState);
 
 		// wakeLockAquire();
@@ -457,7 +457,7 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState + ", " + persistentState);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + savedInstanceState + ", " + persistentState);
 		super.onPostCreate(savedInstanceState, persistentState);
 
 		// wakeLockAquire();
@@ -465,47 +465,47 @@ class Main3 extends Main2XXXXX {
 
 	@Override
 	protected void onResume() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.onResume();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void onPause() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.onPause();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void onStop() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.onStop();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void onDestroy() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.onDestroy();
 
 		wakeLockRelease();
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + newConfig);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + newConfig);
 		super.onConfigurationChanged(newConfig);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + newConfig);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + newConfig);
 	}
 
 	@Override
 	public void clickMenuSing() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSongListDetailFocus);
 		if (mSongItems == null || mSongItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSongItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSongItems);
 			return;
 		}
 		super.clickMenuSing();
@@ -513,9 +513,9 @@ class Main3 extends Main2XXXXX {
 
 	@Override
 	public void clickMenuSingGenre() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSongListDetailFocus);
 		if (mSongItems == null || mSongItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSongItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSongItems);
 			return;
 		}
 		super.clickMenuSingGenre();
@@ -523,9 +523,9 @@ class Main3 extends Main2XXXXX {
 
 	@Override
 	public void clickMenuListen() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		if (mListenItems == null || mListenItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mListenItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mListenItems);
 			return;
 		}
 		super.clickMenuListen();
@@ -533,9 +533,9 @@ class Main3 extends Main2XXXXX {
 
 	@Override
 	public void clickListSong() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSongListFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSongListFocus);
 		if (remote.m_iSongListFocus < 1 || mSongItems == null || mSongItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSongItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSongItems);
 			return;
 		}
 		super.clickListSong();
@@ -546,9 +546,9 @@ class Main3 extends Main2XXXXX {
 
 	@Override
 	public void clickListSearch() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSearchListFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iSearchListFocus);
 		if (remote.m_iSearchListFocus < 1 || mSearchItems == null || mSearchItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSearchItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mSearchItems);
 			return;
 		}
 		super.clickListSearch();
@@ -559,9 +559,9 @@ class Main3 extends Main2XXXXX {
 
 	@Override
 	public void clickListListen() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iListenListFocusX + ":" + remote.m_iListenListFocusY);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.m_iListenListFocusX + ":" + remote.m_iListenListFocusY);
 		if (mListenItems == null || mListenItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mListenItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_ERR, "[NG]" + getMethodName() + mListenItems);
 			return;
 		}
 		super.clickListListen();
@@ -577,13 +577,13 @@ class Main3 extends Main2XXXXX {
 	@Override
 	public void putURLImage(ImageView v, String url, boolean resize, int imageRes) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + v + ", " + url + ", " + resize + ", " + getResourceEntryName(findViewById(imageRes)));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + v + ", " + url + ", " + resize + ", " + getResourceEntryName(findViewById(imageRes)));
 		super.putURLImage(v, url, resize, imageRes);
 	}
 
 	@Override
 	public void setHOME() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 
 		util_profileHome = new _Util(handlerKP);
 		util_profile01 = new _Util(handlerKP);
@@ -603,14 +603,14 @@ class Main3 extends Main2XXXXX {
 				@Override
 				public void onLoadingStarted(String arg0, View arg1) {
 
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+					if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 				}
 
 				@Override
 				public void onLoadingFailed(String arg0, View arg1, FailReason arg2) {
 
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+					if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 					// handlerKARA.removeCallbacks(stopLoading);
 					// handlerKARA.post(stopLoading);
 				}
@@ -618,9 +618,9 @@ class Main3 extends Main2XXXXX {
 				@Override
 				public void onLoadingComplete(String arg0, View arg1, Bitmap arg2) {
 
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+					if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 					// if (imageViews.size() > 0) {
-					// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(arg1) + ":" + arg1);
+					// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + getResourceEntryName(arg1) + ":" + arg1);
 					// imageViews.remove(arg1);
 					// if (imageViews.size() == 0) {
 					// handlerKARA.removeCallbacks(stopLoading);
@@ -635,7 +635,7 @@ class Main3 extends Main2XXXXX {
 				@Override
 				public void onLoadingCancelled(String arg0, View arg1) {
 
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+					if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 					// handlerKARA.removeCallbacks(stopLoading);
 					// handlerKARA.post(stopLoading);
 				}
@@ -644,7 +644,7 @@ class Main3 extends Main2XXXXX {
 
 		super.setHOME();
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	Runnable stopLoading = new Runnable() {

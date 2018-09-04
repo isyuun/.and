@@ -34,7 +34,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.ui._SoundManager;
 
 /**
@@ -122,7 +122,7 @@ class Main6XX extends Main6X {
 
 	private boolean onKeySound(int keyCode, KeyEvent event) {
 		if (mIsKeySound && !isPlaying() && !isListening()) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, getMethodName() + keyCode + ", " + event);
+			if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, getMethodName() + keyCode + ", " + event);
 			switch (keyCode) {
 				case KeyEvent.KEYCODE_DPAD_UP:
 				case KeyEvent.KEYCODE_DPAD_DOWN:

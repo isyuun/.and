@@ -36,7 +36,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -121,7 +121,7 @@ class Main4XXX extends Main4XX {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (!isShowMenu() && isListening()) {
 			if (listen.isPitchTempo()) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + !isShowMenu() + ":" + isListening() + ":" + keyCode + ", " + event);
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + !isShowMenu() + ":" + isListening() + ":" + keyCode + ", " + event);
 				switch (keyCode) {
 					case KeyEvent.KEYCODE_DPAD_DOWN:
 						setPitchDN();

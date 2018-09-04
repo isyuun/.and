@@ -41,7 +41,7 @@ import android.widget.Toast;
 
 import kr.kymedia.karaoke.play.impl.ISongPlay.ERROR;
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -79,7 +79,7 @@ class Main3XXX extends Main3XX {
 
 	@Override
 	protected boolean isLoading() {
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + isOpening + ":" + super.isLoading() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + isOpening + ":" + super.isLoading() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		return (isOpening || super.isLoading());
 	}
 
@@ -112,7 +112,7 @@ class Main3XXX extends Main3XX {
 	 * </pre>
 	 */
 	protected void showCancel(final String msg) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying:" + isPlaying() + ":isMusicVideo:" + video.isMusicVideo());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying:" + isPlaying() + ":isMusicVideo:" + video.isMusicVideo());
 
 		String str = msg;
 
@@ -243,7 +243,7 @@ class Main3XXX extends Main3XX {
 
 		Log.i(_toString() + TAG_MAIN, "open() " + "[ST]" + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying" + isPlaying());
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strRequestPlaySongID + ":" + url_lyric);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strRequestPlaySongID + ":" + url_lyric);
 		if (TextUtil.isEmpty(url_lyric)) {
 			return;
 		}
@@ -345,11 +345,11 @@ class Main3XXX extends Main3XX {
 	 */
 	@Override
 	public void KP(final int request, final String OP, final String M1, final String M2) {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString() + TAG_MAIN, "KP() " + "[ST]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString() + TAG_MAIN, "KP() " + "[ST]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
 
 		switch (request) {
 			case REQUEST_SONG_PLAY:
-				if (IKaraokeTV.DEBUG) Log.i(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+				if (BuildConfig.DEBUG) Log.i(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 				isOpening = true;
 				showCancel("조회");
 				break;
@@ -359,7 +359,7 @@ class Main3XXX extends Main3XX {
 
 		super.KP(request, OP, M1, M2);
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString() + TAG_MAIN, "KP() " + "[ED]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString() + TAG_MAIN, "KP() " + "[ED]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
 	}
 
 	/**
@@ -381,7 +381,7 @@ class Main3XXX extends Main3XX {
 	 */
 	@Override
 	protected void KP(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
 
 		int state = msg.getData().getInt("state");
 
@@ -396,7 +396,7 @@ class Main3XXX extends Main3XX {
 
 		super.KP(msg);
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
 	}
 
 	/**
@@ -408,7 +408,7 @@ class Main3XXX extends Main3XX {
 	 */
 	@Override
 	public void VASS(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + VASS.isSuccess());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + VASS.isSuccess());
 
 		int state = msg.getData().getInt("state");
 
@@ -423,7 +423,7 @@ class Main3XXX extends Main3XX {
 
 		super.VASS(msg);
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + VASS.isSuccess());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + VASS.isSuccess());
 	}
 
 	/**
@@ -476,7 +476,7 @@ class Main3XXX extends Main3XX {
 			return super.onKeyDown(keyCode, event);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.v(_toString(), getMethodName() + ":" + remote.getState() + ":" + keyCode + ", " + event);
+		if (BuildConfig.DEBUG) Log.v(_toString(), getMethodName() + ":" + remote.getState() + ":" + keyCode + ", " + event);
 
 		boolean cancel = false;
 
@@ -511,7 +511,7 @@ class Main3XXX extends Main3XX {
 			if (event.getRepeatCount() > 0) {
 				Log.wtf(_toString() + TAG_MAIN, "[취소]" + "onKeyDown()" + "[!!!HOME!!!]" + ":" + remote.getState() + ":" + termTime + ":" + event.getRepeatCount());
 				if (event.getRepeatCount() > 4) {
-					if (IKaraokeTV.DEBUG) showToast(getApplicationContext(), "좀만~~~좀~~~더!!!!", Toast.LENGTH_SHORT);
+					if (BuildConfig.DEBUG) showToast(getApplicationContext(), "좀만~~~좀~~~더!!!!", Toast.LENGTH_SHORT);
 					goHome();
 				}
 				return true;
@@ -558,7 +558,7 @@ class Main3XXX extends Main3XX {
 	@Override
 	public void ShowScore() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + isError);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + isError);
 		if (!isError) {
 			super.ShowScore();
 		}
@@ -571,7 +571,7 @@ class Main3XXX extends Main3XX {
 	@Override
 	public void HideScore() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		if (!isError) {
 			super.HideScore();
 		}

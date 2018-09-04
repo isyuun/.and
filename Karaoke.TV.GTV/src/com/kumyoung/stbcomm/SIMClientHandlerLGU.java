@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import ac.rs.com.model.RequestData;
 import ac.rs.com.model.ResponseData;
 import ac.rs.lgd.svc.sim.RSRequestClient;
@@ -171,7 +171,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 			System.out.println("item_code = " + responsedata.fields.get("item_code"));
 			System.out.println("start_date = " + responsedata.fields.get("start_date"));
 			System.out.println("end_date = " + responsedata.fields.get("end_date"));
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				System.out.println("name = " + responsedata.fields.get("name"));
 			}
@@ -374,7 +374,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 			Log.d("sim", "void_use_yn = " + responsedata.fields.get("vod_use_yn"));
 			Log.d("sim", "open_date = " + responsedata.fields.get("open_date"));
 
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d("sim", "가입계약번호 = " + compare_cont_no); /*   */
 				Log.d("sim", "가입자명= " + responsedata.fields.get("name"));
@@ -465,7 +465,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 			responsedata = datatrans.sendData(requestdata);
 			Log.d("sim", "return_code = " + responsedata.return_code);
 			Log.d("sim", "return_message = " + responsedata.return_message);
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d("sim", "cont_id = " + responsedata.fields.get("cont_id"));
 			}
@@ -539,7 +539,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 				Log.d("sim", "void_use_yn = " + responsedata.fields.get("vod_use_yn"));
 				Log.d("sim", "open_date = " + responsedata.fields.get("open_date"));
 
-				if (IKaraokeTV.DEBUG)
+				if (BuildConfig.DEBUG)
 				{
 					Log.d("sim", "가입계약번호 = " + compare_cont_no); /*   */
 					Log.d("sim", "가입자명= " + responsedata.fields.get("name"));
@@ -587,7 +587,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 			Log.d("sim", "responseData = " + responsedata.return_message);
 			Log.d("sim", "responseData = " + responsedata.fields);
 
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d("sim", "가입계약번호 = " + responsedata.fields.get("cont_id"));
 				Log.d("sim", "가입자명= " + responsedata.fields.get("cust_name"));
@@ -807,7 +807,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 			for (int i = 0; i < returnList.size(); i++)
 			{
 				Hashtable ht = (Hashtable) returnList.get(i);
-				if (IKaraokeTV.DEBUG)
+				if (BuildConfig.DEBUG)
 				{
 					Log.d("sim", "cont_id= " + ht.get("cont_id"));
 					Log.d("sim", "item_id= " + ht.get("item_id"));
@@ -881,7 +881,7 @@ class SIMClientHandlerLGU /* extends Activity */{
 			jnitemList = (ArrayList) responsedata.fields.get("jnitem_list");		//
 			for (int i = 0; i < jnitemList.size(); i++) {
 				Hashtable ht = (Hashtable) jnitemList.get(i);
-				if (IKaraokeTV.DEBUG)
+				if (BuildConfig.DEBUG)
 				{
 					Log.d("sim", "cont_id= " + ht.get("cont_id"));
 					Log.d("sim", "item_id= " + ht.get("item_id"));

@@ -6,7 +6,7 @@ import android.provider.MediaStore.Video;
 import android.util.Log;
 import android.view.KeyEvent;
 
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api._Const;
 import kr.kymedia.kykaraoke.tv.app._Activity;
 import kr.kymedia.kykaraoke.tv.play.MusicVideoView;
 

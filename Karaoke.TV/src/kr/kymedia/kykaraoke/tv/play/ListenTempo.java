@@ -37,7 +37,7 @@ import android.widget.TextView;
 import kr.kymedia.karaoke.app.Activity;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
 import kr.kymedia.kykaraoke.tv.R;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -210,7 +210,7 @@ class ListenTempo extends ListenPitch {
 	 */
 	@Override
 	public void setTempoPercent(int percent) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + percent + ":" + TEMPO_PERCENT_MARGIN);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + percent + ":" + TEMPO_PERCENT_MARGIN);
 
 		percent += TEMPO_PERCENT_MARGIN;
 		if (TEMPO_PERCENT_MARGIN != 0) {

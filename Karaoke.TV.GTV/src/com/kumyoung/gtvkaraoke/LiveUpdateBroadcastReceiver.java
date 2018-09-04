@@ -1,6 +1,5 @@
 package com.kumyoung.gtvkaraoke;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.gtv.__Main;
 
 import android.content.BroadcastReceiver;

@@ -37,7 +37,7 @@ import android.widget.TextView;
 import kr.kymedia.karaoke.app.Activity;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
 import kr.kymedia.kykaraoke.tv.R;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -286,7 +286,7 @@ class ListenPitch extends Listen4X {
 	 */
 	@Override
 	public void setPitch(int pitch) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + pitch);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + pitch);
 
 		pitch += PITCH_MARGIN;
 		if (PITCH_MARGIN != 0) {

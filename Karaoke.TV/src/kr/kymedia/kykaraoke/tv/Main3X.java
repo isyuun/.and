@@ -42,7 +42,7 @@ import android.util.Log;
 
 import kr.kymedia.karaoke.api.KPparam;
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -77,16 +77,16 @@ class Main3X extends Main3 {
 	@Override
 	protected void onNewIntent(Intent intent) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
 		super.onNewIntent(intent);
 		setIntent(intent);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + savedInstanceState);
 		super.onCreate(savedInstanceState);
 
 		startInit();
@@ -130,7 +130,7 @@ class Main3X extends Main3 {
 	 * @see Main3X#init()
 	 */
 	protected void KP_param(boolean adsID) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		// PackageInfo pkgInfo = BuildUtils.getPackageInfo(getApplicationContext());
 		// int versionNumber = pkgInfo.versionCode;
@@ -140,7 +140,7 @@ class Main3X extends Main3 {
 
 		// KP Params
 		// p_domain = P_DOMAIN_BTV;
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			p_debug = "debug";
 		}
 		p_market = P_MARKET;
@@ -164,7 +164,7 @@ class Main3X extends Main3 {
 	 * </pre>
 	 */
 	protected void init() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		getVender();
 
@@ -186,7 +186,7 @@ class Main3X extends Main3 {
 	 */
 	@Override
 	public void goHome() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + isPassUser());
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + isPassUser());
 		super.goHome();
 
 		if (!isPassUser()) {
@@ -195,7 +195,7 @@ class Main3X extends Main3 {
 	}
 
 	protected void clearVender() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		m_strSTBVender = "";
 		m_orgSTBID = "";
 		p_stbid = "";
@@ -214,7 +214,7 @@ class Main3X extends Main3 {
 	 * @see Main3X#init()
 	 */
 	protected void getVender() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + getIntent() + getIntent().getExtras());
 
 		clearVender();
 
@@ -230,14 +230,14 @@ class Main3X extends Main3 {
 		p_mac = KPparam.getMacAdress();
 		p_model = KPparam.getModel();
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + m_strSTBVender);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + m_strSTBVender);
 	}
 
 	/**
 	 * @see Main3X#init()
 	 */
 	private void initVender() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + m_strSTBVender);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + m_strSTBVender);
 
 		remote.m_strSTBVender = m_strSTBVender;
 
@@ -248,9 +248,9 @@ class Main3X extends Main3 {
 	 * @see Main3X#init()
 	 */
 	protected void initVASS() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strSTBVender);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strSTBVender);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + m_strSTBVender);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + m_strSTBVender);
 	}
 
 	/**
@@ -300,7 +300,7 @@ class Main3X extends Main3 {
 	 */
 	@Override
 	protected void KP(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + msg);
 
 		super.KP(msg);
 
@@ -379,7 +379,7 @@ class Main3X extends Main3 {
 			setBottomProductText(message);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + msg);
 	}
 
 	int m_iSaveCurrentSongListPage = 0;
@@ -422,7 +422,7 @@ class Main3X extends Main3 {
 	 * @see kr.kymedia.kykaraoke.tv.Main3XXXXX#KP(android.os.Message)
 	 */
 	private void _clearDataAll(String method, COMPLETE_KP complete) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NG]" + method + ":" + REQUEST_KP.get(KP_REQUEST) + ":" + /*COMPLETE_KP.get*/(complete) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NG]" + method + ":" + REQUEST_KP.get(KP_REQUEST) + ":" + /*COMPLETE_KP.get*/(complete) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		//전체데이터를 지우는건 좀그래...
 		//오류시 강제 증가된 페이지를 줄인다.
 		switch (KP_REQUEST) {
@@ -467,7 +467,7 @@ class Main3X extends Main3 {
 	 * @see kr.kymedia.kykaraoke.tv.Main3XXXXX#KP(android.os.Message)
 	 */
 	private void _clearData(String method, COMPLETE_KP complete) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NG]" + method + ":" + /*COMPLETE_KP.get*/(complete) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NG]" + method + ":" + /*COMPLETE_KP.get*/(complete) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		switch (complete) {
 			case COMPLETE_ERROR_REQUEST_NOT_RESPONSE:
 			case COMPLETE_TIMER_SHOW_MESSAGE_NOT_RESPONSE:
@@ -502,7 +502,7 @@ class Main3X extends Main3 {
 	 * @see kr.kymedia.kykaraoke.tv.Main3XXXX#KP(int, String, String, String)
 	 */
 	private void _clearData(String method, REQUEST_KP request) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO]" + method + ":" + /*REQUEST_KP.get*/(request) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO]" + method + ":" + /*REQUEST_KP.get*/(request) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		switch (request) {
 			case REQUEST_SONG_LIST:
 				clearSongItems();
@@ -520,40 +520,40 @@ class Main3X extends Main3 {
 	}
 
 	private void clearSongItems() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		mSongItems.clear();
 	}
 
 	private void clearSongPages() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		m_iCurrentSongListPage = 0;
 		m_iTotalSongListPage = 0;
 	}
 
 	private void clearListenItems() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		mListenItems.clear();
 	}
 
 	private void clearListenPages() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		m_iCurrentListenListPage = 0;
 		m_iTotalListenListPage = 0;
 	}
 
 	private void clearListenOtherItems() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		mListenOtherItems.clear();
 	}
 
 	private void clearListenOtherPages() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		m_iCurrentListenOtherListPage = 0;
 		m_iTotalListenOtherListPage = 0;
 	}
 
 	private void clearCustomerItems() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		mCustomerItems.clear();
 	}
 
@@ -564,56 +564,56 @@ class Main3X extends Main3 {
 
 	@Override
 	protected void displayGUI(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.displayGUI(keyID);
 	}
 
 	@Override
 	public void clickMenuSing() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (null == mSongItems || mSongItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
 			return;
 		}
 		super.clickMenuSing();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void displayMenuSing(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (keyID == REMOTE_DOWN) {
 			if (null == mSongItems || mSongItems.size() == 0) {
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
 				return;
 			}
 		}
 		super.displayMenuSing(keyID);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void clickMenuListen() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (null == mListenItems || mListenItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
 			return;
 		}
 		super.clickMenuListen();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void displayMenuListen(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (keyID == REMOTE_DOWN) {
 			if (null == mListenItems || mListenItems.size() == 0) {
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
 				return;
 			}
 		}
 		super.displayMenuListen(keyID);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -621,51 +621,51 @@ class Main3X extends Main3 {
 	 */
 	@Override
 	public void displayListenOther(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (null == mListenOtherItems || mListenOtherItems.size() == 0) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenOtherItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenOtherItems);
 			return;
 		}
 		super.displayListenOther(keyID);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void clickMenuMy() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (remote.m_iMenuMyFocus != 3) {
 			if (null == mSongItems || mSongItems.size() == 0) {
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
 				return;
 			}
 		} else {
 			if (!TextUtil.isEmpty(KP.auth_date) && (null == mListenItems || mListenItems.size() == 0)) {
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
 				return;
 			}
 		}
 		super.clickMenuMy();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void displayMenuMy(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (keyID == REMOTE_DOWN) {
 			if (remote.m_iMenuMyFocus != 3) {
 				if (null == mSongItems || mSongItems.size() == 0) {
-					if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
+					if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mSongItems);
 					return;
 				}
 			} else {
 				if (!TextUtil.isEmpty(KP.auth_date) && (null == mListenItems || mListenItems.size() == 0)) {
-					if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
+					if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mListenItems);
 					return;
 				}
 			}
 		}
 		super.displayMenuMy(keyID);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + "remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -673,13 +673,13 @@ class Main3X extends Main3 {
 	 */
 	@Override
 	public void clickMenuCustomer() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (m_iEnterCustomerMenu == CUSTOMER_ENTER_KEY && (null == mCustomerItems || mCustomerItems.size() == 0)) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
 			return;
 		}
 		super.clickMenuCustomer();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -690,18 +690,18 @@ class Main3X extends Main3 {
 	 */
 	@Override
 	protected void displayMenuCustomer(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (keyID == REMOTE_DOWN && (null == mCustomerItems || mCustomerItems.size() == 0)) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[NO][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
 			return;
 		}
 
 		if (keyID == REMOTE_LEFT || keyID == REMOTE_RIGHT) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[CL][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[CL][DATA]" + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
 			_clearData(getMethodName(), REQUEST_KP.REQUEST_CUSTOMER_LIST);
 		}
 		super.displayMenuCustomer(keyID);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 }

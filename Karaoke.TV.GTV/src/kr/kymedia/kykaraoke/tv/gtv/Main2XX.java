@@ -31,13 +31,8 @@
 package kr.kymedia.kykaraoke.tv.gtv;
 
 import android.os.Message;
-import android.util.Log;
 
 import com.kumyoung.gtvkaraoke.BuildConfig;
-
-import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
  * <pre>

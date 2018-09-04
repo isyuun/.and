@@ -215,7 +215,7 @@ public class BaseActivity2 extends BaseActivity {
 	 * 버전정보
 	 */
 	protected void startVersion() {
-		// if (IKaraokeTV.DEBUG) Log.d(__CLASSNAME__, getMethodName());
+		// if (BuildConfig.DEBUG) Log.d(__CLASSNAME__, getMethodName());
 
 		try {
 			postDelayed(new Runnable() {

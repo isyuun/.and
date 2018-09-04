@@ -32,8 +32,8 @@
 package kr.kymedia.kykaraoke.tv.play;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api._Const;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 import android.app.Activity;
 import android.content.Context;
@@ -138,6 +138,6 @@ public class MusicVideoView extends android.widget.VideoView {
 		// 	y = displaySize.y;
 		// }
 		setMeasuredDimension(x, y);
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + _Const.TAG_VIDEO, "onMeasure() " + "(" + widthMeasureSpec + "," + heightMeasureSpec + ")" + "->" + "(" + x + "," + y + ")" + ":" + displaySize);
+		if (BuildConfig.DEBUG) Log.wtf(_toString() + _Const.TAG_VIDEO, "onMeasure() " + "(" + widthMeasureSpec + "," + heightMeasureSpec + ")" + "->" + "(" + x + "," + y + ")" + ":" + displaySize);
 	}
 }

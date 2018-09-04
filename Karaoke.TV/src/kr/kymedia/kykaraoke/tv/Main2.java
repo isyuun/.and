@@ -46,11 +46,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._Const;
-import kr.kymedia.kykaraoke.tv.api._Download;
-import kr.kymedia.kykaraoke.tv.api._KPRequest;
-import kr.kymedia.kykaraoke.tv.api._VASS;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
+import kr.kymedia.kykaraoke.api._Download;
+import kr.kymedia.kykaraoke.api._KPRequest;
+import kr.kymedia.kykaraoke.api._VASS;
 import kr.kymedia.kykaraoke.tv.app._PlayActivity;
 import kr.kymedia.kykaraoke.tv.data.CustomerItem;
 import kr.kymedia.kykaraoke.tv.data.ListenItem;
@@ -451,7 +451,7 @@ class Main2 extends _PlayActivity implements _Const {
 	SubMenuItem submenuQuickBtn02 = new SubMenuItem();
 
 	//public TicketItem getTicketItemYear() {
-	//	if (IKaraokeTV.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemYear);
+	//	if (BuildConfig.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemYear);
 	//	if (null != _KP_4000) {
 	//		return _KP_4000.ticketItemYear;
 	//	} else {
@@ -460,7 +460,7 @@ class Main2 extends _PlayActivity implements _Const {
 	//}
 	//
 	//public TicketItem getTicketItemMonth() {
-	//	if (IKaraokeTV.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemMonth);
+	//	if (BuildConfig.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemMonth);
 	//	if (null != _KP_4000) {
 	//		return _KP_4000.ticketItemMonth;
 	//	} else {
@@ -469,7 +469,7 @@ class Main2 extends _PlayActivity implements _Const {
 	//}
 	//
 	//public TicketItem getTicketItemDay() {
-	//	if (IKaraokeTV.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemDay);
+	//	if (BuildConfig.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemDay);
 	//	if (null != _KP_4000) {
 	//		return _KP_4000.ticketItemDay;
 	//	} else {
@@ -478,7 +478,7 @@ class Main2 extends _PlayActivity implements _Const {
 	//}
 	//
 	//public TicketItem getTicketItemCoupon() {
-	//	if (IKaraokeTV.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemCoupon);
+	//	if (BuildConfig.DEBUG) Log.d("[KP]" + _toString(), "[KP]" + getMethodName() + _KP_4000.ticketItemCoupon);
 	//	if (null != _KP_4000) {
 	//		return _KP_4000.ticketItemCoupon;
 	//	} else {
@@ -761,7 +761,7 @@ class Main2 extends _PlayActivity implements _Const {
 	@Override
 	public void addContentView(View view, LayoutParams params) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view + ", " + params);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view + ", " + params);
 
 		super.addContentView(view, params);
 
@@ -772,7 +772,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * 팝업전용
 	 */
 	private void addPopup(View view, LayoutParams params) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view + ", " + params);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view + ", " + params);
 		addContentView(view, params);
 	}
 
@@ -813,7 +813,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void addViewListenItem(ViewGroup parent, ViewGroup view) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view + "->" + parent);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(view) + ":" + view + "->" + parent);
 
 		addView(parent, view);
 	}
@@ -824,7 +824,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see #addView(ViewGroup, int, int)
 	 */
 	protected void addViewSingMenu() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_menu_sub, R.layout.menu_sing, R.id.menu_sing);
 		// m_parentSubMenu.findViewById(R.id.sing_sub).setVisibility(View.VISIBLE);
 	}
@@ -838,7 +838,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see #addView(ViewGroup, int, int)
 	 */
 	protected void addViewMyMenu() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_menu_sub, R.layout.menu_my, R.id.menu_my);
 		// m_parentSubMenu.findViewById(R.id.my_sub).setVisibility(View.VISIBLE);
 	}
@@ -852,13 +852,13 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see #addView(ViewGroup, int, int)
 	 */
 	protected void addViewListenMenu() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
 		addView(layout_menu_sub, R.layout.menu_listen, R.id.menu_listen);
 		// m_parentSubMenu.findViewById(R.id.listen_sub).setVisibility(View.VISIBLE);
 	}
 
 	protected void addViewListenList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
 		addView(layout_content, R.layout.listen_list, R.id.listen_list);
 	}
 
@@ -868,12 +868,12 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see #addView(ViewGroup, int, int)
 	 */
 	protected void addViewShopMenu() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_menu_sub, R.layout.menu_shop, R.id.menu_shop);
 	}
 
 	protected void addViewShopList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_content, R.layout.shop_ticket, R.id.shop_ticket);
 	}
 
@@ -883,32 +883,32 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see #addView(ViewGroup, int, int)
 	 */
 	protected void addViewCustomerMenu() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_menu_sub, R.layout.menu_customer, R.id.menu_customer);
 		// m_parentSubMenu.findViewById(R.id.customer_sub).setVisibility(View.VISIBLE);
 		m_bDisplayingCustomerDetail = false;
 	}
 
 	protected void addViewCustomerList() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_content, R.layout.customer_list, R.id.customer_list);
 		m_bDisplayingCustomerDetail = false;
 	}
 
 	protected void addViewCustomerListEvent() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_content, R.layout.customer_list_event, R.id.customer_list_event);
 		m_bDisplayingCustomerDetail = false;
 	}
 
 	protected void addViewCustomerApp() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_content, R.layout.customer_app, R.id.customer_app);
 		m_bDisplayingCustomerDetail = false;
 	}
 
 	protected void addViewCustomerMic() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		addView(layout_content, R.layout.customer_mic, R.id.customer_mic);
 		m_bDisplayingCustomerDetail = false;
 		//마이크이미지업데이트
@@ -928,7 +928,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 */
 	protected void addView(final ViewGroup p, final ViewGroup g) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + getResourceEntryName(g) + ":" + g + "->" + p);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + getResourceEntryName(g) + ":" + g + "->" + p);
 
 		p.removeAllViews();
 		p.addView(g);
@@ -940,7 +940,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 	private void addView(final ViewGroup p, final View c) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + getResourceEntryName(c) + ":" + c + "->" + p);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + getResourceEntryName(c) + ":" + c + "->" + p);
 
 		p.addView(c);
 
@@ -951,7 +951,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 	//private void addView(final ViewGroup p, final View c) {
 	//
-	//	if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + getResourceEntryName(c) + ":" + c + "->" + p);
+	//	if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + getResourceEntryName(c) + ":" + c + "->" + p);
 	//
 	//	p.removeAllViews();
 	//	p.addView(c);
@@ -982,7 +982,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see Main3XXXXX#addViewShopTabs()
 	 */
 	protected void _childViews(View p) {
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + p);
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + p);
 		if (p instanceof ViewGroup) {
 			for (int i = 0; i < ((ViewGroup) p).getChildCount(); i++) {
 				View c = ((ViewGroup) p).getChildAt(i);
@@ -1293,7 +1293,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//
 		// if (keyCode == KeyEvent.KEYCODE_PROG_GREEN) // GREEN
 		// {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "GREEN, [KEYCODE_PROG_GREEN]");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "GREEN, [KEYCODE_PROG_GREEN]");
 		// if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 		// // BTV:BOX->재생
 		// if (isPlaying()) {
@@ -1324,18 +1324,18 @@ class Main2 extends _PlayActivity implements _Const {
 		//
 		// if (keyCode == KeyEvent.KEYCODE_MEDIA_STOP) // GREEN
 		// {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, [KEYCODE_MEDIA_STOP]");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, [KEYCODE_MEDIA_STOP]");
 		//
 		// // 재생 중일때
 		// // if (isPlaying())
 		// {
-		// // if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, [KEYCODE_MEDIA_STOP] Now Playing");
+		// // if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, [KEYCODE_MEDIA_STOP] Now Playing");
 		// //
 		// // if (m_bIsHiddenMenu) {
-		// // if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, SHOW");
+		// // if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, SHOW");
 		// // ShowMenu(getMethodName());
 		// // } else {
-		// // if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, HIDE");
+		// // if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, HIDE");
 		// // HideMenu(getMethodName());
 		// // }
 		// // 재생 중지
@@ -1346,7 +1346,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//
 		// if (keyCode == KeyEvent.KEYCODE_PROG_YELLOW) // YELLOW
 		// {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, [KEYCODE_PROG_YELLOW]");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, [KEYCODE_PROG_YELLOW]");
 		// if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 		// // BTV:BOX->중지
 		// // if (isPlaying())
@@ -1380,7 +1380,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//
 		// if (keyCode == KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE) // YELLOW
 		// {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "GREEN, [KEYCODE_MEDIA_PLAY_PAUSE]");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "GREEN, [KEYCODE_MEDIA_PLAY_PAUSE]");
 		//
 		// // 재생 중일 때
 		// if (isPlaying()) {
@@ -1534,7 +1534,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void displayGUI(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		switch (remote.m_iState) {
 			case STATE_HOME_MENU:
@@ -1643,7 +1643,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void clickGUI() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
 		switch (remote.m_iState) {
 			case STATE_HOME_MENU:
@@ -1755,9 +1755,9 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void exitGUI() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "STATE Exit = " + String.valueOf(remote.m_iState));
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "STATE Exit = " + String.valueOf(remote.m_iState));
 
 		switch (remote.m_iState) {
 			case STATE_HOME_MENU:
@@ -1937,7 +1937,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * 서브메뉴값초기화
 	 */
 	protected void resetMenuSub(String method) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[RS]" + getMethodName() + method + ":" + m_bListAlreadyReflashed + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[RS]" + getMethodName() + method + ":" + m_bListAlreadyReflashed + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		m_bListAlreadyReflashed = false;
 		remote.m_iMenuSingFocus = 1;
@@ -1952,7 +1952,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * 전체메뉴값초기화
 	 */
 	protected void resetMenus(String method) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[RS]" + getMethodName() + method + ":" + m_bListAlreadyReflashed + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[RS]" + getMethodName() + method + ":" + m_bListAlreadyReflashed + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		m_bListAlreadyReflashed = false;
 		remote.m_iMenuHomeFocus = 1;
@@ -2015,7 +2015,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void clickMenuSing() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuSingFocus:" + remote.m_iMenuSingFocus + ":" + KP.result_code + ":" + "\n" + mSongItems);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuSingFocus:" + remote.m_iMenuSingFocus + ":" + KP.result_code + ":" + "\n" + mSongItems);
 		try {
 			switch (remote.m_iMenuSingFocus) {
 				case 1:
@@ -2053,7 +2053,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -2113,22 +2113,22 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void inflateDetailSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
 
 		try {
 			if (m_bIsHiddenMenu) {
-				if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
+				if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
 				hideDetailSong();
 				return;
 			}
 
 			if (remote.m_iState == STATE_MY_LIST && remote.m_iMenuMyFocus > 2) {
-				if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
+				if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
 				hideDetailSong();
 				return;
 			}
@@ -2141,18 +2141,18 @@ class Main2 extends _PlayActivity implements _Const {
 				showDetailSong();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void clickListSong() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":m_iSongListFocus:" + remote.m_iSongListFocus);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":m_iSongListFocus:" + remote.m_iSongListFocus);
 
 		remote.m_iSongListDetailFocus = 1;
 
 		// 마이노래방->녹음곡
 		if (remote.m_iState == STATE_MY_LIST && remote.m_iMenuMyFocus > 2) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR, "[NG]" + getMethodName() + m_bIsHiddenMenu + ":" + remote.getState());
 			remote.m_iState = STATE_MY_RECORD_BEFORE;
 			return;
 		}
@@ -2178,12 +2178,12 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void clickDetailSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + remote.m_iSongListFocus + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + remote.m_iSongListFocus + ":" + remote.m_iSongListDetailFocus);
 
 		if (remote.m_iSongListFocus < 1) {
 			return;
@@ -2283,12 +2283,12 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	protected void stopListen() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (listen != null) {
 			if (isListening()) {
 				KP(REQUEST_LISTEN_PLAYED_TIME, KP_1012, M1_MENU_LISTEN, M2_LISTEN_TIMELINE);
@@ -2299,7 +2299,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void clickListListen() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		int index = getFocusedListenListItemIndex();
 
@@ -2350,12 +2350,12 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void addListening() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + m_layoutListen);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + m_layoutListen);
 		if (m_layoutListen == null) {
 			m_layoutListen = (LinearLayout) inflate(R.layout.listening, null);
 			LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -2365,7 +2365,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void removeListening() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + m_layoutListen);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + m_layoutListen);
 		if (m_layoutListen == null) {
 			m_layoutListen = (LinearLayout) findViewById(R.id.listening);
 		}
@@ -2394,7 +2394,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void clickListening() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 		// 이용권이 없으면 알림 팝업 띄우고 리턴
 		if (!isPassUser()) {
 			m_bIsGoToPurchaseMessage = true;
@@ -2432,7 +2432,7 @@ class Main2 extends _PlayActivity implements _Const {
 			if (remote.m_iListenOther > 0 && mListenOtherItemsRecordID != null && (remote.m_iListenOther - 1) < mListenOtherItemsRecordID.size()) {
 				record_id = mListenOtherItemsRecordID.get(remote.m_iListenOther - 1);
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "clicked Listen ID : " + record_id);
+				if (BuildConfig.DEBUG) Log.i(_toString(), "clicked Listen ID : " + record_id);
 
 				switch (remote.m_iMenuListenFocus) {
 					case 1:
@@ -2452,9 +2452,9 @@ class Main2 extends _PlayActivity implements _Const {
 	public void clickMenuMy() {
 		//녹음곡
 		if (remote.m_iMenuMyFocus == 3) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mListenItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mListenItems);
 		} else {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mSongItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mSongItems);
 		}
 
 		try {
@@ -2528,7 +2528,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -2584,7 +2584,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//			break;
 		//	}
 		//} catch (Exception e) {
-		//	if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+		//	if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		//}
 	}
 
@@ -2645,7 +2645,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//	if (remote.key() == TICKET_TYPE.TICKET_TYPE_COUPON) {
 		//	} else {
 		//		// bgkimt 이미 사용중인 이용권이 있으면 이용권 구매 차단
-		//		if (!IKaraokeTV.DEBUG && p_passtype != TICKET_TYPE_NONE) {
+		//		if (!BuildConfig.DEBUG && p_passtype != TICKET_TYPE_NONE) {
 		//			ShowMessageCommon(CLOSE_AUTO, getString(R.string.common_info), getString(R.string.ticket_already_use));
 		//		} else {
 		//
@@ -2748,7 +2748,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -2834,7 +2834,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -2891,12 +2891,12 @@ class Main2 extends _PlayActivity implements _Const {
 					return;
 				}
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "CERTIFYED HP NUM = [" + auth_phoneno + "]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "CERTIFYED HP NUM = [" + auth_phoneno + "]");
 
 				// ADDEVENT 원래는 기존 인증번호랑 같은 휴대폰 번호일 때 예외처리 : 나중에 정리해줘
 				if (remote.m_iMenuMainFocus != 5) {
 					// 디버그모드시무조껀
-					if (!IKaraokeTV.DEBUG && mIsCertifyValidCheck) {
+					if (!BuildConfig.DEBUG && mIsCertifyValidCheck) {
 
 						if (auth_phoneno.equals(m_strHPNumber)) {
 							txtCertifyHPMessage.setText("기존 인증된 휴대폰 번호와 같은 번호입니다.");
@@ -2921,7 +2921,7 @@ class Main2 extends _PlayActivity implements _Const {
 					KP(REQUEST_EVENT_HP, KP_0013, M1_MENU_HELP, M2_HELP_EVENT);
 				}
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "HP NUM = [" + m_strHPNumber + "]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "HP NUM = [" + m_strHPNumber + "]");
 			} else {
 				// 취소
 				exitCertifyHP();
@@ -2974,8 +2974,8 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void clickMenuCustomer() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":" + KP.result_code + ":" + "\n" + mCustomerItems);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu);
 
 		remote.m_iCustomerListFocus = 1;
 
@@ -3032,7 +3032,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -3065,7 +3065,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 			KP(OP, KP_0011, M1_MENU_HELP, M2);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -3093,13 +3093,13 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void clickSearchSelf() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + ":m_iSearchSelfFocus:" + remote.m_iSearchSelfFocus);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ST]" + ":m_iSearchSelfFocus:" + remote.m_iSearchSelfFocus);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (m_bIsFocusedOnBook) {
 			//고객센터->마이크구매안내
@@ -3219,9 +3219,9 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + ":m_iSearchSelfFocus:" + remote.m_iSearchSelfFocus);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + "[ED]" + ":m_iSearchSelfFocus:" + remote.m_iSearchSelfFocus);
 	}
 
 	public void clickSearchLetter() {
@@ -3322,14 +3322,14 @@ class Main2 extends _PlayActivity implements _Const {
 				KP(REQUEST_SEARCH_LIST, KP_0020, M1_MENU_SEARCH, M2_SEARCH_4);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void clickListSearch() {
 		remote.m_iSongListDetailFocus = 1;
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":m_iSongListFocus:" + remote.m_iSongListFocus);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":m_iSongListFocus:" + remote.m_iSongListFocus);
 
 		remote.m_iState = STATE_SEARCH_LIST_DETAIL;
 
@@ -3392,12 +3392,12 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void clickDetailSearch() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + remote.m_iSearchListFocus + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + remote.m_iSearchListFocus + ":" + remote.m_iSongListDetailFocus);
 
 		if (remote.m_iSearchListFocus < 1) {
 			return;
@@ -3460,7 +3460,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void clickMyRecordNone() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "m_bIsMyRecordReCertifyBtnFocused:" + m_bIsMyRecordReCertifyBtnFocused + ":m_bIsBeforeRegistMyRecord:" + m_bIsBeforeRegistMyRecord);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "m_bIsMyRecordReCertifyBtnFocused:" + m_bIsMyRecordReCertifyBtnFocused + ":m_bIsBeforeRegistMyRecord:" + m_bIsBeforeRegistMyRecord);
 		//exitMyRecordNone();
 
 		if (m_bIsMyRecordReCertifyBtnFocused) {
@@ -3541,10 +3541,10 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see #displayMenuMain(int)
 	 */
 	public void displayMenuSing(int keyID) {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "displayMenuSing >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + String.valueOf(keyID));
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuSingFocus:" + remote.m_iMenuSingFocus);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "displayMenuSing >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + String.valueOf(keyID));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuSingFocus:" + remote.m_iMenuSingFocus);
 
 		if (keyID == REMOTE_UP || keyID == REMOTE_RETURN) {
 			exitMenuSing();
@@ -3663,11 +3663,11 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	public void displayMenuSingGenre(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuSingGenreFocus:" + remote.m_iMenuSingGenreFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuSingGenreFocus:" + remote.m_iMenuSingGenreFocus);
 
 		if (keyID == REMOTE_UP) {
 			exitMenuSingGenre();
@@ -3741,7 +3741,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		if (keyID == REMOTE_LEFT || keyID == REMOTE_RIGHT) {
@@ -3756,7 +3756,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displayDetailSong(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSongListDetailFocus:" + remote.m_iSongListDetailFocus + ":" + m_layoutSongListDetail);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSongListDetailFocus:" + remote.m_iSongListDetailFocus + ":" + m_layoutSongListDetail);
 
 		try {
 			if (m_layoutSongListDetail != null) {
@@ -3786,12 +3786,12 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void displayMenuListen(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuListenFocus:" + remote.m_iMenuListenFocus);
 
 		if (keyID == REMOTE_UP || keyID == REMOTE_RETURN) {
 			exitMenuListen();
@@ -3885,31 +3885,31 @@ class Main2 extends _PlayActivity implements _Const {
 	 * </pre>
 	 */
 	public void displayListening(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState());
 
 		//if (keyID == REMOTE_DOWN)
 		{
 			m_iListenOtherRequestPage = 1;
 			KP(REQUEST_LISTEN_OTHER, "KP_2001", "", "");
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), "current Listening ID : " + m_strListeningSongID);
+			if (BuildConfig.DEBUG) Log.i(_toString(), "current Listening ID : " + m_strListeningSongID);
 		}
 	}
 
 	public void displayListenOther(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState());
 
 		SetListenOtherFocus(keyID);
 	}
 
 	public void displayMenuMy(int keyID) {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "displayMenuMy >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + String.valueOf(keyID));
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "displayMenuMy >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + String.valueOf(keyID));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (remote.m_iMenuMyFocus != 3) {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mSongItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mSongItems);
 		} else {
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mListenItems);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuMyFocus:" + remote.m_iMenuMyFocus + ":" + KP.result_code + ":" + "\n" + mListenItems);
 		}
 
 		if (keyID == REMOTE_UP || keyID == REMOTE_RETURN) {
@@ -3998,7 +3998,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		if (keyID != REMOTE_NONE && keyID != REMOTE_RETURN) {
@@ -4028,10 +4028,10 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void displayMenuShop(int keyID) {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":m_iMenuShopFocus:" + remote.m_iMenuShopFocus);
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "displayMenuShop >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE.getKeyID(keyID));
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":m_iMenuShopFocus:" + remote.m_iMenuShopFocus);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":m_iMenuShopFocus:" + remote.m_iMenuShopFocus);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "displayMenuShop >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE.getKeyID(keyID));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":m_iMenuShopFocus:" + remote.m_iMenuShopFocus);
 
 		if (keyID == REMOTE_UP) {
 			exitMenuShop();
@@ -4087,13 +4087,13 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 	}
 
 	public void displayShopTicket(int keyID) {
-		//if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.key());
+		//if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.key());
 		//
 		//ViewGroup layoutTicket = (ViewGroup) findViewById(R.id.layout_shop_ticket);
 		//Button btnPurchase = (Button) findViewById(R.id.btn_shop_purchase);
@@ -4148,7 +4148,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//		}
 		//	}
 		//} catch (Exception e) {
-		//	if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+		//	if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		//}
 		//
 		//if (keyID == REMOTE_DOWN) {
@@ -4204,7 +4204,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//		case TICKET_TYPE_YEAR:
 		//			break;
 		//		case TICKET_TYPE_MONTH:
-		//			if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + getTicketItemMonth());
+		//			if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + getTicketItemMonth());
 		//			//layoutLeft.setVisibility(View.VISIBLE);
 		//			//layoutRight.setVisibility(View.VISIBLE);
 		//			//layoutCoupon.setVisibility(View.GONE);
@@ -4219,7 +4219,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//			txtPrice.setText(getTicketItemMonth().price + "원");
 		//			break;
 		//		case TICKET_TYPE_DAY:
-		//			if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + getTicketItemDay());
+		//			if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + getTicketItemDay());
 		//			editCoupon.setText("");
 		//
 		//			//layoutLeft.setVisibility(View.VISIBLE);
@@ -4329,7 +4329,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displayGOCertify(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		Button btnOK = (Button) findViewById(R.id.btn_message_ticket_go_certify_ok);
 		Button btnCancel = (Button) findViewById(R.id.btn_message_ticket_go_certify_cancel);
@@ -4347,12 +4347,12 @@ class Main2 extends _PlayActivity implements _Const {
 				btnCancel.setBackgroundResource(R.drawable.pop_btn_01_on);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	public void displayShopCertify(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		if (keyID == REMOTE_UP) {
 			exitCertify();
@@ -4375,7 +4375,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void displayMenuCustomer(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + "\n" + mCustomerItems);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + "\n" + mCustomerItems);
 
 		Button btnCustomerSubEvent = (Button) findViewById(R.id.btn_customer_sub_event);
 		Button btnCustomerSubNotice = (Button) findViewById(R.id.btn_customer_sub_notice);
@@ -4384,7 +4384,7 @@ class Main2 extends _PlayActivity implements _Const {
 		Button btnCustomerSubMic = (Button) findViewById(R.id.btn_customer_sub_mic);
 
 		if (keyID == REMOTE_DOWN) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
+			if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
 			if (m_bDisplayingCustomerDetail) {
 				remote.m_iState = STATE_CUSTOMER_LIST_DETAIL;
 
@@ -4434,7 +4434,7 @@ class Main2 extends _PlayActivity implements _Const {
 		resetCustomerSubMenu();
 
 		if (remote.m_iState != STATE_MAIN_MENU) {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
+			if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
 			switch (remote.m_iMenuCustomerFocus) {
 				case 1:
 					if (btnCustomerSubEvent != null) {
@@ -4528,7 +4528,7 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		if (keyID == REMOTE_LEFT || keyID == REMOTE_RIGHT) {
@@ -4558,17 +4558,17 @@ class Main2 extends _PlayActivity implements _Const {
 			stopLoading(getMethodName());
 		}
 
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), "displayMenuCustomer <");
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + "\n" + mCustomerItems);
+		//if (BuildConfig.DEBUG) Log.i(_toString(), "displayMenuCustomer <");
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + "\n" + mCustomerItems);
 	}
 
 	public void displayListCustomer(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + mCustomerItems);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + mCustomerItems);
 
-		// if (IKaraokeTV.DEBUG) LOG.i(_toString(), "displayListCustomer >");
-		// if (IKaraokeTV.DEBUG) LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewCustomerListPage + "/toPage=" + m_iTotalCustomerListPage);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewCustomerListPage + "/totPage=" + m_iTotalCustomerListPage);
+		// if (BuildConfig.DEBUG) LOG.i(_toString(), "displayListCustomer >");
+		// if (BuildConfig.DEBUG) LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewCustomerListPage + "/toPage=" + m_iTotalCustomerListPage);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewCustomerListPage + "/totPage=" + m_iTotalCustomerListPage);
 
 		if (m_bDisplayingCustomerDetail) {
 			if (remote.m_iMenuCustomerFocus != 1) {
@@ -4594,7 +4594,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 		if (keyID == REMOTE_RIGHT) {
 			if (m_iCurrentViewCustomerListPage < m_iTotalCustomerListPage) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "next");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "next");
 				remote.m_iCustomerListFocus = 1;
 
 				m_iCurrentCustomerListPage++;
@@ -4648,7 +4648,7 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		} else if (keyID == REMOTE_LEFT) {
 			if (m_iCurrentViewCustomerListPage > 1) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "prev");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "prev");
 				remote.m_iCustomerListFocus = 1;
 
 				m_iCurrentCustomerListPage--;
@@ -4737,14 +4737,14 @@ class Main2 extends _PlayActivity implements _Const {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":m_bDisplayingCustomerDetail:" + m_bDisplayingCustomerDetail);
 	}
 
 	public void displayDetailCustomer(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
 
 		if (m_iCustomerListDetailPage == 1) {
 			if (keyID == REMOTE_UP) {
@@ -4784,7 +4784,7 @@ class Main2 extends _PlayActivity implements _Const {
 					util = new _Util(handlerKP);
 					util.setUtilType(REQUEST_UTIL_CUSTOMER_DETAIL_IMAGE);
 					util.setImageUrl(url_imgs.get(m_iCustomerListDetailPage - 1));
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "Detail URL is " + url_imgs.get(m_iCustomerListDetailPage - 1));
+					if (BuildConfig.DEBUG) Log.i(_toString(), "Detail URL is " + url_imgs.get(m_iCustomerListDetailPage - 1));
 					util.start();
 				}
 			} else if (keyID == REMOTE_DOWN) {
@@ -4796,7 +4796,7 @@ class Main2 extends _PlayActivity implements _Const {
 					util = new _Util(handlerKP);
 					util.setUtilType(REQUEST_UTIL_CUSTOMER_DETAIL_IMAGE);
 					util.setImageUrl(url_imgs.get(m_iCustomerListDetailPage - 1));
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "Detail URL is " + url_imgs.get(m_iCustomerListDetailPage - 1));
+					if (BuildConfig.DEBUG) Log.i(_toString(), "Detail URL is " + url_imgs.get(m_iCustomerListDetailPage - 1));
 					util.start();
 				}
 			}
@@ -4804,7 +4804,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displayMenuSearch(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchSubMenuFocus:" + remote.m_iSearchSubMenuFocus);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchSubMenuFocus:" + remote.m_iSearchSubMenuFocus);
 
 		if (keyID == REMOTE_UP) {
 			exitMenuSearch();
@@ -4865,8 +4865,8 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displaySearchSelf(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchSelfFocus:" + remote.m_iSearchSelfFocus);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchSelfFocus:" + remote.m_iSearchSelfFocus);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		final EditText edit = (EditText) findViewById(R.id.edit_search_self_word);
 
@@ -4942,7 +4942,7 @@ class Main2 extends _PlayActivity implements _Const {
 					@Override
 					public void onClick(View v) {
 
-						if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
+						if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
 						clickSearchSelf();
 					}
 				});
@@ -4967,7 +4967,7 @@ class Main2 extends _PlayActivity implements _Const {
 					edit.setOnEditorActionListener(new OnEditorActionListener() {
 						@Override
 						public boolean onEditorAction(TextView v, int keyCode, KeyEvent event) {
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v + ", " + keyCode + ", " + event);
+							if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v + ", " + keyCode + ", " + event);
 							if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
 								clickSearchSelf();
 							}
@@ -4977,7 +4977,7 @@ class Main2 extends _PlayActivity implements _Const {
 					// editWord.setOnEditorActionListener(new OnEditorActionListener() {
 					// @Override
 					// public boolean onEditorAction(TextView v, int keyCode, KeyEvent event) {
-					// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v + ", " + keyCode + ", " + event);
+					// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v + ", " + keyCode + ", " + event);
 					// if (keyCode == KeyEvent.KEYCODE_ENDCALL || keyCode == KeyEvent.KEYCODE_ENTER || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
 					// clickSearchSelf();
 					// }
@@ -5003,7 +5003,7 @@ class Main2 extends _PlayActivity implements _Const {
 					@Override
 					public void onClick(View v) {
 
-						if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
+						if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + ":" + v);
 						clearFocus(btnOk);
 						clickSearchSelf();
 					}
@@ -5013,10 +5013,10 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displaySearchLetter(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchLetterFocusX:" + remote.m_iSearchLetterFocusX + ":remote.m_iSearchLetterFocusY:" + remote.m_iSearchLetterFocusY);
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "displaySearchLetter >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/m_iSearchLetterFocusX=" + remote.m_iSearchLetterFocusX + "/m_iSearchLetterFocusY=" + remote.m_iSearchLetterFocusY);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/m_iSearchLetterFocusX=" + remote.m_iSearchLetterFocusX + "/m_iSearchLetterFocusY=" + remote.m_iSearchLetterFocusY);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchLetterFocusX:" + remote.m_iSearchLetterFocusX + ":remote.m_iSearchLetterFocusY:" + remote.m_iSearchLetterFocusY);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "displaySearchLetter >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/m_iSearchLetterFocusX=" + remote.m_iSearchLetterFocusX + "/m_iSearchLetterFocusY=" + remote.m_iSearchLetterFocusY);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/m_iSearchLetterFocusX=" + remote.m_iSearchLetterFocusX + "/m_iSearchLetterFocusY=" + remote.m_iSearchLetterFocusY);
 
 		if (remote.m_iSearchLetterFocusY != 3) {
 			if (keyID == REMOTE_UP) {
@@ -5307,14 +5307,14 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "displaySearchLetter <");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "displaySearchLetter <");
 	}
 
 	public void displayListSearch(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchListFocus:" + remote.m_iSearchListFocus);
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "displayListSearch >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSearchListPage + "/toPage=" + m_iTotalSearchListPage);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSearchListPage + "/toPage=" + m_iTotalSearchListPage);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":remote.m_iSearchListFocus:" + remote.m_iSearchListFocus);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "displayListSearch >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSearchListPage + "/toPage=" + m_iTotalSearchListPage);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewSearchListPage + "/toPage=" + m_iTotalSearchListPage);
 
 		if (keyID == REMOTE_UP) {
 			// 리스트에서 상위로 올라옴
@@ -5342,7 +5342,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 		if (keyID == REMOTE_RIGHT) {
 			if (m_iCurrentViewSearchListPage < m_iTotalSearchListPage) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "next");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "next");
 
 				remote.m_iSearchListFocus = 1;
 				m_iCurrentSearchListPage++;
@@ -5399,7 +5399,7 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		} else if (keyID == REMOTE_LEFT) {
 			if (m_iCurrentViewSearchListPage > 1) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "prev");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "prev");
 
 				remote.m_iSearchListFocus = 1;
 				m_iCurrentSearchListPage--;
@@ -5622,10 +5622,10 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displayListMyRecord(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":remote.m_iSongListFocus:" + remote.m_iSongListFocus);
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "displayListMyRecord >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewListenListPage + "/toPage=" + m_iTotalListenListPage);
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewListenListPage + "/toPage=" + m_iTotalListenListPage);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":remote.m_iSongListFocus:" + remote.m_iSongListFocus);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "displayListMyRecord >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "keyID=" + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewListenListPage + "/toPage=" + m_iTotalListenListPage);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + "/curPage=" + m_iCurrentViewListenListPage + "/toPage=" + m_iTotalListenListPage);
 
 		if (keyID == REMOTE_UP) {
 			if (remote.m_iSongListFocus == 0 || m_bIsMyRecordReCertifyBtnFocused) {
@@ -5667,7 +5667,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 		if (keyID == REMOTE_RIGHT) {
 			if (m_iCurrentViewListenListPage < m_iTotalListenListPage) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "next");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "next");
 				remote.m_iSongListFocus = 1;
 
 				m_iCurrentListenListPage++;
@@ -5686,7 +5686,7 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		} else if (keyID == REMOTE_LEFT) {
 			if (m_iCurrentViewListenListPage > 1) {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "prev");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "prev");
 				remote.m_iSongListFocus = 1;
 
 				m_iCurrentListenListPage--;
@@ -5781,7 +5781,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void displayMyRecordNone(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":m_bIsMyRecordReCertifyBtnFocused:" + m_bIsMyRecordReCertifyBtnFocused);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":m_bIsMyRecordReCertifyBtnFocused:" + m_bIsMyRecordReCertifyBtnFocused);
 
 		if (keyID == REMOTE_UP) {
 			exitMyRecordNone();
@@ -5834,7 +5834,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnGenre.setSelected(false);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -5876,7 +5876,7 @@ class Main2 extends _PlayActivity implements _Const {
 			btnPop.setSelected(false);
 			btnAni.setSelected(false);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -5884,7 +5884,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	// protected void setSingListImgIcons() {
-	// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "m_iSongListFocus:" + remote.m_iSongListFocus);
+	// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "m_iSongListFocus:" + remote.m_iSongListFocus);
 	//
 	// int note = R.drawable.common_bullet_note_off;
 	//
@@ -5967,7 +5967,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnBest.setSelected(false);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -5996,7 +5996,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnRecord.setSelected(false);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6018,7 +6018,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnShopSubCertify.setSelected(false);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6061,7 +6061,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnCustomerSubMic.setSelected(false);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6093,7 +6093,7 @@ class Main2 extends _PlayActivity implements _Const {
 				layoutList6.setBackgroundColor(Color.TRANSPARENT);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6105,7 +6105,7 @@ class Main2 extends _PlayActivity implements _Const {
 			btnSearchSubSelf.setBackgroundColor(Color.TRANSPARENT);
 			btnSearchSubLetter.setBackgroundColor(Color.TRANSPARENT);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6235,7 +6235,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnNum0110.setBackgroundResource(R.drawable.help_btn_word_off);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6348,7 +6348,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6445,7 +6445,7 @@ class Main2 extends _PlayActivity implements _Const {
 				btnReCertify.setBackgroundResource(R.drawable.my_record_btn_off);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -6516,7 +6516,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitDetailSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		hideDetailSong();
 
 		switch (remote.m_iMenuMainFocus) {
@@ -6542,7 +6542,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitListListen() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
 
 		// LinearLayout layoutList = (LinearLayout) findViewById(R.id.layout_sing);
 		// SettingListBackground(layoutList, R.drawable.search_bg_none);
@@ -6568,7 +6568,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 
 	protected void exitListeningState() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + remote.m_iMenuMainFocus);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + remote.m_iMenuMainFocus);
 		if (m_iPaneState == PANE_HOME) {
 			remote.m_iState = STATE_HOME_MENU;
 		} else {
@@ -6612,7 +6612,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitListMy() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		unselectSongList();
 
 		// LinearLayout layoutList = (LinearLayout) findViewById(R.id.layout_sing);
@@ -6626,7 +6626,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitMenuShop() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		resetShopSubMenu();
 
 		remote.m_iState = STATE_MAIN_MENU;
@@ -6635,7 +6635,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitTicket() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		//remote.m_iState = STATE_SHOP_MENU;
 		//
 		//resetShopSubMenu();
@@ -6718,7 +6718,7 @@ class Main2 extends _PlayActivity implements _Const {
 		//		btnShopSubTicket.setSelected(true);
 		//	}
 		//} catch (Exception e) {
-		//	if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+		//	if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		//}
 	}
 
@@ -6826,7 +6826,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * 븅신개지랄떨고자빠젔네
 	 */
 	public void exitDetailCustomer() {
-		//if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
+		//if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ":m_iEnterCustomerMenu:" + m_iEnterCustomerMenu + ":remote.m_iMenuCustomerFocus:" + remote.m_iMenuCustomerFocus);
 		//
 		//// 메인화면에서 타고 들어온거면 상세화면에서 빠져나갈 때 서브메뉴로 올려줌
 		//if (m_iEnterCustomerMenu != CUSTOMER_ENTER_KEY) {
@@ -6873,10 +6873,10 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see kr.kymedia.kykaraoke.tv.Main2#exitMenuSearch()
 	 */
 	public void exitMenuSearch() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		resetMenus(getMethodName());
 		goSingList(true);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	public void exitSearchSelf() {
@@ -6943,7 +6943,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitDetailSearch() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		hideDetailSong();
 
 		remote.m_iState = STATE_SEARCH_LIST;
@@ -6951,7 +6951,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void exitListMyRecord() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		m_bIsMyRecordReCertifyBtnFocused = false;
 
 		resetMyRecordList();
@@ -7100,7 +7100,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void goSearch() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		if (m_bIsHiddenMenu) {
 			ShowMenu(getMethodName());
@@ -7172,7 +7172,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void setHOME() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + isPassUser());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + isPassUser());
 
 		video.startBlankVideo(video_url_back, PLAY_STOP);
 
@@ -7260,7 +7260,7 @@ class Main2 extends _PlayActivity implements _Const {
 		/**
 		 * 디버그표시
 		 */
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			text = "[DEBUG]" + text;
 		}
 		TextView tv = (TextView) findViewById(R.id.txt_bottom_product);
@@ -7698,7 +7698,7 @@ class Main2 extends _PlayActivity implements _Const {
 						url = item.url_profile;
 					}
 				} catch (Exception e) {
-					if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+					if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 				}
 			} else {
 				// img_listen_profile.setImageBitmap(util_myRecordProfile.m_bitMap);
@@ -7979,7 +7979,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void setPageTextCustomerList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewCustomerListPage + "/" + m_iTotalCustomerListPage);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewCustomerListPage + "/" + m_iTotalCustomerListPage);
 		TextView txtPage = (TextView) findViewById(R.id.txt_customer_sub_page);
 
 		if (txtPage != null) {
@@ -7993,7 +7993,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void moveCustomerListPage() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveCustomerListPage >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveCustomerListPage >");
 
 		setPageTextCustomerList();
 
@@ -8092,7 +8092,7 @@ class Main2 extends _PlayActivity implements _Const {
 					txtDate.setText(strDate);
 				}
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 
 			if (m_iCustomerListItemCount < mCustomerItems.size()) {
@@ -8102,11 +8102,11 @@ class Main2 extends _PlayActivity implements _Const {
 			iViewCount++;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveCustomerListPage <");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveCustomerListPage <");
 	}
 
 	public void moveEventListPage() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveEventListPage >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveEventListPage >");
 
 		setPageTextCustomerList();
 
@@ -8153,7 +8153,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 				}
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 
 			if (m_iCustomerListItemCount < mCustomerItems.size()) {
@@ -8163,11 +8163,11 @@ class Main2 extends _PlayActivity implements _Const {
 			iViewCount++;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveEventListPage <");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveEventListPage <");
 	}
 
 	protected void setPageTextSearchList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewCustomerListPage + "/" + m_iTotalCustomerListPage);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "page " + m_iCurrentViewCustomerListPage + "/" + m_iTotalCustomerListPage);
 		TextView txtPage = null;
 
 		if (remote.m_iSearchSubMenuFocus == 1) {
@@ -8193,7 +8193,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void moveSearchListPage() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveSearchListPage >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveSearchListPage >");
 
 		// 직접검색 : 한 페이지 당 5개
 		if (remote.m_iSearchSubMenuFocus == 1) {
@@ -8289,7 +8289,7 @@ class Main2 extends _PlayActivity implements _Const {
 					imgIcon.setImageResource(R.drawable.common_bullet_favor_off);
 				}
 				mSongFavors.add(mSearchItems.get(m_iSearchListItemCount).mark_favorite);
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "ADD Favor : " + mSearchItems.get(m_iSearchListItemCount).song_id);
+				if (BuildConfig.DEBUG) Log.i(_toString(), "ADD Favor : " + mSearchItems.get(m_iSearchListItemCount).song_id);
 
 				m_iSearchListItemCount++;
 			}
@@ -8303,11 +8303,11 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveSearchListPage <");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveSearchListPage <");
 	}
 
 	public void moveMyRecordListPage() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveMyRecordListPage >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveMyRecordListPage >");
 
 		m_imgMyRecordProfile = (ImageView) findViewById(R.id.img_my_record_profile);
 		TextView txtMyRecordHit = (TextView) findViewById(R.id.txt_my_record_hit);
@@ -8440,7 +8440,7 @@ class Main2 extends _PlayActivity implements _Const {
 			iViewCount++;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "moveMyRecordListPage <");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "moveMyRecordListPage <");
 	}
 
 	Button btn_home_main_01;
@@ -8515,7 +8515,7 @@ class Main2 extends _PlayActivity implements _Const {
 				m_bIsExit = true;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -8546,11 +8546,11 @@ class Main2 extends _PlayActivity implements _Const {
 
 		// 상단 곡번호 등록
 		SetTopNumber(m_strRequestPlaySongID);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "TOP Number = " + m_strRequestPlaySongID);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "TOP Number = " + m_strRequestPlaySongID);
 	}
 
 	public void stopPlay(int engage) {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + PLAY_ENGAGE.get(engage) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ST]" + PLAY_ENGAGE.get(engage) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (m_bIsHiddenMenu) {
 			ShowMenu(getMethodName());
@@ -8596,11 +8596,11 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	protected void ShowGenre() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + remote.isGenre());
 
 		//m_bIsGenre = true;
 
@@ -8621,7 +8621,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void HideGenre() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + remote.isGenre());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + remote.isGenre());
 
 		//m_bIsGenre = false;
 
@@ -8648,7 +8648,7 @@ class Main2 extends _PlayActivity implements _Const {
 	View mSpaceLoading;
 
 	private void addLoading() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		animLoadingRotate = AnimationUtils.loadAnimation(this, R.anim.loading_rotate);
 
@@ -8663,7 +8663,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	//private void removeLoading() {
-	//	if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+	//	if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	//
 	//	if (mPopupLoading != null) {
 	//		// ((ViewManager) mPopupLoading.getParent()).removeView(mPopupLoading);
@@ -8695,7 +8695,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * 븅신...로딩...지랄한다...왜...뒤지라고...굿을하지...
 	 */
 	protected void startLoading(String method, int time) {
-		/*if (IKaraokeTV.DEBUG) */Log.wtf(_toString(), "startLoading() " + method + ":" + LOADING_TIME.get(time) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		/*if (BuildConfig.DEBUG) */Log.wtf(_toString(), "startLoading() " + method + ":" + LOADING_TIME.get(time) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		this.isLoading = true;
 		this.loading_method = method;
@@ -8727,7 +8727,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * 븅신...로딩...지랄한다...왜...뒤지라고...굿을하지...
 	 */
 	protected void stopLoading(String method) {
-		/*if (IKaraokeTV.DEBUG) */Log.wtf(_toString(), "stopLoading() " + method + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		/*if (BuildConfig.DEBUG) */Log.wtf(_toString(), "stopLoading() " + method + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		//m_bIsLongLoading = false;
 		isLoading = false;
@@ -8768,8 +8768,8 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see kr.kymedia.kykaraoke.tv.Main3#CheckNotContentsSongList()
 	 */
 	protected boolean CheckNotContentsSongList() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotContentsSongList >");
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), "m_iSongListFocus = " + String.valueOf(remote.m_iSongListFocus));
+		//if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotContentsSongList >");
+		//if (BuildConfig.DEBUG) Log.i(_toString(), "m_iSongListFocus = " + String.valueOf(remote.m_iSongListFocus));
 		//
 		//if (remote.m_iState == STATE_SONG_LIST || remote.m_iState == STATE_MY_LIST) {
 		//	TextView txtCheck = null;
@@ -8798,10 +8798,10 @@ class Main2 extends _PlayActivity implements _Const {
 		//	}
 		//
 		//	if (txtCheck.getText().equals("")) {
-		//		if (IKaraokeTV.DEBUG) Log.i(_toString(), "true");
+		//		if (BuildConfig.DEBUG) Log.i(_toString(), "true");
 		//		return true;
 		//	} else {
-		//		if (IKaraokeTV.DEBUG) Log.i(_toString(), "false");
+		//		if (BuildConfig.DEBUG) Log.i(_toString(), "false");
 		//		return false;
 		//	}
 		//}
@@ -8811,8 +8811,8 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected boolean CheckNotContentsMyRecordList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotContentsMyRecordList >");
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "m_iSongListFocus = " + String.valueOf(remote.m_iSongListFocus));
+		if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotContentsMyRecordList >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "m_iSongListFocus = " + String.valueOf(remote.m_iSongListFocus));
 
 		if (remote.m_iState == STATE_MY_RECORD_LIST) {
 			TextView txtCheck = null;
@@ -8840,10 +8840,10 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 
 			if (txtCheck != null && txtCheck.getText() == "") {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotContentsMyRecordList true");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotContentsMyRecordList true");
 				return true;
 			} else {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotContentsMyRecordList false");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotContentsMyRecordList false");
 				return false;
 			}
 		}
@@ -8852,7 +8852,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void CheckNotItemOnListenList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotItemOnListenList >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotItemOnListenList >");
 
 		int iLastPageItemCount = mListenItems.size() % 8;
 		int iListenFocus = 1;
@@ -8888,7 +8888,7 @@ class Main2 extends _PlayActivity implements _Const {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "current img_focus = " + String.valueOf(iListenFocus));
+		if (BuildConfig.DEBUG) Log.i(_toString(), "current img_focus = " + String.valueOf(iListenFocus));
 
 		if (iListenFocus > iLastPageItemCount) {
 			iListenFocus = iLastPageItemCount;
@@ -8929,16 +8929,16 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 
 			displayListListen(REMOTE_NONE);
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), "after img_focus = " + String.valueOf(iListenFocus));
+			if (BuildConfig.DEBUG) Log.i(_toString(), "after img_focus = " + String.valueOf(iListenFocus));
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotItemOnListenList <");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotItemOnListenList <");
 	}
 
 	protected boolean CheckNotContentsCustomerList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotContentsCustomerList >");
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "m_iCustomerListFocus = " + String.valueOf(remote.m_iCustomerListFocus));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotContentsCustomerList >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "m_iCustomerListFocus = " + String.valueOf(remote.m_iCustomerListFocus));
 
 		if (remote.m_iState == STATE_CUSTOMER_LIST) {
 			TextView txtCheck = null;
@@ -8967,10 +8967,10 @@ class Main2 extends _PlayActivity implements _Const {
 
 			if (txtCheck != null) {
 				if (txtCheck.getText() == "") {
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "true");
+					if (BuildConfig.DEBUG) Log.i(_toString(), "true");
 					return true;
 				} else {
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "false");
+					if (BuildConfig.DEBUG) Log.i(_toString(), "false");
 					return false;
 				}
 			}
@@ -8980,8 +8980,8 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected boolean CheckNotContentsSearchList() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "CheckNotContentsSearchList >");
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "m_iSearchListFocus = " + String.valueOf(remote.m_iSearchListFocus));
+		if (BuildConfig.DEBUG) Log.i(_toString(), "CheckNotContentsSearchList >");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "m_iSearchListFocus = " + String.valueOf(remote.m_iSearchListFocus));
 
 		if (remote.m_iState == STATE_SEARCH_LIST) {
 			TextView txtCheck = null;
@@ -9024,10 +9024,10 @@ class Main2 extends _PlayActivity implements _Const {
 			}
 
 			if (txtCheck.getText() == "") {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "true");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "true");
 				return true;
 			} else {
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "false");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "false");
 				return false;
 			}
 		}
@@ -9084,7 +9084,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void SetListenOtherFocus(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + REMOTE_STATE.get(keyID));
 
 		if (keyID != REMOTE_NONE) {
 			if (remote.m_iListenOther != remote.m_iListenOtherBefore) {
@@ -9234,7 +9234,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -9303,7 +9303,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void RemoveListenDisplay() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (isListening()) {
 			remote.m_iState = STATE_LISTEN_LIST;
 		}
@@ -9345,7 +9345,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 		m_strRequestInputNumber = strNew;
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "m_strRequestInputNumber = " + m_strRequestInputNumber);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "m_strRequestInputNumber = " + m_strRequestInputNumber);
 	}
 
 	protected void HideNumberSearch() {
@@ -9381,7 +9381,7 @@ class Main2 extends _PlayActivity implements _Const {
 		strNew = strNew + num;
 		m_strInputNumber = strNew;
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "m_strInputNumber = " + m_strInputNumber);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "m_strInputNumber = " + m_strInputNumber);
 	}
 
 	protected void ShowNumberSearchResult(String result) {
@@ -9396,7 +9396,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void removeNullSpace() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "removeNullSpace = \"" + m_strSearchWord + "\"");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "removeNullSpace = \"" + m_strSearchWord + "\"");
 
 		// 먼헛짓이냐.
 		// String strGet = "";
@@ -9417,7 +9417,7 @@ class Main2 extends _PlayActivity implements _Const {
 		// m_strSearchWord = strNew;
 		m_strSearchWord = TextUtil.trim(m_strSearchWord);
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "removeNullSpace = \"" + m_strSearchWord + "\"");
+		if (BuildConfig.DEBUG) Log.i(_toString(), "removeNullSpace = \"" + m_strSearchWord + "\"");
 	}
 
 	protected _KPRequest KP(_KPRequest KP) {
@@ -9452,10 +9452,10 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see Main3XXXXX#VASSPPX(COMPLETE_VASS)
 	 */
 	public void KP(int request, String OP, String M1, String M2) {
-		if (IKaraokeTV.DEBUG) Log.wtf("[KP]" + _toString(), getMethodName() + "[ST]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+		if (BuildConfig.DEBUG) Log.wtf("[KP]" + _toString(), getMethodName() + "[ST]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "KP >");
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "OP=" + OP + "/M1=" + M1 + "/M2=" + M2);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "KP >");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "OP=" + OP + "/M1=" + M1 + "/M2=" + M2);
 		//if (KP_REQUEST != REQUEST_DAY_PURCHASE_COMPLETE) {
 		//	startTaskShowMessageNotResponse();
 		//}
@@ -9503,7 +9503,7 @@ class Main2 extends _PlayActivity implements _Const {
 				try {
 					KP.setSearchListUrl(OP, M1, M2, URLEncoder.encode(m_strSearchWord, "UTF-8"), m_iRequestSearchListPage);
 				} catch (Exception e) {
-					if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+					if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 					KP.setSearchListUrl(OP, M1, M2, m_strSearchWord, m_iRequestSearchListPage);
 				}
 				break;
@@ -9594,7 +9594,7 @@ class Main2 extends _PlayActivity implements _Const {
 		}
 
 		if (request == REQUEST_SONG_PLAY) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+			if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 			return;
 		}
 
@@ -9613,9 +9613,9 @@ class Main2 extends _PlayActivity implements _Const {
 				break;
 		}
 
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "KP <");
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "KP <");
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 	}
 
 	public String getEngageSong() {
@@ -9716,14 +9716,14 @@ class Main2 extends _PlayActivity implements _Const {
 			//index = getFocusedMyRecordListIndex();
 			int idx = remote.m_iSongListFocus - 1;
 			index = (idx + (m_iCurrentListenListPage - 1) * 6);
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + index + ":" + remote.m_iSongListFocus + ":" + m_iListenItemCount + "-" + m_iCurrentListenListPage + "/" + m_iTotalListenListPage);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + index + ":" + remote.m_iSongListFocus + ":" + m_iListenItemCount + "-" + m_iCurrentListenListPage + "/" + m_iTotalListenListPage);
 		} else {
 			//녹음곡감상
 			if (remote.m_iListenListFocusY > 0) {
 				int idx = (remote.m_iListenListFocusX + ((remote.m_iListenListFocusY - 1) * 4) - 1);
 				index = (idx + (m_iCurrentListenListPage - 1) * 8);
 			}
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + index + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY + ":" + m_iListenItemCount + "-" + m_iCurrentListenListPage + "/" + m_iTotalListenListPage);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + index + ":" + remote.m_iListenListFocusX + "," + remote.m_iListenListFocusY + ":" + m_iListenItemCount + "-" + m_iCurrentListenListPage + "/" + m_iTotalListenListPage);
 		}
 
 		return index;
@@ -9784,13 +9784,13 @@ class Main2 extends _PlayActivity implements _Const {
 
 	protected boolean isPlaying() {
 		boolean ret = (player != null && player.isPlaying());
-		//if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ret);
+		//if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ret);
 		return ret;
 	}
 
 	public boolean isListening() {
 		boolean ret = (listen != null && listen.isPlaying());
-		//if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ret);
+		//if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ret);
 		return ret;
 	}
 
@@ -9940,7 +9940,7 @@ class Main2 extends _PlayActivity implements _Const {
 				message_common = (LinearLayout) findViewById(R.id.message_common);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		this.message_common = message_common;
@@ -10035,7 +10035,7 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	protected void ShowMessageExit(int state) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + MENU_STATE.get(state) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + MENU_STATE.get(state) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (state == STATE_HOME_MENU) {
 			m_bIsGoToPurchaseMessage = false;
 			String title = getString(R.string.common_exit);
@@ -10067,12 +10067,12 @@ class Main2 extends _PlayActivity implements _Const {
 
 			setSelectedMessageOkCancel(KeyEvent.KEYCODE_DPAD_CENTER);
 
-			// if (IKaraokeTV.DEBUG)
+			// if (BuildConfig.DEBUG)
 			{
 				setBottomProductText(message);
 			}
 		}
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + MENU_STATE.get(state) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + MENU_STATE.get(state) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	protected void ShowMessageOkCancel(String title, String message) {
@@ -10230,8 +10230,8 @@ class Main2 extends _PlayActivity implements _Const {
 		String score1 = scoreTemp1.substring(0, 1);
 		String score2 = scoreTemp2.substring(0, 1);
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "SCORE 1 = " + score1);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), "SCORE 2 = " + score2);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "SCORE 1 = " + score1);
+		if (BuildConfig.DEBUG) Log.i(_toString(), "SCORE 2 = " + score2);
 
 		ImageView imgScore01 = (ImageView) findViewById(R.id.img_score_01);
 		imgScore01.setImageResource(GetScoreImage(score1));
@@ -10368,9 +10368,9 @@ class Main2 extends _PlayActivity implements _Const {
 		// out.write(line);
 		// out.close();
 		// } catch (FileNotFoundException e) {
-		// if (IKaraokeTV.DEBUG)  _LOG(getMethodName(), e);
+		// if (BuildConfig.DEBUG)  _LOG(getMethodName(), e);
 		// } catch (IOException e) {
-		// if (IKaraokeTV.DEBUG)  _LOG(getMethodName(), e);
+		// if (BuildConfig.DEBUG)  _LOG(getMethodName(), e);
 		// }
 		// }
 		return line;
@@ -10422,16 +10422,16 @@ class Main2 extends _PlayActivity implements _Const {
 		//
 		// try {
 		// in.close();
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "READ TEXT IS : " + buf.toString());
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "READ TEXT IS : " + buf.toString());
 		// m_strCertifyedHPNumber = buf.toString();
 		// return buf.toString();
 		// } catch (IOException e) {
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "READ TEXT IS : " + buf.toString());
-		// if (IKaraokeTV.DEBUG)  _LOG(getMethodName(), e);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "READ TEXT IS : " + buf.toString());
+		// if (BuildConfig.DEBUG)  _LOG(getMethodName(), e);
 		// }
 		// }
 		// } catch (FileNotFoundException e) {
-		// if (IKaraokeTV.DEBUG)  _LOG(getMethodName(), e);
+		// if (BuildConfig.DEBUG)  _LOG(getMethodName(), e);
 		// }
 		// }
 		//
@@ -10495,7 +10495,7 @@ class Main2 extends _PlayActivity implements _Const {
 	 * @see kr.kymedia.kykaraoke.tv.Main3XXXXX#KP(android.os.Message)
 	 */
 	protected void KP(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
 
 		int state = msg.getData().getInt("state");
 
@@ -10540,12 +10540,12 @@ class Main2 extends _PlayActivity implements _Const {
 				ShowMessageNotResponse(getString(R.string.common_info), message);
 				break;
 			case COMPLETE_MAIN: // 메인
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_MAIN]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_MAIN]");
 
 				if (!("00000").equalsIgnoreCase(code)) {
 					if (code.equals("99998")) {
 						stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
-						if (IKaraokeTV.DEBUG) Log.i(_toString(), message);
+						if (BuildConfig.DEBUG) Log.i(_toString(), message);
 						ShowMessageOk(POPUP_EXIT, getString(R.string.common_new_version), message);
 					} else {
 						stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
@@ -10555,7 +10555,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 
 				p_mid = KP.p_mid;
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[m_strMid] = " + p_mid);
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[m_strMid] = " + p_mid);
 				m_strMainSingID = KP.song_id;
 				m_strMainEventID = KP.event_id;
 				m_strMainCustomerID = KP.notice_id;
@@ -10564,7 +10564,7 @@ class Main2 extends _PlayActivity implements _Const {
 				submenuQuickBtn02 = KP.subMainQuickBtn02;
 
 				video_url_back = KP.video_url_back;
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "bg video url is " + video_url_back);
+				if (BuildConfig.DEBUG) Log.i(_toString(), "bg video url is " + video_url_back);
 
 				if (KP.is_cpn.equals("Y")) {
 					m_bCouponUser = true;
@@ -10588,7 +10588,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 				break;
 			case COMPLETE_SONG_LIST: // 반주곡 리스트
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_SONG_LIST]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_SONG_LIST]");
 
 				stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
 
@@ -10631,17 +10631,17 @@ class Main2 extends _PlayActivity implements _Const {
 
 				// 애창곡 목록에서 애창곡을 삭제한 후 리스트 갱신인 경우 인덱스 / 페이지 보정
 				if (m_bIsRefreshFavorList) {
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "MY Favor Refresh");
+					if (BuildConfig.DEBUG) Log.i(_toString(), "MY Favor Refresh");
 
 					// 마지막 페이지에서, 마지막 곡을 삭제했을 때
 					if (m_iCurrentViewSongListPage == m_iTotalSongListPage && CheckNotContentsSongList()) {
 						if (m_iTotalSongListPage == KP.total_page) {
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "MY Favor Refresh : img_focus");
+							if (BuildConfig.DEBUG) Log.i(_toString(), "MY Favor Refresh : img_focus");
 
 							// 마지막 곡을 삭제했는데 전페 페이지 수는 그대로 : 포커스만 하나 위로 올림
 							remote.m_iSongListFocus = remote.m_iSongListFocus - 1;
 						} else {
-							if (IKaraokeTV.DEBUG) Log.i(_toString(), "MY Favor Refresh : page");
+							if (BuildConfig.DEBUG) Log.i(_toString(), "MY Favor Refresh : page");
 
 							// 마지막 곡을 삭제했더니 전체 페이지 수가 줄어듬 : 페이지를 하나 좌로 밈
 							m_iCurrentViewSongListPage = m_iCurrentViewSongListPage - 1;
@@ -10671,7 +10671,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 				break;
 			case COMPLETE_SONG_PLAY: // 반주곡 시작
-				// if (IKaraokeTV.DEBUG) _LOG.i("BOXTEST", "COMPLETE_SONG_PLAY");
+				// if (BuildConfig.DEBUG) _LOG.i("BOXTEST", "COMPLETE_SONG_PLAY");
 				// if (!KP.m_strResultCode.equals("00000")) {
 				// if (!KP.m_strResultMessage.equals("")) {
 				// ShowMessageCommon(CLOSE_AUTO, getString(R.string.common_info), KP.m_strResultMessage);
@@ -10691,7 +10691,7 @@ class Main2 extends _PlayActivity implements _Const {
 				// download.start();
 				break;
 			case COMPLETE_DOWN_SONG: // 반주곡 파일 다운로드
-				// if (IKaraokeTV.DEBUG) _LOG.i("BOXTEST", "_COMPLETE_SONG");
+				// if (BuildConfig.DEBUG) _LOG.i("BOXTEST", "_COMPLETE_SONG");
 				// // HideLoading();
 				//
 				// String temp = sdPath + File.separator + "sing.skym";
@@ -10710,11 +10710,11 @@ class Main2 extends _PlayActivity implements _Const {
 			case COMPLETE_SONG_PLAYED_TIME: // 반주곡 재생 종료 시간 로그
 				break;
 			case COMPLETE_FAVOR: // 애창곡 등록 or 삭제
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_FAVOR]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_FAVOR]");
 
 				stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "FAVOR Result Code : " + code);
+				if (BuildConfig.DEBUG) Log.i(_toString(), "FAVOR Result Code : " + code);
 				if (!("00000").equalsIgnoreCase(code)) {
 					ShowMessageCommon(CLOSE_AUTO, getString(R.string.common_info), message);
 					return;
@@ -10951,7 +10951,7 @@ class Main2 extends _PlayActivity implements _Const {
 				// startListen(state);
 				break;
 			case COMPLETE_CUSTOMER_LIST: // 공지사항 or 이용안내 리스트
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_CUSTOMER_LIST]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_CUSTOMER_LIST]");
 
 				stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
 
@@ -10969,7 +10969,7 @@ class Main2 extends _PlayActivity implements _Const {
 				moveCustomerListPage();
 				break;
 			case COMPLETE_CUSTOMER_LIST_DETAIL: // 공지사항 or 이용안내 상세 정보
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_CUSTOMER_LIST_DETAIL]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_CUSTOMER_LIST_DETAIL]");
 
 				if (!("00000").equalsIgnoreCase(code)) {
 					stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
@@ -11007,8 +11007,8 @@ class Main2 extends _PlayActivity implements _Const {
 				off = off + "2.png";
 
 				// 또븅신년놈들이지랄을처놨구나...
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[OK]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + img);
-				if (IKaraokeTV.DEBUG) Log.e(_toString() + TAG_ERR, "[NG]" + getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + off);
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[OK]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + img);
+				if (BuildConfig.DEBUG) Log.e(_toString() + TAG_ERR, "[NG]" + getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + off);
 
 				util.setImageUrl(off);
 				util.start();
@@ -11072,7 +11072,7 @@ class Main2 extends _PlayActivity implements _Const {
 				stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
 
 				if (code.equals("00901")) {
-					if (IKaraokeTV.DEBUG) Log.i(_toString(), "NO Number Search Result");
+					if (BuildConfig.DEBUG) Log.i(_toString(), "NO Number Search Result");
 					m_bHaveNumberSearchResult = false;
 					ShowNumberSearchResult(getString(R.string.message_error_search_not_result));
 					return;
@@ -11084,7 +11084,7 @@ class Main2 extends _PlayActivity implements _Const {
 					return;
 				}
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "Got Number Search Result");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "Got Number Search Result");
 				m_bHaveNumberSearchResult = true;
 				ShowNumberSearchResult(KP.m_strNumberSearchResult);
 				break;
@@ -11245,7 +11245,7 @@ class Main2 extends _PlayActivity implements _Const {
 				}
 				break;
 			case COMPLETE_EVENT_APPLY:  // 이벤트 응모하기
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_EVENT_APPLY]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_EVENT_APPLY]");
 
 				stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
 
@@ -11269,7 +11269,7 @@ class Main2 extends _PlayActivity implements _Const {
 				displayCertifyHP(REMOTE_NONE);
 				break;
 			case COMPLETE_EVENT_HP:  // 이벤트 응모하기
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "[COMPLETE_EVENT_APPLY]");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "[COMPLETE_EVENT_APPLY]");
 
 				stopLoading(getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")));
 
@@ -11379,7 +11379,7 @@ class Main2 extends _PlayActivity implements _Const {
 
 				////isyoon:홈화면에선 처리 안한다.
 				//if (PANE_STATE.PANE_HOME == PANE_STATE.get(m_iPaneState)) {
-				//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[NO]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + msg + ":" + code);
+				//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[NO]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + msg + ":" + code);
 				//	return;
 				//}
 				//
@@ -11475,7 +11475,7 @@ class Main2 extends _PlayActivity implements _Const {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg + ":" + KP.result_code);
 	}
 
 	protected final Handler handlerVASS = new Handler() {
@@ -11492,8 +11492,8 @@ class Main2 extends _PlayActivity implements _Const {
 	}
 
 	public void VASS(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")) + ":" + msg);
-		// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "handleMessage = " + String.valueOf(state));
+		if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")) + ":" + msg);
+		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "handleMessage = " + String.valueOf(state));
 
 		int state = msg.getData().getInt("state");
 
@@ -11503,7 +11503,7 @@ class Main2 extends _PlayActivity implements _Const {
 			//	if (null != VASS && ("Y").equalsIgnoreCase(VASS.isSuccess())) {
 			//		p_passtype = TICKET_TYPE_DAY;
 			//		p_passtype = p_passtype;
-			//		if (IKaraokeTV.DEBUG) Log.i(_toString(), "TICKET = " + p_passtype);
+			//		if (BuildConfig.DEBUG) Log.i(_toString(), "TICKET = " + p_passtype);
 			//		setBottomProductText(getString(R.string.message_info_ticket_have_ppv) + VASS.getTicketEndDate());
 			//
 			//		KP(REQUEST_MAIN, KP_0000, M1_MAIN, M2_MENU);
@@ -11517,11 +11517,11 @@ class Main2 extends _PlayActivity implements _Const {
 			//	if (null != VASS && ("Y").equalsIgnoreCase(VASS.isSuccess())) {
 			//		p_passtype = TICKET_TYPE_MONTH;
 			//		p_passtype = p_passtype;
-			//		if (IKaraokeTV.DEBUG) Log.i(_toString(), "TICKET = " + p_passtype);
+			//		if (BuildConfig.DEBUG) Log.i(_toString(), "TICKET = " + p_passtype);
 			//		setBottomProductText(getString(R.string.message_info_ticket_have_ppm));
 			//	} else {
 			//		p_passtype = p_passtype;
-			//		if (IKaraokeTV.DEBUG) Log.i(_toString(), "TICKET = " + p_passtype);
+			//		if (BuildConfig.DEBUG) Log.i(_toString(), "TICKET = " + p_passtype);
 			//		setBottomProductText(getString(R.string.message_error_ticket_no));
 			//	}
 			//
@@ -11563,45 +11563,45 @@ class Main2 extends _PlayActivity implements _Const {
 			//	TryPlaySong();
 			//	break;
 			//case COMPLETE_VASS_PASSWORD_FOR_DAY:
-			//	if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_DAY");
+			//	if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_DAY");
 			//
 			//	if (null != VASS && ("Y").equalsIgnoreCase(VASS.isSuccess())) {
 			//		VASS(REQUEST_VASS_DAY_PURCHASE);
 			//
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_DAY - result is Y end");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_DAY - result is Y end");
 			//	} else {
 			//		stopLoading(getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")));
 			//
 			//		TextView txtPassResult = (TextView) findViewById(R.id.txt_message_ticket_pass_info_sub);
 			//		txtPassResult.setText(getString(R.string.ticket_popup_pass_error));
 			//
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_DAY - result is not Y end");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_DAY - result is not Y end");
 			//	}
 			//	break;
 			//case COMPLETE_VASS_PASSWORD_FOR_MONTH:
-			//	if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_MONTH");
+			//	if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_MONTH");
 			//
 			//	if (null != VASS && ("Y").equalsIgnoreCase(VASS.isSuccess())) {
 			//		VASS(REQUEST_VASS_MONTH_PURCHASE);
 			//
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_MONTH - result is Y end");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_MONTH - result is Y end");
 			//	} else {
 			//		stopLoading(getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")));
 			//
 			//		TextView txtPassResult = (TextView) findViewById(R.id.txt_message_ticket_pass_info_sub);
 			//		txtPassResult.setText(getString(R.string.ticket_popup_pass_error));
 			//
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_MONTH - result is not Y end");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "COMPLETE_VASS_PASSWORD_FOR_MONTH - result is not Y end");
 			//	}
 			//	break;
 			//case COMPLETE_VASS_DAY_PURCHASE:
 			//case COMPLETE_VASS_MONTH_PURCHASE:
-			//	if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE");
+			//	if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE");
 			//
 			//	stopLoading(getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")));
 			//
 			//	if (null != VASS && ("Y").equalsIgnoreCase(VASS.isSuccess())) {
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is Y");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is Y");
 			//
 			//		exitPPV();
 			//
@@ -11651,7 +11651,7 @@ class Main2 extends _PlayActivity implements _Const {
 			//			// txtEngageListMain.setText(temp);
 			//
 			//			RETURN_DATA = temp;
-			//			if (IKaraokeTV.DEBUG) Log.i("Main2", RETURN_DATA);
+			//			if (BuildConfig.DEBUG) Log.i("Main2", RETURN_DATA);
 			//			//RETURN_DATA = Base64.encodeToString(temp.getBytes(), Base64.NO_WRAP);
 			//
 			//			KP(REQUEST_DAY_PURCHASE_COMPLETE, KP_4001, M2_MENU_SHOP, M2_SHOP_TICKET);
@@ -11691,7 +11691,7 @@ class Main2 extends _PlayActivity implements _Const {
 			//			// txtEngageListMain.setText(temp);
 			//
 			//			RETURN_DATA = temp;
-			//			if (IKaraokeTV.DEBUG) Log.i("Main2", RETURN_DATA);
+			//			if (BuildConfig.DEBUG) Log.i("Main2", RETURN_DATA);
 			//			//RETURN_DATA = Base64.encodeToString(temp.getBytes(), Base64.NO_WRAP);
 			//
 			//			KP(REQUEST_MONTH_PURCHASE_COMPLETE, KP_4001, M2_MENU_SHOP, M2_SHOP_TICKET);
@@ -11704,15 +11704,15 @@ class Main2 extends _PlayActivity implements _Const {
 			//			m_bIsGoToCertifyMessage = true;
 			//		}
 			//
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is Y end");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is Y end");
 			//	} else {
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is not Y");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is not Y");
 			//
 			//		// String strPurchaseResult = VASS.getPurchaseResult();
 			//		// String strVASSErrorCode = strPurchaseResult.substring(strPurchaseResult.length() - 4, strPurchaseResult.length());
 			//		String code = VASS.getVASSErrorCode();
 			//
-			//		//if (IKaraokeTV.DEBUG)
+			//		//if (BuildConfig.DEBUG)
 			//		{
 			//			switch (state) {
 			//				case COMPLETE_VASS_DAY_PURCHASE:
@@ -11734,7 +11734,7 @@ class Main2 extends _PlayActivity implements _Const {
 			//			WidgetUtils.setTextViewMarquee(txtPassResult, true);
 			//		}
 			//
-			//		if (IKaraokeTV.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is not Y end");
+			//		if (BuildConfig.DEBUG) Log.i("Main2 - vassHandler", "_COMPLETE_VASS_*****_PURCHASE : result is not Y end");
 			//	}
 			//	break;
 		}

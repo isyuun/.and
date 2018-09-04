@@ -34,7 +34,7 @@ package kr.kymedia.kykaraoke.tv.data;
 
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.app._Activity;
 import android.os.Handler;
 import android.util.Log;
@@ -98,7 +98,7 @@ class Util2 extends Util {
 	@Override
 	public void setImageUrl(String url) {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + url);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + url);
 		super.setImageUrl(url);
 		this.url = url;
 	}
@@ -106,7 +106,7 @@ class Util2 extends Util {
 	@Override
 	public void LoadImageFromWeb() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REQUEST_UTIL.get(m_iUtilType) + ":" + m_bitMap);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REQUEST_UTIL.get(m_iUtilType) + ":" + m_bitMap);
 
 		// switch (m_iUtilType)
 		// {
@@ -164,7 +164,7 @@ class Util2 extends Util {
 		}
 
 		super.LoadImageFromWeb();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REQUEST_UTIL.get(m_iUtilType) + ":" + m_bitMap);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REQUEST_UTIL.get(m_iUtilType) + ":" + m_bitMap);
 	}
 
 	private String getResourceEntryName(View v) {
@@ -193,7 +193,7 @@ class Util2 extends Util {
 
 	public void putURLImage(final ImageView v, final String url, final boolean resize, final int imageRes) {
 		try {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + "," + url + "," + resize + "," + getResourceEntryName(imageRes));
+			if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(v) + "," + url + "," + resize + "," + getResourceEntryName(imageRes));
 			if (this.activity != null && v != null && TextUtil.isNetworkUrl(url)) {
 				this.activity.putURLImage(v, url, false);
 			}

@@ -4,7 +4,7 @@ import java.io.BufferedInputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import kr.kymedia.kykaraoke.tv.api._Const;
+import kr.kymedia.kykaraoke.api._Const;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

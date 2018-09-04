@@ -1,8 +1,8 @@
 package kr.kymedia.kykaraoke.tv.play;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api._Const;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 import android.content.Context;
 import android.media.MediaPlayer;
@@ -98,7 +98,7 @@ class Listen2 implements _Const {
 
 	@Deprecated
 	protected void setFile(String path) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		// m_mp = new MediaPlayer();
 		//
 		// try {
@@ -114,7 +114,7 @@ class Listen2 implements _Const {
 		// @Override
 		// public void onPrepared(MediaPlayer mp) {
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + mp);
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + mp);
 		// m_mp.start();
 		// if (mOnPreparedListener != null) {
 		// mOnPreparedListener.onPrepared(mp);
@@ -127,7 +127,7 @@ class Listen2 implements _Const {
 		// @Override
 		// public void onCompletion(MediaPlayer mp) {
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + mp);
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + mp);
 		// if (mOnCompletionListener != null) {
 		// mOnCompletionListener.onCompletion(mp);
 		// }
@@ -138,7 +138,7 @@ class Listen2 implements _Const {
 		// @Override
 		// public boolean onError(MediaPlayer mp, int what, int extra) {
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+		// if (BuildConfig.DEBUG) _LOG.d(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
 		// if (mOnErrorListener != null) {
 		// mOnErrorListener.onError(mp, what, extra);
 		// }
@@ -163,7 +163,7 @@ class Listen2 implements _Const {
 	}
 
 	public boolean isPlaying() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
+		//if (BuildConfig.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
 		if (m_mp != null && m_mp.isPlaying()) {
 			return true;
 		}
@@ -171,7 +171,7 @@ class Listen2 implements _Const {
 	}
 
 	public boolean isPausing() {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
+		//if (BuildConfig.DEBUG) Log.i(_toString() + "MediaPlayer", getMethodName() + m_mp);
 		if (m_mp != null && !m_mp.isPlaying()) {
 			return true;
 		}

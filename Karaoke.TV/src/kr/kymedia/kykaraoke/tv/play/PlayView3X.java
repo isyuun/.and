@@ -33,7 +33,7 @@
 package kr.kymedia.kykaraoke.tv.play;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -91,7 +91,7 @@ class PlayView3X extends PlayView3 {
 	 * 자막하단여백
 	 */
 	public void setLyricsMarginBottom(int lyricsMarginBottom) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + lyricsMarginBottom + ":" + getLyricsPlay());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + lyricsMarginBottom + ":" + getLyricsPlay());
 		this.mLyricsMarginBottom = lyricsMarginBottom;
 		if (getLyricsPlay() != null) {
 			getLyricsPlay().setLyricsMarginBottom(lyricsMarginBottom);
@@ -104,7 +104,7 @@ class PlayView3X extends PlayView3 {
 	@Override
 	protected void onAttachedToWindow() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.onAttachedToWindow();
 		setLyricsMarginBottom(mLyricsMarginBottom);
 	}
@@ -112,7 +112,7 @@ class PlayView3X extends PlayView3 {
 	@Override
 	protected void onDetachedFromWindow() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.onDetachedFromWindow();
 	}
 

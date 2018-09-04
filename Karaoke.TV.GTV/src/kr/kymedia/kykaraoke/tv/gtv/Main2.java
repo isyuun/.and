@@ -36,7 +36,7 @@ import android.util.Log;
 
 import com.kumyoung.gtvkaraoke.BuildConfig;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -70,15 +70,15 @@ class Main2 extends Main1 {
 	 */
 	@Override
 	protected void KP_param(boolean adsID) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]");
 		super.KP_param(adsID);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	protected void getVender() {
 		// super.getVender();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + m_strSTBVender + ":" + getIntent() + getIntent().getExtras() + ":" + getVideo());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + m_strSTBVender + ":" + getIntent() + getIntent().getExtras() + ":" + getVideo());
 
 		clearVender();
 
@@ -96,7 +96,7 @@ class Main2 extends Main1 {
 		p_stbid = Base64.encodeToString(m_orgSTBID.getBytes(), Base64.NO_WRAP);
 		p_model = KPparam.getModel();
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + m_strSTBVender + ":" + getIntent() + getIntent().getExtras() + ":" + getVideo());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + m_strSTBVender + ":" + getIntent() + getIntent().getExtras() + ":" + getVideo());
 	}
 
 }

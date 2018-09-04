@@ -37,6 +37,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
+import kr.kymedia.karaoke.play.impl.ISongPlay;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
 import kr.kymedia.kykaraoke.tv.R;
 
@@ -85,18 +86,18 @@ class PlayView5 extends PlayView4XX {
 	SeekBar seekBar;
 
 	@Override
-	void setPlayView() {
+	protected void setPlayView() {
 		Log.e(_toString(), getMethodName());
 		super.setPlayView();
 
 		seekBar = (SeekBar) findViewById(R.id.seekBar);
 
 		if (seekBar != null) {
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-				seekBar.getThumb().mutate().setAlpha(0);
-			} else {
-				seekBar.setThumb(null);
-			}
+			//if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+			//	seekBar.getThumb().mutate().setAlpha(0);
+			//} else {
+			//	seekBar.setThumb(null);
+			//}
 			seekBar.setVisibility(View.VISIBLE);
 		}
 	}
@@ -119,6 +120,11 @@ class PlayView5 extends PlayView4XX {
 	}
 
 	@Override
+	public void setOnListener(Listener listener) {
+		super.setOnListener(listener);
+	}
+
+	@Override
 	public void onPrepared() {
 		super.onPrepared();
 
@@ -130,7 +136,7 @@ class PlayView5 extends PlayView4XX {
 
 	@Override
 	public void onTime(int t) {
-		//_LOG.e(_toString(), getMethodName() + t + "/" + getTotalTime() + ":" + seekBar);
+		//Log.e(_toString(), getMethodName() + t + "/" + getTotalTime() + ":" + seekBar);
 		super.onTime(t);
 
 		if (seekBar != null) {

@@ -39,7 +39,7 @@ import java.io.FileInputStream;
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.karaoke.widget.KaraokePath;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -49,6 +49,7 @@ import android.media.MediaPlayer.OnErrorListener;
 import android.media.MediaPlayer.OnInfoListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.media.MediaPlayer.OnTimedTextListener;
+import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -174,7 +175,8 @@ class PlayView3 extends PlayView2 {
 		case 2:
 			// 싸이월드: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=08888
 			host = "http://" + KaraokePath.getHosts()[2] + "/";
-			path = "cykara_dl2.asp?song_id=";
+			//path = "cykara_dl2.asp?song_id=";
+			path = ".skym.asp?song_id=";
 			form = "%05d";
 			break;
 
@@ -184,7 +186,7 @@ class PlayView3 extends PlayView2 {
 
 		ret = String.format(host + path + form, number);
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + server + "-" + number + "-" + ret);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + server + "-" + number + "-" + ret);
 
 		return ret;
 	}
@@ -226,7 +228,7 @@ class PlayView3 extends PlayView2 {
 	}
 
 	protected void reset() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		if (getMediaPlayer() != null) {
 			getMediaPlayer().setOnBufferingUpdateListener(null);
@@ -247,7 +249,7 @@ class PlayView3 extends PlayView2 {
 	}
 
 	protected void init() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		reset();
 
@@ -268,7 +270,7 @@ class PlayView3 extends PlayView2 {
 			@Override
 			public void onBufferingUpdate(MediaPlayer mp, int percent) {
 
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + percent + "%)");
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + percent + "%)");
 				if (mOnBufferingUpdateListener != null) {
 					mOnBufferingUpdateListener.onBufferingUpdate(mp, percent);
 				}
@@ -280,7 +282,7 @@ class PlayView3 extends PlayView2 {
 			/**
 			 * 재생처리는Main22에서
 			 * 
-			 * @see kr.kymedia.kykaraoke.tv.Main3X#onCreate()
+			 * @see kr.kymedia.kykaraoke.tv.Main3X#onCreate(Bundle)
 			 * @see kr.kymedia.kykaraoke.tv.Main3XX#setPlayer()
 			 * @see kr.kymedia.kykaraoke.tv.Main3XX#setVideo()
 			 * @see kr.kymedia.kykaraoke.tv.Main3XX#setListen()
@@ -288,7 +290,7 @@ class PlayView3 extends PlayView2 {
 			@Override
 			public void onPrepared(MediaPlayer mp) {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + mp);
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp);
 				if (mOnPreparedListener != null) {
 					mOnPreparedListener.onPrepared(mp);
 				}
@@ -308,7 +310,7 @@ class PlayView3 extends PlayView2 {
 			@Override
 			public void onCompletion(MediaPlayer mp) {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + mp);
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp);
 				if (mOnCompletionListener != null) {
 					mOnCompletionListener.onCompletion(mp);
 				}
@@ -328,7 +330,7 @@ class PlayView3 extends PlayView2 {
 			@Override
 			public boolean onInfo(MediaPlayer mp, int what, int extra) {
 
-				// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
 				if (mOnInfoListener != null) {
 					mOnInfoListener.onInfo(mp, what, extra);
 				}
@@ -349,7 +351,7 @@ class PlayView3 extends PlayView2 {
 			@Override
 			public boolean onError(MediaPlayer mp, int what, int extra) {
 
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
 				if (mOnErrorListener != null) {
 					mOnErrorListener.onError(mp, what, extra);
 				}
@@ -387,7 +389,7 @@ class PlayView3 extends PlayView2 {
 		// path = getLyricList().get(getLyricIdx()).toString();
 		// }
 		String path = getLyric();
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + path);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + path);
 		open(path);
 	}
 
@@ -402,7 +404,7 @@ class PlayView3 extends PlayView2 {
 
 		Log.w(_toString(), "open() " + "[ST]");
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + path);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + path);
 		this.path = path;
 
 		try {
@@ -425,7 +427,7 @@ class PlayView3 extends PlayView2 {
 			throw (e);
 		}
 
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + path);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + path);
 		Log.w(_toString(), "open() " + "[ED]");
 
 		return true;
@@ -469,7 +471,7 @@ class PlayView3 extends PlayView2 {
 			mp3 = getKaraokeMP3(number);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + mp3);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp3);
 
 		Log.i(_toString(), "stream() " + "[MediaPlayer]");
 		init();
@@ -489,7 +491,7 @@ class PlayView3 extends PlayView2 {
 	protected void local() throws Exception {
 		Log.w(_toString(), "local() " + "[ST]");
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + path);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + path);
 		File sourceFile = new File(path);
 
 		if (sourceFile.exists()) {
@@ -504,16 +506,16 @@ class PlayView3 extends PlayView2 {
 	}
 
 	public void playLyrics() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		try {
 			getLyricsPlay().play();
 		} catch (Exception e) {
 
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
 			// e.printStackTrace();
 			throw (e);
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	/**
@@ -521,7 +523,7 @@ class PlayView3 extends PlayView2 {
 	 */
 	@Override
 	public boolean play() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 
 		boolean ret = true;
 
@@ -537,19 +539,19 @@ class PlayView3 extends PlayView2 {
 			}
 		} catch (Exception e) {
 
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
 			// e.printStackTrace();
 			throw (e);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 		return ret;
 	}
 
 	@Override
 	public void setVisibility(int visibility) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + visibility);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + visibility);
 		super.setVisibility(visibility);
 		if (getLyricsPlay() != null) {
 			getLyricsPlay().setVisibility(visibility);
@@ -562,7 +564,7 @@ class PlayView3 extends PlayView2 {
 	@Override
 	public void stop() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isPlaying() + ":" + getPlayState());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isPlaying() + ":" + getPlayState());
 		// boolean ret = super.stop();
 
 		try {
@@ -573,11 +575,11 @@ class PlayView3 extends PlayView2 {
 			if (getPlayState() != PLAY_ENGAGE.PLAY_STOP) {
 				// if (isPlaying())
 				if (getMediaPlayer() != null) {
-					if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[STOP]" + isPlaying() + ":" + getPlayState());
+					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[STOP]" + isPlaying() + ":" + getPlayState());
 					getMediaPlayer().stop();
 				}
 
-				if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + getPlayState());
+				if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + getPlayState());
 				reset();
 
 				getLyricsPlay().stop();
@@ -587,11 +589,11 @@ class PlayView3 extends PlayView2 {
 				setPlayState(PLAY_ENGAGE.PLAY_STOP);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + getPlayState());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + getPlayState());
 			e.printStackTrace();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isPlaying() + ":" + getPlayState());
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isPlaying() + ":" + getPlayState());
 	}
 
 	/**
@@ -600,18 +602,18 @@ class PlayView3 extends PlayView2 {
 	@Override
 	protected void pause() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + isPlaying() + ":" + getPlayState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + isPlaying() + ":" + getPlayState());
 
 		try {
 			if (getPlayState() == PLAY_ENGAGE.PLAY_PLAY) {
 				if (isPlaying()) {
-					if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[PAUSE]" + isPlaying() + ":" + getPlayState());
+					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[PAUSE]" + isPlaying() + ":" + getPlayState());
 					getMediaPlayer().pause();
 				}
 				setPlayState(PLAY_ENGAGE.PLAY_PAUSE);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + getPlayState());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + getPlayState());
 			e.printStackTrace();
 		}
 
@@ -622,7 +624,7 @@ class PlayView3 extends PlayView2 {
 	@Override
 	protected void resume() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.resume();
 
 		getLyricsPlay().resume();
@@ -634,7 +636,7 @@ class PlayView3 extends PlayView2 {
 	@Override
 	protected void close() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 
 		// super.close();
 		stop();

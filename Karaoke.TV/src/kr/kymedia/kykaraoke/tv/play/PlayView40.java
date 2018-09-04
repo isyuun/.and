@@ -33,7 +33,7 @@
 package kr.kymedia.kykaraoke.tv.play;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -95,7 +95,7 @@ class PlayView40 extends PlayView4 implements OnTouchListener {
 
 		String vn = v.getContext().getResources().getResourceEntryName(v.getId());
 		String cn = v.getClass().getSimpleName();
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + vn + ", " + cn + "\n" + event);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + vn + ", " + cn + "\n" + event);
 		return false;
 	}
 

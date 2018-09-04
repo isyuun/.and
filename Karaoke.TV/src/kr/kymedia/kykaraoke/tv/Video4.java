@@ -37,8 +37,8 @@ import java.util.TimerTask;
 
 import kr.kymedia.karaoke.play.impl.ISongPlay;
 import kr.kymedia.karaoke.play.impl.ISongPlay.Listener;
-import kr.kymedia.kykaraoke.tv.api._Const;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Const;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.os.Handler;
 import android.util.Log;
 
@@ -109,7 +109,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 
 	private void retry() {
 		Log.e(_toString(), "retry() " + count);
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]" + count);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]" + count);
 		try {
 			if (count < COUNT_RETRY && !isPlaying()) {
 				stop();
@@ -118,23 +118,23 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 				onRetry(count);
 				onTimeout(TIMER_RETRY);
 			} else {
-				if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[RO]" + count);
+				if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RO]" + count);
 				onError(ISongPlay.ERROR.TRYOUT, new Exception("RETRY OUT ERROR(" + count + ")"));
 				stop();
 				cancel();
 			}
 		} catch (Exception e) {
 
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + count);
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + count);
 			e.printStackTrace();
 			stop();
 			cancel();
 		}
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + count);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + count);
 	}
 
 	public void cancel() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + count);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + count);
 		try {
 			if (retryTimer != null) {
 				retryTimer.cancel();
@@ -152,52 +152,52 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	public void open() throws Exception {
 		Log.e(_toString(), "open() " + count);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.open();
 		cancel();
 		startRetry();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 	@Override
 	public boolean play() throws Exception {
 		Log.i(_toString(), "play() " + count);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		boolean ret = false;
 		try {
 			ret = super.play();
 			cancel();
 		} catch (Exception e) {
 
-			if (IKaraokeTV.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
 			e.printStackTrace();
 			onError(ISongPlay.ERROR.MEDIAPLAYERPLAY, e);
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 		return ret;
 	}
 
 	@Override
 	public boolean stop() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		boolean ret = super.stop();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 		return ret;
 	}
 
 	ISongPlay.Listener listener;
 
 	public void setOnListener(Listener listener) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + (listener instanceof Listener) + ":" + listener);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + (listener instanceof Listener) + ":" + listener);
 
 		this.listener = listener;
 	}
 
 	@Override
 	public void onTime(int t) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + t);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + t);
 
 		if (listener != null) {
 			listener.onTime(t);
@@ -207,7 +207,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onPrepared() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		if (listener != null) {
 			listener.onPrepared();
 		}
@@ -216,7 +216,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onCompletion() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		if (listener != null) {
 			listener.onCompletion();
 		}
@@ -225,7 +225,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onError() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		if (listener != null) {
 			listener.onError();
 		}
@@ -234,7 +234,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onBufferingUpdate(int percent) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + percent);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + percent);
 		if (listener != null) {
 			listener.onBufferingUpdate(percent);
 		}
@@ -243,7 +243,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onRelease() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		if (listener != null) {
 			listener.onRelease();
 		}
@@ -252,7 +252,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onSeekComplete() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		if (listener != null) {
 			listener.onSeekComplete();
 		}
@@ -261,7 +261,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onReady(int count) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + count);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + count);
 		if (listener != null) {
 			listener.onReady(count);
 		}
@@ -270,7 +270,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onError(ISongPlay.ERROR t, Exception e) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + t + ":" + e);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + t + ":" + e);
 		if (listener != null) {
 			listener.onError(t, e);
 		}
@@ -279,7 +279,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onRetry(int count) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + count);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + count);
 		if (listener != null) {
 			listener.onRetry(count);
 		}
@@ -288,7 +288,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 	@Override
 	public void onTimeout(long timeout) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + timeout);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + timeout);
 		if (listener != null) {
 			listener.onTimeout(timeout);
 		}

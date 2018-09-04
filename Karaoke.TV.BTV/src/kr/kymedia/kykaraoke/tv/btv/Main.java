@@ -36,7 +36,7 @@ import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.kykaraoke.BuildConfig;
 import kr.kymedia.kykaraoke.tv.R;
 import kr.kymedia.kykaraoke.tv._Main;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -116,11 +116,11 @@ class Main extends _Main {
 	 */
 	@Override
 	protected void getVender() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + getIntent() + getIntent().getExtras());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("STBID"));
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("MAC"));
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("STBIDOrigin"));
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("MODELNAME"));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("STBID"));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("MAC"));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("STBIDOrigin"));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getIntent().getStringExtra("MODELNAME"));
 		super.getVender();
 
 		clearVender();
@@ -164,7 +164,7 @@ class Main extends _Main {
 					p_model = SystemInfo.GetSystemProperty("MODEL_NAME");
 					m_strSTBVER = SystemInfo.GetSystemProperty("FIRMWARE_VERSION");
 				}
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[STBID:OK]" + STBID);
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[STBID:OK]" + STBID);
 				int i = 0;
 				while (i < STBID.length()) {
 					if (!STBID.substring(i, i + 1).equals("{") && !STBID.substring(i, i + 1).equals("}")) {
@@ -188,7 +188,7 @@ class Main extends _Main {
 					System.loadLibrary("mic");
 					m_bLoadMICLibrary = true;
 				} catch (Throwable e) {
-					if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[MIC:NG]");
+					if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[MIC:NG]");
 					e.printStackTrace();
 					m_bLoadMICLibrary = false;
 				}
@@ -202,11 +202,11 @@ class Main extends _Main {
 				m_strSTBVender = P_APPNAME_SKT_BOX;
 			} catch (UnsatisfiedLinkError e) {
 
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[STBID:NG1]" + STBID);
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[STBID:NG1]" + STBID);
 				e.printStackTrace();
 			} catch (Exception e) {
 
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[STBID:NG2]" + STBID);
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[STBID:NG2]" + STBID);
 				e.printStackTrace();
 			}
 
@@ -270,15 +270,15 @@ class Main extends _Main {
 		// layoutRightBlank.setLayoutParams(lpRight);
 		// }
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + m_strSTBVender);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + m_strSTBVender);
 	}
 
 	@Override
 	protected void onNewIntent(Intent intent) {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
 		super.onNewIntent(intent);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
 	}
 
 	/**
@@ -287,7 +287,7 @@ class Main extends _Main {
 	@Override
 	protected void onStart() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		// if (P_DEVICE == SMART_BOX) {
 		if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 			// for BOX
@@ -301,7 +301,7 @@ class Main extends _Main {
 
 	@Override
 	protected void onResume() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + getIntent().getExtras());
 		super.onResume();
 	}
 
@@ -311,7 +311,7 @@ class Main extends _Main {
 	@Override
 	protected void onStop() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		// if (P_DEVICE == SMART_BOX) {
 		if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 			// for BOX
@@ -326,7 +326,7 @@ class Main extends _Main {
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + savedInstanceState);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + savedInstanceState);
 		super.onPostCreate(savedInstanceState);
 
 		wakeLockAquire();
@@ -335,7 +335,7 @@ class Main extends _Main {
 	@Override
 	public void onPostCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + savedInstanceState + ", " + persistentState);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + savedInstanceState + ", " + persistentState);
 		super.onPostCreate(savedInstanceState, persistentState);
 
 		wakeLockAquire();
@@ -344,7 +344,7 @@ class Main extends _Main {
 	@Override
 	protected void onDestroy() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onDestroy();
 
 		wakeLockRelease();
@@ -353,7 +353,7 @@ class Main extends _Main {
 	@Override
 	protected void play() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.play();
 		wakeLockAquire();
 	}
@@ -361,7 +361,7 @@ class Main extends _Main {
 	@Override
 	protected void stop(int engage) {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.stop(engage);
 		wakeLockAquire();
 	}

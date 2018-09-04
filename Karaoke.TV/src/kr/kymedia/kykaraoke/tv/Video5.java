@@ -32,7 +32,7 @@
 
 package kr.kymedia.kykaraoke.tv;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.util.Log;
 
 /**
@@ -83,14 +83,14 @@ class Video5 extends Video4 {
 	@Override
 	public boolean stop() {
 
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]");
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		boolean ret = super.stop();
 		reset();
 		if (mMusicVideo != null) {
 			mMusicVideo.stopPlayback();
 		}
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]");
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]");
 		return ret;
 	}
 
@@ -104,9 +104,9 @@ class Video5 extends Video4 {
 	@Override
 	public void startBlankVideo(String url, int next) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + url);
 		isMusicVideo = false;
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + url);
 	}
 
 	/**
@@ -119,13 +119,13 @@ class Video5 extends Video4 {
 	@Override
 	public void stopMusicVideo(String url, int engage) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isMusicVideo + ":" + PLAY_ENGAGE.get(engage) + url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isMusicVideo + ":" + PLAY_ENGAGE.get(engage) + url);
 		if (engage == PLAY_NEXT) {
 			isMusicVideo = true;
 		} else {
 			isMusicVideo = false;
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isMusicVideo + ":" + PLAY_ENGAGE.get(engage) + url);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isMusicVideo + ":" + PLAY_ENGAGE.get(engage) + url);
 	}
 
 	/**
@@ -139,9 +139,9 @@ class Video5 extends Video4 {
 	@Override
 	public void stopBlankVideo() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		isMusicVideo = false;
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
 }

@@ -46,8 +46,8 @@ import java.util.LinkedHashMap;
 
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._VASS;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._VASS;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -103,7 +103,7 @@ public class VASS extends Thread implements _VASS {
 
 	@Override
 	public void start() {
-		if (IKaraokeTV.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + this);
+		if (BuildConfig.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + this);
 		super.start();
 	}
 
@@ -118,7 +118,7 @@ public class VASS extends Thread implements _VASS {
 
 	@Override
 	public void sendMessage(int state) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + request + "->" + COMPLETE_VASS.get(state));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + request + "->" + COMPLETE_VASS.get(state));
 		Bundle b = new Bundle();
 		b.putInt("state", state);
 
@@ -138,7 +138,7 @@ public class VASS extends Thread implements _VASS {
 
 	@Override
 	public void setVASSUrl(String password) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + request);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + request);
 
 		TicketItem item = getTicketItem();
 
@@ -171,7 +171,7 @@ public class VASS extends Thread implements _VASS {
 	}
 
 	private void setVASSUrl(String m, String password) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + m + ", " + password);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + m + ", " + password);
 
 		this.password = password;
 		this.p_m = m;
@@ -198,7 +198,7 @@ public class VASS extends Thread implements _VASS {
 	}
 
 	private String send() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + "[M]" + this.p_m + "[" + this.url + "]" + getVASSParams());
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + "[M]" + this.p_m + "[" + this.url + "]" + getVASSParams());
 
 		String ret = "";
 
@@ -274,7 +274,7 @@ public class VASS extends Thread implements _VASS {
 			TicketItem item = items.get(key);
 			String m = null;
 
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + item.product_name + ":" + item.id_product + ":" + item.product_type + ":" + item.product_type.value());
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + item.product_name + ":" + item.id_product + ":" + item.product_type + ":" + item.product_type.value());
 
 			switch (item.product_type) {
 				case NONE:
@@ -303,7 +303,7 @@ public class VASS extends Thread implements _VASS {
 
 	@Override
 	public void sendRequest() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + request + "[M]" + this.p_m);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + request + "[M]" + this.p_m);
 
 		String result = null;
 
@@ -342,7 +342,7 @@ public class VASS extends Thread implements _VASS {
 
 	@Override
 	public void parseVASSResult(String response) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
 
 		TicketItem item = getTicketItem();
 
@@ -370,7 +370,7 @@ public class VASS extends Thread implements _VASS {
 			e.printStackTrace();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[RT]" + request + ":" + results + ":" + item);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[RT]" + request + ":" + results + ":" + item);
 
 		switch (request) {
 			case REQUEST_VASS_NONE:
@@ -389,7 +389,7 @@ public class VASS extends Thread implements _VASS {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + m_strVASSErrorCode);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + m_strVASSErrorCode);
 	}
 
 	private String isSuccess = "";
@@ -409,7 +409,7 @@ public class VASS extends Thread implements _VASS {
 	private LinkedHashMap<String, TicketItem> items = new LinkedHashMap<>();
 
 	public void putTicketItems(LinkedHashMap<String, TicketItem> items) {
-		if (IKaraokeTV.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
+		if (BuildConfig.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
 		this.items = items;
 	}
 

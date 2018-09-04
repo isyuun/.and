@@ -44,7 +44,7 @@ import java.util.LinkedHashMap;
 
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -109,7 +109,7 @@ class VASS3 extends VASS2 {
 
 	@Override
 	public void setVASSUrl(String password) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + request);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + request);
 
 		TicketItem item = getTicketItem();
 
@@ -144,7 +144,7 @@ class VASS3 extends VASS2 {
 	}
 
 	private void setVASSUrl(String m, String password) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + m + ", " + password);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + m + ", " + password);
 
 		this.password = password;
 		this.m = m;
@@ -164,7 +164,7 @@ class VASS3 extends VASS2 {
 	}
 
 	private String send() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + "[M]" + this.m + "[" + this.url + "]" + getVASSParams());
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + "[M]" + this.m + "[" + this.url + "]" + getVASSParams());
 
 		String ret = "";
 
@@ -240,7 +240,7 @@ class VASS3 extends VASS2 {
 			TicketItem item = items.get(key);
 			String m = null;
 
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + item.product_name + ":" + item.id_product + ":" + item.product_type + ":" + item.product_type.value());
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + item.product_name + ":" + item.id_product + ":" + item.product_type + ":" + item.product_type.value());
 
 			switch (item.product_type) {
 				case NONE:
@@ -269,7 +269,7 @@ class VASS3 extends VASS2 {
 
 	@Override
 	public void sendRequest() throws Exception {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + request + "[M]" + this.m);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + request + "[M]" + this.m);
 
 		String result = null;
 
@@ -307,7 +307,7 @@ class VASS3 extends VASS2 {
 
 	@Override
 	public void parseVASSResult(String response) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
 
 		TicketItem item = getTicketItem();
 
@@ -331,7 +331,7 @@ class VASS3 extends VASS2 {
 			e.printStackTrace();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + "[RT]" + request + ":" + results + ":" + item);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + "[RT]" + request + ":" + results + ":" + item);
 
 		switch (request) {
 			case REQUEST_VASS_NONE:
@@ -350,7 +350,7 @@ class VASS3 extends VASS2 {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + m_strVASSErrorCode);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + m_strVASSErrorCode);
 	}
 
 	private String isSuccess = "";
@@ -370,7 +370,7 @@ class VASS3 extends VASS2 {
 	private LinkedHashMap<String, TicketItem> items = new LinkedHashMap<>();
 
 	public void putTicketItems(LinkedHashMap<String, TicketItem> items) {
-		if (IKaraokeTV.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
+		if (BuildConfig.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
 		this.items = items;
 	}
 

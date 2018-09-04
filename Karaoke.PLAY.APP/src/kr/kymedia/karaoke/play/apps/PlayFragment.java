@@ -491,7 +491,8 @@ public class PlayFragment extends ChoirPlayFragment {
 		} else if (server == R.id.radioServerCYW) {
 			// 싸이월드: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=08888
 			host = "http://" + KaraokePath.getHosts()[2] + "/";
-			path = "cykara_dl2.asp?song_id=";
+			//path = "cykara_dl2.asp?song_id=";
+			path = ".skym.asp?song_id=";
 			form = "%05d";
 		}
 

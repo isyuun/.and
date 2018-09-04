@@ -51,10 +51,10 @@ import java.util.Timer;
 import kr.kymedia.karaoke.play.impl.ISongPlay.ERROR;
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.karaoke.widget.util.WidgetUtils;
-import kr.kymedia.kykaraoke.tv.api._Download.onDownloadListener;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._Download;
-import kr.kymedia.kykaraoke.tv.api._KPRequest;
+import kr.kymedia.kykaraoke.api._Download.onDownloadListener;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._Download;
+import kr.kymedia.kykaraoke.api._KPRequest;
 
 /**
  * <pre>
@@ -85,7 +85,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 	@Override
 	protected void clickGUI() {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + ":" + remote.getState());
 		super.clickGUI();
 		ShowMenu(getMethodName());
 	}
@@ -99,16 +99,16 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	public void KP(int request, String OP, String M1, String M2) {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
 		super.KP(request, OP, M1, M2);
 
 		switch (request) {
 			case REQUEST_SONG_LIST:
 			case REQUEST_LISTEN_LIST:
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+				if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 				break;
 			case REQUEST_SONG_PLAY:
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+				if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 				_KP_1016 = KP(_KP_1016);
 				if (_KP_1016 != null) {
 					_KP_1016.setRequestType(REQUEST_SONG_PLAY);
@@ -117,14 +117,14 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				break;
 			case REQUEST_LISTEN_SONG:
 			case REQUEST_LISTEN_SONG_OTHER:
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
+				if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, "KP() " + "[RQ]" + REQUEST_KP.get(request) + ", " + OP + ", " + M1 + ", " + M2);
 				tryPlayListen();
 				break;
 			default:
 				break;
 		}
 
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + REQUEST_KP.get(KP_REQUEST) + ", " + OP + ", " + M1 + ", " + M2);
 	}
 
 	/**
@@ -137,11 +137,11 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void TryPlaySong() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		tryPlaySong();
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -164,7 +164,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	private void tryPlaySong() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		hideDetailSong();
 		hideBottomGuide01();
@@ -185,7 +185,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			_KP_1016.start();
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -195,7 +195,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * @see kr.kymedia.kykaraoke.tv.api.Const#REQUEST_LISTEN_SONG_OTHER
 	 */
 	private void tryPlayListen() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		String OP = KP_2016;
 		String M1 = M1_MENU_LISTEN;
@@ -207,7 +207,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			KP.setListenSongUrl(OP, M1, M2, record_id, "");
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 	}
 
@@ -221,23 +221,23 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void KP(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 		super.KP(msg);
 
 		int state = msg.getData().getInt("state");
 
 		switch (state) {
 			case COMPLETE_SONG_PLAY: // 반주곡 시작
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 				break;
 			case COMPLETE_DOWN_SONG: // 반주곡 파일 다운로드
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 				break;
 			case COMPLETE_AUTH_NUMBER:  // 휴대폰인증번호입력
-				if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+				if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 				break;
 			case COMPLETE_LISTEN_LIST: // 녹음곡 리스트
-				if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+				if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 				if (mListenItems.size() > 0) {
 					startLoading(getMethodName(), LOADING_SHORT);
 				}
@@ -253,7 +253,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected void down() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 
 		if (_KP_1016 == null) {
 			ShowMessageNotResponse(getString(R.string.common_info), getString(R.string.message_error_network_timeout));
@@ -288,7 +288,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void onDownError(ERROR t, final Exception e) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + url_lyric);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + e.getMessage() + "(" + t + ")" + url_lyric);
 		post(new Runnable() {
 			@Override
 			public void run() {
@@ -296,7 +296,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				stopLoading(getMethodName());
 				try {
 					String msg = getString(R.string.message_error_lyric) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-					if (IKaraokeTV.DEBUG) {
+					if (BuildConfig.DEBUG) {
 						msg += "\n" + e.getMessage();
 					} else {
 						msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -329,7 +329,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * </pre>
 	 */
 	protected void downListen(int state) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + COMPLETE_KP.get(state));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + COMPLETE_KP.get(state));
 
 		if (!("00000").equals(KP.result_code)) {
 			stopLoading(getMethodName());
@@ -344,11 +344,11 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 		switch (state) {
 			case COMPLETE_LISTEN_SONG:
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "_COMPLETE_LISTEN");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "_COMPLETE_LISTEN");
 				sendMessage(COMPLETE_DOWN_LISTEN);
 				break;
 			case COMPLETE_LISTEN_OTHER_SONG:
-				if (IKaraokeTV.DEBUG) Log.i(_toString(), "_COMPLETE_LISTEN_OTHER_DOWN");
+				if (BuildConfig.DEBUG) Log.i(_toString(), "_COMPLETE_LISTEN_OTHER_DOWN");
 				sendMessage(COMPLETE_DOWN_LISTEN_OTHER);
 				break;
 			default:
@@ -361,16 +361,16 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	public void VASS(Message msg) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")) + ":" + msg);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + COMPLETE_VASS.get(msg.getData().getInt("state")) + ":" + msg);
 		super.VASS(msg);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void addViewListenItem(ViewGroup parent, ViewGroup view) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.addViewListenItem(parent, view);
 	}
 
@@ -380,13 +380,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void setListeningState() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.setListeningState();
 		} else {
 			try {
 				super.setListeningState();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -396,13 +396,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void unselectSongList() {
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.unselectSongList();
 		} else {
 			try {
 				super.unselectSongList();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -413,13 +413,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void resetShopSubMenu() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.resetShopSubMenu();
 		} else {
 			try {
 				super.resetShopSubMenu();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -430,13 +430,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void resetCustomerList() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.resetCustomerList();
 		} else {
 			try {
 				super.resetCustomerList();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -447,13 +447,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void resetMySubMenu() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.resetMySubMenu();
 		} else {
 			try {
 				super.resetMySubMenu();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -464,13 +464,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void exitMyRecordNone() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.exitMyRecordNone();
 		} else {
 			try {
 				super.exitMyRecordNone();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -481,13 +481,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void displayListSing(int keyID) {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.displayListSing(keyID);
 		} else {
 			try {
 				super.displayListSing(keyID);
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -495,7 +495,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void clickDetailSong() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.clickDetailSong();
 
 		if (remote.m_iSongListFocus < 1) {
@@ -514,8 +514,8 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void clickDetailSearch() {
 
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.m_iSongListDetailFocus);
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.m_iSongListDetailFocus);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.clickDetailSearch();
 
 		if (remote.m_iSearchListFocus < 1) {
@@ -533,14 +533,14 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 	@Override
 	public void exitListSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		exitDetailSong();
 		super.exitListSong();
 	}
 
 	@Override
 	public void exitListSearch() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		exitDetailSearch();
 		super.exitListSearch();
 	}
@@ -551,13 +551,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	//@Override
 	//protected void ShowGenre() {
 	//
-	//	if (IKaraokeTV.DEBUG) {
+	//	if (BuildConfig.DEBUG) {
 	//		super.ShowGenre();
 	//	} else {
 	//		try {
 	//			super.ShowGenre();
 	//		} catch (Exception e) {
-	//			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+	//			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 	//		}
 	//	}
 	//}
@@ -568,13 +568,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	//@Override
 	//protected void HideGenre() {
 	//
-	//	if (IKaraokeTV.DEBUG) {
+	//	if (BuildConfig.DEBUG) {
 	//		super.HideGenre();
 	//	} else {
 	//		try {
 	//			super.HideGenre();
 	//		} catch (Exception e) {
-	//			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+	//			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 	//		}
 	//	}
 	//}
@@ -582,7 +582,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void goSearch() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		switch (remote.m_iState) {
 			case STATE_SEARCH_MENU:
@@ -612,7 +612,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		// line = "";
 		// final String PATH = "kykaraoke.txt";
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]" + PATH + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]" + PATH + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		//
 		// if (line != null) {
 		// try {
@@ -621,13 +621,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		// out.close();
 		// } catch (Exception e) {
 		// line = null;
-		// // if (IKaraokeTV.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[READ_ERROR]" + PATH + "\n" + _LOG.getStackTraceString(e));
+		// // if (BuildConfig.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[READ_ERROR]" + PATH + "\n" + _LOG.getStackTraceString(e));
 		// _LOG.e(_toString(), "writeKaraoke() " + "[NG]" + "[READ_ERROR]" + PATH + "\n" + _LOG.getStackTraceString(e));
 		// // e.printStackTrace();
 		// }
 		// }
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + PATH + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + PATH + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		return line;
 	}
 
@@ -645,7 +645,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		// final String PATH = getFilesDir().getPath();
 		// String fileName = "kykaraoke.txt";
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]" + PATH + File.separator + fileName + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ST]" + PATH + File.separator + fileName + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		//
 		// boolean filecheck = false;
 		// File iFile = new File(PATH);
@@ -674,28 +674,28 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		// StringBuffer buf = new StringBuffer();
 		//
 		// while ((str = reader.readLine()) != null) {
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[CK]" + str);
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[CK]" + str);
 		// buf.append(str);
 		// }
 		// in.close();
 		// line = buf.toString();
 		// }
 		// } catch (Exception e) {
-		// // if (IKaraokeTV.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[READ_ERROR]" + PATH + File.separator + fileName + "\n" + _LOG.getStackTraceString(e));
+		// // if (BuildConfig.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[READ_ERROR]" + PATH + File.separator + fileName + "\n" + _LOG.getStackTraceString(e));
 		// _LOG.e(_toString(), "readKaraoke() " + "[NG]" + "[READ_ERROR]" + PATH + File.separator + fileName + "\n" + _LOG.getStackTraceString(e));
 		// // e.printStackTrace();
 		// }
 		// } else {
-		// // if (IKaraokeTV.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[FILE_ERROR]" + fileName);
+		// // if (BuildConfig.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[FILE_ERROR]" + fileName);
 		// _LOG.e(_toString(), "readKaraoke() " + "[NG]" + "[FILE_ERROR]" + fileName);
 		// }
 		//
 		// } else {
-		// // if (IKaraokeTV.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[PATH_ERROR]" + PATH);
+		// // if (BuildConfig.DEBUG) _LOG.e(_toString() + TAG_ERR,  "[NG]" + getMethodName() + "[PATH_ERROR]" + PATH);
 		// _LOG.e(_toString(), "readKaraoke() " + "[NG]" + "[PATH_ERROR]" + PATH);
 		// }
 		//
-		// if (IKaraokeTV.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + PATH + File.separator + fileName + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + PATH + File.separator + fileName + ":" + line + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		return line;
 	}
 
@@ -711,7 +711,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			ret = auth_phoneno;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ret + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ret + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (KP != null && TextUtil.isEmpty(auth_phoneno)) {
 			auth_phoneno = KP.auth_phoneno;
@@ -720,7 +720,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ret + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ret + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		return ret;
 	}
 
@@ -747,11 +747,11 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	// */
 	//@Override
 	//public void clickShopCertify() {
-	//	if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+	//	if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	//	// bgkimt [인증번호등록] 버튼 눌렀을 때 인증센터 팝업 띄운다. 월정액 이용권 없으면 튕겨준다
 	//	// bgkimt 인증번호 변경 가능 횟수가 다 했어도 튕겨준다.
-	//	if (IKaraokeTV.DEBUG || p_passtype == TICKET_TYPE_MONTH) {
-	//		if (IKaraokeTV.DEBUG || auth_modify_idx > 0) {
+	//	if (BuildConfig.DEBUG || p_passtype == TICKET_TYPE_MONTH) {
+	//		if (BuildConfig.DEBUG || auth_modify_idx > 0) {
 	//			remote.m_iCertifyHPFocusX = 1;
 	//			remote.m_iCertifyHPFocusY = 1;
 	//
@@ -769,7 +769,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	//	} else {
 	//		ShowMessageCommon(CLOSE_AUTO, getString(R.string.common_info), getString(R.string.message_error_certify_ticket_month_no));
 	//	}
-	//	if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+	//	if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	//}
 
 	/**
@@ -791,7 +791,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	public void resetCertifyHP() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		this.focusEdit = null;
 
@@ -812,7 +812,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		btnCancel.setSelected(false);
 		clearFocus(btnCancel);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	private final Runnable requestFocusNhideSoftKeyBoard = new Runnable() {
@@ -832,7 +832,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void displayCertifyHP(final int keyID) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.m_iCertifyHPFocusX + ":" + remote.m_iCertifyHPFocusY + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.m_iCertifyHPFocusX + ":" + remote.m_iCertifyHPFocusY + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		resetCertifyHP();
 
@@ -905,7 +905,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.m_iCertifyHPFocusX + ":" + remote.m_iCertifyHPFocusY + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.m_iCertifyHPFocusX + ":" + remote.m_iCertifyHPFocusY + ":" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -919,11 +919,11 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void clickCertifyHP() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		// 동일번호입력/인증번호재전송시간차단차단
 		mIsCertifyValidCheck = false;
 		super.clickCertifyHP();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -934,7 +934,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void exitCertifyHP() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		remote.m_iCertifyHPFocusX = 1;
 		remote.m_iCertifyHPFocusY = 1;
@@ -951,7 +951,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			message_hp = null;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -961,7 +961,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	public void resetCertify() {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		EditText editCertify = (EditText) findViewById(R.id.edit_message_certify);
 		Button btnResend = (Button) findViewById(R.id.btn_message_certify_resend);
 		Button btnOk = (Button) findViewById(R.id.btn_message_certify_ok);
@@ -974,7 +974,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 		btnOk.setSelected(false);
 		btnCancel.setSelected(false);
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -983,7 +983,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * </pre>
 	 */
 	private boolean hideSoftKeyboardOnKey(View v, int keyCode, KeyEvent event) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + v + "," + keyCode + event);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + v + "," + keyCode + event);
 
 		if (!(v instanceof EditText)) {
 			return false;
@@ -1017,7 +1017,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void displayCertify(int keyID) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		resetCertify();
 
@@ -1077,7 +1077,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				remote.m_iCertifyFocusX = setSelectedOkCancel(R.id.btn_message_certify_ok, R.id.btn_message_certify_cancel, remote.m_iCertifyFocusX, REMOTE_NONE);
 				break;
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -1090,9 +1090,9 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void clickCertify() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.clickCertify();
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -1107,14 +1107,14 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void exitCertify() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		try {
 			super.exitCertify();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 		remote.m_iState = STATE_SHOP_MENU;
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
@@ -1127,13 +1127,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void exitCertifyNumber() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		try {
 			super.exitCertifyNumber();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Deprecated
@@ -1205,7 +1205,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	private boolean isShowListeningOther() {
 		boolean ret = false;
 		if (m_layoutListeningOther != null && m_layoutListeningOther.getVisibility() == View.VISIBLE) {
-			if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + m_layoutListeningOther.getVisibility() + ":" + m_layoutListeningOther);
+			if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + m_layoutListeningOther.getVisibility() + ":" + m_layoutListeningOther);
 			ret = true;
 		}
 		return ret;
@@ -1217,7 +1217,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		}
 		if (m_layoutListeningOther != null) {
 			m_layoutListeningOther.setVisibility(View.VISIBLE);
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + m_layoutListeningOther.getVisibility() + ":" + m_layoutListeningOther);
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + m_layoutListeningOther.getVisibility() + ":" + m_layoutListeningOther);
 		}
 	}
 
@@ -1227,7 +1227,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		}
 		if (m_layoutListeningOther != null) {
 			m_layoutListeningOther.setVisibility(View.INVISIBLE);
-			if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + m_layoutListeningOther.getVisibility() + ":" + m_layoutListeningOther);
+			if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + m_layoutListeningOther.getVisibility() + ":" + m_layoutListeningOther);
 		}
 	}
 
@@ -1235,7 +1235,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * @see kr.kymedia.kykaraoke.tv.Main2#HideMenu(String)
 	 */
 	private void hideMenu(boolean top) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + top + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + top + ":" + remote.getState());
 
 		setVisibleMain(false);
 
@@ -1246,7 +1246,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				hideDetailSong();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		if (m_layoutListenListFocus != null) {
@@ -1263,7 +1263,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	}
 
 	private void showMenu(boolean top) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + top + ":" + remote.getState());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + top + ":" + remote.getState());
 
 		if (m_iPaneState == PANE_HOME) {
 			remote.m_iState = STATE_HOME_MENU;
@@ -1297,7 +1297,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 	protected void setVisibleMain(boolean visible) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + visible + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + visible + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (visible) {
 			switch (m_iPaneState) {
@@ -1324,7 +1324,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * 메뉴 닫힘 = 메뉴 열기 : 먼소리여이게
 	 */
 	protected void showBottomGuideMenu(String method) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + method);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + method);
 		setBottomGuideText01(R.drawable.btn_menu, getString(R.string.menu_bottom_open));
 	}
 
@@ -1332,7 +1332,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	// * 메뉴 닫힘 = 메뉴 열기 : 먼소리여이게
 	// */
 	//protected void showBottomGuideMenuOpen(String method) {
-	//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+	//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 	//	setBottomGuideText01(R.drawable.btn_menu, getString(R.string.menu_bottom_open));
 	//}
 	//
@@ -1340,7 +1340,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	// * 메뉴 열림 = 메뉴 닫기 : 먼소리여이게
 	// */
 	//protected void showBottomGuideMenuClose(String method) {
-	//	if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+	//	if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 	//	setBottomGuideText01(R.drawable.btn_menu, getString(R.string.menu_bottom_close));
 	//}
 
@@ -1349,7 +1349,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void showBottomGuideStartSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		String text = getString(R.string.menu_bottom_start_song_now);
 
 		if (!TextUtil.isEmpty(getEngageSong())) {
@@ -1368,7 +1368,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void showBottomGuideStopSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		// setBottomGuideText02(getString(R.string.menu_bottom_stop_song));
 		if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 			setBottomGuideText02(R.drawable.btn_stop_yellow, getString(R.string.menu_bottom_stop_song));
@@ -1382,7 +1382,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void showBottomGuideListenOther(String method) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + method);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + method);
 		setBottomGuideText01(R.drawable.btn_menu, getString(R.string.menu_bottom_other_listen));
 	}
 
@@ -1393,7 +1393,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void showBottomGuideTicketNone() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		setBottomGuideText02(0, getString(R.string.menu_bottom_ticket_free_event));
 	}
 
@@ -1409,7 +1409,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	// * </pre>
 	// */
 	//private void setBottomGuideText01(String text) {
-	//	if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + text);
+	//	if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + text);
 	//	// if (isPlaying())
 	//	{
 	//		if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
@@ -1421,7 +1421,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	//}
 	//
 	//private void setBottomGuideText02(String text) {
-	//	if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + text);
+	//	if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + text);
 	//	// if (isPlaying())
 	//	{
 	//		if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
@@ -1435,7 +1435,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	private void setBottomGuideText01(int resId, String text) {
 
 		try {
-			if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + getResourceEntryName(resId) + text);
+			if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + getResourceEntryName(resId) + text);
 			showBottomGuide01();
 			TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_01);
 			txtGuide.setText(text);
@@ -1445,14 +1445,14 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				txtGuide.setCompoundDrawables(null, null, null, null);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void setBottomGuideText02(int resId, String text) {
 
 		try {
-			if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + getResourceEntryName(resId) + text);
+			if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + getResourceEntryName(resId) + text);
 			showBottomGuide02();
 			TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_02);
 			txtGuide.setText(text);
@@ -1462,7 +1462,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				txtGuide.setCompoundDrawables(null, null, null, null);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -1478,7 +1478,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	private void setBottomGuideText03(int resId, String text) {
 
 		try {
-			if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + getResourceEntryName(resId) + text);
+			if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + getResourceEntryName(resId) + text);
 			showBottomGuide03();
 			TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_03);
 			txtGuide.setText(text);
@@ -1488,19 +1488,19 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				txtGuide.setCompoundDrawables(null, null, null, null);
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void hideBottomGuide03() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_03);
 		txtGuide.setVisibility(View.INVISIBLE);
 	}
 
 	private void showBottomGuide03() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_03);
 		txtGuide.setVisibility(View.VISIBLE);
 	}
@@ -1509,13 +1509,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void hideBottomGuide01() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_01);
 		txtGuide.setVisibility(View.GONE);
 	}
 
 	private void showBottomGuide01() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_01);
 		txtGuide.setVisibility(View.VISIBLE);
 	}
@@ -1523,39 +1523,39 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void hideBottomGuide02() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_02);
 		txtGuide.setVisibility(View.GONE);
 	}
 
 	private void showBottomGuide02() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_bottom_guide_02);
 		txtGuide.setVisibility(View.VISIBLE);
 	}
 
 	protected void hideTopGuide01() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_top_guide_01);
 		txtGuide.setVisibility(View.GONE);
 	}
 
 	protected void showTopGuide01() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_top_guide_01);
 		txtGuide.setVisibility(View.VISIBLE);
 	}
 
 	protected void hideTopGuide02() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_top_guide_02);
 		txtGuide.setVisibility(View.GONE);
 	}
 
 	protected void showTopGuide02() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		TextView txtGuide = (TextView) findViewById(R.id.txt_top_guide_02);
 		txtGuide.setVisibility(View.VISIBLE);
 	}
@@ -1573,7 +1573,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void setContentViewKaraoke(View view) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + view);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + view);
 
 		hidePopups();
 
@@ -1599,7 +1599,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + view);
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState) + ":" + view);
 	}
 
 	/**
@@ -1617,9 +1617,9 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 			wakeLockAquire();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			String msg = getString(R.string.message_error_sing) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-			if (IKaraokeTV.DEBUG) {
+			if (BuildConfig.DEBUG) {
 				msg += "\n" + e.getMessage();
 			} else {
 				msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -1630,9 +1630,9 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		try {
 			player.playLyrics();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			String msg = getString(R.string.message_error_lyric) + "(" + getString(R.string.message_error_title_number) + m_strRequestPlaySongID + ")";
-			if (IKaraokeTV.DEBUG) {
+			if (BuildConfig.DEBUG) {
 				msg += "\n" + e.getMessage();
 			} else {
 				msg += "\n" + getString(R.string.message_error_commend_retry);
@@ -1666,7 +1666,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * </pre>
 	 */
 	protected void toggleListening() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + isListening() + ":" + isLoading() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + isListening() + ":" + isLoading() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (isLoading()) {
 			return;
@@ -1687,7 +1687,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			if (m_layoutListeningOther == null) {
 				setListenOtherPage();
 			} else {
-				if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + isShowListeningOther() + ":" + remote.getState());
+				if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + isShowListeningOther() + ":" + remote.getState());
 				if (remote.m_iState == STATE_LISTENING || !isShowListeningOther()) {
 					showListeningOther();
 					remote.m_iState = STATE_LISTEN_OTHER;
@@ -1705,7 +1705,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * 반주곡재생시에만한다.
 	 */
 	protected void toggleMenu() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + isPlaying() + ":" + isListening() + ":" + isLoading() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + isPlaying() + ":" + isListening() + ":" + isLoading() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		//로딩처리시예외
 		if (isLoading()) {
@@ -1720,10 +1720,10 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		// 반주곡재생시에만
 		if (isPlaying()) {
 			if (!isShowMenu()) {
-				// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, SHOW");
+				// if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, SHOW");
 				ShowMenu(getMethodName());
 			} else {
-				// if (IKaraokeTV.DEBUG) _LOG.i(_toString(), "YELLOW, HIDE");
+				// if (BuildConfig.DEBUG) _LOG.i(_toString(), "YELLOW, HIDE");
 				HideMenu(getMethodName());
 			}
 		}
@@ -1732,7 +1732,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	protected void ShowMenu(String method) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + method + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + method + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		if (isListening()) {
 			return;
@@ -1744,13 +1744,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 		super.ShowMenu(method);
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + method + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + method + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	protected void HideMenu(String method) {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + method + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + method + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		hideMenu(false);
 
@@ -1758,13 +1758,13 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 		super.HideMenu(getMethodName());
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + method + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + method + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	protected void hideDetailSong() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (m_layoutSongListDetail != null) {
 			m_layoutSongListDetail.setVisibility(View.INVISIBLE);
 		}
@@ -1772,7 +1772,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 	@Override
 	protected void showDetailSong() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		switch (remote.getState()) {
 			case STATE_SONG_LIST_DETAIL:
 			case STATE_SEARCH_LIST_DETAIL:
@@ -1789,7 +1789,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * 가리지
 	 */
 	private void hideMessageCommon() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (findViewById(R.id.message_common) != null) {
 			findViewById(R.id.message_common).setVisibility(View.INVISIBLE);
 		}
@@ -1803,7 +1803,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 * 보이지
 	 */
 	private void showMessageCommon() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (message_common != null) {
 			message_common.setVisibility(View.VISIBLE);
 		}
@@ -1813,8 +1813,8 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	protected void ShowMessageCommon(int close, String title, String message) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + close + ", " + title + ", " + message);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + close + ", " + title + ", " + message);
 		super.ShowMessageCommon(close, title, message);
 
 		stopLoading(getMethodName());
@@ -1823,7 +1823,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			message_common.bringToFront();
 		}
 
-		// if (IKaraokeTV.DEBUG)
+		// if (BuildConfig.DEBUG)
 		{
 			setBottomProductText(message);
 		}
@@ -1832,7 +1832,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	protected void ShowMessageNotResponse(String title, String message) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.ShowMessageNotResponse(title, message);
 
 		stopLoading(getMethodName());
@@ -1841,7 +1841,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			message_common.bringToFront();
 		}
 
-		// if (IKaraokeTV.DEBUG)
+		// if (BuildConfig.DEBUG)
 		{
 			setBottomProductText(message);
 		}
@@ -1850,7 +1850,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	protected void HideMessageCommon() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (findViewById(R.id.message_common) != null) {
 			removeView(findViewById(R.id.message_common));
 		}
@@ -1862,7 +1862,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 	@Override
 	public void ShowMessageAlert(String message) {
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + message);
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + message);
 		ShowMessageOk(CLOSE_OK, getString(R.string.common_error), message);
 
 		if (message_ok != null) {
@@ -1873,8 +1873,8 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void ShowMessageOk(int type, String title, String message) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + message_ok + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + title + ", " + message);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + message_ok + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + title + ", " + message);
 		super.ShowMessageOk(type, title, message);
 
 		stopLoading(getMethodName());
@@ -1883,7 +1883,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			message_ok.bringToFront();
 		}
 
-		// if (IKaraokeTV.DEBUG)
+		// if (BuildConfig.DEBUG)
 		{
 			setBottomProductText(message);
 		}
@@ -1892,15 +1892,15 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void HideMessageOk() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.HideMessageOk();
 		message_ok = null;
 	}
 
 	@Override
 	protected void ShowMessageOkCancel(String title, String message) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName() + title + ", " + message);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName() + title + ", " + message);
 		super.ShowMessageOkCancel(title, message);
 
 		stopLoading(getMethodName());
@@ -1909,7 +1909,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 		setSelectedMessageOkCancel(KeyEvent.KEYCODE_DPAD_CENTER);
 
-		// if (IKaraokeTV.DEBUG)
+		// if (BuildConfig.DEBUG)
 		{
 			setBottomProductText(message);
 		}
@@ -1917,7 +1917,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 
 	@Override
 	protected void HideMessageOkCancel() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.HideMessageOkCancel();
 		message_okcancel = null;
 	}
@@ -1968,7 +1968,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		//if (ret) return ret;
 
 		//String msg = "";
-		//if (IKaraokeTV.DEBUG) {
+		//if (BuildConfig.DEBUG) {
 		//	msg += "\n" + "message_common" + ":" + (message_common != null ? (message_common.getVisibility() == View.VISIBLE) : false);
 		//	msg += "\n" + "message_ok" + ":" + (message_ok != null ? (message_ok.getVisibility() == View.VISIBLE) : false);
 		//	msg += "\n" + "message_okcancel" + ":" + (message_okcancel != null ? (message_okcancel.getVisibility() == View.VISIBLE) : false);
@@ -1990,7 +1990,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		//	msg += "\n" + (findViewById(R.id.message_ticket_ppv_info) != null);
 		//}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + ret + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + ret + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		return ret;
 	}
@@ -2000,7 +2000,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	@Override
 	protected void removeView(View popup) {
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + popup + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + popup + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.removeView(popup);
 		try {
 			if (popup != null) {
@@ -2013,22 +2013,22 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 			}
 			popup = null;
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	@Override
 	protected void setVisibility(View popup, int visibility) {
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(popup) + "," + visibility);
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + getResourceEntryName(popup) + "," + visibility);
 		try {
 			super.setVisibility(popup, visibility);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void hidePopups() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		hideDetailSong();
 		hideMessageCommon();
 
@@ -2054,7 +2054,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	}
 
 	private void showPopups() {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		showDetailSong();
 		showMessageCommon();
 
@@ -2082,7 +2082,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected void exitPopups() {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 
 		try {
 			if (message_common != null && message_common.getParent() != null) {
@@ -2090,7 +2090,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				HideMessageCommon();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_common);
@@ -2102,7 +2102,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				HideMessageOk();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_ok);
@@ -2114,7 +2114,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				HideMessageOkCancel();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_okcancel);
@@ -2126,7 +2126,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				exitCertifyHP();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_hp);
@@ -2138,7 +2138,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				exitCertifyHP();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_hp_event);
@@ -2150,7 +2150,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				exitCertifyNumber();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_hp_certify);
@@ -2162,7 +2162,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				exitPPV();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
 		removeView(message_ticket);
@@ -2190,7 +2190,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		removeView(findViewById(R.id.message_ticket_ppx_info));
 		//removeView(findViewById(R.id.message_ticket_ppv_info));
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + msg);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + msg);
 
 	}
 
@@ -2234,7 +2234,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ret);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ret);
 
 		return ret;
 	}
@@ -2289,7 +2289,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ret);
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ret);
 
 		return ret;
 	}
@@ -2324,7 +2324,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected boolean isAPKNAMEAPP() {
 		boolean ret = P_APKNAME_ATV.equalsIgnoreCase(getPackageName());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ret + ":" + getPackageName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ret + ":" + getPackageName());
 		return ret;
 	}
 
@@ -2335,7 +2335,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected boolean isAPKNAMESTC() {
 		boolean ret = P_APKNAME_STC.equalsIgnoreCase(getPackageName());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ret + ":" + getPackageName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ret + ":" + getPackageName());
 		return ret;
 	}
 
@@ -2346,7 +2346,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected boolean isAPKNAMEGTV() {
 		boolean ret = P_APKNAME_GTV.equalsIgnoreCase(getPackageName());
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + ret + ":" + getPackageName());
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + ret + ":" + getPackageName());
 		return ret;
 	}
 
@@ -2357,7 +2357,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected boolean isAPKNAMEBTV() {
 		boolean ret = P_APKNAME_BTV.equalsIgnoreCase(getPackageName());
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + ret + ":" + getPackageName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + ret + ":" + getPackageName());
 		return ret;
 	}
 
@@ -2399,7 +2399,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void displayEngageSong() {
 
-		if (IKaraokeTV.DEBUG) Log.d(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d(_toString(), getMethodName());
 		super.displayEngageSong();
 
 		TextView textEngageList = (TextView) findViewById(R.id.txt_top_engage_list);
@@ -2410,14 +2410,14 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	}
 
 	private void addEngageSongFirst(String song) {
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + song + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + song + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		song_ids.add(0, song);
 	}
 
 	@Override
 	protected void addEngageSong(String song_id) {
 
-		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + song_id + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + song_id + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		if (!TextUtil.isNumeric(song_id)) {
 			return;
 		}
@@ -2445,7 +2445,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	 */
 	protected void delEngageSong() {
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + delPlayList + m_strRequestPlaySongID + song_ids);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + delPlayList + m_strRequestPlaySongID + song_ids);
 
 		try {
 			if (song_ids.size() > 0) {
@@ -2473,10 +2473,10 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 				displayEngageSong();
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + delPlayList + m_strRequestPlaySongID + song_ids);
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + delPlayList + m_strRequestPlaySongID + song_ids);
 	}
 
 	@Override
@@ -2585,7 +2585,7 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 	@Override
 	public void StartPlaying() {
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		super.StartPlaying();
 
 		showBottomGuideMenu(getMethodName());
@@ -2598,14 +2598,14 @@ class Main2X extends Main2 implements onDownloadListener, OnFocusChangeListener 
 		// player.setVisibility(View.VISIBLE);
 		// }
 
-		if (IKaraokeTV.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	/**
 	 * 예약시작표시
 	 */
 	private void showBottomGuideSong() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + song_ids);
+		if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + song_ids);
 
 		if (song_ids.size() > 0) {
 			showBottomGuideStartSong(); // 재생이 중지됨 = 반주곡 시작

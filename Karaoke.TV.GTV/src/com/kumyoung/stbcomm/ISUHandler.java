@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * singleton
@@ -88,7 +88,7 @@ class ISUHandler /* extends Activity */{
 					, strContID, strMacAddr, strAPPID);
 			String sOption = String.format("");
 			String serverURL = "http://" + isu_hostname + ":" + isu_port + hosturl;
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d(TAG, serverURL + sASP + sUser + sOption);
 			}
@@ -136,7 +136,7 @@ class ISUHandler /* extends Activity */{
 
 			String myResult = builder.toString();                       // 전송결과를 전역 변수에 저장
 
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				// _LOG.d(TAG, "myResult" + myResult);
 				Log.i(TAG, myResult);
@@ -144,7 +144,7 @@ class ISUHandler /* extends Activity */{
 			String[] array = myResult.split("\\|");
 			for (int i = 0; i < array.length; i++)
 			{
-				if (IKaraokeTV.DEBUG)
+				if (BuildConfig.DEBUG)
 				{
 					Log.d(TAG, i + 1 + ":" + array[i]);
 				}
@@ -188,7 +188,7 @@ class ISUHandler /* extends Activity */{
 					, strContID, strMacAddr, ProductCode, strAPPID);
 			String sOption = String.format("");
 			String serverURL = "http://" + isu_hostname + ":" + isu_port + hosturl;
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d(TAG, serverURL + sASP + sUser + sOption);
 			}
@@ -236,14 +236,14 @@ class ISUHandler /* extends Activity */{
 
 			String myResult = builder.toString();                      // 전송결과를 전역 변수에 저장
 
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d(TAG, "myResult : " + myResult);
 			}
 			String[] array = myResult.split("\\|");
 			for (int i = 0; i < array.length; i++)
 			{
-				if (IKaraokeTV.DEBUG)
+				if (BuildConfig.DEBUG)
 				{
 					Log.d(TAG, i + 1 + ":" + array[i]);
 				}
@@ -288,7 +288,7 @@ class ISUHandler /* extends Activity */{
 					, strContID, strMacAddr, 3, strContID);
 			String sOption = String.format("");
 			String serverURL = "http://" + isu_hostname + ":" + isu_port + hosturl;
-			if (IKaraokeTV.DEBUG)
+			if (BuildConfig.DEBUG)
 			{
 				Log.d(TAG, serverURL + sASP + sUser + sOption);
 			}
@@ -340,7 +340,7 @@ class ISUHandler /* extends Activity */{
 			String[] array = myResult.split("\\|");
 			for (int i = 0; i < array.length; i++)
 			{
-				if (IKaraokeTV.DEBUG)
+				if (BuildConfig.DEBUG)
 				{
 					Log.d(TAG, i + 1 + ":" + array[i]);
 				}

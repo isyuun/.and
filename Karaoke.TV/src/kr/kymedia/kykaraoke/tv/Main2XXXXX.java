@@ -37,7 +37,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -85,7 +85,7 @@ class Main2XXXXX extends Main2XXXX {
 
 			return childViews;
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 		return null;
 	}
@@ -96,13 +96,13 @@ class Main2XXXXX extends Main2XXXX {
 	@Override
 	public void resetCertify() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.resetCertify();
 		} else {
 			try {
 				super.resetCertify();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -113,13 +113,13 @@ class Main2XXXXX extends Main2XXXX {
 	@Override
 	public void resetCertifyHP() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.resetCertifyHP();
 		} else {
 			try {
 				super.resetCertifyHP();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -130,13 +130,13 @@ class Main2XXXXX extends Main2XXXX {
 	@Override
 	public void exitCertifyHP() {
 
-		if (IKaraokeTV.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			super.exitCertifyHP();
 		} else {
 			try {
 				super.exitCertifyHP();
 			} catch (Exception e) {
-				if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+				if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 			}
 		}
 	}
@@ -145,7 +145,7 @@ class Main2XXXXX extends Main2XXXX {
 	}
 
 	private void stop() {
-		if (IKaraokeTV.DEBUG) Log.wtf(_toString() + TAG_MAIN, getMethodName());
+		if (BuildConfig.DEBUG) Log.wtf(_toString() + TAG_MAIN, getMethodName());
 		stop(PLAY_STOP);
 	}
 
@@ -272,7 +272,7 @@ class Main2XXXXX extends Main2XXXX {
 		// 븅신키:븅신색깔핫키기능이관
 		switch (keyCode) {
 			case KeyEvent.KEYCODE_PROG_GREEN:
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "GREEN, [KEYCODE_PROG_GREEN]");
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), "GREEN, [KEYCODE_PROG_GREEN]");
 				if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 					// BTV:BOX->재생
 					keyCode = KeyEvent.KEYCODE_MEDIA_PLAY_PAUSE;
@@ -282,7 +282,7 @@ class Main2XXXXX extends Main2XXXX {
 				}
 				break;
 			case KeyEvent.KEYCODE_PROG_YELLOW:
-				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "GREEN, [KEYCODE_PROG_YELLOW]");
+				if (BuildConfig.DEBUG) Log.wtf(_toString(), "GREEN, [KEYCODE_PROG_YELLOW]");
 				if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
 					// BTV:BOX->중지
 					keyCode = KeyEvent.KEYCODE_MEDIA_STOP;

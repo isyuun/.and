@@ -5,13 +5,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
-import kr.kymedia.kykaraoke.tv.api._VASS;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api._VASS;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -103,7 +102,7 @@ class VASS extends Thread implements _VASS {
 
 	@Override
 	public void sendMessage(int state) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + request + "->" + COMPLETE_VASS.get(state));
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + request + "->" + COMPLETE_VASS.get(state));
 		Bundle b = new Bundle();
 		b.putInt("state", state);
 
@@ -141,7 +140,7 @@ class VASS extends Thread implements _VASS {
 	//	//	return;
 	//	//}
 	//	//
-	//	//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + this.url);
+	//	//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + this.url);
 	//	//
 	//	//switch (request) {
 	//	//	case REQUEST_VASS_MONTH_PURCHASE:
@@ -153,7 +152,7 @@ class VASS extends Thread implements _VASS {
 	//	//		// } else {
 	//	//		// this.url = this.url + "&id_product=" + VASS_PRODUCT_ID_MONTH_SKT_BOX;
 	//	//		// }
-	//	//		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "mTicketItemMonth:" + mTicketItemMonth);
+	//	//		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "mTicketItemMonth:" + mTicketItemMonth);
 	//	//		if (mTicketItemMonth != null) {
 	//	//			this.url = this.url + "&id_product=" + mTicketItemMonth.id_product;
 	//	//		}
@@ -167,7 +166,7 @@ class VASS extends Thread implements _VASS {
 	//	//		// } else {
 	//	//		// this.url = this.url + "&id_product=" + VASS_PRODUCT_ID_DAY_SKT_BOX;
 	//	//		// }
-	//	//		if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "mTicketItemDay:" + mTicketItemDay);
+	//	//		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "mTicketItemDay:" + mTicketItemDay);
 	//	//		if (mTicketItemDay != null) {
 	//	//			this.url = this.url + "&id_product=" + mTicketItemDay.id_product;
 	//	//		}
@@ -190,14 +189,14 @@ class VASS extends Thread implements _VASS {
 	 */
 	@Override
 	public void sendRequest() throws Exception {
-		//if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		//if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		//
 		//try {
 		//	DefaultHttpClient client = new DefaultHttpClient();
 		//
 		//	// String this.url = URLEncoder.encode(this.url, "UTF-8");
 		//	HttpPost post = new HttpPost(this.url);
-		//	if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[SEND]" + "[M]" + this.m + "[" + this.this.url + "]");
+		//	if (BuildConfig.DEBUG) Log.wtf(_toString(), "[SEND]" + "[M]" + this.m + "[" + this.this.url + "]");
 		//	/*
 		//	 * HttpParams param = client.getParams(); HttpConnectionParams.setConnectionTimeout(param, 5000); HttpConnectionParams.setSoTimeout(param, 5000);
 		//	 */
@@ -229,7 +228,7 @@ class VASS extends Thread implements _VASS {
 		//		iReadCount++;
 		//	}
 		//
-		//	if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[RECV]" + "[M]" + this.m + "[" + result + "]");
+		//	if (BuildConfig.DEBUG) Log.wtf(_toString(), "[RECV]" + "[M]" + this.m + "[" + result + "]");
 		//
 		//	parseVASSResult(result);
 		//} catch (Exception e) {
@@ -241,9 +240,9 @@ class VASS extends Thread implements _VASS {
 
 	@Override
 	public void parseVASSResult(String response) {
-		//// if (IKaraokeTV.DEBUG) _LOG.i(CLASS, "[VASS Response] " + response);
+		//// if (BuildConfig.DEBUG) _LOG.i(CLASS, "[VASS Response] " + response);
 		//// isyoon
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ST]" + request + ":" + response);
 		//
 		//isSuccess = "";
 		//results.clear();
@@ -266,7 +265,7 @@ class VASS extends Thread implements _VASS {
 		//			if (isSuccess.equals("Y")) {
 		//				String temp = response.substring(response.length() - 14, response.length());
 		//				end_date = "(" + temp.substring(0, 4) + "년" + temp.substring(4, 6) + "월" + temp.substring(6, 8) + "일 " + temp.substring(8, 10) + ":" + temp.substring(10, 12) + "까지)";
-		//				if (IKaraokeTV.DEBUG) Log.i(_toString(), "Available Date is " + end_date);
+		//				if (BuildConfig.DEBUG) Log.i(_toString(), "Available Date is " + end_date);
 		//			}
 		//			sendMessage(COMPLETE_VASS_DAY_CHECK);
 		//			break;
@@ -293,7 +292,7 @@ class VASS extends Thread implements _VASS {
 		//			if (isSuccess.equals("Y")) {
 		//				String temp = response.substring(response.length() - 14, response.length());
 		//				end_date = "(" + temp.substring(0, 4) + "년" + temp.substring(4, 6) + "월" + temp.substring(6, 8) + "일 " + temp.substring(8, 10) + ":" + temp.substring(10, 12) + "까지)";
-		//				if (IKaraokeTV.DEBUG) Log.wtf(_toString(), "[OK]" + "Available Date is " + end_date);
+		//				if (BuildConfig.DEBUG) Log.wtf(_toString(), "[OK]" + "Available Date is " + end_date);
 		//			}
 		//			sendMessage(COMPLETE_VASS_DAY_CHECK_PLAY);
 		//			break;
@@ -314,7 +313,7 @@ class VASS extends Thread implements _VASS {
 		//
 		//m_strVASSErrorCode = results.get(results.size() - 1);
 		//
-		//if (IKaraokeTV.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + strVASSErrorCode + ":" + m_strVASSErrorCode);
+		//if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + "[ED]" + request + ":" + strVASSErrorCode + ":" + m_strVASSErrorCode);
 	}
 
 	@Override

@@ -33,7 +33,7 @@
 package kr.kymedia.kykaraoke.tv.atv.st.com;
 
 import kr.kymedia.kykaraoke.tv._Main;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -108,7 +108,7 @@ class Main extends _Main {
 	 */
 	@Override
 	protected void getVender() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + getIntent() + getIntent().getExtras());
 		super.getVender();
 
 		p_appname = P_APPNAME_STC;
@@ -117,9 +117,9 @@ class Main extends _Main {
 
 	@Override
 	protected void onNewIntent(Intent intent) {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ST]" + intent + intent.getExtras());
 		super.onNewIntent(intent);
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + "[ED]" + getIntent() + getIntent().getExtras());
 	}
 
 	/**
@@ -127,7 +127,7 @@ class Main extends _Main {
 	 */
 	@Override
 	protected void onStart() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onStart();
 	}
 
@@ -136,13 +136,13 @@ class Main extends _Main {
 	 */
 	@Override
 	protected void onStop() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onStop();
 	}
 
 	@Override
 	protected void onPause() {
-		if (IKaraokeTV.DEBUG) Log.e(_toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName());
 		super.onPause();
 	}
 
@@ -151,7 +151,7 @@ class Main extends _Main {
 	 */
 	@Override
 	public void VASS(REQUEST_VASS request) {
-		if (IKaraokeTV.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + request + ":" + VASS);
+		if (BuildConfig.DEBUG) Log.e("[VASS]" + _toString(), getMethodName() + request + ":" + VASS);
 		super.VASS(request);
 	}
 
@@ -183,7 +183,7 @@ class Main extends _Main {
 		// 반주곡스트리밍처리
 		switch (state) {
 		case COMPLETE_SONG_PLAY: // 반주곡 파일 다운로드
-			if (IKaraokeTV.DEBUG) Log.wtf(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
+			if (BuildConfig.DEBUG) Log.wtf(_toString(), getMethodName() + COMPLETE_KP.get(msg.getData().getInt("state")) + ":" + msg);
 			if (_KP_1016() != null) {
 				_KP_1016().url_lyric = "http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=47203";
 				_KP_1016().url_skym = "http://211.236.190.103:8080/svc_media/mmp3/47203.mp3";

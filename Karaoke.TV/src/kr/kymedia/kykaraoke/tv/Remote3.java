@@ -33,7 +33,7 @@ package kr.kymedia.kykaraoke.tv;
 import java.util.LinkedHashMap;
 
 import kr.kymedia.karaoke.api.Log;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -77,7 +77,7 @@ public class Remote3 extends Remote2 {
 	private LinkedHashMap<String, TicketItem> items = new LinkedHashMap<>();
 
 	public void putTicketItems(LinkedHashMap<String, TicketItem> items) {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
 		this.items = items;
 	}
 
@@ -113,14 +113,14 @@ public class Remote3 extends Remote2 {
 		int idx = 0;
 		for (String key : items.keySet()) {
 			if (index == idx) {
-				//if (IKaraokeTV.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + idx + "->" + key + items.get(key));
+				//if (BuildConfig.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + idx + "->" + key + items.get(key));
 				ret = key;
 				break;
 			}
 			idx++;
 		}
 
-		//if (IKaraokeTV.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + ret);
+		//if (BuildConfig.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + ret);
 		return ret;
 	}
 
@@ -132,19 +132,19 @@ public class Remote3 extends Remote2 {
 		int idx = 0;
 		for (String key : items.keySet()) {
 			if (index == idx) {
-				//if (IKaraokeTV.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + idx + "->" + key + items.get(key));
+				//if (BuildConfig.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + idx + "->" + key + items.get(key));
 				ret = items.get(key).product_type;
 				break;
 			}
 			idx++;
 		}
 
-		//if (IKaraokeTV.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + ret);
+		//if (BuildConfig.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName(), this.index + "->" + index + "->" + ret);
 		return ret;
 	}
 
 	public void setShopTicketState(int keyID) {
-		if (IKaraokeTV.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName() + "[ST]", REMOTE_STATE.get(keyID) + ":" + this.index + ":m_iShopTicketFocusY:" + m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName() + "[ST]", REMOTE_STATE.get(keyID) + ":" + this.index + ":m_iShopTicketFocusY:" + m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + m_iShopTicketFocusX);
 
 		switch (keyID)
 		{
@@ -194,7 +194,7 @@ public class Remote3 extends Remote2 {
 				break;
 		}
 
-		if (IKaraokeTV.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName() + "[ED]", REMOTE_STATE.get(keyID) + ":" + this.index + ":m_iShopTicketFocusY:" + m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log._LOG("[VASS]" + _toString(), getMethodName() + "[ED]", REMOTE_STATE.get(keyID) + ":" + this.index + ":m_iShopTicketFocusY:" + m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + m_iShopTicketFocusX);
 	}
 
 }

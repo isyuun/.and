@@ -35,7 +35,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -94,7 +94,7 @@ class Main6X extends Main6 {
 		try {
 			getPlayer().getLyricsPlay().setThreadSleepTime(time);
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -107,7 +107,7 @@ class Main6X extends Main6 {
 			setThreadSleepTime(++time);
 			showThreadSleepTime();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
@@ -120,7 +120,7 @@ class Main6X extends Main6 {
 			setThreadSleepTime(--time);
 			showThreadSleepTime();
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 		// _LOG.e(_toString() + TAG_MAIN, "setThreadSleepTimeDN()" + loading_time);
 	}

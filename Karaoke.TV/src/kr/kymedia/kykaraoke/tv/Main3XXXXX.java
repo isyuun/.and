@@ -49,7 +49,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import kr.kymedia.karaoke.util.TextUtil;
-import kr.kymedia.kykaraoke.tv.api.IKaraokeTV;
+import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.tv.data.TicketItem;
 
 /**
@@ -138,12 +138,12 @@ public class Main3XXXXX extends Main3XXXX {
 
 	@Override
 	protected void addViewShopList() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key());
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key());
 		super.addViewShopList();
 	}
 
 	private void addViewShopTabs() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + remote.key());
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + remote.key());
 
 		boolean add = false;
 
@@ -156,7 +156,7 @@ public class Main3XXXXX extends Main3XXXX {
 
 		//만들까마까
 		if (!add) {
-			if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[OK]" + remote.key());
+			if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[OK]" + remote.key());
 			return;
 		}
 
@@ -191,7 +191,7 @@ public class Main3XXXXX extends Main3XXXX {
 			ll.addView(new Space(this), new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1));
 			//addView(ll, new Space(this), new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 1));
 
-			if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.getTicketItems().get(key));
+			if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.getTicketItems().get(key));
 		}
 
 		ll.addView(new Space(this), new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT, 65));
@@ -199,11 +199,11 @@ public class Main3XXXXX extends Main3XXXX {
 
 		_childViews(ll);
 
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + remote.key());
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + remote.key());
 	}
 
 	private void showTicket() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName());
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName());
 		try {
 			findViewById(R.id.layout_shop_ticket_body).setVisibility(View.VISIBLE);
 			findViewById(R.id.layout_shop_ticket_coupon).setVisibility(View.INVISIBLE);
@@ -216,7 +216,7 @@ public class Main3XXXXX extends Main3XXXX {
 	private void showCoupon() {
 		//test
 		//m_bCouponUser = true;
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + m_bCouponUser);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + m_bCouponUser);
 		try {
 			findViewById(R.id.layout_shop_ticket_body).setVisibility(View.INVISIBLE);
 			findViewById(R.id.layout_shop_ticket_coupon).setVisibility(View.VISIBLE);
@@ -242,7 +242,7 @@ public class Main3XXXXX extends Main3XXXX {
 
 	@Override
 	public void clickMenuShop() {
-		if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
+		if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
 		try {
 			switch (remote.m_iMenuShopFocus) {
 				case 1:
@@ -285,12 +285,12 @@ public class Main3XXXXX extends Main3XXXX {
 					break;
 			}
 		} catch (Exception e) {
-			if (IKaraokeTV.DEBUG) _LOG(getMethodName(), e);
+			if (BuildConfig.DEBUG) _LOG(getMethodName(), e);
 		}
 	}
 
 	private void clearCouponEdit() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 
 		EditText edit_coupon = (EditText) findViewById(R.id.edit_coupon);
 		View btn_coupon_regist = findViewById(R.id.btn_coupon_regist);
@@ -304,7 +304,7 @@ public class Main3XXXXX extends Main3XXXX {
 	}
 
 	private void requestCouponEdit() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 
 		EditText edit_coupon = (EditText) findViewById(R.id.edit_coupon);
 		View btn_coupon_regist = findViewById(R.id.btn_coupon_regist);
@@ -328,10 +328,10 @@ public class Main3XXXXX extends Main3XXXX {
 
 	@Override
 	public void displayShopTicket(int keyID) {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + REMOTE_STATE.get(keyID) + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 
 		if (null == findViewById(R.id.shop_ticket)) {
-			if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[NG]" + REMOTE_STATE.get(keyID) + ":" + findViewById(R.id.shop_ticket));
+			if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[NG]" + REMOTE_STATE.get(keyID) + ":" + findViewById(R.id.shop_ticket));
 			return;
 		}
 
@@ -339,7 +339,7 @@ public class Main3XXXXX extends Main3XXXX {
 		 * 이용권확인
 		 */
 		TicketItem item = remote.getTicketItem();
-		if (IKaraokeTV.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + item);
+		if (BuildConfig.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + item);
 
 		int res = R.drawable.img_passtype_none;
 		///**
@@ -369,7 +369,7 @@ public class Main3XXXXX extends Main3XXXX {
 			} else {
 				((ImageView) findViewById(R.id.img_shop_item)).setImageResource(res);
 			}
-			if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + "[IMAGE]" + item.product_image);
+			if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + "[IMAGE]" + item.product_image);
 		}
 
 		//test
@@ -436,7 +436,7 @@ public class Main3XXXXX extends Main3XXXX {
 		 * 포커싱 - 확인
 		 */
 		boolean focus = (remote.m_iShopTicketFocusY == 1 || item.product_type == PRODUCT_TYPE.CPN);
-		if (IKaraokeTV.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + "[FOCUS]" + REMOTE_STATE.get(keyID) + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + "[FOCUS]" + REMOTE_STATE.get(keyID) + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 
 		/**
 		 * 포커싱 - 이용권선택
@@ -490,12 +490,12 @@ public class Main3XXXXX extends Main3XXXX {
 			}
 		}
 
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + REMOTE_STATE.get(keyID) + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 	}
 
 	@Override
 	public void exitTicket() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 		remote.m_iState = STATE_SHOP_MENU;
 
 		/**
@@ -512,7 +512,7 @@ public class Main3XXXXX extends Main3XXXX {
 
 		//이용권확인
 		TicketItem item = remote.getTicketItem();
-		if (IKaraokeTV.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + item);
+		if (BuildConfig.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + item);
 
 		//탭버튼셀렉숀
 		for (String key : remote.getTicketItems().keySet()) {
@@ -530,11 +530,11 @@ public class Main3XXXXX extends Main3XXXX {
 
 		findViewById(R.id.btn_shop_kp_info).setSelected(false);
 
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 	}
 
 	protected void showMessagePPX() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 
 		TicketItem item = remote.getTicketItem();
 
@@ -595,7 +595,7 @@ public class Main3XXXXX extends Main3XXXX {
 	}
 
 	private void showMessageCPN() {
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 		//if (remote.m_iShopTicketFocusY == 2 && remote.m_iShopTicketFocusX == 2)
 		{
 			EditText edit_coupon = (EditText) findViewById(R.id.edit_coupon);
@@ -623,8 +623,8 @@ public class Main3XXXXX extends Main3XXXX {
 
 	@Override
 	public void clickShopTicket() {
-		if (IKaraokeTV.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + remote.product_type());
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.wtf("[VASS]" + _toString(), getMethodName() + remote.product_type());
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ST]" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 		switch (remote.product_type()) {
 			case NONE:
 				break;
@@ -633,7 +633,7 @@ public class Main3XXXXX extends Main3XXXX {
 				if (remote.m_iShopTicketFocusY == 1) {
 					// bgkimt 이미 사용중인 이용권이 있으면 이용권 구매 차단
 					// isyoon 멜~~~롱 그래도 할꺼 걸랑!!!
-					if (!IKaraokeTV.DEBUG && isPassUser()) {
+					if (!BuildConfig.DEBUG && isPassUser()) {
 						ShowMessageCommon(CLOSE_AUTO, getString(R.string.common_info), getString(R.string.ticket_already_use));
 					} else {
 						showMessagePPX();
@@ -647,7 +647,7 @@ public class Main3XXXXX extends Main3XXXX {
 				showMessageCPN();
 				break;
 		}
-		if (IKaraokeTV.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "[ED]" + ":" + remote.key() + ":m_iShopTicketFocusY:" + remote.m_iShopTicketFocusY + ":m_iShopTicketFocusX:" + remote.m_iShopTicketFocusX);
 	}
 
 	/**
@@ -659,11 +659,11 @@ public class Main3XXXXX extends Main3XXXX {
 	 */
 	@Override
 	public void clickShopCertify() {
-		if (IKaraokeTV.DEBUG) Log.w("[VASS]" + _toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w("[VASS]" + _toString(), getMethodName() + "[ST]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 		// bgkimt [인증번호등록] 버튼 눌렀을 때 인증센터 팝업 띄운다. 월정액 이용권 없으면 튕겨준다
 		// bgkimt 인증번호 변경 가능 횟수가 다 했어도 튕겨준다.
-		if (IKaraokeTV.DEBUG || isPassUserPPM()) {
-			if (IKaraokeTV.DEBUG || auth_modify_idx > 0) {
+		if (BuildConfig.DEBUG || isPassUserPPM()) {
+			if (BuildConfig.DEBUG || auth_modify_idx > 0) {
 				remote.m_iCertifyHPFocusX = 1;
 				remote.m_iCertifyHPFocusY = 1;
 
@@ -681,7 +681,7 @@ public class Main3XXXXX extends Main3XXXX {
 		///**
 		// * 강우석:이용권사용자확인기능제거 - 디버그버전예외
 		// */
-		//if (IKaraokeTV.DEBUG || auth_modify_idx > 0) {
+		//if (BuildConfig.DEBUG || auth_modify_idx > 0) {
 		//	remote.m_iCertifyHPFocusX = 1;
 		//	remote.m_iCertifyHPFocusY = 1;
 		//	message_hp = (LinearLayout) addPopup(R.layout.message_hp);
@@ -690,24 +690,24 @@ public class Main3XXXXX extends Main3XXXX {
 		//} else {
 		//	ShowMessageCommon(CLOSE_AUTO, getString(R.string.common_info), getString(R.string.message_error_certify_count));
 		//}
-		if (IKaraokeTV.DEBUG) Log.w("[VASS]" + _toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
+		if (BuildConfig.DEBUG) Log.w("[VASS]" + _toString(), getMethodName() + "[ED]" + ":" + remote.getState() + ":" + PANE_STATE.get(m_iPaneState));
 	}
 
 	@Override
 	public void clickPPXInfo() {
-		if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
+		if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
 		super.clickPPXInfo();
 	}
 
 	@Override
 	public void clickPPXNotice() {
-		if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
+		if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
 		super.clickPPXNotice();
 	}
 
 	@Override
 	public void clickPPXPass() {
-		if (IKaraokeTV.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
+		if (BuildConfig.DEBUG) Log.i("[VASS]" + _toString(), getMethodName() + remote.key());
 		switch (m_iTicketMessageFocusX) {
 			case POPUP_OK:
 				if (m_iTicketMessageFocusY == 2) {
