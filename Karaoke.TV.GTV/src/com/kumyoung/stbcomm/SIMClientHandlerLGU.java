@@ -10,6 +10,8 @@ import ac.rs.com.model.ResponseData;
 import ac.rs.lgd.svc.sim.RSRequestClient;
 import android.util.Log;
 
+import com.kumyoung.gtvkaraoke.BuildConfig;
+
 //import android.widget.Toast;
 
 /*

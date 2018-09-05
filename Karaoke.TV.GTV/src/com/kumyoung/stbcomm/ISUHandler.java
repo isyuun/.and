@@ -2,6 +2,8 @@ package com.kumyoung.stbcomm;
 
 import android.util.Log;
 
+import com.kumyoung.gtvkaraoke.BuildConfig;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
