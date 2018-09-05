@@ -1,6 +1,7 @@
 package kr.keumyoung.karaoke.mukin.activity;
 
 import android.graphics.Point;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
@@ -83,8 +84,10 @@ public class play2 extends play {
         player.setLyricsMarginBottom(lyricsMarginBottom);
 
         // bgkim 폰트 TYPE 적용
-        //player.setTypeface(getTypeface());
-        int iStrokeSize = 4;
+        //player.setTypeface(Typeface.createFromAsset(getAssets(), "yun.ttf.mp3"));
+        //player.setTypeface(Typeface.createFromAsset(getAssets(), "nanum.ttf.mp3"));
+
+        int iStrokeSize = 6;
         //if (P_APPNAME_SKT_BOX.equalsIgnoreCase(m_strSTBVender)) {
         //    iStrokeSize = 6;
         //}

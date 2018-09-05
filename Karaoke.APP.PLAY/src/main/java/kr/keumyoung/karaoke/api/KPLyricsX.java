@@ -31,6 +31,8 @@
 
 package kr.keumyoung.karaoke.api;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -202,6 +204,8 @@ class KPLyricsX extends KPLyrics {
 		canvas.drawRect(r2, paint);
 	}
 
+	public Resources getResources() { return mLyricsPlay.getResources(); }
+
 	/**
 	 * 아주잘~~~헌다이븅신!!!이러니까값이안넘어오지...이래놓고강제로처박고앉았네...
 	 *
@@ -210,6 +214,9 @@ class KPLyricsX extends KPLyrics {
 	@Override
 	void setSinger(Canvas canvas, Paint paint, String str1, String str2, String str3) {
 		int m = 40;
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+			m = 120;
+		}
 
 		// 노래
 		String strSinger = getString(R.string.hint_song_song) + "    " + str1;

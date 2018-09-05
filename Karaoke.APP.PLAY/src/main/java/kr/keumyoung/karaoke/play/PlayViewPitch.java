@@ -238,7 +238,7 @@ class PlayViewPitch extends PlayView4X {
 		Log.e(_toString(), getMethodName());
 		super.setPlayView();
 
-		//txt_pitch = (TextView) findViewById(R.id.txt_pitch);
+		txt_pitch = (TextView) findViewById(R.id.txt_pitch);
 	}
 
 	/**

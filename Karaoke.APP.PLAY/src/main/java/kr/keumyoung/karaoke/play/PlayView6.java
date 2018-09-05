@@ -52,18 +52,7 @@ public class PlayView6 extends PlayView5 {
     }
 
     /**
-     * <pre>
-     * mp3 : http://resource.kymedia.kr/ky/mp/01/00101.mp3
-     * 가사 : http://resource.kymedia.kr/ky/md/01/00101.mid
-     * skym : http://resource.kymedia.kr/ky/skym/01/00101.skym
-     * url_skym: http://211.236.190.103:8080/svc_media/mmp3/08888.mp3
-     * url_lyric: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=8888
-     *
-     * 211.236.190.103
-     * 금영서버: http://211.236.190.103:8080/svc_media/mmp3/08888.mp3
-     * KYM서버: http://resource.kymedia.kr/ky/mp/88/08888.mp3
-     * 사이월드: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=08888
-     * </pre>
+     * SD카드경로
      */
     String path_sd;
     /**
@@ -85,6 +74,19 @@ public class PlayView6 extends PlayView5 {
      */
     protected _Download download;
 
+    /**
+     * <pre>
+     (구)KYMedia 서버
+     * mp3 : http://resource.kymedia.kr/ky/mp/01/00101.mp3
+     * 가사 : http://resource.kymedia.kr/ky/md/01/00101.mid
+     * skym : http://resource.kymedia.kr/ky/skym/01/00101.skym
+     (현) 금영그룹서버
+     * 211.236.190.103
+     * 금영서버: http://211.236.190.103:8080/svc_media/mmp3/08888.mp3
+     * 사이월드: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=08888
+     * 신규서버: http://cyms.chorus.co.kr/.skym.asp?song_id=08888
+     * </pre>
+     */
     private void down(String song_id) {
         this.song_id = song_id;
         this.url_lyric = "http://cyms.chorus.co.kr/.skym.asp?song_id=" + song_id;

@@ -29,6 +29,7 @@ dependencies {
     implementation project(':Karaoke.API')
     implementation project(':Karaoke.APP.PLAY3')
     implementation project(':Karaoke.APP.PLAY4')
+    implementation project(':Karaoke.APP.WIDGET')
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'

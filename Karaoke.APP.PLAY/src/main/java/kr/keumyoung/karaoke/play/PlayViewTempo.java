@@ -143,7 +143,7 @@ class PlayViewTempo extends PlayViewPitch {
 		Log.e(_toString(), getMethodName());
 		super.setPlayView();
 
-		//txt_tempo = (TextView) findViewById(R.id.txt_tempo);
+		txt_tempo = (TextView) findViewById(R.id.txt_tempo);
 	}
 
 	/**
