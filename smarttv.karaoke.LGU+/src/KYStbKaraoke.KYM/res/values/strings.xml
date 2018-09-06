@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="hello">Hello World, KYStbKaraokeActivity!</string>
-    <string name="app_name">KY금영노래방</string>
-    <!-- 버전정보 -->
-    <string name="category_setting_version">버전</string>
-</resources>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="appname">금영노래방</string>
-    <string name="app_name">금영노래방(온스팟)</string>
-    <string name="app_share">금영노래방(온스팟)</string>
-    <string name="hello_world">안녕하세요. 금영노래방 입니다!</string>
-
-</resources>

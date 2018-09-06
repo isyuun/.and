@@ -1,7 +1,0 @@
-package kr.kymedia.kykaraoke;
-
-public class CustomerListItem {
-	public String m_strCustomerID;
-	public String m_strCustomerTitle;
-	public String m_strCustomerDate;
-}

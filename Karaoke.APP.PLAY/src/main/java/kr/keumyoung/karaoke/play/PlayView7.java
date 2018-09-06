@@ -85,7 +85,7 @@ public class PlayView7 extends PlayView6 {
 
         text_pitch_tempo = findViewById(R.id.text_pitch_tempo);
 
-        /*findViewById(R.id.back_ground).*/setOnClickListener(new OnClickListener() {
+        setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.e(__CLASSNAME__, "onClick()" + view);
