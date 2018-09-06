@@ -5,11 +5,17 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
+    <ImageView
+        android:id="@+id/back_ground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/seek_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/space_bottom"
+        android:layout_above="@+id/bottom"
         android:layout_alignParentBottom="true"
         android:maxHeight="3dp"
         android:progress="0"
@@ -17,7 +23,7 @@
         android:visibility="visible" />
 
     <ImageView
-        android:id="@+id/space_bottom"
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
