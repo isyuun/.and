@@ -32,13 +32,6 @@
 
 package kr.kymedia.karaoke.play.app.view;
 
-import java.io.File;
-import java.util.Locale;
-
-import kr.kymedia.karaoke.play.app.R;
-import kr.kymedia.karaoke.play.apps._PlayFragment;
-import kr.kymedia.karaoke.util.Log;
-import kr.kymedia.karaoke.widget.KaraokeTextEdit;
 import android.content.Context;
 import android.os.Build;
 import android.support.v4.app.Fragment;
@@ -55,6 +48,14 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import java.io.File;
+import java.util.Locale;
+
+import kr.kymedia.karaoke.play.app.R;
+import kr.kymedia.karaoke.play.apps._PlayFragment;
+import kr.kymedia.karaoke.util.Log;
+import kr.kymedia.karaoke.widget.KaraokeTextEdit;
 
 /**
  * 
@@ -339,7 +340,7 @@ public class PlayView extends SongPlayView {
 	}
 
 	@Override
-	public boolean open(final String path) throws Exception {
+	public boolean load(final String path) throws Exception {
 
 		Log.d(__CLASSNAME__, getMethodName() + "count:" + count);
 
@@ -360,7 +361,7 @@ public class PlayView extends SongPlayView {
 			}
 		});
 
-		boolean ret = super.open(path);
+		boolean ret = super.load(path);
 
 		if (ret) {
 			if (path.equalsIgnoreCase(getPath())) {

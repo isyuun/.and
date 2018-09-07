@@ -238,7 +238,7 @@ class PlayViewPitch extends PlayView4X {
 		Log.e(_toString(), getMethodName());
 		super.setPlayView();
 
-		//txt_pitch = (TextView) findViewById(R.id.txt_pitch);
+		txt_pitch = (TextView) findViewById(R.id.txt_pitch);
 	}
 
 	/**
@@ -300,9 +300,10 @@ class PlayViewPitch extends PlayView4X {
 	@Override
 	public void setPitch(final int pitch) {
 		//_LOG.e(_toString(), getMethodName() + pitch);
-
-
-		super.setPitch(pitch);
+		if (isPrepared())
+		{
+			super.setPitch(pitch);
+		}
 
 		clearPitch();
 

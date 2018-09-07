@@ -18,7 +18,7 @@ import kr.keumyoung.karaoke.data._SongData;
 
 /**
  */
-class PlayView2 extends PlayView1 implements _Const {
+class PlayView2 extends PlayView1 implements _Const, MediaPlayer.OnBufferingUpdateListener,  MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener {
 	private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
 
 	private String _toString() {
@@ -56,6 +56,125 @@ class PlayView2 extends PlayView1 implements _Const {
 
 	private _SongData m_data = null;
 	private MediaPlayer m_mp = null;
+
+	protected void init() {
+        if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
+
+        reset();
+
+        if (m_mp == null) {
+            setMediaPlayer(new MediaPlayer());
+        }
+
+        m_mp.setOnBufferingUpdateListener(this);
+        m_mp.setOnPreparedListener(this);
+        m_mp.setOnCompletionListener(this);
+        m_mp.setOnInfoListener(this);
+        m_mp.setOnErrorListener(this);
+
+    }
+
+    MediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
+
+    public void setOnBufferingUpdateListener(MediaPlayer.OnBufferingUpdateListener listener) {
+        mOnBufferingUpdateListener = listener;
+    }
+
+    MediaPlayer.OnPreparedListener mOnPreparedListener;
+
+    public void setOnPreparedListener(MediaPlayer.OnPreparedListener listener) {
+        mOnPreparedListener = listener;
+    }
+
+    MediaPlayer.OnTimedTextListener mOnTimedTextListener;
+
+    public void setOnTimedTextListener(MediaPlayer.OnTimedTextListener listener) {
+        mOnTimedTextListener = listener;
+    }
+
+    MediaPlayer.OnCompletionListener mOnCompletionListener;
+
+    public void setOnCompletionListener(MediaPlayer.OnCompletionListener listener) {
+        mOnCompletionListener = listener;
+    }
+
+    MediaPlayer.OnInfoListener mOnInfoListener;
+
+    public void setOnInfoListener(MediaPlayer.OnInfoListener listener) {
+        mOnInfoListener = listener;
+    }
+
+    MediaPlayer.OnErrorListener mOnErrorListener;
+
+    public void setOnErrorListener(MediaPlayer.OnErrorListener listener) {
+        mOnErrorListener = listener;
+    }
+
+    protected void reset() {
+        if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
+
+        if (m_mp != null) {
+            m_mp.setOnBufferingUpdateListener(null);
+            m_mp.setOnPreparedListener(null);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                m_mp.setOnTimedTextListener(null);
+            }
+            m_mp.setOnCompletionListener(null);
+            m_mp.setOnInfoListener(null);
+            m_mp.setOnErrorListener(null);
+            m_mp.reset();
+        }
+    }
+
+    protected void release() {
+        if (m_mp != null) {
+            m_mp.release();
+            setMediaPlayer(null);
+        }
+    }
+
+    @Override
+    public void onBufferingUpdate(MediaPlayer mp, int percent) {
+        // if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + percent + "%)");
+        if (mOnBufferingUpdateListener != null) {
+            mOnBufferingUpdateListener.onBufferingUpdate(mp, percent);
+        }
+    }
+
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp);
+        if (mOnPreparedListener != null) {
+            mOnPreparedListener.onPrepared(mp);
+        }
+    }
+
+    @Override
+    public void onCompletion(MediaPlayer mp) {
+        if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp);
+        if (mOnPreparedListener != null) {
+            mOnPreparedListener.onPrepared(mp);
+        }
+    }
+
+    @Override
+    public boolean onInfo(MediaPlayer mp, int what, int extra) {
+        // if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+        if (mOnInfoListener != null) {
+            mOnInfoListener.onInfo(mp, what, extra);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onError(MediaPlayer mp, int what, int extra) {
+        if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
+        if (mOnErrorListener != null) {
+            mOnErrorListener.onError(mp, what, extra);
+        }
+        return false;
+    }
+
 	/**
 	 * 가사(다운경로)
 	 */
@@ -233,21 +352,21 @@ class PlayView2 extends PlayView1 implements _Const {
 		if (!isInEditMode()) {
 			create();
 			//test
-			// String path = "";
+			// String load = "";
 			// Bundle bundle = getIntent().getExtras();
 			// if (bundle != null) {
 			// m_songList = bundle.getStringArrayList(SONGPLAYER_SKYM);
 			//
 			// if (m_songList == null || m_songList.size() == 0) {
-			// path = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
+			// load = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
 			// } else {
-			// path = m_songList.get(m_songIdx).toString();
+			// load = m_songList.get(m_songIdx).toString();
 			// }
 			// } else {
-			// path = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
+			// load = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
 			// }
 			//
-			// open(path);
+			// load(load);
 			// play();
 		}
 	}
@@ -292,8 +411,8 @@ class PlayView2 extends PlayView1 implements _Const {
 		}
 	};
 
-	protected boolean open(String path) throws Exception {
-		if (BuildConfig.DEBUG) Log.i(_toString(), "open()" + path + "()");
+	protected boolean load(String path) throws Exception {
+		if (BuildConfig.DEBUG) Log.i(_toString(), "load()" + path + "()");
 
 		try {
 			m_data.release();
@@ -363,51 +482,67 @@ class PlayView2 extends PlayView1 implements _Const {
 		return false;
 	}
 
-	@Deprecated
 	public boolean play() throws Exception {
-		// if (BuildConfig.DEBUG) _LOG.i(_toString(), "play()");
-		//
-		// try {
-		// if (m_state == _STATE_STOP) {
-		// m_mp.start();
-		//
-		// m_state = _STATE_PLAY;
-		//
-		// m_mp.setOnCompletionListener(onMediaPlayerComplete);
-		// m_mp.setOnErrorListener(onMediaPlayerError);
-		// }
-		//
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// if (BuildConfig.DEBUG) _LOG.e(_toString(), e.getLocalizedMessage());
-		// close();
-		// return false;
-		// }
-		//
-		// return true;
-		return true;
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
+
+		boolean ret;
+
+		try {
+			if (m_mp != null /* && (ret = super.play()) */) {
+
+				if (m_state == PLAY_ENGAGE.PLAY_STOP) {
+					m_mp.start();
+					this.m_state = (PLAY_ENGAGE.PLAY_PLAY);
+				}
+
+				// mLyricsPlay.play();
+			}
+			ret = true;
+		} catch (Exception e) {
+
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
+			// e.printStackTrace();
+			throw (e);
+		}
+
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+
+		return ret;
 	}
 
-	@Deprecated
 	public void stop() {
-		// try {
-		// m_playView.playViewThread.init();
-		//
-		// if (m_state != _STATE_STOP) {
-		// m_mp.stop();
-		// m_state = _STATE_STOP;
-		//
-		// m_data.release();
-		// m_mp.reset();
-		// }
-		// } catch (Exception e) {
-		// return false;
-		// }
-		//
-		// return true;
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isPlaying() + ":" + m_state);
+		// boolean ret = super.stop();
+
+		try {
+			if (mLyricsPlay != null && mLyricsPlay.getLyricsPlayThread() != null) {
+				mLyricsPlay.getLyricsPlayThread().init();
+			}
+
+			if (m_state != PLAY_ENGAGE.PLAY_STOP) {
+				// if (isPlaying())
+				if (m_mp != null) {
+					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[STOP]" + isPlaying() + ":" + m_state);
+					m_mp.stop();
+				}
+
+				//if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + m_state);
+				//reset();
+
+				mLyricsPlay.stop();
+
+				m_data.release();
+
+				this.m_state = (PLAY_ENGAGE.PLAY_STOP);
+			}
+		} catch (Exception e) {
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + m_state);
+			e.printStackTrace();
+		}
+
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isPlaying() + ":" + m_state);
 	}
 
-	@Deprecated
 	protected void pause() {
 		try {
 			if (m_state == PLAY_ENGAGE.PLAY_PLAY) {
@@ -416,9 +551,24 @@ class PlayView2 extends PlayView1 implements _Const {
 			}
 		} catch (Exception e) {
 		}
+		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + isPlaying() + ":" + m_state);
+
+		try {
+			if (m_state == PLAY_ENGAGE.PLAY_PLAY) {
+				if (isPlaying()) {
+					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[PAUSE]" + isPlaying() + ":" + m_state);
+					m_mp.pause();
+				}
+				this.m_state = (PLAY_ENGAGE.PLAY_PAUSE);
+			}
+		} catch (Exception e) {
+			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + m_state);
+			e.printStackTrace();
+		}
+
+		mLyricsPlay.pause();
 	}
 
-	@Deprecated
 	protected void resume() {
 		try {
 			if (m_state == PLAY_ENGAGE.PLAY_PAUSE) {
@@ -427,6 +577,8 @@ class PlayView2 extends PlayView1 implements _Const {
 			}
 		} catch (Exception e) {
 		}
+
+		mLyricsPlay.resume();
 	}
 
 	protected void seek(int msec) {

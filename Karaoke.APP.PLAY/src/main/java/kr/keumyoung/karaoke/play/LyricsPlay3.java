@@ -97,9 +97,8 @@ class LyricsPlay3 extends LyricsPlay2 {
 		int iSingerFontSize = h / 14;
 		int iReadyFontSize = h / 18;
 
-		int orientation = getResources().getConfiguration().orientation;
-		if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-			iSongInfoPosition /= 2;
+		if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+			//iSongInfoPosition = (int)(w / 1.5f);
 			iTitleFontSize /= 2;
 			iLyricsFontSize /= 2;
 			iSingerFontSize /= 2;

@@ -1,14 +1,16 @@
 package com.kumyoung.stbcomm;
 
+import android.util.Log;
+
+import com.kumyoung.gtvkaraoke.BuildConfig;
+
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.Hashtable;
 
-import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import ac.rs.com.model.RequestData;
 import ac.rs.com.model.ResponseData;
 import ac.rs.lgd.svc.sim.RSRequestClient;
-import android.util.Log;
 
 //import android.widget.Toast;
 

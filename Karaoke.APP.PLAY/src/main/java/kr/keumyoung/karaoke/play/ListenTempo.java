@@ -30,6 +30,7 @@
  */
 package kr.keumyoung.karaoke.play;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
@@ -61,8 +62,8 @@ class ListenTempo extends ListenPitch {
 
 	public ListenTempo(Context context) {
 		super(context);
-		//txt_tempo = (TextView) ((Activity) context).findViewById(R.id.txt_tempo);
-		//Log.wtf(_toString(), getMethodName() + ":" + txt_tempo);
+		txt_tempo = (TextView) ((Activity) context).findViewById(R.id.txt_tempo);
+		Log.wtf(_toString(), getMethodName() + ":" + txt_tempo);
 	}
 
 	@Override
@@ -114,7 +115,7 @@ class ListenTempo extends ListenPitch {
 		Log.e(_toString(), getMethodName());
 		super.setListen();
 
-		//txt_tempo = (TextView) ((Activity) context).findViewById(R.id.txt_tempo);
+		txt_tempo = (TextView) ((Activity) context).findViewById(R.id.txt_tempo);
 	}
 
 	/**

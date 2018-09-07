@@ -42,7 +42,6 @@ import android.util.Log;
 import java.io.IOException;
 
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * <pre>
@@ -89,7 +88,7 @@ class Listen3 extends Listen2 {
 	public void open() throws Exception {
 
 		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
-		open(this.url);
+		load(this.url);
 		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
 	}
 
@@ -104,7 +103,7 @@ class Listen3 extends Listen2 {
 	}
 
 	@Override
-	protected boolean open(String path) throws Exception {
+	protected boolean load(String path) throws Exception {
 
 		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + path);
 		this.path = path;
@@ -119,11 +118,11 @@ class Listen3 extends Listen2 {
 			// FileDescriptor fd = fs.getFD();
 			// m_mp.setDataSource(fd);
 			// fs.close();
-			Log.w(_toString(), "open()" + "[setAudioStreamType]");
+			Log.w(_toString(), "load()" + "[setAudioStreamType]");
 			m_mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
-			Log.w(_toString(), "open()" + "[setDataSource]");
+			Log.w(_toString(), "load()" + "[setDataSource]");
 			m_mp.setDataSource(path);
-			Log.w(_toString(), "open()" + "[prepareAsync]");
+			Log.w(_toString(), "load()" + "[prepareAsync]");
 			m_mp.prepareAsync();
 
 			m_mp.setOnPreparedListener(new OnPreparedListener() {

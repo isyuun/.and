@@ -151,7 +151,7 @@ class Listen2 implements _Const {
 		// }
 	}
 
-	protected boolean open(String path) throws Exception {
+	protected boolean load(String path) throws Exception {
 		return false;
 	}
 

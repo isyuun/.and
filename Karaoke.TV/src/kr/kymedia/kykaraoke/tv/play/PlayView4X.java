@@ -196,12 +196,12 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 		(new open()).execute();
 	}
 
-	//private class open extends AsyncTask<Void, Void, Void> {
+	//private class load extends AsyncTask<Void, Void, Void> {
 	//
 	//	@Override
 	//	protected Void doInBackground(Void... params) {
 	//
-	//		postDelayed(open, 100);
+	//		postDelayed(load, 100);
 	//		return null;
 	//	}
 	//
@@ -234,7 +234,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 	};
 
 	@Override
-	public boolean open(String path) {
+	public boolean load(String path) {
 
 		Log.w(_toString(), getMethodName() + "[ST]" + ":" + type + ":" + isPitchTempo + ":" + song);
 
@@ -259,8 +259,8 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 					song.setHandler(this.handler);
 					Log.i(_toString(), getMethodName() + "[setOnListener]");
 					song.setOnListener(this);
-					Log.i(_toString(), getMethodName() + "[open]");
-					ret = song.open(mp3);
+					Log.i(_toString(), getMethodName() + "[load]");
+					ret = song.load(mp3);
 					Log.i(_toString(), getMethodName() + "[setIsRetry]");
 					setIsRetry(!song.isRetry());
 				}
@@ -268,7 +268,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 				return ret;
 
 			} else {
-				super.open(path);
+				super.load(path);
 			}
 		} catch (Exception e) {
 
@@ -492,7 +492,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 			//	song.restart();
 			//} else {
 			//	stop();
-			//	open(path);
+			//	load(path);
 			//}
 			song.setPath(path);
 			song.restart();

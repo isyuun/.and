@@ -353,7 +353,7 @@ public class PlayFragment extends ChoirPlayFragment {
 
 							String path = getKaraoke(server, number);
 							setPath(path);
-							open(path);
+							load(path);
 						} catch (Exception e) {
 
 							e.printStackTrace();
@@ -382,7 +382,7 @@ public class PlayFragment extends ChoirPlayFragment {
 						initStartTime();
 						if (!TextUtils.isEmpty(getPath())) {
 							stop();
-							open(getPath());
+							load(getPath());
 						}
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -515,14 +515,14 @@ public class PlayFragment extends ChoirPlayFragment {
 	}
 
 	@Override
-	public boolean open(String path) throws Exception {
+	public boolean load(String path) throws Exception {
 		Log.d(__CLASSNAME__, getMethodName());
 
 		// mPlayView.open(path);
 		// setPath(path);
 		// executeAsyncTask(new open(), mPlayView);
 
-		return super.open(path);
+		return super.load(path);
 	}
 
 	@Override

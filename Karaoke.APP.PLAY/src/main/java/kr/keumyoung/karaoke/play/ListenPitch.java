@@ -30,6 +30,7 @@
  */
 package kr.keumyoung.karaoke.play;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.widget.TextView;
@@ -61,8 +62,8 @@ class ListenPitch extends Listen4X {
 
 	public ListenPitch(Context context) {
 		super(context);
-		//txt_pitch = (TextView) ((Activity) context).findViewById(R.id.txt_pitch);
-		//Log.wtf(_toString(), getMethodName() + ":" + txt_pitch);
+		txt_pitch = (TextView) ((Activity) context).findViewById(R.id.txt_pitch);
+		Log.wtf(_toString(), getMethodName() + ":" + txt_pitch);
 	}
 
 	@Override
@@ -205,7 +206,7 @@ class ListenPitch extends Listen4X {
 		Log.e(_toString(), getMethodName());
 		super.setListen();
 
-		//txt_pitch = (TextView) ((Activity) context).findViewById(R.id.txt_pitch);
+		txt_pitch = (TextView) ((Activity) context).findViewById(R.id.txt_pitch);
 	}
 
 	/**

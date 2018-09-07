@@ -34,13 +34,6 @@ package kr.keumyoung.karaoke.play;
 
 import android.content.Context;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnBufferingUpdateListener;
-import android.media.MediaPlayer.OnCompletionListener;
-import android.media.MediaPlayer.OnErrorListener;
-import android.media.MediaPlayer.OnInfoListener;
-import android.media.MediaPlayer.OnPreparedListener;
-import android.media.MediaPlayer.OnTimedTextListener;
 import android.util.AttributeSet;
 import android.util.Log;
 
@@ -60,7 +53,7 @@ import kr.kymedia.karaoke.util.TextUtil;
  * @since 2015. 2. 3.
  * @version 1.0
  */
-class PlayView3 extends PlayView2 {
+class PlayView3 extends PlayView2X {
 	private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
 
 	private String _toString() {
@@ -136,23 +129,23 @@ class PlayView3 extends PlayView2 {
 
 		// KYM서버: http://resource.kymedia.kr/ky/mp/88/08888.mp3
 		// host = "http://resource.kymedia.kr/ky/mp/";
-		// path = String.format(getResources().getConfiguration().locale, "%05d", number).substring(3);
+		// load = String.format(getResources().getConfiguration().locale, "%05d", number).substring(3);
 		// form = "/%05d.mp3";
 
 		// if (server == R.id.radioServerKYS) {
 		// //금영서버: http://211.236.190.103:8080/svc_media/mmp3/08888.mp3
 		// host = "http://" + KaraokePath.getHosts()[0] + ":8080/svc_media/";
-		// path = "mmp3";
+		// load = "mmp3";
 		// form = "/%05d.mp3";
 		// } else if (server == R.id.radioServerKYM) {
 		// //KYM서버: http://resource.kymedia.kr/ky/mp/88/08888.mp3
 		// host = "http://" + KaraokePath.getHosts()[1] + "/ky/mp/";
-		// path = String.format(getResources().getConfiguration().locale, "%05d", number).substring(3);
+		// load = String.format(getResources().getConfiguration().locale, "%05d", number).substring(3);
 		// form = "/%05d.mp3";
 		// } else if (server == R.id.radioServerCYW) {
 		// //싸이월드: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=08888
 		// host = "http://" + KaraokePath.getHosts()[2] + "/";
-		// path = "cykara_dl2.asp?song_id=";
+		// load = "cykara_dl2.asp?song_id=";
 		// form = "%05d";
 		// }
 		switch (server) {
@@ -173,7 +166,7 @@ class PlayView3 extends PlayView2 {
 		case 2:
 			// 싸이월드: http://cyms.chorus.co.kr/cykara_dl2.asp?song_id=08888
 			host = "http://" + KaraokePath.getHosts()[2] + "/";
-			//path = "cykara_dl2.asp?song_id=";
+			//load = "cykara_dl2.asp?song_id=";
 			path = ".skym.asp?song_id=";
 			form = "%05d";
 			break;
@@ -187,151 +180,6 @@ class PlayView3 extends PlayView2 {
 		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + server + "-" + number + "-" + ret);
 
 		return ret;
-	}
-
-	OnBufferingUpdateListener mOnBufferingUpdateListener;
-
-	public void setOnBufferingUpdateListener(OnBufferingUpdateListener listener) {
-		mOnBufferingUpdateListener = listener;
-	}
-
-	OnPreparedListener mOnPreparedListener;
-
-	public void setOnPreparedListener(OnPreparedListener listener) {
-		mOnPreparedListener = listener;
-	}
-
-	OnTimedTextListener mOnTimedTextListener;
-
-	public void setOnTimedTextListener(OnTimedTextListener listener) {
-		mOnTimedTextListener = listener;
-	}
-
-	OnCompletionListener mOnCompletionListener;
-
-	public void setOnCompletionListener(OnCompletionListener listener) {
-		mOnCompletionListener = listener;
-	}
-
-	OnInfoListener mOnInfoListener;
-
-	public void setOnInfoListener(OnInfoListener listener) {
-		mOnInfoListener = listener;
-	}
-
-	OnErrorListener mOnErrorListener;
-
-	public void setOnErrorListener(OnErrorListener listener) {
-		mOnErrorListener = listener;
-	}
-
-	protected void reset() {
-		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
-
-		if (getMediaPlayer() != null) {
-			getMediaPlayer().setOnBufferingUpdateListener(null);
-			getMediaPlayer().setOnPreparedListener(null);
-			getMediaPlayer().setOnTimedTextListener(null);
-			getMediaPlayer().setOnCompletionListener(null);
-			getMediaPlayer().setOnInfoListener(null);
-			getMediaPlayer().setOnErrorListener(null);
-			getMediaPlayer().reset();
-		}
-	}
-
-	protected void release() {
-		if (getMediaPlayer() != null) {
-			getMediaPlayer().release();
-			setMediaPlayer(null);
-		}
-	}
-
-	protected void init() {
-		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
-
-		reset();
-
-		if (getMediaPlayer() == null) {
-			setMediaPlayer(new MediaPlayer());
-		}
-
-		getMediaPlayer().setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
-
-			/**
-			 * 재생처리는Main22에서
-			 */
-			@Override
-			public void onBufferingUpdate(MediaPlayer mp, int percent) {
-
-				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + percent + "%)");
-				if (mOnBufferingUpdateListener != null) {
-					mOnBufferingUpdateListener.onBufferingUpdate(mp, percent);
-				}
-			}
-		});
-
-		getMediaPlayer().setOnPreparedListener(new OnPreparedListener() {
-
-			/**
-			 * 재생처리는Main22에서
-			 */
-			@Override
-			public void onPrepared(MediaPlayer mp) {
-
-				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp);
-				if (mOnPreparedListener != null) {
-					mOnPreparedListener.onPrepared(mp);
-				}
-			}
-		});
-
-		getMediaPlayer().setOnCompletionListener(new OnCompletionListener() {
-
-			/**
-			 * 재생처리는Main22에서
-			 */
-			@Override
-			public void onCompletion(MediaPlayer mp) {
-
-				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp);
-				if (mOnCompletionListener != null) {
-					mOnCompletionListener.onCompletion(mp);
-				}
-			}
-		});
-
-		getMediaPlayer().setOnInfoListener(new OnInfoListener() {
-
-			/**
-			 * 재생처리는Main22에서
-			 */
-			@Override
-			public boolean onInfo(MediaPlayer mp, int what, int extra) {
-
-				// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
-				if (mOnInfoListener != null) {
-					mOnInfoListener.onInfo(mp, what, extra);
-				}
-				return false;
-			}
-		});
-
-		getMediaPlayer().setOnErrorListener(new OnErrorListener() {
-
-			/**
-			 * 재생처리는Main22에서
-			 */
-			@Override
-			public boolean onError(MediaPlayer mp, int what, int extra) {
-
-				if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + mp + "(" + what + ", " + extra + ")");
-				if (mOnErrorListener != null) {
-					mOnErrorListener.onError(mp, what, extra);
-				}
-				return false;
-			}
-		});
-
 	}
 
 	String song_id = "99999";
@@ -355,38 +203,38 @@ class PlayView3 extends PlayView2 {
 
 	public void open() throws Exception {
 
-		// String path = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
+		// String load = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
 		// if (getLyricList() == null || getLyricList().size() == 0) {
-		// path = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
+		// load = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
 		// } else {
-		// path = getLyricList().get(getLyricIdx()).toString();
+		// load = getLyricList().get(getLyricIdx()).toString();
 		// }
 		String path = getLyric();
 		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + path);
-		open(path);
+		load(path);
 	}
 
 	/**
 	 * skym가사로드
 	 * mp3스트리밍
 	 * @throws Exception
-	 * @see kr.keumyoung.karaoke.play.PlayView2#open(java.lang.String)
+	 * @see kr.keumyoung.karaoke.play.PlayView2#load(java.lang.String)
 	 */
 	@Override
-	protected boolean open(String path) throws Exception {
+	protected boolean load(String path) throws Exception {
 
-		Log.w(_toString(), "open() " + "[ST]");
+		Log.w(_toString(), "load() " + "[ST]");
 
 		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + path);
 		this.path = path;
 
 		try {
-			Log.i(_toString(), "open() " + "[getSongData]");
+			Log.i(_toString(), "load() " + "[getSongData]");
 			getSongData().release();
 			getSongData().load(path);
 
-			Log.i(_toString(), "open() " + "[open]");
-			// (new open()).execute();
+			Log.i(_toString(), "load() " + "[load]");
+			// (new load()).execute();
 			if (TextUtil.isNetworkUrl(mp3)) {
 				stream();
 			} else {
@@ -394,14 +242,14 @@ class PlayView3 extends PlayView2 {
 			}
 
 		} catch (Exception e) {
-			Log.e(_toString(), "open() " + "[NG]" + "\n" + Log.getStackTraceString(e));
+			Log.e(_toString(), "load() " + "[NG]" + "\n" + Log.getStackTraceString(e));
 			e.printStackTrace();
 			stop();
 			throw (e);
 		}
 
-		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + path);
-		Log.w(_toString(), "open() " + "[ED]");
+		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + load);
+		Log.w(_toString(), "load() " + "[ED]");
 
 		return true;
 	}
@@ -414,12 +262,12 @@ class PlayView3 extends PlayView2 {
 	// * @author isyoon
 	// *
 	// */
-	// private class open extends AsyncTask<Void, Integer, String> {
+	// private class load extends AsyncTask<Void, Integer, String> {
 	//
 	// @Override
 	// protected String doInBackground(Void... params) {
 	//
-	// _LOG.i(_toString(), "open() " + "[doInBackground]");
+	// _LOG.i(_toString(), "load() " + "[doInBackground]");
 	// try {
 	// if (TextUtil.isNetworkUrl(mp3)) {
 	// stream();
@@ -428,7 +276,7 @@ class PlayView3 extends PlayView2 {
 	// }
 	// } catch (Exception e) {
 	//
-	// _LOG.e(_toString(), "open() " + "[doInBackground]" + "[NG]" + "\n" + _LOG.getStackTraceString(e));
+	// _LOG.e(_toString(), "load() " + "[doInBackground]" + "[NG]" + "\n" + _LOG.getStackTraceString(e));
 	// e.printStackTrace();
 	// }
 	// return null;
@@ -496,28 +344,7 @@ class PlayView3 extends PlayView2 {
 	 */
 	@Override
 	public boolean play() throws Exception {
-		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
-
-		boolean ret = true;
-
-		try {
-			if (getMediaPlayer() != null /* && (ret = super.play()) */) {
-
-				if (getPlayState() == PLAY_ENGAGE.PLAY_STOP) {
-					getMediaPlayer().start();
-					setPlayState(PLAY_ENGAGE.PLAY_PLAY);
-				}
-
-				// getLyricsPlay().play();
-			}
-		} catch (Exception e) {
-
-			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName());
-			// e.printStackTrace();
-			throw (e);
-		}
-
-		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]");
+		boolean ret = super.play();
 		return ret;
 	}
 
@@ -536,37 +363,9 @@ class PlayView3 extends PlayView2 {
 	 */
 	@Override
 	public void stop() {
-
-		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + isPlaying() + ":" + getPlayState());
-		// boolean ret = super.stop();
-
-		try {
-			if (getLyricsPlay() != null && getLyricsPlay().getLyricsPlayThread() != null) {
-				getLyricsPlay().getLyricsPlayThread().init();
-			}
-
-			if (getPlayState() != PLAY_ENGAGE.PLAY_STOP) {
-				// if (isPlaying())
-				if (getMediaPlayer() != null) {
-					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[STOP]" + isPlaying() + ":" + getPlayState());
-					getMediaPlayer().stop();
-				}
-
-				if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + getPlayState());
-				reset();
-
-				getLyricsPlay().stop();
-
-				getSongData().release();
-
-				setPlayState(PLAY_ENGAGE.PLAY_STOP);
-			}
-		} catch (Exception e) {
-			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + getPlayState());
-			e.printStackTrace();
-		}
-
-		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ED]" + isPlaying() + ":" + getPlayState());
+		super.stop();
+		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[RESET]" + isPlaying() + ":" + getPlayState());
+		reset();
 	}
 
 	/**
@@ -574,33 +373,13 @@ class PlayView3 extends PlayView2 {
 	 */
 	@Override
 	protected void pause() {
-
-		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName() + isPlaying() + ":" + getPlayState());
-
-		try {
-			if (getPlayState() == PLAY_ENGAGE.PLAY_PLAY) {
-				if (isPlaying()) {
-					if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[PAUSE]" + isPlaying() + ":" + getPlayState());
-					getMediaPlayer().pause();
-				}
-				setPlayState(PLAY_ENGAGE.PLAY_PAUSE);
-			}
-		} catch (Exception e) {
-			if (BuildConfig.DEBUG) Log.w(_toString() + TAG_ERR,  "[NG]" + getMethodName() + isPlaying() + ":" + getPlayState());
-			e.printStackTrace();
-		}
-
-		getLyricsPlay().pause();
-
+		super.pause();
 	}
 
 	@Override
 	protected void resume() {
-
 		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
 		super.resume();
-
-		getLyricsPlay().resume();
 	}
 
 	/**
@@ -608,10 +387,8 @@ class PlayView3 extends PlayView2 {
 	 */
 	@Override
 	protected void close() {
-
 		if (BuildConfig.DEBUG) Log.i(_toString(), getMethodName());
-
-		// super.close();
+		super.close();
 		stop();
 	}
 

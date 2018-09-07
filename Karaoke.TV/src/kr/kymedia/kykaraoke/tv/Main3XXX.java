@@ -241,7 +241,7 @@ class Main3XXX extends Main3XX {
 	@Override
 	protected void open() {
 
-		Log.i(_toString() + TAG_MAIN, "open() " + "[ST]" + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying" + isPlaying());
+		Log.i(_toString() + TAG_MAIN, "load() " + "[ST]" + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying" + isPlaying());
 
 		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]" + m_strRequestPlaySongID + ":" + url_lyric);
 		if (TextUtil.isEmpty(url_lyric)) {
@@ -254,7 +254,7 @@ class Main3XXX extends Main3XX {
 
 		(new open()).execute();
 
-		Log.i(_toString() + TAG_MAIN, "open() " + "[ED]" + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying" + isPlaying());
+		Log.i(_toString() + TAG_MAIN, "load() " + "[ED]" + "opening:" + isOpening + ":cancel:" + isCancel + ":isPlaying" + isPlaying());
 	}
 
 	protected void super_open() {

@@ -2,6 +2,8 @@ package com.kumyoung.stbcomm;
 
 import android.util.Log;
 
+import com.kumyoung.gtvkaraoke.BuildConfig;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,8 +13,6 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import kr.kymedia.kykaraoke.api.IKaraokeTV;
 
 /**
  * singleton

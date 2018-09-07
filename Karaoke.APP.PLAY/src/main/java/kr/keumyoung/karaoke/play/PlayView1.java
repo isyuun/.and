@@ -6,7 +6,7 @@ import android.util.Log;
 
 import kr.kymedia.karaoke.play.impl.ISongPlay;
 
-public class PlayView1 extends PlayView0 implements ISongPlay.Listener {
+public class PlayView1 extends PlayView implements ISongPlay.Listener {
     private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
 
     private String _toString() {

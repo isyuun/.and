@@ -261,7 +261,7 @@ class PlayView2 extends PlayView1 implements _Const {
 			// path = getApplicationContext().getExternalFilesDir(null) + "/test.skym";
 			// }
 			//
-			// open(path);
+			// load(path);
 			// play();
 		}
 	}
@@ -306,8 +306,8 @@ class PlayView2 extends PlayView1 implements _Const {
 		}
 	};
 
-	protected boolean open(String path) throws Exception {
-		if (BuildConfig.DEBUG) Log.i(_toString(), "open()" + path + "()");
+	protected boolean load(String path) throws Exception {
+		if (BuildConfig.DEBUG) Log.i(_toString(), "load()" + path + "()");
 
 		try {
 			m_data.release();

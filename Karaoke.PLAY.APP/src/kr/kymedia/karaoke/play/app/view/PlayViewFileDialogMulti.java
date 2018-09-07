@@ -32,13 +32,6 @@
 
 package kr.kymedia.karaoke.play.app.view;
 
-import java.util.ArrayList;
-
-import kr.kymedia.karaoke.play.app.R;
-import kr.kymedia.karaoke.play.apps.PlayActivity2;
-import kr.kymedia.karaoke.play.impl.ISongPlay;
-import kr.kymedia.karaoke.util.Log;
-import kr.kymedia.karaoke.util.TextUtil;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -50,6 +43,14 @@ import android.widget.ImageButton;
 import com.lamerman.isyoon.FileDialogFragmentBase;
 import com.lamerman.isyoon.FileDialogFragmentMulti;
 import com.lamerman.isyoon.SelectionMode;
+
+import java.util.ArrayList;
+
+import kr.kymedia.karaoke.play.app.R;
+import kr.kymedia.karaoke.play.apps.PlayActivity2;
+import kr.kymedia.karaoke.play.impl.ISongPlay;
+import kr.kymedia.karaoke.util.Log;
+import kr.kymedia.karaoke.util.TextUtil;
 
 /**
  *
@@ -223,7 +224,7 @@ public class PlayViewFileDialogMulti extends PlayViewFileDialog {
 
 				stop();
 				try {
-					open(path);
+					load(path);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -265,7 +266,7 @@ public class PlayViewFileDialogMulti extends PlayViewFileDialog {
 
 				stop();
 				try {
-					open(path);
+					load(path);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

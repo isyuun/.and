@@ -10,7 +10,7 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    implementation 'com.android.support:multidex:1.0.3'
+    api 'com.android.support:multidex:1.0.3'
     implementation 'com.google.android.gms:play-services-gcm:15.0.1'
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
@@ -27,8 +27,8 @@ dependencies {
     //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
     api project(':Karaoke.APP.PLAY3')
-    //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
+    //debugimplementation project(path:':Karaoke.APP.PLAY3', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY3', configuration: 'release')
     api project(':Karaoke.APP.PLAY4')
     //debugimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'release')

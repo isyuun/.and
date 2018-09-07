@@ -39,7 +39,7 @@ import java.io.FileInputStream;
 import kr.kymedia.karaoke.util.TextUtil;
 import kr.kymedia.karaoke.widget.KaraokePath;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.api.IKaraokeTV;
+
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -390,30 +390,30 @@ class PlayView3 extends PlayView2 {
 		// }
 		String path = getLyric();
 		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + path);
-		open(path);
+		load(path);
 	}
 
 	/**
 	 * skym가사로드
 	 * mp3스트리밍
 	 * @throws Exception
-	 * @see kr.kymedia.kykaraoke.tv.play.PlayView2#open(java.lang.String)
+	 * @see kr.kymedia.kykaraoke.tv.play.PlayView2#load(java.lang.String)
 	 */
 	@Override
-	protected boolean open(String path) throws Exception {
+	protected boolean load(String path) throws Exception {
 
-		Log.w(_toString(), "open() " + "[ST]");
+		Log.w(_toString(), "load() " + "[ST]");
 
 		if (BuildConfig.DEBUG) Log.e(_toString(), getMethodName() + path);
 		this.path = path;
 
 		try {
-			Log.i(_toString(), "open() " + "[getSongData]");
+			Log.i(_toString(), "load() " + "[getSongData]");
 			getSongData().release();
 			getSongData().load(path);
 
-			Log.i(_toString(), "open() " + "[open]");
-			// (new open()).execute();
+			Log.i(_toString(), "load() " + "[load]");
+			// (new load()).execute();
 			if (TextUtil.isNetworkUrl(mp3)) {
 				stream();
 			} else {
@@ -421,14 +421,14 @@ class PlayView3 extends PlayView2 {
 			}
 
 		} catch (Exception e) {
-			Log.e(_toString(), "open() " + "[NG]" + "\n" + Log.getStackTraceString(e));
+			Log.e(_toString(), "load() " + "[NG]" + "\n" + Log.getStackTraceString(e));
 			e.printStackTrace();
 			stop();
 			throw (e);
 		}
 
 		// if (BuildConfig.DEBUG) _LOG.e(_toString(), getMethodName() + "[ED]" + path);
-		Log.w(_toString(), "open() " + "[ED]");
+		Log.w(_toString(), "load() " + "[ED]");
 
 		return true;
 	}
@@ -441,12 +441,12 @@ class PlayView3 extends PlayView2 {
 	// * @author isyoon
 	// *
 	// */
-	// private class open extends AsyncTask<Void, Integer, String> {
+	// private class load extends AsyncTask<Void, Integer, String> {
 	//
 	// @Override
 	// protected String doInBackground(Void... params) {
 	//
-	// _LOG.i(_toString(), "open() " + "[doInBackground]");
+	// _LOG.i(_toString(), "load() " + "[doInBackground]");
 	// try {
 	// if (TextUtil.isNetworkUrl(mp3)) {
 	// stream();
@@ -455,7 +455,7 @@ class PlayView3 extends PlayView2 {
 	// }
 	// } catch (Exception e) {
 	//
-	// _LOG.e(_toString(), "open() " + "[doInBackground]" + "[NG]" + "\n" + _LOG.getStackTraceString(e));
+	// _LOG.e(_toString(), "load() " + "[doInBackground]" + "[NG]" + "\n" + _LOG.getStackTraceString(e));
 	// e.printStackTrace();
 	// }
 	// return null;

@@ -146,7 +146,7 @@ class Video2 extends Video {
 		final ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		final NetworkInfo netInfo = connMgr.getActiveNetworkInfo();
 		if (netInfo != null && netInfo.isConnected()) {
-			// Some sort of connection is open, check if server is reachable
+			// Some sort of connection is load, check if server is reachable
 			try {
 				URL url = new URL("http://www.google.com");
 				HttpURLConnection urlc = (HttpURLConnection) url.openConnection();

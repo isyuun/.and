@@ -47,7 +47,7 @@ import kr.keumyoung.karaoke.play.BuildConfig;
  * @since 2015. 3. 12.
  * @version 1.0
  */
-public class _PlayView extends PlayView6 {
+public class _PlayView extends PlayView7 {
 	private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
 
 	private String _toString() {

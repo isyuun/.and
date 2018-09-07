@@ -10,7 +10,6 @@
 apply plugin: 'com.android.application'
 
 dependencies {
-    implementation 'com.android.support:multidex:1.0.3'
     implementation project(':Karaoke.TV')
     //debugimplementation project(path:':Karaoke.TV', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.TV', configuration: 'release')

@@ -32,10 +32,6 @@
 
 package kr.kymedia.karaoke.play.apps;
 
-import kr.kymedia.karaoke.os.PriorityAsyncTask;
-import kr.kymedia.karaoke.play.SongPlayCastChrome;
-import kr.kymedia.karaoke.play.app.R;
-import kr.kymedia.karaoke.play.app.view._PlayView;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.support.v7.media.MediaRouter;
@@ -50,6 +46,11 @@ import android.widget.SeekBar;
 import com.google.android.gms.cast.CastMediaControlIntent;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+
+import kr.kymedia.karaoke.os.PriorityAsyncTask;
+import kr.kymedia.karaoke.play.SongPlayCastChrome;
+import kr.kymedia.karaoke.play.app.R;
+import kr.kymedia.karaoke.play.app.view._PlayView;
 
 /**
  *
@@ -264,7 +265,7 @@ public class PlayFragment5 extends PlayFragment4 {
 	}
 
 	@Override
-	public boolean open(final String path) throws Exception {
+	public boolean load(final String path) throws Exception {
 		Log.e(__CLASSNAME__, getMethodName() + path);
 
 
@@ -276,7 +277,7 @@ public class PlayFragment5 extends PlayFragment4 {
 			(new open()).execute(path);
 			return true;
 		} else {
-			return super.open(path);
+			return super.load(path);
 		}
 	}
 
@@ -295,7 +296,7 @@ public class PlayFragment5 extends PlayFragment4 {
 	}
 
 	private void open() {
-		songCast.open(getPath());
+		songCast.load(getPath());
 	}
 
 	@Override

@@ -33,18 +33,19 @@
 
 package kr.kymedia.karaoke.play.apps;
 
-import kr.kymedia.karaoke.play._SoundTouchPlay;
-import kr.kymedia.karaoke.play.app.R;
-import kr.kymedia.karaoke.play.app.view.SongPlayView;
-import kr.kymedia.karaoke.play.app.view._PlayView;
-import kr.kymedia.karaoke.util.Log;
-import kr.kymedia.karaoke.widget.KaraokeTextEdit;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+
+import kr.kymedia.karaoke.play._SoundTouchPlay;
+import kr.kymedia.karaoke.play.app.R;
+import kr.kymedia.karaoke.play.app.view.SongPlayView;
+import kr.kymedia.karaoke.play.app.view._PlayView;
+import kr.kymedia.karaoke.util.Log;
+import kr.kymedia.karaoke.widget.KaraokeTextEdit;
 
 /**
  * 
@@ -221,9 +222,9 @@ public class PlayFragment2 extends PlayFragment {
 	}
 
 	@Override
-	public boolean open(String path) throws Exception {
+	public boolean load(String path) throws Exception {
 
-		return super.open(path);
+		return super.load(path);
 	}
 
 	@Override

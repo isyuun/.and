@@ -150,7 +150,7 @@ class Video4 extends Video3 implements ISongPlay.Listener {
 
 	@Override
 	public void open() throws Exception {
-		Log.e(_toString(), "open() " + count);
+		Log.e(_toString(), "load() " + count);
 
 		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
 		super.open();

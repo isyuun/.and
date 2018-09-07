@@ -46,7 +46,6 @@ import kr.kymedia.karaoke.play._SoundTouchPlay;
 import kr.kymedia.karaoke.play.impl.ISongPlay;
 import kr.kymedia.karaoke.play.impl.ISongPlay.Listener;
 import kr.kymedia.kykaraoke.tv.BuildConfig;
-import kr.kymedia.kykaraoke.api.IKaraokeTV;
 import kr.kymedia.kykaraoke.api._Const;
 
 /**
@@ -189,7 +188,7 @@ class PlayView4 extends PlayView3X implements ISongPlay.Listener {
 				stop();
 				reset();
 				release();
-				open(path);
+				load(path);
 				count++;
 				Log.wtf(_toString() + TAG_SING, "onRetry() " + "(" + count + ")");
 				onRetry(count);
@@ -219,7 +218,7 @@ class PlayView4 extends PlayView3X implements ISongPlay.Listener {
 	public void open() throws Exception {
 
 		if (BuildConfig.DEBUG) Log.w(_toString(), getMethodName() + "[ST]");
-		Log.wtf(_toString(), "open() " + count);
+		Log.wtf(_toString(), "load() " + count);
 
 		super.open();
 		cancel();

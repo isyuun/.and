@@ -2,7 +2,7 @@ package com.dasan.micapi;
 
 public class Miclib {
 	/**
-	 * open Mic
+	 * load Mic
 	 */
 	public static final native boolean openMic();
 

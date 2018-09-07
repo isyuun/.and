@@ -394,7 +394,7 @@ public class SongPlayCastChrome extends SongPlayCast implements ISongPlayCast, I
 	}
 
 	@Override
-	public boolean open(String path) {
+	public boolean load(String path) {
 		Log.e(__CLASSNAME__, getMethodName() + path);
 
 
