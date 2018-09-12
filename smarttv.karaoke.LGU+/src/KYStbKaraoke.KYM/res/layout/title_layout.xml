@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+android:id="@+id/titleLayout"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:background="#003f003f"
+android:orientation="vertical" android:weightSum="1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal|bottom">
+
+
+
+
+    <com.kumyoung.stbui.TitleView android:id="@+id/lyricTitleView" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"></com.kumyoung.stbui.TitleView>
+
+
+	<com.kumyoung.stbui.LyricView android:id="@+id/lyric1View" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center"></com.kumyoung.stbui.LyricView>
+	<com.kumyoung.stbui.LyricView android:id="@+id/lyric2View" android:layout_width="wrap_content" android:layout_height="wrap_content"  android:layout_gravity="center"></com.kumyoung.stbui.LyricView>
+
+	
+<!--  	
+	<com.ky.stbui.DrawingPanel android:id="@+id/lyric3View" android:layout_width="wrap_content" android:layout_height="wrap_content"  android:layout_gravity="center"></com.ky.stbui.DrawingPanel>
+                
+--> 
+           
+            
+</LinearLayout>
+

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="debug_mode_message">[调试模式]\n如果溅击杀死</string>
+    <!-- Pull to Refresh -->
+    <string name="pull_to_refresh_pull_label">下拉刷新…</string>
+    <string name="pull_to_refresh_release_label">松手刷新…</string>
+    <string name="pull_to_refresh_refreshing_label">载入中…</string>
+    <!-- SYSTEM hint title -->
+    <string name="hint_fast_scroll_header">\u0020ABCDEFGHIJKLMNOPQRSTUVWXYZㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅋㅌㅍㅎ</string>
+    <string name="hint_composer">作曲</string>
+    <string name="hint_songwriter">作词</string>
+    <string name="hint_singer">歌曲</string>
+    <!-- SYSTEM search help title -->
+    <string name="search_help">帮助</string>
+    <string name="search_lyrics_search">使用歌词查找</string>
+    <string name="search_detail_search">详细搜索</string>
+    <string name="search_song_update">新曲更新</string>
+    <string name="search_option_prompt">搜索目录选择</string>
+    <string name="search_label">搜索目录</string>
+    <string name="search_hint">请输入搜索词</string>
+    <string name="search_hint_artist">例）IU</string>
+    <string name="search_hint_name">例）好日子</string>
+    <string name="search_hint_lyric">例）啊ING~~IU</string>
+    <string name="search_hint_number">例）仅数字</string>
+    <!-- SYSTEM message title -->
+    <string name="msg_song_version">软件版本:</string>
+    <string name="msg_song_update">更新:</string>
+    <string name="msg_song_interlude">( 間奏 中)</string>
+    <string name="msg_srch_result">搜索结果:</string>
+    <string name="msg_srch_total">全部搜索:</string>
+    <string name="msg_srch_number">号码搜索:</string>
+    <string name="msg_srch_title">歌名搜索:</string>
+    <string name="msg_srch_artist">歌手搜索:</string>
+    <string name="msg_srch_lyric">歌词搜索:</string>
+    <!-- SYSTEM alert title -->
+    <string name="alert_title_number">歌曲号</string>
+    <string name="alert_title_notice">通知</string>
+    <string name="alert_title_confirm">确认</string>
+    <string name="alert_title_result">结果</string>
+    <string name="alert_title_error">错误</string>
+    <string name="alert_title_cancel">取消</string>
+    <string name="alert_title_down_notice">下载通知</string>
+    <string name="alert_title_down_confirm">下载确认</string>
+    <string name="alert_title_down_running">下载</string>
+    <string name="alert_title_down_result">下载结果</string>
+    <string name="alert_title_down_complete">下载完成</string>
+    <string name="alert_title_down_error">下载错误</string>
+    <string name="alert_title_down_cancel">下载取消</string>
+    <string name="alert_title_upload_notice">上传通知</string>
+    <string name="alert_title_upload_confirm">上传确认</string>
+    <string name="alert_title_upload_running">上传</string>
+    <string name="alert_title_upload_result">上传结果</string>
+    <string name="alert_title_upload_complete">上传完成</string>
+    <string name="alert_title_upload_error">上传错误</string>
+    <string name="alert_title_upload_cancel">上传取消</string>
+    <string name="alert_title_error_code">错误编号:</string>
+    <string name="alert_title_error_message">错误内容:</string>
+    <!-- SYSTEM common widget string -->
+    <string name="btn_title_retry">重试</string>
+    <string name="btn_title_confirm">确认</string>
+    <string name="btn_title_cancel">取消</string>
+    <string name="btn_title_accept">同意</string>
+    <string name="btn_title_decline">不同意</string>
+    <string name="btn_title_next">下一步</string>
+    <string name="btn_title_edit">EDIT</string>
+    <string name="btn_title_input">INPUT</string>
+    <string name="btn_title_done">DONE</string>
+    <string name="btn_title_list_arrow">确认</string>
+    <string name="btn_title_yes">是</string>
+    <string name="btn_title_no">否</string>
+    <string name="btn_title_preview">上一步</string>
+    <string name="btn_title_ok">确认</string>
+    <string name="btn_title_play">播放</string>
+    <string name="btn_title_stop">暂停</string>
+    <string name="btn_title_pause">暂时暂停</string>
+    <string name="btn_title_resume">重新播放</string>
+    <string name="btn_title_load">记得</string>
+    <string name="btn_title_save">保存</string>
+    <string name="btn_title_open">开门</string>
+    <string name="btn_title_ignore">무시</string>
+    <string name="btn_title_close">关闭</string>
+    <string name="btn_title_save_close">保存/关闭</string>
+    <string name="btn_title_list">LIST</string>
+    <string name="btn_title_read">歌词</string>
+    <string name="btn_title_login">登录</string>
+    <string name="btn_title_logout">注销</string>
+    <string name="btn_title_pass">购买使用权</string>
+    <string name="btn_title_delete">删除</string>
+    <string name="btn_title_start">开始</string>
+    <string name="btn_title_finish">结束</string>
+    <string name="btn_title_update">更新</string>
+    <string name="btn_title_login_google">Google登录</string>
+    <string name="btn_title_logout_google">Google注销</string>
+    <string name="btn_title_login_facebook">Facebook登录</string>
+    <string name="btn_title_logout_facebook">Facebook注销</string>
+    <string name="btn_title_login_twitter">Twitter登录</string>
+    <string name="btn_title_logout_twitter">Twitter注销</string>
+    <string name="btn_title_upload">上传</string>
+    <string name="btn_title_pick_image">选择图片</string>
+    <string name="btn_title_pick_camera">以图片</string>
+    <string name="btn_title_crop_image">选择图片</string>
+    <string name="btn_title_crop_camera">以图片</string>
+    <string name="btn_title_camera_switch">카메라열기</string>
+    <string name="btn_title_camera_facing">전후방바꾸기</string>
+    <string name="btn_title_camera_sizing">사이즈바꾸기</string>
+    <string name="btn_title_open_public">充分披露</string>
+    <string name="btn_title_open_friend">好友公众</string>
+    <!-- SYSTEM search widget string -->
+    <string name="tab_search_song">SONG</string>
+    <string name="tab_search_artist">ARTIST</string>
+    <string name="tab_search_lylic">LYLIC</string>
+    <string name="tab_search_number">NUMBER</string>
+    <!-- error message string -->
+    <string name="error_alert_play">播放发生错误</string>
+    <string name="error_alert_record">录音发生错误</string>
+    <string name="error_alert_upload">上传发生错误</string>
+    <string name="error_localfile_play">本机播放发生错误\n在你电话上不行哦~~</string>
+    <string name="error_streaming_play">串流播放发生错误</string>
+    <!-- SYSTEM normal message -->
+    <string name="msg_text_copied_text">复制文本到剪贴板。</string>
+    <string name="msg_text_playing">在起作用。</string>
+    <string name="msg_text_loading">正在加载。</string>
+    <string name="msg_menu_updating">主页准备中.</string>
+    <string name="msg_data_updating">本曲数据设置中.</string>
+    <string name="msg_data_connecting">数据确认中.</string>
+    <string name="msg_data_loading">数据处理中.</string>
+    <string name="msg_data_reading">正在读数据中.</string>
+    <string name="msg_data_downloading">下载中.</string>
+    <string name="msg_data_downcancel">已取消下载.</string>
+    <string name="msg_data_downcomplete">下载完成.</string>
+    <string name="msg_song_downloading">%s下载中.</string>
+    <string name="msg_song_downcancel">%s取消下载.</string>
+    <string name="msg_song_downcomplete">%s下载完成.</string>
+    <string name="msg_data_uploadloading">上传中.</string>
+    <string name="msg_data_uploadcancel">取消上传.</string>
+    <string name="msg_data_uploadcomplete">上传完成.</string>
+    <string name="msg_song_uploadloading">%s上传中.</string>
+    <string name="msg_song_uploadcancel">%s取消上传.</string>
+    <string name="msg_song_uploadcomplete">%s上传完成.</string>
+    <string name="msg_play_first">首曲.</string>
+    <string name="msg_play_last">最后曲.</string>
+    <string name="msg_play_nowplaying">Now Playing</string>
+    <string name="msg_play_nowdownloading">Now Downloading</string>
+    <string name="msg_login">KY练歌厅完成登录.</string>
+    <string name="msg_alert_exit">"'点击’上一步"按钮就会关闭 "</string>
+    <string name="msg_playlist_delete">在Playlist里删除成功.</string>
+    <string name="msg_favorite_create">产出最爱歌曲.</string>
+    <string name="msg_favorite_delete">已删除最爱歌曲.</string>
+    <string name="msg_favorite_add">本曲成功添加到最爱歌曲中.</string>
+    <string name="msg_favorite_dup">最爱歌曲中已有此曲.</string>
+    <string name="msg_favorite_del">最爱歌曲中的歌曲删除成功.</string>
+    <string name="msg_playlist_end">Playlist中最后一曲已播放.</string>
+    <string name="msg_noaodright">所选择的歌曲中的一部分没有确定服务权利，因此无法送出.</string>
+    <string name="msg_result_search">搜索结果%d曲</string>
+    <string name="msg_result_listing">点击数结果%d曲</string>
+    <string name="msg_buy_pass">购买\"%s\"使用权.</string>
+    <string name="msg_buy_pass_refund" formatted="false" />
+    <string name="msg_find_pass" formatted="false" />
+    <!-- SYSTEM error message -->
+    <string name="errmsg_nosdcard">没有SD卡.</string>
+    <string name="errmsg_dataerror">数据发生错误.</string>
+    <string name="errmsg_favorite_exist">收藏夹中已有此曲.</string>
+    <string name="errmsg_favorite_noexist">收藏夹中没有歌曲.</string>
+    <string name="errmsg_list_noexist">目录不存在.</string>
+    <string name="errmsg_network">网络连接错误\n检查网络连接后，\n稍后请重新尝试.</string>
+    <string name="errmsg_data">数据连接失败，\n稍后请重新尝试.</string>
+    <string name="errmsg_network_data">无法获取网络数据。\n检查网络连接后，\n稍后请重新尝试.</string>
+    <string name="errmsg_localfile">不支持本地文件.</string>
+    <string name="errmsg_localfile_favorite">本地文件无法添加到收藏夹.</string>
+    <string name="errmsg_login">请登录后使用.</string>
+    <string name="errmsg_search_noexist">请输入搜索词.</string>
+    <string name="errmsg_search_short">请输入搜索词2个字（英文字母3个）以上.</string>
+    <string name="errmsg_search_same">搜索词一致.</string>
+    <string name="errmsg_search_condition">请输入歌曲编号/歌曲名/歌手名.</string>
+    <string name="errmsg_search_progress">歌曲搜索中.\n请稍等.</string>
+    <string name="errmsg_search_noresult">没有搜索结果.</string>
+    <string name="errmsg_default_album">选择了无法删除的专辑.</string>
+    <string name="errmsg_url_vod">视频信息有错误.</string>
+    <string name="errmsg_buy_pass">使用权\"%s\"购买失败.</string>
+    <string name="errmsg_buy_duplicate">通已在使用中，有一个.</string>
+    <string name="errmsg_buy_pass_refund" formatted="false" />
+    <string name="errmsg_noservice_country">并不适用于贵国.</string>
+    <!-- normal warning message summary -->
+    <string name="warning_open_public">任何人都可以看到.</string>
+    <string name="warning_open_friend">朋友之间，并按照对方可以看出.</string>
+    <string name="warning_nologin_preview">仅可以试听1分钟.</string>
+    <string name="warning_nologin_menu">会员专用菜单.</string>
+    <string name="warning_login_email">请输入邮箱地址.</string>
+    <string name="warning_login_password">请输入密码.</string>
+    <string name="warning_nobuy_preview">如想收听整个歌曲，需在\'Ticket\'里购买收听商品.</string>
+    <string name="warning_nostream_download">串流播放失败.\n下载后收听吗?\n可能会产生流量费.</string>
+    <string name="warning_nostream_retry">流媒体播放失败.\n请再试一次.</string>
+    <string name="warning_onrecord_slide">伴奏曲录音中 …\n它的功能是停止.</string>
+    <string name="warning_preview_slide">1分钟采样…\n它的功能是停止.</string>
+    <string name="warning_onrecord_play">伴奏曲录音中…</string>
+    <string name="warning_norecord_play">录音已暂停…</string>
+    <string name="warning_record_error">在录制过程中发生的错误。</string>
+    <string name="warning_record_upload">录制这首歌的完成.\n录制歌曲?</string>
+    <string name="warning_record_upload_confirm">记录您要上传的歌曲吗?\n推荐使用Wi-Fi.</string>
+    <string name="warning_record_upload_complete">录音的歌曲, 上传已完成.\ n录制歌曲，请检查我的HOLIC菜单.</string>
+    <string name="warning_record_delete">删除选定的录制歌曲</string>
+    <string name="warning_record_cancel">的记录已被取消。\n你要检查</string>
+    <string name="warning_buy_pass_confirm">购买使用权\"%s\"吗？</string>
+    <string name="warning_buy_pass_connecting">使用权购买中.</string>
+    <string name="warning_buy_pass_refund_connecting">使用权退货中.</string>
+    <string name="warning_delete">你确定要删除吗？</string>
+    <!-- normal warning mobile date use summary -->
+    <string name="warning_alert_mobile_nowifi">Wi-Fi网络未连接或不稳定\n因此连接到移动网络.\n开始吗?\n如不想开始请按停止按钮.</string>
+    <string name="warning_alert_mobile_setting">Wi-Fi无法连接时连接移动网络通知设置.连接移动网络时可能会产生流量费用..</string>
+    <string name="warning_alert_mobile_use">正在使用移动网络.可能会产生流量费用.\n※消息显示是否设置：\n\"菜单\" -> \"设置\" -> \"网络设置\"</string>
+    <!-- normal title -->
+    <string name="title_info_buysongs">保管购买的MP3</string>
+    <string name="title_label_favorite">热门点唱曲</string>
+    <string name="title_plugin_name">KY练歌厅Plugin</string>
+    <string name="title_row_title1">实时TOP</string>
+    <string name="title_row_title2">最新歌曲</string>
+    <string name="title_mv_title">MV</string>
+    <string name="title_mv_tab1">人气MV</string>
+    <string name="title_mv_tab2">最新MV</string>
+    <string name="title_mv_msg_loading">视频上传中…</string>
+    <string name="title_register_date">上传日</string>
+    <!-- In-App Billing -->
+    <string name="purchase_not_supported_title">不购买In-App产品(通)</string>
+    <string name="purchase_not_supported_message">KPOP In-App产品(通)不要购买呢？\n删除从KPOP应用，应用程序管理.\n在谷歌播放尝试安装的KPOP最新的版本.</string>
+    <string name="billing_not_supported_title">无法支付谷歌播放</string>
+    <string name="billing_not_supported_message">谷歌游戏将能够使用的支付服务\n应用程序可用\n谷歌游戏通行证，现在不能买</string>
+    <string name="cannot_connect_title">无法连接到Google播放</string>
+    <string name="cannot_connect_message">该应用程序不能连接到Google播放\n请更新您的Google的播放应用\n应用程序是可用的，但现在不能买通行证</string>
+    <string name="restoring_transactions">在连接恢复</string>
+    <string name="learn_more">更多</string>
+    <string name="help_url" formatted="false">http://market.android.com/support/bin/answer.py?answer=1050566&amp;hl=%lang%&amp;dl=%region%</string>
+    <string name="buy">采购</string>
+
+</resources>

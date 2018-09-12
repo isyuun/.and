@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/solid_thick"
+	android:orientation="vertical" >
+
+	<TextView
+		android:id="@+id/txt_song_title"
+		style="@style/TextXLarge"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/solid_black"
+		android:gravity="center"
+		android:maxLines="1"
+		android:minHeight="40dp"
+		android:onClick="onClick"
+		android:padding="@dimen/margin_large"
+		android:text="@string/context_my_best"
+		android:textColor="@color/solid_orange" />
+
+	<View
+		android:layout_width="wrap_content"
+		android:layout_height="2dp"
+		android:background="@color/solid_orange" />
+
+	<LinearLayout
+		android:id="@+id/linearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:gravity="center" >
+
+		<TextView
+			android:id="@+id/txt_song_info"
+			style="@style/TextLarge"
+			android:layout_width="wrap_content"
+			android:layout_height="30dp"
+			android:drawableLeft="@drawable/img_list_circle"
+			android:gravity="center_vertical"
+			android:text="@string/context_song_info" />
+
+		<View
+			android:layout_width="0dp"
+			android:layout_height="1dp"
+			android:layout_weight="1.0" />
+
+		<Button
+			android:id="@+id/btn_song_info_kr"
+			style="@style/TextTiny"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/margin_tiny"
+			android:background="@drawable/btn_normal_counter_01"
+			android:gravity="center"
+			android:onClick="onClick"
+			android:text="@string/context_song_info_KO"
+			android:textColor="@color/solid_white" />
+
+		<Button
+			android:id="@+id/btn_song_info_us"
+			style="@style/TextTiny"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/margin_tiny"
+			android:background="@drawable/btn_normal_counter_01"
+			android:gravity="center"
+			android:onClick="onClick"
+			android:text="@string/context_song_info_EN"
+			android:textColor="@color/solid_white" />
+
+		<Button
+			android:id="@+id/btn_song_info_jp"
+			style="@style/TextTiny"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/margin_tiny"
+			android:background="@drawable/btn_normal_counter_01"
+			android:gravity="center"
+			android:onClick="onClick"
+			android:text="@string/context_song_info_JA"
+			android:textColor="@color/solid_white" />
+
+		<Button
+			android:id="@+id/btn_song_info_cn"
+			style="@style/TextTiny"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/margin_tiny"
+			android:background="@drawable/btn_normal_counter_01"
+			android:gravity="center"
+			android:onClick="onClick"
+			android:text="@string/context_song_info_CH"
+			android:textColor="@color/solid_white" />
+	</LinearLayout>
+
+	<ScrollView
+		android:id="@+id/scrollView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent" >
+
+		<TextView
+			android:id="@+id/txt_song_content"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+	</ScrollView>
+
+</LinearLayout>

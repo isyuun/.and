@@ -1,0 +1,138 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- SING -->
+    <item
+        android:id="@+id/menu_sing"
+        android:icon="@drawable/ic_sing"
+        android:showAsAction="never"
+        android:title="@string/menu_sing"
+        android:visible="false"/>
+    <!-- LISTEN -->
+    <item
+        android:id="@+id/menu_listen"
+        android:icon="@drawable/ic_listen"
+        android:showAsAction="never"
+        android:title="@string/menu_listen"
+        android:visible="false"/>
+    <!-- TICKET -->
+    <!-- <item -->
+    <!-- android:id="@+id/menu_ticket" -->
+    <!-- android:icon="@drawable/ic_ticket" -->
+    <!-- android:showAsAction="never" -->
+    <!-- android:title="@string/menu_ticket" -->
+    <!-- android:visible="false"/> -->
+    <!-- SHOP -->
+    <item
+        android:id="@+id/menu_shop"
+        android:icon="@drawable/ic_ticket"
+        android:showAsAction="never"
+        android:title="@string/menu_shop"
+        android:visible="false"/>
+    <!-- 오디션(목록) -->
+    <item
+        android:id="@+id/menu_audition"
+        android:icon="@drawable/ic_audition"
+        android:showAsAction="never"
+        android:title="@string/menu_audition"
+        android:visible="false"/>
+    <!-- 오디션(개최) -->
+    <item
+        android:id="@+id/menu_audition_open"
+        android:icon="@drawable/ic_audition_open"
+        android:showAsAction="never"
+        android:title="@string/menu_audition_open"/>
+    <!-- MY HOLIC -->
+    <item
+        android:id="@+id/menu_myholic"
+        android:icon="@drawable/ic_myholic"
+        android:showAsAction="never"
+        android:title="@string/menu_myholic"/>
+    <!-- 설정 -->
+    <item
+        android:id="@+id/menu_setting"
+        android:icon="@drawable/ic_setting"
+        android:showAsAction="never"
+        android:title="@string/menu_setting"/>
+    <!-- 설정(알림) -->
+    <item
+        android:id="@+id/menu_setting_notification"
+        android:icon="@drawable/ic_setting"
+        android:showAsAction="never"
+        android:title="@string/category_setting_notification"/>
+    <!-- 로그인 -->
+    <item
+        android:id="@+id/menu_login"
+        android:icon="@drawable/ic_login"
+        android:showAsAction="always"
+        android:title="@string/menu_login"/>
+    <!-- 로그아웃 -->
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/ic_login"
+        android:showAsAction="never"
+        android:title="@string/menu_logout"/>
+    <!-- 공지사항 -->
+    <item
+        android:id="@+id/menu_notice"
+        android:icon="@drawable/ic_information"
+        android:showAsAction="never"
+        android:title="@string/menu_notice"/>
+    <!-- 새로고침 -->
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_refresh"
+        android:showAsAction="never"
+        android:title="@string/menu_refresh"/>
+    <!-- 프로필편집 -->
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_myholic"
+        android:showAsAction="never"
+        android:title="@string/context_title_profile_edit"
+        android:visible="false"/>
+    <!-- 나의애창곡 -->
+    <item
+        android:id="@+id/menu_mysing"
+        android:icon="@drawable/ic_myholic"
+        android:showAsAction="never"
+        android:title="@string/menu_mysing"
+        android:visible="false"/>
+    <!-- SNS공유 -->
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_share"
+        android:showAsAction="never"
+        android:title="@string/menu_share"
+        android:visible="false"/>
+    <!-- 검색 -->
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_search"
+        android:showAsAction="never"
+        android:title="@string/menu_search"
+        android:visible="false"/>
+    <!-- 이하보류 - START -->
+    <!-- 도움말 -->
+    <!-- <item -->
+    <!-- android:id="@+id/menu_help" -->
+    <!-- android:icon="@drawable/ic_action_help_on" -->
+    <!-- android:showAsAction="never" -->
+    <!-- android:title="@string/search_help" -->
+    <!-- android:visible="false"/> -->
+    <!-- 필목록 -->
+    <!-- <item -->
+    <!-- android:id="@+id/menu_feel" -->
+    <!-- android:icon="@drawable/ic_action_feel_on" -->
+    <!-- android:showAsAction="never" -->
+    <!-- android:title="@string/menu_feel" -->
+    <!-- android:visible="false"/> -->
+    <!-- 코멘트작성 -->
+    <!-- <item -->
+    <!-- android:id="@+id/menu_comment" -->
+    <!-- android:icon="@drawable/ic_action_comment_on" -->
+    <!-- android:showAsAction="never" -->
+    <!-- android:title="@string/menu_comment" -->
+    <!-- android:visible="false"/> -->
+    <!-- 이하보류 - END -->
+
+</menu>

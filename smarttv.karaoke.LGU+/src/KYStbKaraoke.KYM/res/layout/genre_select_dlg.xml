@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+	android:orientation="horizontal" 
+		
+	android:background="#50500000"	
+	
+	android:layout_height="wrap_content" android:layout_width="match_parent">
+<!--   
+    android:minWidth="780dip"
+-->    
+ 
+
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/genre_bg" android:id="@+id/imageView1">
+    
+    </ImageView>
+    
+    
+    
+    <LinearLayout 
+        android:layout_height="wrap_content"  android:layout_gravity="center|center_vertical" android:orientation="vertical" android:layout_width="500dp">
+   
+   
+    
+        <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout1" android:orientation="horizontal" android:layout_width="match_parent" android:layout_gravity="center">
+            <Button android:layout_height="wrap_content" android:text="가나다라마바" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/positiveButton" android:layout_width="0dip"></Button>
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/negativeButton" android:layout_width="0dip"></Button>
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout2" android:orientation="horizontal" android:layout_width="match_parent">
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/positiveButton2" android:layout_width="0dip"></Button>
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/negativeButton2" android:layout_width="0dip"></Button>
+        </LinearLayout>
+
+        <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout3" android:orientation="horizontal" android:layout_width="match_parent">
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/positiveButton3" android:layout_width="0dip"></Button>
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/negativeButton3" android:layout_width="0dip"></Button>
+        </LinearLayout>
+         <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout4" android:orientation="horizontal" android:layout_width="match_parent">
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/positiveButton4" android:layout_width="0dip"></Button>
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/negativeButton4" android:layout_width="0dip"></Button>
+        </LinearLayout>
+        
+        <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout5" android:orientation="horizontal" android:layout_width="match_parent">
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/positiveButton5" android:layout_width="0dip"></Button>
+            <Button android:layout_height="wrap_content" android:text="Button" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/negativeButton5" android:layout_width="0dip"></Button>
+        </LinearLayout>
+        
+        
+        
+        
+        
+        
+ 
+ 
+ 
+<!--              
+                    <Button 
+            android:id="@+id/negativeButton"
+            android:layout_marginTop="3dip"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
+            
+                    <Button 
+            android:id="@+id/negativeButton"
+            android:layout_marginTop="3dip"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="true"/>
+-->
+
+		<LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout6" android:orientation="horizontal" android:layout_gravity="center" android:layout_width="140dp">
+			<Button android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginTop="3dip" android:singleLine="true" android:id="@+id/negativeButton6" android:text="Button" android:layout_width="match_parent"></Button>
+        </LinearLayout>
+        
+        
+    
+    </LinearLayout>
+
+</FrameLayout>

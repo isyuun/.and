@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/include_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/include_player" />
+
+    <RelativeLayout
+        android:id="@+id/include_sync"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/view2"
+        android:layout_below="@+id/view0"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/btn_counter"
+        android:padding="@dimen/padding_medium" >
+
+        <kr.kymedia.karaoke.widget.SeekBarVertical
+            android:id="@+id/sync_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/sync_refresh"
+            android:background="@drawable/bg_playbar"
+            android:progressDrawable="@drawable/seekbar_progress2"
+            android:thumb="@drawable/btn_play_clockwise_90"
+            android:thumbOffset="15dp" />
+
+        <RelativeLayout
+            android:id="@+id/sync_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/sync_bar"
+            android:layout_alignTop="@+id/sync_bar"
+            android:layout_toRightOf="@+id/sync_bar" >
+
+            <TextView
+                android:id="@+id/sync_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/sync_min"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:gravity="right"
+                android:shadowColor="@color/solid_black"
+                android:shadowRadius="10.0"
+                android:maxLines="1"
+                android:text="@string/hint_lyric_sync_max"
+                android:textColor="@color/solid_white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sync_zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/sync_min"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:shadowColor="@color/solid_black"
+                android:shadowRadius="10.0"
+                android:maxLines="1"
+                android:text="@string/hint_lyric_sync_zero"
+                android:textColor="@color/solid_white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sync_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="right"
+                android:shadowColor="@color/solid_black"
+                android:shadowRadius="10.0"
+                android:maxLines="1"
+                android:text="@string/hint_lyric_sync_min"
+                android:textColor="@color/solid_white"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <kr.kymedia.karaoke.widget._ImageButton
+            android:id="@+id/sync_refresh"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/bg_button"
+            android:contentDescription="@string/menu_refresh"
+            android:longClickable="true"
+            android:onClick="onClick"
+            android:paddingBottom="@dimen/padding_tiny"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_refresh"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/sync_tracker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/include_sync"
+        android:background="@drawable/bg_solid_white_stroke"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/hint_lyric_sync_format"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/view0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <include
+            android:id="@+id/include_player_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_large_play_bar"
+            layout="@layout/include_player_title2"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <include
+            android:id="@+id/include_player_people_baloon"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            layout="@layout/include_player_people_baloon" />
+
+        <include
+            android:id="@+id/include_player_people"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            layout="@layout/include_player_people"
+            tools:ignore="Suspicious0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/view2"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <include
+            android:id="@+id/include_player_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/include_player_read" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view2"
+        android:orientation="vertical" />
+
+    <include
+        android:id="@+id/include_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/include_reply"
+        android:layout_below="@+id/view5"
+        layout="@layout/include_list" />
+
+    <include
+        android:id="@+id/include_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/include_reply3" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_alignTop="@+id/include_reply"
+        android:background="@color/solid_orange" />
+
+    <RelativeLayout
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_player_control_bar_01" >
+
+        <include
+            android:id="@+id/include_player_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_large_play_bar"
+            layout="@layout/include_player_bar2"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</RelativeLayout>

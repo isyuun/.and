@@ -1,0 +1,66 @@
+﻿11/22
+영어
+1. Support Android 4.2 later version
+2. Add lyrics subtitle sync feature
+3. Change Background in Playing
+4. Bug fixes
+
+중국어
+1。支持Android4.2以后的版本
+2。添加歌词字幕同步功能
+3。更改背景播放
+4。 Bug修复
+
+일본어
+1。アンドロイド4.2以降のバージョンをサポートしています
+2。歌詞字幕同期機能を追加
+3。遊ぶの背景を変更する
+4。バグ修正
+
+한국어
+1. 안드로이드 4.2 버전을 지원합니다
+2. 가사 자막 동기화 기능을 추가
+3. 재생의 배경을 변경
+4. 버그 수정
+
+7/17
+- Step 1, Buy  Holic which is virtual currency of KPOP HOLIC. Step 2, Exchange a PASS with your own Holic
+- There is a BONUS Holic when you buy a 500 Holics or more. So, We hope you buy a large amount of holic 
+- App used that were automatically logged out of the problem has been improved. Now logout App is available without errors.
+- We have changed the design for example menu color & position of the menu button for easy using.
+
+
+▶私たちのメンバーのより快適な使用のためのデザインと追加された新機能を変更します。
+1。パスを購入する方法は、完全に新しい変更されました。
+私たちはPASSのwhiceを買うの古い方法をシャットダウンすると、直接Googleの市場でPASSを購入され
+ステップ1、KPOP HOLICの仮想通貨で購入†ほりっく。ステップ2は、あなた自身のホリックとPASSを交換
+あなたは500 Holics以上を買うときBONUS†ほりっくあります。 D：だから、私たちはあなたがホリックの大量購入希望
+2。ログアウト問題を修正しました
+- アプリケーションは、自動的に問題からログアウトされた2つが改善されました。今すぐアプリエラーなしで利用可能でログアウト。
+3。私たちは、快適で使いやすいため、色やボタンの配置を変更してください。
+私たちは、メニュー上の大きなボタンとしてLISTENし、メニューをSINGを配置
+ここでは、例のメニューカラー＆使用して簡単にするためのメニューボタンの位置のために全体のデザインを変更しました。
+
+
+▶我会更舒适地使用我们的成员已被添加到设计修改的新功能。
+1。如何购买路径，已经改变了完全新的。
+- 如果关闭旧的方式购买合格whice，我们购买了通直接在谷歌电子市场
+- 我射精挖的†KPOP HOLIC步骤1，购买虚拟货币。第2步，交流和PASS HOLIC你自己
+- 有射精挖奖金†购买超过500 Holics，你。 D：所以，我们希望购买了大量的狂热是你
+2。修正了一個退出的問題
+- APP使用兩個自動退出的問題得到了改善。現在註銷程序是沒有錯誤的。
+3。对于舒适和易于使用的，我们请更改按钮的位置和颜色。
+- 监听作为一个大菜单上的按钮，我们将唱菜单
+- 在这种情况下，我们改变了设计整个菜单按钮的位置容易使用菜单和颜色，例如。
+
+
+1.이용권 구매 방법이 완전히 새롭게 변경되었습니다.
+- KPOP HOLIC의 가상화폐인 Holic을 먼저 구매하고 이를 이용해 이용권으로 교환하는 방법으로 변경하였습니다.
+- Holic으로 교환 가능한 이용권의 종류를 더 다양하게 늘렸습니다.
+- 500 Holic 부터는 구매 시 보너스 Holic도 있습니다.
+- 결제 방식을 기존의 구글 마켓 결제 대신에 휴대폰 소액결제/신용카드/상품권 결제 등으로 전면 교체하였습니다.
+2.로그아웃 문제 개선
+- App 이용 중 자동으로 로그아웃이 되던 문제가 개선되었습니다. 이제는 로그아웃 오류 없이 App 이용이 가능합니다.
+3.버튼의 배치와 색상을 변경하여 사용이 쉽고 편하게 하였습니다.
+더욱 쉽고 편한 사용을 위해 메뉴 버튼의 위치와 색상 등 메인메뉴의 디자인을 변경하였습니다.
+

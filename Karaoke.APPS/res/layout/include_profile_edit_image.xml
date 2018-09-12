@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="@dimen/padding_large" >
+
+	<kr.kymedia.karaoke.widget._ImageView
+		android:id="@+id/img_profile_image"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_margin="@dimen/margin_large"
+		android:layout_weight="1.0"
+		android:contentDescription="@string/hint_profile_image"
+		android:padding="2dp"
+		android:scaleType="fitXY"
+		android:src="@drawable/ic_menu_01" />
+
+	<LinearLayout
+		android:id="@+id/layout_profile_image_save"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:gravity="center" >
+
+		<Button
+			android:id="@+id/btn_image_pick"
+			style="@style/TextLarge"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="@dimen/margin_tiny"
+			android:layout_weight="1.0"
+			android:background="@drawable/btn_normal_01"
+			android:clickable="true"
+			android:maxLines="1"
+			android:onClick="onClick"
+			android:text="@string/btn_title_load"
+			android:textColor="@color/solid_white"
+			android:textSize="@dimen/text_medium" />
+
+		<Button
+			android:id="@+id/btn_profile_image_save"
+			style="@style/TextLarge"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/margin_tiny"
+			android:layout_weight="1.0"
+			android:background="@drawable/btn_normal_01"
+			android:clickable="true"
+			android:maxLines="1"
+			android:onClick="onClick"
+			android:text="@string/btn_title_save"
+			android:textSize="@dimen/text_medium" />
+	</LinearLayout>
+
+</LinearLayout>

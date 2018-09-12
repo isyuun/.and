@@ -1,0 +1,355 @@
+package kr.kymedia.kykaraoke;
+
+import android.annotation.*;
+import android.app.*;
+import android.content.*;
+import android.graphics.*;
+import android.media.*;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnPreparedListener;
+import android.net.*;
+import android.os.*;
+import android.util.*;
+import android.view.*;
+import android.view.animation.*;
+import android.widget.*;
+
+import com.tvstorm.tv.*;
+import com.tvstorm.tv.framework.*;
+import com.tvstorm.tv.systemframework.settings.*;
+
+public class Video extends Activity implements Const {
+	int m_iDisplayWidth;
+	int m_iDisplayHeight;
+	boolean m_bPlayBackgroundVideo = false;
+	public static Activity ActivityVideo;
+	public BackgroundVideoView m_background;
+	public BackgroundVideoView m_backgroundVideo;
+	
+	LinearLayout mLayoutContainer2 = null;
+	LinearLayout mLayoutBG1 = null;
+	LinearLayout mLayoutBG2 = null;
+	
+	Animation mAnimShow = null;
+	Animation mAnimHide = null;
+	
+	final String CLASS = "Video";
+	
+	// for STB
+	boolean m_bSTBServiceSystemConnect = false;
+	TVContextManager tvContextManager = null;
+	ITVService tvService = null;
+    TVSystem tvSystem = null;
+    String m_strSTBIDOrigin = "";
+    String m_strSTBID = "";
+    String m_strMac = "";
+    String m_strModelName = "";
+    
+    @Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		ActivityVideo = Video.this;
+		
+		setContentView(R.layout.video);
+		
+		Display display = getWindow().getWindowManager().getDefaultDisplay();
+        Point displaySize = new Point();
+        display.getSize(displaySize);
+        m_iDisplayWidth = displaySize.x;
+        m_iDisplayHeight = displaySize.y;
+        
+        if (P_DEVICE == SMART_STB) {
+        	Context appContext = this.getApplicationContext();
+	        tvContextManager = TVContextManager.getInstance(appContext);
+	        tvService = tvContextManager.getService(ITVService.TVSystem);
+	        tvSystem = (TVSystem) tvService;
+
+	        tvSystem.connect(new TVPlatformListener());
+        } else {
+	        Bundle bundle = new Bundle();
+		    Intent intent = new Intent(getApplicationContext(), Main.class);
+			intent.putExtras(bundle);
+			startActivityForResult(intent, 0);
+        }
+        
+        m_backgroundVideo = new BackgroundVideoView(this);
+        m_background = new BackgroundVideoView(this);
+	}
+	
+	@Override
+	protected void onResume() {
+		if (P_DEVICE == SMART_STB) {
+			tvSystem.connect(new TVPlatformListener());
+		}
+		
+		super.onResume();
+		
+		Main main = (Main)Main.ActivityMain;
+		
+		if (main != null) {
+			Intent intent = new Intent(Video.this, Main.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+			startActivity(intent);
+		}
+	}
+	
+	@Override
+	protected void onPause() {
+		if (P_DEVICE == SMART_STB) {
+			tvSystem.disconnect();
+		}
+		
+		super.onPause();
+	}
+	
+	@Override
+	protected void onDestroy() {
+		if (P_DEVICE == SMART_STB) {
+			tvSystem.disconnect();
+		}
+		
+		super.onDestroy();
+	}
+	
+	public class TVPlatformListener extends TVSystem.ConnectionListener {
+        @Override
+        public void onTVServiceConnected() {
+        	Log.d(CLASS, "TVSystemService Connected");
+            
+            tvSystem.getSettings().setHDMIAudioMode(ITVSettings.HDMI_AUDIO_MODE_PCM);
+			tvSystem.getSettings().setMicEchoLevel(50);
+			tvSystem.getSettings().setMicOnOff(true);
+            
+            tvSystem.getSystem().setMousePointerVisible(false);
+			
+            if (!m_bSTBServiceSystemConnect) {
+            	m_bSTBServiceSystemConnect = true;
+            
+				String STBID = "";
+				STBID = tvSystem.getSystem().getProperty("STBID");
+				
+				int i = 0;
+				while(i < STBID.length()) {
+					if (!STBID.substring(i, i + 1).equals("{") && !STBID.substring(i, i + 1).equals("}")) {
+						m_strSTBIDOrigin = m_strSTBIDOrigin + STBID.substring(i, i + 1);
+					}
+					
+					i++;
+				}
+				
+				m_strSTBID = Base64.encodeToString(m_strSTBIDOrigin.getBytes(), Base64.NO_WRAP);
+				m_strMac = tvSystem.getEthernet().getMacAddress();
+				m_strModelName = tvSystem.getSystem().getModelName();
+				
+				if (m_strMac.substring(0, 1).equals("0")) {
+					m_strMac = m_strMac.substring(1, m_strMac.length());
+				}
+				
+				m_strMac = m_strMac.replace(":0", ":");
+				
+				Bundle bundle = new Bundle();
+				bundle.putString("STBID", m_strSTBID);
+				bundle.putString("MAC", m_strMac);
+				bundle.putString("STBIDOrigin", m_strSTBIDOrigin);
+				bundle.putString("MODELNAME", m_strModelName);
+			    Intent intent = new Intent(getApplicationContext(), Main.class);
+				intent.putExtras(bundle);
+				startActivityForResult(intent, 0);
+            }
+        }
+
+        @Override
+        public void onTVServiceDisconnected() {
+        	Log.d(CLASS, "TVSystemService disconnected");
+        }
+    }
+	
+	@SuppressLint("HandlerLeak")
+	final Handler videoHandler = new Handler() {
+		@Override
+		public void handleMessage(Message msg) {
+    		int state = msg.what;
+    		
+    		LinearLayout layoutBGLoading = (LinearLayout)findViewById(R.id.layout_background_loading);
+    		
+    		Main mainActivity = (Main)Main.ActivityMain;
+    		
+    		switch(state)
+    		{
+    		case 0 :
+    			if (m_backgroundVideo.getCurrentPosition() > 0) {
+    				videoHandler.sendEmptyMessageDelayed(1, 500);
+    			} else {
+    				videoHandler.sendEmptyMessageDelayed(0, 500);
+    			}
+    			break;
+    		case 1 :
+    			layoutBGLoading.setBackgroundResource(R.drawable.bg);
+    			
+    			videoHandler.sendEmptyMessageDelayed(4, 3000);
+    			
+    			mainActivity.hideBackground();
+    			
+    			if (mainActivity != null) {
+        			mainActivity.StartPlayActivity();
+        			
+        		}
+    			break;
+    		case 2 :
+    			if (m_background.getCurrentPosition() > 0) {
+    				videoHandler.sendEmptyMessageDelayed(3, 500);
+    			} else {
+    				videoHandler.sendEmptyMessageDelayed(2, 500);
+    			}
+    			break;
+    		case 3 :
+    			mainActivity.hideBackground();
+    			break;
+    		case 4 :
+    			layoutBGLoading.setBackgroundResource(R.drawable.blank);
+    			break;
+    		}
+		}
+	};
+	
+	public void playBackground(String url) {
+		LinearLayout layoutBG = (LinearLayout)findViewById(R.id.layout_background_video_menu);
+        layoutBG.addView(m_background);
+		Uri videoUri = Uri.parse(url);
+		m_background.setVideoURI(videoUri);
+		m_background.requestFocus();
+		
+		m_background.setOnPreparedListener(new OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+            	LOG(CLASS, "Start App, onPrepared");
+            	
+            	videoHandler.sendEmptyMessageDelayed(2, 500);
+            	
+            	m_background.start();
+            	
+                mp.setLooping(true);
+            }
+        });
+	}
+	
+	public void startBackground(String url) {
+		LOG(CLASS, "startBackground >");
+		LOG(CLASS, "Video URL : " + url);
+		
+		Main mainActivity = (Main)Main.ActivityMain;
+		mainActivity.showBackground();
+		
+		m_backgroundVideo.stopPlayback();
+		
+		LinearLayout layoutBGVideo = (LinearLayout)findViewById(R.id.layout_background_video);
+		layoutBGVideo.removeAllViews();
+		
+		LinearLayout layoutBG = (LinearLayout)findViewById(R.id.layout_background_video_menu);
+        layoutBG.removeAllViews();
+        layoutBG.addView(m_background);
+        
+		Uri videoUri = Uri.parse(url);
+		m_background.setVideoURI(videoUri);
+		m_background.requestFocus();
+		
+		LOG(CLASS, "startBackground <");
+    
+		m_background.setOnPreparedListener(new OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+            	LOG(CLASS, "onPrepared");
+
+            	videoHandler.sendEmptyMessageDelayed(2, 500);
+        		
+        		m_background.start();
+            	
+                mp.setLooping(true);
+            }
+        });
+		
+		m_background.setOnCompletionListener(new OnCompletionListener() {
+			@Override
+            public void onCompletion(MediaPlayer mp) {
+			}
+		});
+	}
+	
+	public void startBackgroundVideo(String url) {
+		LOG(CLASS, "startBackgroundVideo >");
+		LOG(CLASS, "Video URL : " + url);
+		
+		Main mainActivity = (Main)Main.ActivityMain;
+		mainActivity.showBackground();
+		
+		m_background.stopPlayback();
+		
+		LinearLayout layoutBG = (LinearLayout)findViewById(R.id.layout_background_video);
+        layoutBG.removeAllViews();
+        layoutBG.addView(m_backgroundVideo);
+        
+		Uri videoUri = Uri.parse(url);
+		m_backgroundVideo.setVideoURI(videoUri);
+		m_backgroundVideo.requestFocus();
+		
+		LOG(CLASS, "startBackgroundVideo <");
+		
+		m_backgroundVideo.setOnPreparedListener(new OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp)
+            {
+            	LOG(CLASS, "onPrepared");
+
+            	videoHandler.sendEmptyMessageDelayed(0, 500);
+        		
+        		m_backgroundVideo.start();
+            	
+                mp.setLooping(true);
+            }
+        });
+		
+		m_backgroundVideo.setOnCompletionListener(new OnCompletionListener() {
+			@Override
+            public void onCompletion(MediaPlayer mp) {
+			}
+		});
+	}
+	
+	public boolean isPlaying() {
+		if (m_backgroundVideo != null) {
+			if (m_backgroundVideo.isPlaying()) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	public void stopBackgroundVideo(String url) {
+		if (m_backgroundVideo == null) {
+			return;
+		}
+		
+		startBackground(url);
+	}
+	
+	private class BackgroundVideoView extends VideoView {
+		public BackgroundVideoView(Context context) {
+			super(context);
+		}
+	
+		@Override
+		protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+			setMeasuredDimension(m_iDisplayWidth, m_iDisplayHeight);
+			LOG(CLASS, "display size is " + String.valueOf(m_iDisplayWidth) + " / " + String.valueOf(m_iDisplayHeight));
+		}
+	}
+	
+	private void LOG(String tag, String msg) {
+		if (P_DEBUG == "debug") {
+			Log.i(tag, msg);
+		}
+	}
+}

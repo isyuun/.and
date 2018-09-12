@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/margin_input_bar"
+    android:background="@drawable/bg_trans_stroke"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1.0"
+        android:fillViewport="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ViewSwitcher
+                android:id="@+id/viewSwitcher"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_large_play_bar" >
+
+                <include
+                    android:id="@+id/include_player_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_large_play_bar"
+                    layout="@layout/include_player_title3" />
+
+                <include
+                    android:id="@+id/include_player_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    layout="@layout/include_player_menu" />
+            </ViewSwitcher>
+
+            <EditText
+                android:id="@+id/upload_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_input_bar"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_feel_title"
+                android:inputType="textEmailSubject"
+                android:padding="@dimen/padding_large" />
+
+            <EditText
+                android:id="@+id/upload_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/margin_input_box"
+                android:layout_marginTop="@dimen/margin_input_box"
+                android:layout_weight="1.0"
+                android:ems="10"
+                android:gravity="top|left"
+                android:hint="@string/hint_profile_commet"
+                android:padding="@dimen/padding_large"
+                android:textSize="@dimen/text_large" />
+
+            <EditText
+                android:id="@+id/upload_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_feel_url"
+                android:inputType="textUri"
+                android:padding="@dimen/padding_large"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/upload_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/hint_feel_tag"
+                android:inputType="textUri"
+                android:padding="@dimen/padding_large"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/upload_play"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/margin_input_box"
+                android:background="@drawable/btn_normal_counter_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/context_play_listen"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_input_box" >
+
+                <LinearLayout
+                    android:id="@+id/upload_buttons"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0" >
+
+                    <Button
+                        android:id="@+id/upload_save"
+                        style="@style/TextLarge"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_normal_counter_01"
+                        android:clickable="true"
+                        android:maxLines="1"
+                        android:onClick="onClick"
+                        android:text="@string/btn_title_upload"
+                        android:textColor="@color/solid_white"
+                        android:textSize="@dimen/text_medium" />
+
+                    <View
+                        android:id="@+id/view1"
+                        android:layout_width="10dp"
+                        android:layout_height="match_parent" />
+
+                    <Button
+                        android:id="@+id/upload_cancel"
+                        style="@style/TextLarge"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_normal_counter_01"
+                        android:clickable="true"
+                        android:maxLines="1"
+                        android:onClick="onClick"
+                        android:text="@string/btn_title_cancel"
+                        android:textColor="@color/solid_white"
+                        android:textSize="@dimen/text_medium" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/upload_close"
+                    style="@style/TextLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_normal_counter_01"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:text="@string/btn_title_close"
+                    android:textColor="@color/solid_white"
+                    android:textSize="@dimen/text_medium"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- <include -->
+    <!-- android:id="@+id/include_player_bar" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- layout="@layout/include_player_bar2" /> -->
+
+</LinearLayout>

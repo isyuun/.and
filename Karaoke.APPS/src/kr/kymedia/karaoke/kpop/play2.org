@@ -1,0 +1,286 @@
+/*
+ * Copyright 2011 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+/**
+ * 2014 All rights (c)KYGroup Co.,Ltd. reserved.
+ * 
+ * This software is the confidential and proprietary information
+ *  of (c)KYGroup Co.,Ltd. ("Confidential Information").
+ * 
+ * project	:	Karaoke.APP
+ * filename	:	play2.java
+ * author	:	isyoon
+ *
+ * <pre>
+ * kr.kymedia.karaoke.kpop
+ *    |_ play2.java
+ * </pre>
+ * 
+ */
+
+package kr.kymedia.karaoke.kpop;
+
+import kr.kymedia.karaoke.IKaraoke;
+import kr.kymedia.karaoke.IKaraoke2;
+import kr.kymedia.karaoke.api.Log;
+import kr.kymedia.karaoke.app.BaseFragment2;
+import kr.kymedia.karaoke.app.R;
+import kr.kymedia.karaoke.widget.util.WidgetUtils;
+import android.annotation.SuppressLint;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
+import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.view.View.OnTouchListener;
+import android.view.ViewGroup;
+
+/**
+ * <pre>
+ * 
+ * </pre>
+ * 
+ * @author isyoon
+ * @since 2014. 12. 19.
+ * @version 1.0
+ */
+public class play2 extends play {
+
+	@Override
+	@SuppressLint("InlinedApi")
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		// setActionBarOverlay(true);
+
+		super.onCreate(savedInstanceState);
+
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+		setFullScreen(true);
+	}
+
+	@Override
+	public void setFullScreen(boolean enabled) {
+		// enabled = false;
+		// TODO Auto-generated method stub
+		super.setFullScreen(enabled);
+
+		if (enabled) {
+			hideActionBar();
+		} else {
+			showActionBar();
+		}
+		// hideActionBar();
+	}
+
+	public void setMargins(View v, int l, int t, int r, int b) {
+		if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + v);
+
+		WidgetUtils.setMargins(v, l, t, r, b);
+	}
+
+	public void setPlayerBars() {
+		// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + ((playFragment) getCurrentFragment()).isShowPlayer());
+
+		int t = 0;
+		int b = 0;
+		int r = 0;
+
+		// if (isEnabledFullScreen() && WidgetUtils.isStatusBarVisible(this)) {
+		// t = WidgetUtils.getStatusBarHeight(getApp());
+		// }
+		//
+		// if (isShowActionBar()) {
+		// t += getSupportActionBar().getHeight();
+		// }
+
+		// if (isShowSystemUI()) {
+		// if (WidgetUtils.isNavBarRight(this)) {
+		// r = WidgetUtils.getNavigationBarHeight(getApp());
+		// } else if (WidgetUtils.isNavBarBottom(this)) {
+		// b = WidgetUtils.getNavigationBarHeight(getApp());
+		// }
+		// }
+
+		setMargins(findViewById(R.id.include_player_subject), 0, t, 0, 0);
+		setMargins(findViewById(R.id.adbase), 0, 0, 0, b);
+		setMargins(findViewById(R.id.include_player_control), 0, 0, r, 0);
+
+	}
+
+	private void setContent() {
+
+		if (getCurrentFragment() != null) {
+			if (getCurrentFragment().getRootView() != null) {
+				getCurrentFragment().getRootView().setOnTouchListener(this);
+			} else {
+				getCurrentFragment().getRootView().setOnTouchListener(this);
+			}
+		}
+
+		if (findViewById(R.id.include_player) != null) {
+			if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + findViewById(R.id.include_player));
+
+			final GestureDetector showPlayerBarDetector = new GestureDetector(this, this.showPlayerBarListener);
+
+			WidgetUtils.setOnClickListener(this, (ViewGroup) findViewById(R.id.include_player), null, false);
+			WidgetUtils.setOnTouchListener(this, (ViewGroup) findViewById(R.id.include_player), new OnTouchListener() {
+
+				@Override
+				public boolean onTouch(View v, MotionEvent event) {
+					// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + v);
+					// TODO Auto-generated method stub
+					return showPlayerBarDetector.onTouchEvent(event);
+				}
+			});
+
+			WidgetUtils.setOnFocusListener(this, (ViewGroup) findViewById(R.id.include_reply), new OnFocusChangeListener() {
+
+				@Override
+				public void onFocusChange(View v, boolean hasFocus) {
+					// TODO Auto-generated method stub
+					if (v.getId() == R.id.edt_reply_text) {
+						if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + getResourceEntryName(v.getId()));
+						setFullScreen(!hasFocus);
+					}
+				}
+			});
+		}
+
+	}
+
+	private GestureDetector.SimpleOnGestureListener showPlayerBarListener = new GestureDetector.SimpleOnGestureListener() {
+
+		@Override
+		public boolean onDoubleTap(MotionEvent e) {
+			// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + e);
+			// TODO Auto-generated method stub
+			return super.onDoubleTap(e);
+		}
+
+		@Override
+		public boolean onDoubleTapEvent(MotionEvent e) {
+			// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + e);
+			// TODO Auto-generated method stub
+			return super.onDoubleTapEvent(e);
+		}
+
+		@Override
+		public boolean onSingleTapConfirmed(MotionEvent e) {
+			// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + e);
+			// TODO Auto-generated method stub
+			if (getCurrentFragment() instanceof playFragment) {
+				((playFragment) getCurrentFragment()).showPlayerBar(!((playFragment) getCurrentFragment()).isShowPlayerBar());
+			}
+			setFullScreen(true);
+			return super.onSingleTapConfirmed(e);
+		}
+
+	};
+
+	@Override
+	@SuppressLint("ClickableViewAccessibility")
+	public boolean onTouch(View v, MotionEvent event) {
+		// TODO Auto-generated method stub
+		return super.onTouch(v, event);
+	}
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+
+		setContent();
+	}
+
+	@Override
+	protected void addFragment(int containerViewId, BaseFragment2 fragment, String tag) {
+		// TODO Auto-generated method stub
+		super.addFragment(containerViewId, fragment, tag);
+
+		setContent();
+	}
+
+	@Override
+	protected void replaceFragment(int containerViewId, BaseFragment2 fragment, String tag) {
+		// TODO Auto-generated method stub
+		super.replaceFragment(containerViewId, fragment, tag);
+
+		setContent();
+	}
+
+	@Override
+	public void onSystemUiVisibilityChange(int visibility) {
+		if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName());
+		// TODO Auto-generated method stub
+		super.onSystemUiVisibilityChange(visibility);
+
+		setContent();
+	}
+
+	@Override
+	@SuppressLint("NewApi")
+	protected void hideActionBar() {
+		try {
+			// TODO Auto-generated method stub
+			super.hideActionBar();
+
+			setPlayerBars();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	@SuppressLint("NewApi")
+	protected void showActionBar() {
+		try {
+			// TODO Auto-generated method stub
+			super.showActionBar();
+
+			setPlayerBars();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + newConfig);
+
+		// TODO Auto-generated method stub
+		super.onConfigurationChanged(newConfig);
+
+		hideActionBar();
+		// switch (newConfig.orientation) {
+		// case Configuration.ORIENTATION_LANDSCAPE:
+		// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + "[Configuration.ORIENTATION_LANDSCAPE]");
+		// hideActionBar();
+		// break;
+		// case Configuration.ORIENTATION_PORTRAIT:
+		// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + "[Configuration.ORIENTATION_PORTRAIT]");
+		// showActionBar();
+		// break;
+		// default:
+		// if (IKaraoke2.DEBUG || IKaraoke.DEBUG) Log.e(__CLASSNAME__, getMethodName() + "[Configuration.ORIENTATION_UNKOWN]");
+		// showActionBar();
+		// break;
+		// }
+	}
+
+}

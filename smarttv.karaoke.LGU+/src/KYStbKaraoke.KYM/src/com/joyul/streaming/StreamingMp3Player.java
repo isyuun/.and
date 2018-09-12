@@ -1,0 +1,919 @@
+package com.joyul.streaming;
+
+
+//import android.app.Activity;
+import isyoon.com.devscott.karaengine.Global;
+import isyoon.com.devscott.karaengine.KMsg;
+import isyoon.com.devscott.karaengine.KPlay;
+import isyoon.com.devscott.karaengine.Output;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnBufferingUpdateListener;
+import android.media.MediaPlayer.OnCompletionListener;
+import android.os.Handler;
+import android.util.Log;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+public class StreamingMp3Player
+{ 
+	private static final int INTIAL_KB_BUFFER = 96*10/8; // assume 96kbps*10secs/8bits per byte
+	
+	// Track for display by progressBar
+	private long mediaLengthInKb, mediaLengthInSeconds;
+	private int totalKbRead = 0;
+	
+	private boolean flagBreak = true;
+	// Create Handler o call View updates on the main UI Thread
+	private final Handler handler = new Handler();
+	private File 		downloadingMediaFile;
+	private boolean 	isInterrupted;
+	private int 		counter = 0;			// file counter
+	
+	private Context 	context;
+
+	private TextView 	textStreamed;
+	private ProgressDialog mProgress = null;
+	//
+	private TickTimerThread mThread 	= null; 
+	
+	
+	private MediaPlayer 	mediaPlayer = null;
+	//private Mp3Player		mediaPlayer	= null;
+	private int m_jni_type = 0;
+	
+//	private int 			mediaFileLengthInMilliseconds = 0; // this value contains the song duration in milliseconds. Look at getDuration() method in MediaPlayer class
+	
+	/** Called when the activity is first created. */
+/*	
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        initView();
+    }   
+*/
+	
+	
+
+	public StreamingMp3Player( Context context, TextView textStreamed, ProgressDialog progressDialog)
+	
+	{
+		this.context 		= context;
+		this.textStreamed 	= textStreamed;
+		this.mProgress 		= progressDialog;
+	}
+    
+    /** This method initialise all the views in project*/
+    public void initialize() 
+    {
+    }
+    
+    
+
+
+
+    
+    /**
+     * @param mediaUrl
+     * @param mediaLengthInKb
+     * @param mediaLengthInSeconds
+     * @throws IOException
+     */
+    private void startStreaming ( final String mediaUrl, long mediaLengthInKb, long mediaLengthInSeconds) throws IOException
+    {
+    	
+  
+    	
+    	this.totalKbRead = 0;		// 받은 파일의 량 초기화 
+    	
+    	this.mediaLengthInKb = mediaLengthInKb;
+    	this.mediaLengthInSeconds = mediaLengthInSeconds;
+    	Runnable r = new Runnable() {
+    		public void run() {
+    			try {
+    				downloadAudioIncrement(mediaUrl);
+    			}
+    			catch( IOException e ) {
+    				Log.e(getClass().getName(), "Unable to initialize the MediaPlayer for fileUrl=" + mediaUrl, e );
+    				return;
+    			}
+    		}
+    	};
+    	new Thread(r).start();
+    }
+    
+   
+    /**
+     * 
+     * @param mediaUrl
+     * @throws IOException
+     */
+    public void downloadAudioIncrement(String mediaUrl) throws IOException {
+    	
+    	URLConnection cn = new URL(mediaUrl).openConnection();
+    	cn.connect();
+    	InputStream stream = cn.getInputStream();
+    	if ( stream == null )
+    	{
+    		Log.e(getClass().getName(), "Unable to create InputStream for mediaUrl:"+mediaUrl);
+    	}
+    	
+    	downloadingMediaFile = new File ( context.getCacheDir(), "downloadingMedia.dat");
+    	if ( downloadingMediaFile.exists())
+    		downloadingMediaFile.delete();
+    	
+    	FileOutputStream out = new FileOutputStream ( downloadingMediaFile );
+
+    	byte buf[] = new byte[16384];
+//    	byte buf[] = new byte[512];
+    	int totalBytesRead = 0, incrementalBytesRead =0;
+   
+    	
+ /* streamming 	
+    	do {
+    		int numread = stream.read(buf);
+    		if ( numread <= 0)
+    			break;
+    		out.write(buf, 0, numread);
+    		totalBytesRead += numread;
+    		incrementalBytesRead += numread;
+    		totalKbRead = totalBytesRead/1000;
+    	
+    		if ( isInterrupted != true )
+    		{
+    			testMediaBuffer();		일정량의 버퍼가 차면 재생 시작  
+    			fireDataLoadUpdate();
+    		}
+    	} while ( validateNotInterrupted() );
+    	stream.close();
+    	
+    	//전체 로드됩. 
+    	if ( validateNotInterrupted()) {
+    		fireDataFullyLoaded();
+    	}
+*/
+    	
+    	/* full downlaod */    	
+     	do {
+    		int numread = stream.read(buf);
+    		if ( numread <= 0)
+    			break;
+    		out.write(buf, 0, numread);
+    		totalBytesRead += numread;
+    		incrementalBytesRead += numread;
+    		totalKbRead = totalBytesRead/1000;
+    	
+    		if ( isInterrupted != true )
+    			fireDataLoadUpdate();
+    		
+    		
+    		
+    	} while ( validateNotInterrupted() );
+     
+     	
+     	Log.d("ke", "Interrupt " + isInterrupted + " flagBreak " + flagBreak );
+    	stream.close();
+    
+    	
+    	// download 다해서 내려올땐 flagBreak true 여야 계속 재생한다. 인터럽트걸려서 내려올때는 false 여야 한다.  
+    	if ( flagBreak == true )
+    		playMediaBuffer();				//  재생.
+   
+    	if ( mProgress != null)
+    	{
+    		mProgress.dismiss();
+    		mProgress = null;
+    	}
+   }
+    
+    //bgkim mp3 재생 종료 (앱 종료)
+    public void exitMp3Player() {
+    	if ( mediaPlayer != null )
+		{
+			if ( mediaPlayer.isPlaying() )
+			{
+				mediaPlayer.pause(); 
+				mediaPlayer.stop();
+			}
+			
+			mediaPlayer.reset();
+			mediaPlayer.release();
+			mediaPlayer = null;
+		}
+    }
+    
+   
+    /**
+     * @return
+     */
+    private boolean validateNotInterrupted() 
+    {
+    	if ( isInterrupted)
+    	{
+    		if ( mediaPlayer != null )
+    		{
+    			Log.d("ke", "mediaPlayer stop ");
+    			if ( mediaPlayer.isPlaying() == true )
+    			{
+    				mediaPlayer.pause();			// pause를 반드시 해주길 바람. 
+    				mediaPlayer.stop();
+    				mediaPlayer.release();
+    				mediaPlayer = null;
+    			}
+    		}
+    		return false;
+    	} 
+		//Log.e("ke", "mediaPlayer non-stop, maybe in download");
+    	return true;
+    }
+
+    /* 재생 루틴 */ 
+    private void playMediaBuffer()
+    {
+    	
+     	Runnable updater = new Runnable() 	{
+    		public void run() {
+    			if ( mediaPlayer == null ) 
+    			{
+    					try {
+    						startMediaPlayer();
+    					}
+    					catch ( Exception e ) {
+    						Log.e(getClass().getName(), "Error copying buffered conent.", e );
+    					}
+    			} else if ( mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition() <= 1000) {
+    					transferBufferToMediaPlayer();
+    			}
+    		}
+    	};
+    	handler.post(updater);
+    }
+   
+    /**
+     *  일정량의 미디저버퍼가 차면 재생을 한다. 
+     */
+    private void testMediaBuffer()    {
+    	Runnable updater = new Runnable() 	{
+    		public void run() {
+    			if ( mediaPlayer == null ) 
+    			{
+    				// Only create the mediaplyaer once we hhave 
+    				if ( totalKbRead >= INTIAL_KB_BUFFER ) {
+    					try {
+    						startMediaPlayer();
+    					}
+    					catch ( Exception e ) {
+    						Log.e(getClass().getName(), "Error copying buffered conent.", e );
+    					}
+    				}
+    			} else if ( mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition() <= 1000) {
+    					transferBufferToMediaPlayer();
+    			}
+    		}
+    	};
+    	handler.post(updater);
+    }
+    
+    /**
+     * 
+     */
+    private void startMediaPlayer()
+    {
+    	if ( m_jni_type == 2 )
+    	{
+    		
+    		File bufferedFile;
+     		try
+     		{
+    			bufferedFile = new File(context.getCacheDir(), "playingMedia" + (counter++) + ".dat" );
+    			moveFile( downloadingMediaFile, bufferedFile);
+   				Log.e( getClass().getName(), "Buffered file path :" + bufferedFile.getAbsolutePath() );
+   				Log.e( getClass().getName(), "Buffered file length :" + bufferedFile.length() + "" );
+    		}
+   			catch ( IOException e )
+    		{
+    			Log.e(getClass().getName(), "Error initializing the mediaplayer.", e );
+    			return ;
+    		}
+    		
+    		//String file = context.getCacheDir() + "/playingMedia" + (counter-1) + ".dat" ;
+    	    mediaPlayer = createMediaPlayer2(bufferedFile);
+    	    mediaPlayer.start();
+    		
+			
+    		
+    	}
+    	else
+    	if ( m_jni_type == 1)
+    	{
+    		/* jni */
+    		/*
+    		try
+    		{
+    			File bufferedFile = new File(context.getCacheDir(), "playingMedia" + (counter++) + ".dat" );
+    			moveFile( downloadingMediaFile, bufferedFile);
+   				Log.e( getClass().getName(), "Buffered file path :" + bufferedFile.getAbsolutePath() );
+   				Log.e( getClass().getName(), "Buffered file length :" + bufferedFile.length() + "" );
+    		}
+   			catch ( IOException e )
+    		{
+    			Log.e(getClass().getName(), "Error initializing the mediaplayer.", e );
+    			return ;
+    		}
+    		
+//    	    mediaPlayer = createMp3Player("/mnt/sdcard/aaa.mp3");
+    		String file = context.getCacheDir() + "/playingMedia" + (counter-1) + ".dat" ;
+    	    mediaPlayer = createMp3Player(file);
+    		mediaPlayer.start_jni();
+    		*/
+    	}
+    	else
+    	{
+    	/*  java layer player	
+    		try
+    		{
+    			Log.d("ke", "startMediaPlayer()");
+//local    			File bufferedFile = new File("/mnt/sdcard/", "aaa.mp3" );
+    			File bufferedFile = new File(context.getCacheDir(), "playingMedia" + (counter++) + ".dat" );
+    			moveFile( downloadingMediaFile, bufferedFile);
+    			Log.e( getClass().getName(), "Buffered file path :" + bufferedFile.getAbsolutePath() );
+    			Log.e( getClass().getName(), "Buffered file length :" + bufferedFile.length() + "" );
+    			
+    			mediaPlayer = createMp3Player( bufferedFile );
+    			mediaPlayer.start_javalayer();
+    			startPlayProgressUpdater();
+    			//playButton.setEnabled(true);
+    		}
+    		catch ( IOException e )
+    		{
+    			Log.e(getClass().getName(), "Error initializing the mediaplayer.", e );
+    			return ;
+    		}
+    	*/	
+    	}
+    }
+    
+    /** mp3 jni */
+    /* 
+    private Mp3Player createMp3Player( String mediaFile )
+    {
+    	Mp3Player mPlayer = new Mp3Player( context);
+    	mPlayer.setDataSource(mediaFile);
+    	mPlayer.prepare();
+     	mPlayer.setOnCompletionListener(new Mp3Player.OnCompletionListener() 
+		{ 
+			@Override
+			public void onCompletion() 
+			{
+				songPlayingComplete();
+			}
+		});   	
+    	return mPlayer;
+    }
+    */
+    
+/* 
+    private Mp3Player createMp3Player( File mediaFile ) throws IOException
+    {
+    	Mp3Player mPlayer = new Mp3Player( context);
+    	FileInputStream fis = new FileInputStream( mediaFile );
+
+    	mPlayer.setDataSource( fis );
+    	mPlayer.prepare();
+     	mPlayer.setOnCompletionListener(new Mp3Player.OnCompletionListener() 
+		{ 
+			@Override
+			public void onCompletion() 
+			{
+				songPlayingComplete();
+			}
+		});   	
+     	
+    	return mPlayer;
+    }
+*/    
+    private MediaPlayer createMediaPlayer2( File mediaFile ) //throws IOException 
+    {
+    	MediaPlayer mPlayer = new MediaPlayer();
+    	mPlayer.setOnErrorListener(
+    		new MediaPlayer.OnErrorListener() 
+    		{
+    			public boolean onError(MediaPlayer mp, int what, int extra )
+    			{
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				Log.e(getClass().getName(), "Error in mediaplayer: (" + what +") with extra (" + extra +")");
+    				
+    				return false;
+    			}
+    		});
+    	FileInputStream fis = null;
+		try {
+			fis = new FileInputStream( mediaFile );
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+    	
+    	try {
+			mPlayer.setDataSource(fis.getFD());
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	try {
+			mPlayer.prepare();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	//
+    	// added complete listener
+    	mPlayer.setOnCompletionListener(new OnCompletionListener() 
+		{ 
+			@Override 
+			public void onCompletion(MediaPlayer mp) 
+			{
+				songPlayingComplete();
+			}
+		});   	
+    	return mPlayer;
+    }
+    
+    /**
+     * Transfer buffered data to the MediaPlayer.
+     * NOTE: Interacting with a MediaPlayer on a non-main UI thread can cause thread-lock and crashes so 
+     * this method should always be called using a Handler.
+     */  
+    private void transferBufferToMediaPlayer() {
+    	
+    /*pppp	
+	    try {
+	    	// First determine if we need to restart the player after transferring data...e.g. perhaps the user pressed pause
+	    	boolean wasPlaying = mediaPlayer.isPlaying();
+	    	int curPosition = mediaPlayer.getCurrentPosition();
+	    	
+	    	// Copy the currently downloaded content to a new buffered File.  Store the old File for deleting later. 
+	    	File oldBufferedFile = new File(context.getCacheDir(),"playingMedia" + counter + ".dat");
+	    	File bufferedFile = new File(context.getCacheDir(),"playingMedia" + (counter++) + ".dat");
+
+	    	//  This may be the last buffered File so ask that it be delete on exit.  If it's already deleted, then this won't mean anything.  If you want to 
+	    	// keep and track fully downloaded files for later use, write caching code and please send me a copy.
+	    	bufferedFile.deleteOnExit();   
+	    	moveFile(downloadingMediaFile,bufferedFile);
+
+	    	// Pause the current player now as we are about to create and start a new one.  So far (Android v1.5),
+	    	// this always happens so quickly that the user never realized we've stopped the player and started a new one
+	    	mediaPlayer.pause();
+
+	    	// Create a new MediaPlayer rather than try to re-prepare the prior one.
+        	mediaPlayer = createMp3Player(bufferedFile);
+    		mediaPlayer.seekTo(curPosition);
+    		
+    		//  Restart if at end of prior buffered content or mediaPlayer was previously playing.  
+    		//	NOTE:  We test for < 1second of data because the media player can stop when there is still
+        	//  a few milliseconds of data left to play
+    		boolean atEndOfFile = mediaPlayer.getDuration() - mediaPlayer.getCurrentPosition() <= 1000;
+        	if (wasPlaying || atEndOfFile){
+        		mediaPlayer.start_jni();
+        	}
+
+	    	// Lastly delete the previously playing buffered File as it's no longer needed.
+	    	oldBufferedFile.delete();
+	    	
+	    }catch (Exception e) {
+	    	Log.e(getClass().getName(), "Error updating to newly loaded content.", e);            		
+		}
+		*/
+    }
+   
+    /**
+     * 데이타 전송률을 프로그래시브바에 업데이트 한다. 
+     */
+    private void fireDataLoadUpdate() {
+		Runnable updater = new Runnable() {
+	        public void run() {
+	        	
+	        	if ( textStreamed != null )
+	        	{
+	        		textStreamed.setText((totalKbRead + " Kb read"));
+	        		float loadProgress = ((float)totalKbRead/(float)mediaLengthInKb);
+	        		
+	        	}
+	        	
+	        	if ( mProgress != null)
+	        	{
+	        		//progressBar.setSecondaryProgress((int)(loadProgress*100));
+	        	}
+	        }
+	    };
+	    handler.post(updater);
+    }
+   
+    /**
+     * 
+     */
+    private void fireDataFullyLoaded() {
+		Runnable updater = new Runnable() { 
+			public void run() {
+   	        	transferBufferToMediaPlayer();
+   	        	// Delete the downloaded File as it's now been transferred to the currently playing buffer file.
+   	        	downloadingMediaFile.delete();
+   	        	
+   	        	if ( textStreamed != null )
+   	        	{
+   	        		textStreamed.setText(("Audio full loaded: " + totalKbRead + " Kb read"));
+   	        	}
+	        }
+	    };
+	    handler.post(updater);
+    }
+    
+//    public Mp3Player GetMediaPlayer() {
+//    	return mediaPlayer;
+//	}
+	
+//    public MediaPlayer GetMediaPlayer() {
+ //   	return mediaPlayer;
+	//}
+
+    public void startPlayProgressUpdater() {
+   
+    	if ( mediaPlayer != null)
+    	{
+    		if ( mProgress != null )
+    		{
+//    			float progress = (((float)mediaPlayer.getCurrentPosition()/1000)/mediaLengthInSeconds);
+ //   			progressBar.setProgress((int)(progress*100));
+    		}
+    		
+    		if ( mediaPlayer.isPlaying() ) 	{
+    			Runnable notification = new Runnable() {
+    				public void run() {
+    					startPlayProgressUpdater();
+    				}
+    			};
+    			handler.postDelayed(notification,1000);
+    		}
+    	}
+    }    
+   
+    /**
+     * 
+     */
+    public void interrupt() {
+//ppp    	playButton.setEnabled(false);
+    	isInterrupted = true;
+    	validateNotInterrupted();
+    }
+    
+    /**
+     *  Move the file in oldLocation to newLocation.
+     */
+	public void moveFile(File	oldLocation, File	newLocation)
+	throws IOException {
+
+		if ( oldLocation.exists( )) {
+			BufferedInputStream  	reader = new BufferedInputStream( new FileInputStream(oldLocation) );
+			BufferedOutputStream  	writer = new BufferedOutputStream( new FileOutputStream(newLocation, false));
+            try {
+		        byte[]  buff = new byte[8192];
+		        int numChars;
+		        while ( (numChars = reader.read(  buff, 0, buff.length ) ) != -1) {
+		        	writer.write( buff, 0, numChars );
+      		    }
+            } catch( IOException ex ) {
+				throw new IOException("IOException when transferring " + oldLocation.getPath() + " to " + newLocation.getPath());
+            } finally {
+                try {
+                    if ( reader != null ){                    	
+                    	writer.close();
+                        reader.close();
+                    }
+                } catch( IOException ex ){
+				    Log.e(getClass().getName(),"Error closing files when transferring " + oldLocation.getPath() + " to " + newLocation.getPath() ); 
+				}
+            }
+        } else {
+			throw new IOException("Old location does not exist when transferring " + oldLocation.getPath() + " to " + newLocation.getPath() );
+        }
+	} 
+   
+
+	/**
+	 * 
+	 * @param url
+	 */
+	public void doPlay( String url, int jni_type )
+	{
+		
+		
+		flagBreak = true;		// 다운로드중 중지했을때 곡재생을 안하게 위해 
+		
+		m_jni_type = jni_type;
+    	mediaPlayer = null;		// 새로 생성하기 위해서 
+		{
+			try
+			{
+				isInterrupted = false; 	// 인터럽트를 초기화 
+    			
+				this.startStreaming( url , 12717 /3, 214);
+				// feed back
+				mThread = new TickTimerThread();
+				mThread.start();
+			}
+			catch(IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void doStop ()
+	{
+		
+		Log.d("ke", "stream mp3 doStop()");
+		Log.d("ke", "stream mp3 doStop()");
+		Log.d("ke", "stream mp3 doStop()");
+		Log.d("ke", "stream mp3 doStop()");
+		
+		// 가사페인팅 취소 
+		if ( mThread != null)
+		{
+			if ( mThread.isAlive() )
+				mThread.threadStop();
+		}	
+		
+		try {
+			Thread.sleep(100);					// mThread가 종료되길 기다린다. 
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+
+    	flagBreak = false;
+    	this.interrupt();			// 곡재생 취소  
+	}
+	
+   
+	
+	//
+	// real method
+	//
+	/*
+	public void __initialize() {
+ 		mediaPlayer = new MediaPlayer();
+		mediaPlayer.setOnCompletionListener(new OnCompletionListener() 
+		{ 
+			@Override 
+			public void onCompletion(MediaPlayer mp) 
+			{
+				songPlayingComplete();
+			}
+		});   	
+	}
+ 
+    // ImageButton onClick event handler. Method which start/pause mediaplayer playing 
+    public void __doPlay(String url){
+		mediaPlayer.reset();	// position을 reset 한다. 
+    	try {
+			mediaPlayer.setDataSource( url ); // setup song from http://www.hrupin.com/wp-content/uploads/mp3/testsong_20_sec.mp3 URL to mediaplayer data source
+			mediaPlayer.prepare(); // you must call this method after setup the datasource in setDataSource method. After calling prepare() the instance of MediaPlayer starts load data from URL to internal buffer. 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		mediaFileLengthInMilliseconds = mediaPlayer.getDuration(); // gets the song length in milliseconds from URL
+		
+		if(!getMediaPlayer().isPlaying()){
+			getMediaPlayer().start();
+	//		buttonPlayPause.setImageResource(R.drawable.button_pause);
+		}else {
+			getMediaPlayer().pause();
+	//		buttonPlayPause.setImageResource(R.drawable.button_play);
+		}
+		
+//		primarySeekBarProgressUpdater();
+		mThread = new TickTimerThread();
+		mThread.start();
+	}
+    public void __doStop()
+    {
+    	// 곡종료 메시지 
+		//KPlay.Inst().play_send(KMsg.MSG_SONG_END, 0);
+		// 
+		if(getMediaPlayer().isPlaying())
+			getMediaPlayer().stop();
+		
+		if ( mThread != null)
+		{
+			if ( mThread.isAlive() )
+				mThread.threadStop();
+		}
+    }
+*/
+
+	
+    /** MediaPlayer onCompletion event handler. Method which calls then song playing is complete*/
+    private void songPlayingComplete()
+    {
+    //	buttonPlayPause.setImageResource(R.drawable.button_play);
+    	Log.i("StreamPlayer", "mp3 playing complete");
+		//Global.Inst().player.AllStop();
+		KPlay.Inst().play_send( KMsg.MSG_SONG_END, 0 );
+    }
+
+    /**
+     * 
+     * @author macuser
+     */
+	class TickTimerThread extends Thread 
+	{
+		boolean isRunning = false;
+		TickTimerThread()
+		{
+		}
+		public void threadStop()
+		{
+			
+			if ( Global.Inst().isGTV == true )
+			{
+				this.stop();
+			}
+			isRunning = false;
+		}
+
+		long save 		= 0;
+		long virtual_v 	= 0 ;
+		
+		
+		long minus 		= 500;		// mediaplayer보정 (lg cns, uplus ), ppp
+//		long minus 		= 0;		// mediaplayer보정 
+		long GetPlayerMS()
+		{
+		    
+		    return mediaPlayer.getCurrentPosition();
+/*		    
+			long milli =  (mediaPlayer.getCurrentPosition() ) ;
+			if ( milli > minus)
+				milli = milli -minus;
+			else
+				return 0;
+			if ( milli != save ) {
+				save 		= milli;
+				virtual_v 	= 0;
+			}
+			else
+				virtual_v  += 10;
+	    	return (milli+virtual_v);
+*/	    	
+		}
+	
+		/**/
+    	public void run ()
+		{
+    		Global gInst = Global.Inst();
+//			long spand_time = 0;
+//			long sample_add = 0;
+			long current_sample_bak = 0 ;
+			long sample = 0;
+			boolean bFirst = true;
+			
+//			float lastTime = 0.0f;
+//			float lastMod = 0.0f;
+			
+			Output.output_sample 			= 0 ;
+//			float midi_time_ratio 	=  1.0f;
+//			int i = 0;
+//			float back_tick = 0.0f;
+			Global.Inst().std_tick 			= 50000;		// 120 BPM
+    		Global.Inst().midi_tick_count 	= 0;
+    		
+    		isRunning = true;
+    	
+			// isyoon_20150507
+			Log.e("ke", "[TICK][ST]" + Global.Inst().std_tick + "-" + Global.Inst().midi_tick_count + "/current_sample_bak:" + current_sample_bak);
+			int std_tick = Global.Inst().std_tick;
+
+			float back_ms = 0.0f;
+    		float virtual_sample = 0.0f;
+			while( isRunning )
+			{
+				try {
+					
+					Thread.sleep(10);
+//					Thread.sleep(40);
+//					Thread.sleep(30);			//카라.. - 라라라라  안됨 
+//					Thread.sleep(20);			// 20은 12/31이 안됨. 
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}   // 1초간 대기후
+			
+	    		long curSample = 0;
+	    		if ( mediaPlayer != null)
+	    		{
+	    			curSample = GetPlayerMS();
+	    	//		Log.d("ke", "time "d+ curSample);
+	    	//		Log.d("ke'", "Serial" + curSample);
+	    		}
+	    		else
+	    		{
+	    		}
+	    		
+				// isyoon_20150507
+				if (bFirst) {
+					Log.i("ke", "[TICK][CHK]" + Global.Inst().std_tick + "-" + Global.Inst().midi_tick_count + "/curSample:" + curSample + "/current_sample_bak:" + current_sample_bak);
+				}
+				if (std_tick != Global.Inst().std_tick) {
+					Log.e("ke", "[TICK][CHG]" + Global.Inst().std_tick + "-" + Global.Inst().midi_tick_count + "/curSample:" + curSample + "/current_sample_bak:" + current_sample_bak);
+					std_tick = Global.Inst().std_tick;
+				}
+				if (!bFirst && ((float) (curSample - current_sample_bak) < ((float) gInst.std_tick / (float) 1000))) {
+					continue;
+				}
+	    		
+	    		sample = 0;
+	    		// Log.d("ke", current_sample_bak +" " + Output.sample );
+		    	if ( current_sample_bak != curSample || bFirst )
+		        {
+		    		curSample  -= virtual_sample;
+//		    		curSample += back_ms;
+//		    		back_ms = 0;
+		    		bFirst = false;
+		    		// 곡 맨 처음엔 여기 들어와야 한다.
+		    		long n = (int) back_ms;
+		    		back_ms = ( back_ms-(float)n );		// 소수점만 남긴다. 
+		    		sample = curSample - (current_sample_bak-n) ;
+//		    		spand_time = System.currentTimeMillis();
+		    		current_sample_bak = curSample;
+//		    		sample_add  = 0;
+		        }
+		        else
+		        {
+		        	continue;
+		        }
+		    	
+//		    	long	delta;
+//		    	float 	time = (float)(sample+sample_add) / (float)(midi_time_ratio * 44100);
+//		        delta = (int)(time - lastTime);
+//		    	delta += lastMod;
+		    
+		    	
+		    	// 모아서 빼면 오차 발생 
+		    	float ms = (float)gInst.std_tick /(float)1000;	// ms per 1tick  1000 is dec
+		    	
+		    	
+		    	int ntick =  (int) ( (float)sample/ (float) (ms) ) ;//+ back_tick;
+		    	back_ms += ((float)sample-( ntick*ms) );		// 틱을 만들고남은 샘플시간 
+	//	    	Log.d( "ke", "ntick " + ntick + " sample " + sample + "ms " + ms + " back_msg" + back_ms);
+		    //	current_sample_bak -= (sample%(ms*250));
+		    	
+		    	if ( gInst.in_play && ntick > 0 )// && !g_pGroup->is_pause )
+		    	{
+		    		if ( ntick > 50)
+		    		{
+		    			Log.e("ke", "sample " + sample + " msg :"+ms + "  " + ntick);
+		    		}
+		    		gInst.midi_tick_count += (int) ntick;
+		  //  		timeout += ntick;  
+		  //		NSLog(@"g_midi_tick %d ntick %d  sampe %d\n",g_midi_tick_count, ntick, (sample+sample_add));
+		    	}
+		    	//ppp back_tick =  ntick - (int) ntick ;		// 소수점만 구하기 
+			}
+
+			Log.e("ke", "[TICK][ED]" + Global.Inst().std_tick + "-" + Global.Inst().midi_tick_count + "/current_sample_bak:" + current_sample_bak);
+
+			Log.i("TickTimerThread", "Timer Thread Stopped");
+		}
+	}
+}

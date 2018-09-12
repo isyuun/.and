@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" >
+
+	<include
+		android:id="@+id/include_profile_my"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		layout="@layout/include_profile_my"
+		android:visibility="gone" />
+
+	<include
+		android:id="@+id/include_profile_people"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		layout="@layout/include_profile_people3" />
+
+	<include
+		android:id="@+id/include_profile_time"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		layout="@layout/include_profile_time" />
+
+	<View
+		android:layout_width="wrap_content"
+		android:layout_height="2dp"
+		android:background="@color/solid_orange" />
+
+	<include
+		android:id="@+id/include_profile_activity"
+		android:layout_width="match_parent"
+		android:layout_height="60dp"
+		layout="@layout/include_profile_activity2" />
+
+	<!-- <include -->
+	<!-- android:id="@+id/include_profile_feel" -->
+	<!-- android:layout_width="match_parent" -->
+	<!-- android:layout_height="match_parent" -->
+	<!-- android:layout_marginTop="1dp" -->
+	<!-- layout="@layout/include_profile_feel" /> -->
+
+	<include
+		android:id="@+id/include_profile_detail"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="1dp"
+		layout="@layout/include_profile_detail" />
+
+</LinearLayout>

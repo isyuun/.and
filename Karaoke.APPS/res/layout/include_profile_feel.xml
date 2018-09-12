@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical" >
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:baselineAligned="false" >
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="160dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_01"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_01"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="160dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_02"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_02"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:baselineAligned="false" >
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_03"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_03"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_04"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_04"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_05"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_05"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_06"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_06"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:baselineAligned="false" >
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_07"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_07"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_08"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_08"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_09"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_09"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:layout_width="match_parent"
+				android:layout_height="80dp"
+				android:layout_weight="1.0" >
+
+				<kr.kymedia.karaoke.widget._ImageView
+					android:id="@+id/MY_FEEL_IMAGE_10"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:contentDescription="@string/name_item_image"
+					android:onClick="onClick"
+					android:scaleType="centerCrop"
+					android:src="@drawable/ic_menu_01"
+					android:visibility="invisible" />
+
+				<TextView
+					android:id="@+id/MY_FEEL_TEXT_10"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true"
+					android:background="@color/trans_thick"
+					android:ellipsize="end"
+					android:ems="10"
+					android:gravity="top|left"
+					android:maxLines="1"
+					android:padding="@dimen/padding_input_box"
+					android:textColor="@android:color/white"
+					android:textSize="@dimen/text_small"
+					android:visibility="invisible" />
+			</RelativeLayout>
+		</LinearLayout>
+	</LinearLayout>
+
+</ScrollView>

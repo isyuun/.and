@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/include_setting_userinfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/TextXLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_input_bar"
+        android:text="@string/category_setting_userinfo" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="?attr/listViewStyleItemBackstroke"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_large" >
+
+        <TextView
+            android:id="@+id/txt_login_nickname"
+            style="@style/TextLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/chk_login_check2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/chk_login_check2"
+            android:background="@drawable/list_selector_trans"
+            android:gravity="center_vertical|left"
+            android:text="@string/hint_profile_nickname" />
+
+        <CheckBox
+            android:id="@+id/chk_login_check2"
+            style="@style/TextLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/title_setting_login_check" />
+
+        <TextView
+            android:id="@+id/txt_login_goodsname"
+            style="@style/TextMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_login_nickname"
+            android:background="@drawable/list_selector_trans"
+            android:drawableLeft="@drawable/img_ticket"
+            android:drawableRight="@drawable/btn_list_arrow"
+            android:gravity="center_vertical"
+            android:onClick="onClick"
+            android:paddingBottom="@dimen/margin_large"
+            android:paddingTop="@dimen/margin_medium"
+            android:text="@string/category_ticket_product"
+            android:textColor="@color/solid_orange"
+            android:maxLines="1"
+            android:textStyle="bold" />
+
+        <!-- <Button -->
+        <!-- android:id="@+id/btn_login_refund" -->
+        <!-- style="@style/TextLarge" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignBottom="@id/txt_login_goodsname" -->
+        <!-- android:layout_alignLeft="@+id/chk_login_check2" -->
+        <!-- android:background="@drawable/btn_normal_02" -->
+        <!-- android:clickable="true" -->
+        <!-- android:maxLines="1" -->
+        <!-- android:onClick="onClick" -->
+        <!-- android:text="@string/title_setting_login_refund" -->
+        <!-- android:textSize="@dimen/text_medium" -->
+        <!-- android:visibility="invisible" /> -->
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_login_goodsname"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/btn_login_logout"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_input_bar"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_normal_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/title_setting_login_logout"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_login_pwd"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_normal_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/title_setting_login_changepwd"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login_change"
+            style="@style/TextLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_marginTop="@dimen/margin_input_bar"
+            android:background="@drawable/btn_normal_01"
+            android:clickable="true"
+            android:maxLines="1"
+            android:onClick="onClick"
+            android:text="@string/title_setting_login_change"
+            android:textColor="@color/solid_white"
+            android:textSize="@dimen/text_medium" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_login_change"
+            android:layout_marginTop="@dimen/margin_input_bar"
+            android:visibility="gone" >
+
+            <include
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/include_google_plus_login" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

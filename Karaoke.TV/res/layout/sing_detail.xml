@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/sing_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <android.support.v4.widget.Space
+        android:id="@+id/layout_detail_top_blank"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="183"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/layout_detail_mid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="252"
+        android:baselineAligned="false"
+        android:gravity="end"
+        android:orientation="horizontal" >
+
+        <android.support.v4.widget.Space
+            android:id="@+id/layout_detail_mid_left_blank"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="835"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:id="@+id/layout_detail_menu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="235"
+            android:background="@drawable/list_pop_bg"
+            android:baselineAligned="false"
+            android:orientation="horizontal" >
+
+            <android.support.v4.widget.Space
+                android:id="@+id/layout_detail_menu_left_blank"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/layout_detail_menu_mid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                android:orientation="vertical" >
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/layout_detail_menu_blank_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/btn_detail_play"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:background="@drawable/list_pop_focus_01_over"
+                    android:gravity="start|center_vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="45dp"
+                    android:text="@string/common_start"
+                    android:textColor="@android:color/black" >
+                </Button>
+
+                <Button
+                    android:id="@+id/btn_detail_engage"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:background="@drawable/list_pop_focus_02_off"
+                    android:gravity="start|center_vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="45dp"
+                    android:text="@string/common_engage"
+                    android:textColor="@android:color/black" >
+                </Button>
+
+                <Button
+                    android:id="@+id/btn_detail_favor"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:background="@drawable/list_pop_focus_03_off"
+                    android:gravity="start|center_vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="45dp"
+                    android:text="@string/favor_add"
+                    android:textColor="@android:color/black" >
+                </Button>
+
+                <Button
+                    android:id="@+id/btn_detail_close"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:background="@drawable/list_pop_focus_04_off"
+                    android:gravity="start|center_vertical"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="45dp"
+                    android:text="@string/common_close"
+                    android:textColor="@android:color/black" >
+                </Button>
+
+                <android.support.v4.widget.Space
+                    android:id="@+id/layout_detail_menu_blank_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal" />
+            </LinearLayout>
+
+            <android.support.v4.widget.Space
+                android:id="@+id/layout_detail_menu_right_blank"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <android.support.v4.widget.Space
+            android:id="@+id/layout_detail_blank_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <android.support.v4.widget.Space
+        android:id="@+id/layout_detail_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="211"
+        android:visibility="invisible" />
+
+</LinearLayout>

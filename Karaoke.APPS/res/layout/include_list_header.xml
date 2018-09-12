@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/include_player_people"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector_default"
+    android:orientation="horizontal" >
+
+    <kr.kymedia.karaoke.widget._ImageButton
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/actionbar_compat_item"
+        android:contentDescription="@string/name_item_arrow"
+        android:onClick="onClick"
+        android:padding="@dimen/padding_small"
+        android:src="@drawable/ic_left"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:maxLines="1"
+        android:text="@string/hint_item_title" />
+
+    <!-- <kr.kymedia.karaoke.widget.ImageButton -->
+    <!-- android:id="@+id/arrow_right" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:background="@drawable/actionbar_compat_item" -->
+    <!-- android:contentDescription="@string/name_item_arrow" -->
+    <!-- android:onClick="onClick" -->
+    <!-- android:padding="@dimen/padding_small" -->
+    <!-- android:src="@drawable/ic_right" -->
+    <!-- android:visibility="gone" /> -->
+
+</LinearLayout>

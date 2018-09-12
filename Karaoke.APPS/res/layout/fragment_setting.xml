@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_default" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <include
+            android:id="@+id/include_setting_login"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            layout="@layout/include_setting_login" />
+
+        <include
+            android:id="@+id/include_setting_userinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            layout="@layout/include_setting_userinfo" />
+
+        <include
+            android:id="@+id/include_setting_pwdchange"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
+            layout="@layout/include_setting_pwdchange" />
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/category_setting_player" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <TextView
+                android:id="@+id/txt_player_sync_type"
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/chk_player_sync_type"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/chk_player_sync_type"
+                android:background="@drawable/list_selector_trans"
+                android:gravity="center_vertical|left"
+                android:text="@string/title_setting_player_sync_type" />
+
+            <CheckBox
+                android:id="@+id/chk_player_sync_type"
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/chk_player_sync_type"
+                android:text="@string/summary_setting_player_sync_type" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/category_setting_network" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <TextView
+                android:id="@+id/txt_network_usemobile"
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/chk_network_usemobile"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/chk_network_usemobile"
+                android:background="@drawable/list_selector_trans"
+                android:gravity="center_vertical|left"
+                android:text="@string/title_setting_network_usemobile" />
+
+            <CheckBox
+                android:id="@+id/chk_network_usemobile"
+                style="@style/TextLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/chk_network_usemobile"
+                android:text="@string/summary_setting_network_usemobile" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/category_setting_notification" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <Button
+                android:id="@+id/btn_notification_settings"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_input_bar"
+                android:background="@drawable/btn_normal_counter_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/category_setting_notification_settings"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+
+            <Button
+                android:id="@+id/btn_notification_testings"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_input_bar"
+                android:background="@drawable/btn_normal_counter_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/category_setting_notification_testings"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_customer_center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/btn_customer_information"
+                    style="@style/TextLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_input_bar"
+                    android:layout_marginLeft="@dimen/margin_input_bar"
+                    android:layout_marginTop="@dimen/margin_input_bar"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_normal_counter_01"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:text="@string/title_setting_customer_information"
+                    android:textColor="@color/solid_white"
+                    android:textSize="@dimen/text_medium"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/btn_customer_facebook"
+                    style="@style/TextLarge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_input_bar"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_normal_blue"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/facebook_logo"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:text="@string/title_setting_customer_facebook"
+                    android:textSize="@dimen/text_medium"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/btn_customer_faq"
+                    style="@style/TextLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_input_bar"
+                    android:layout_marginLeft="@dimen/margin_input_bar"
+                    android:layout_marginTop="@dimen/margin_input_bar"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_normal_counter_01"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:text="@string/title_setting_customer_faq"
+                    android:textColor="@color/solid_white"
+                    android:textSize="@dimen/text_medium" />
+
+                <Button
+                    android:id="@+id/btn_customer_qna"
+                    style="@style/TextLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_input_bar"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/btn_normal_counter_01"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:onClick="onClick"
+                    android:text="@string/title_setting_customer_qna"
+                    android:textColor="@color/solid_white"
+                    android:textSize="@dimen/text_medium" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_history_clear" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <Button
+                android:id="@+id/btn_history_clear"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_input_bar"
+                android:background="@drawable/btn_normal_counter_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/title_setting_history_clear"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_history_clear"
+                android:layout_margin="@dimen/margin_input_bar"
+                android:text="@string/summary_setting_history_clear" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/title_setting_login_delete" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <Button
+                android:id="@+id/btn_login_delete"
+                style="@style/TextLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_input_bar"
+                android:background="@drawable/btn_normal_counter_01"
+                android:clickable="true"
+                android:maxLines="1"
+                android:onClick="onClick"
+                android:text="@string/title_setting_login_delete"
+                android:textColor="@color/solid_white"
+                android:textSize="@dimen/text_medium" />
+
+            <TextView
+                android:id="@+id/txt_login_delete"
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_login_delete"
+                android:layout_margin="@dimen/margin_input_bar"
+                android:text="@string/summary_setting_login_delete" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextXLarge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_input_bar"
+            android:text="@string/category_setting_info" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_weight="1.0"
+            android:background="?attr/listViewStyleItemBackstroke"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_input_bar" >
+
+            <TextView
+                android:id="@+id/txt_setting_app_name"
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector_trans"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_medium"
+                android:maxLines="1"
+                android:textColor="@color/solid_orange"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txt_setting_version"
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector_trans"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_medium"
+                android:maxLines="1"
+                android:text="@string/category_setting_version"
+                android:textColor="@color/solid_orange"
+                android:textStyle="bold"
+                android:visibility="visible"/>
+
+
+            <TextView
+                android:id="@+id/txt_setting_eula1"
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector_trans"
+                android:drawableRight="@drawable/btn_list_arrow"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_medium"
+                android:maxLines="1"
+                android:text="@string/category_setting_eula1"
+                android:textColor="@color/solid_orange"
+                android:textStyle="bold"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/txt_setting_eula2"
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector_trans"
+                android:drawableRight="@drawable/btn_list_arrow"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_medium"
+                android:maxLines="1"
+                android:text="@string/category_setting_eula2"
+                android:textColor="@color/solid_orange"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_setting_open_source_licences"
+                style="@style/TextMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector_trans"
+                android:drawableRight="@drawable/btn_list_arrow"
+                android:gravity="center_vertical"
+                android:onClick="onClick"
+                android:paddingBottom="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_medium"
+                android:maxLines="1"
+                android:text="@string/category_setting_open_source_licenses"
+                android:textColor="@color/solid_orange"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_default"
+    android:orientation="vertical" >
+
+    <!-- <LinearLayout -->
+    <!-- android:id="@+id/adpopcorn" -->
+    <!-- android:layout_width="wrap_content" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_centerInParent="true" -->
+    <!-- android:orientation="vertical" > -->
+    <!-- </LinearLayout> -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_01" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_02" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_03" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_04" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_05"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_05" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_06" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_07"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_07" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_08"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_08" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_09"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_09" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_10" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_11" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_tiny"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_main_menu_01"
+            android:padding="@dimen/padding_small" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/MENU_BUTTON_12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:onClick="onClick"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_menu_01" />
+
+            <!-- <ProgressBar -->
+            <!-- android:id="@+id/MENU_PROGRESS_12" -->
+            <!-- android:layout_width="wrap_content" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_centerInParent="true" -->
+            <!-- android:background="@android:color/transparent" /> -->
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

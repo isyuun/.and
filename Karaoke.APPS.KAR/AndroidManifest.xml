@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="kr.kymedia.karaoke.kpop.kar"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          android:installLocation="auto"
+          android:versionCode="22"
+          android:versionName="1.22">
+
+    <!-- In the newest version of ADT (version 20 preview 3), they say that it's possible to make the libraries' manifest file become mergeable with projects that use them: -->
+    <!-- Automatic merging of library project manifest files into the including project's manifest. -->
+    <!-- Enable with the manifestmerger.enabled property. -->
+    <!-- Add the following line : -->
+    <!-- manifestmerger.enabled=true -->
+    <!-- to your project.properties file of your application project. -->
+    <!-- targetSdkVersion:어플프로젝트에서한다...구찮다. -->
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23"/>
+
+    <!-- 푸시관련 Permissions START -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="kr.kymedia.karaoke.kpop.kar.permission.C2D_MESSAGE"/>
+
+    <permission
+        android:name="kr.kymedia.karaoke.kpop.kar.permission.C2D_MESSAGE"
+        android:protectionLevel="signature"/>
+    <!-- 푸시관련 Permissions END -->
+
+    <application
+        android:name="kr.kymedia.karaoke.apps._BaseApplication"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:logo="@drawable/tit_logo"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+
+        <!-- 3) 에어푸시 - A -->
+        <!-- Required declaration for all ads -->
+        <!-- <meta-data -->
+        <!-- android:name="com.google.android.gms.version" -->
+        <!-- android:value="@integer/google_play_services_version" /> -->
+        <!-- <meta-data -->
+        <!-- android:name="com.twwpc.duzea106950.APPID" -->
+        <!-- android:value="206486" /> -->
+        <!-- <meta-data -->
+        <!-- android:name="com.twwpc.duzea106950.APIKEY" -->
+        <!-- android:value="android*1346244880106950623" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.twwpc.duzea106950.AdActivity" -->
+        <!-- android:configChanges="orientation|screenSize" -->
+        <!-- android:exported="false" -->
+        <!-- android:theme="@android:style/Theme.Translucent" /> -->
+        <!-- Required activity for SmartWall, rich media and in-app banner ads. -->
+        <!-- <activity -->
+        <!-- android:name="com.twwpc.duzea106950.BrowserActivity" -->
+        <!-- android:configChanges="orientation|screenSize" /> -->
+        <!-- <activity -->
+        <!-- android:name="com.twwpc.duzea106950.PlayActivity" -->
+        <!-- android:configChanges="orientation|screenSize" -->
+        <!-- android:screenOrientation="landscape" -->
+        <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > -->
+        <!-- </activity> -->
+        <!-- Required declarations for push notification ads. -->
+        <!-- <service -->
+        <!-- android:name="com.twwpc.duzea106950.AdService" -->
+        <!-- android:exported="false" /> -->
+        <!-- <receiver -->
+        <!-- android:name="com.twwpc.duzea106950.BootReceiver" -->
+        <!-- android:exported="false" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+        <!-- <category android:name="android.intent.category.HOME" /> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+
+
+        <!-- 8) TNK팩토리 - N -->
+        <activity
+            android:name="com.tnkfactory.ad.AdWallActivity"
+            android:screenOrientation="sensorPortrait"/>
+        <activity
+            android:name="com.tnkfactory.ad.AdMediaActivity"
+            android:screenOrientation="landscape"/>
+
+        <meta-data
+            android:name="tnkad_app_id"
+            android:value="2020a030-e081-a484-484a-180e0207090a"/>
+
+        <!-- 푸시관련(GCM) Receiver START -->
+        <!--
+          BroadcastReceiver that will receive intents from GCM
+          services and handle them to the custom IntentService.
+
+          The com.google.android.c2dm.permission.SEND permission is necessary
+          so only GCM services can send data messages for the app.
+        -->
+        <receiver
+            android:name="._GCMReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <!-- <action android:name="com.google.android.c2dm.intent.REGISTRATION" /> -->
+                <category android:name="kr.kymedia.karaoke.kpop.kar"/>
+            </intent-filter>
+        </receiver>
+        <!-- 푸시관련(GCM) Receiver END -->
+        <!-- 푸시관련(GCM) GCMIntentService START -->
+        <!--
+          Application-specific subclass of GCMBaseIntentService that will
+          handle received messages.
+
+          By default, it must be named .GCMIntentService, unless the
+          application uses a custom BroadcastReceiver that redefines its name.
+        -->
+        <service android:name="._GCMIntentService"/>
+        <!-- 푸시관련(GCM) GCMIntentService END -->
+
+
+        <!-- Phone Call Receiver -->
+
+
+        <!-- SearchRecent SearchRecentSuggestionsProvider -->
+        <provider
+            android:name="kr.kymedia.karaoke.kpop.kar.SearchRecentProvider"
+            android:authorities="kr.kymedia.karaoke.kpop.kar.SearchRecentProvider"/>
+        <!-- enable the search dialog to send searches to SearchableActivity -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.default_searchable" -->
+        <!-- android:value="kr.kymedia.karaoke.kpop.kar.search" /> -->
+        <!-- this is the searchable activity; it performs searches -->
+        <!-- <activity -->
+        <!-- android:name="kr.kymedia.karaoke.kpop.kar.search" -->
+        <!-- android:configChanges="orientation|screenSize" -->
+        <!-- android:label="@string/karaoke_kpop_search" -->
+        <!-- android:launchMode="singleTop" -->
+        <!-- android:screenOrientation="sensorPortrait" -->
+        <!-- android:windowSoftInputMode="stateAlwaysHidden" > -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.SEARCH" /> -->
+        <!-- </intent-filter> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.searchable" -->
+        <!-- android:resource="@xml/searchable" /> -->
+        <!-- </activity> -->
+
+
+        <!-- 화면목록 - START -->
+        <!-- 홈액티비티는 각앱에서 -->
+        <!-- 여서해에에~~~ -->
+        <activity
+            android:name="kr.kymedia.karaoke.kpop.kar.home"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorPortrait"
+            android:uiOptions="none"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <!-- 중요:모바일앱 앱스키마처리 - 소액결재등 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="kpop.karaoke.kymedia.kr"
+                    android:scheme="karaoke"/>
+            </intent-filter>
+            <!-- 브라이저 앱스키마처리 - 녹음곡재생페이지 -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+            <!-- <data -->
+            <!-- android:host="kpop.kymedia.kr" -->
+            <!-- android:pathPattern="\\*" -->
+            <!-- android:scheme="http" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <!-- FEEL공유어플등록 -->
+        <activity
+            android:name="kr.kymedia.karaoke.kpop.feelpost"
+            android:configChanges="orientation|screenSize"
+            android:description="@string/app_share"
+            android:label="@string/app_share"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorPortrait"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+
+                <data android:mimeType="text/plain"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <!-- 화면목록 - END -->
+
+    </application>
+
+</manifest>

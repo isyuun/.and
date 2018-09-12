@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- BTV -->
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.kymedia.kykaraoke"
+    android:versionCode="710"
+    android:versionName="7.1.0.BTV.RC">
+
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false"/>
+
+    <!-- December 2011: Android 4.0.3. ICE_CREAM_SANDWICH_MR1 = 15; -->
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="22"/>
+
+    <application
+        android:name="kr.kymedia.kykaraoke.tv.app._Application"
+        android:banner="@drawable/banner"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:isGame="false"
+        android:label="@string/app_name"
+        android:largeHeap="true">
+
+        <!-- Btv셋탑만지원 -->
+        <uses-library android:name="tvcontextmanager" android:required="false"/>
+
+        <!-- Video -->
+        <activity
+            android:name="kr.kymedia.kykaraoke.tv.btv.__Video"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|layoutDirection|fontScale"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <!-- 안드로이드 L(Android TV) 대응 관련:Lolli Pop -->
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Main -->
+        <activity
+            android:name="kr.kymedia.kykaraoke.tv.btv.__Main"
+            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|layoutDirection|fontScale"
+            android:hardwareAccelerated="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+    </application>
+
+</manifest>

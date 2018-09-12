@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/solid_dark" >
+
+    <kr.kymedia.karaoke.widget._ImageView
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/msg_text_loading"
+        android:scaleType="center"
+        android:src="@drawable/ani_loading_character" />
+
+    <TextView
+        android:id="@+id/txt_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/loading"
+        android:layout_alignLeft="@+id/loading"
+        android:layout_alignRight="@+id/loading"
+        android:background="@color/solid_dark"
+        android:gravity="center"
+        android:text="@string/msg_text_playing"
+        android:textColor="@color/solid_white"
+        android:textSize="@dimen/text_tiny"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+package kr.kymedia.kykaraoke.tv.dat;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class SongInfo implements android.os.Parcelable {
+	public String m_strTitle1;
+	public String m_strTitle2;
+	public String m_strId;
+	public String m_strAuthor;
+	public String m_strLyricsAuthor;
+	public String m_strSinger;
+
+	public SongInfo() {
+	}
+
+	public SongInfo(Parcel in) {
+		readFromParcel(in);
+	}
+
+	public SongInfo(String title1, String title2, String id, String author, String lyricsauthor, String singer) {
+		this.m_strTitle1 = title1;
+		this.m_strTitle2 = title2;
+		this.m_strId = id;
+		this.m_strAuthor = author;
+		this.m_strLyricsAuthor = lyricsauthor;
+		this.m_strSinger = singer;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(m_strTitle1);
+		dest.writeString(m_strTitle2);
+		dest.writeString(m_strId);
+		dest.writeString(m_strAuthor);
+		dest.writeString(m_strLyricsAuthor);
+		dest.writeString(m_strSinger);
+	}
+
+	public void readFromParcel(Parcel in) {
+		m_strTitle1 = in.readString();
+		m_strTitle2 = in.readString();
+		m_strId = in.readString();
+		m_strAuthor = in.readString();
+		m_strLyricsAuthor = in.readString();
+		m_strSinger = in.readString();
+	}
+
+	@SuppressWarnings("rawtypes")
+	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+		@Override
+		public SongInfo createFromParcel(Parcel in) {
+			return new SongInfo(in);
+		}
+
+		@Override
+		public SongInfo[] newArray(int size) {
+			return new SongInfo[size];
+		}
+	};
+}

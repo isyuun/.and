@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_home_event_menu"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+
+    <include
+        android:id="@+id/layout_home_event_menu_song"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="11"
+        layout="@layout/layout_home_event_menu_song" />
+
+    <View
+        android:id="@+id/btn_home_event_03"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="@drawable/btn_home_event_03"
+        android:orientation="horizontal" />
+
+    <ImageButton
+        android:id="@+id/btn_home_event_04"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="4"
+        android:background="@drawable/btn_home_event_04"
+        android:orientation="horizontal" >
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/img_main_quick_2" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="match_parent" -->
+        <!-- android:layout_margin="0dp" /> -->
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/btn_home_event_05"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="10"
+        android:background="@drawable/btn_home_event_05"
+        android:orientation="horizontal"
+        android:padding="@dimen/home_event_padding"
+        android:scaleType="fitXY" >
+
+        <!-- <ImageView -->
+        <!-- android:id="@+id/img_main_event" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="match_parent" -->
+        <!-- android:layout_marginRight="10dp" /> -->
+    </ImageButton>
+
+</LinearLayout>

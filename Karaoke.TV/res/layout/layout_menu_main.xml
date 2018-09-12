@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_menu_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- <include -->
+    <!-- android:id="@+id/layout_top" -->
+    <!-- android:layout_width="match_parent" -->
+    <!-- android:layout_height="0dp" -->
+    <!-- android:layout_weight="5" -->
+    <!-- layout="@layout/layout_top_base" -->
+    <!-- android:visibility="visible" /> -->
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/layout_home_main_menu2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/btn_main_sing"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:background="@drawable/sub_icon_01_off"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:onClick="onBtnMainSing" />
+
+        <Button
+            android:id="@+id/btn_main_listen"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="3"
+            android:background="@drawable/sub_icon_02_off"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:onClick="onBtnMainListen" />
+
+        <Button
+            android:id="@+id/btn_main_my"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="3"
+            android:background="@drawable/sub_icon_03_off"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:onClick="onBtnMainMy" />
+
+        <Button
+            android:id="@+id/btn_main_shop"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="3"
+            android:background="@drawable/sub_icon_04_off"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:onClick="onBtnMainShop" />
+
+        <Button
+            android:id="@+id/btn_main_customer"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="3"
+            android:background="@drawable/sub_icon_05_off"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:onClick="onBtnMainCustomer" />
+    </LinearLayout>
+
+</LinearLayout>

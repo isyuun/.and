@@ -1,0 +1,203 @@
+package kr.kymedia.kykaraoke;
+
+import java.io.*;
+
+import kr.kymedia.kykaraoke.play.*;
+import android.app.*;
+import android.content.*;
+import android.content.res.*;
+import android.os.*;
+import android.util.*;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.*;
+
+public class Play extends SongPlayer {
+	final static String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getClassName();
+	Context context = this;
+	public static Activity ActivityPlay = null;
+
+	public String getSongNumer(String path) {
+		String ret = path;
+
+		ret = ret.substring(ret.lastIndexOf(File.separator) + 1);
+		ret = ret.substring(0, ret.lastIndexOf("."));
+
+		return ret;
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		LOG(__CLASSNAME__, "onConfigurationChanged()"+newConfig);
+		
+		super.onConfigurationChanged(newConfig);
+	}
+
+	@Override
+	public void onDestroy() {
+		LOG(__CLASSNAME__, "onDestroy()");
+		
+		// 반주곡 재생 시간 알림 KP
+		// KP_1012
+		Main mainActivity = (Main)Main.ActivityMain;
+		if (mainActivity != null) {
+			mainActivity.KP(REQUEST_SONG_PLAYED_TIME, KP_1012, MENU_SING, SING_HOT);
+		}
+		
+		stop();
+		
+		ActivityPlay = null;
+
+		super.onDestroy();
+	}
+
+    @Override
+	public void onWindowAttributesChanged(android.view.WindowManager.LayoutParams params) {
+		super.onWindowAttributesChanged(params);
+	}
+
+	Handler handler = new Handler(); 
+
+	@Override
+	public boolean pause() {
+		setRedraw(true);
+		
+		return super.pause();
+	}
+
+	@Override
+	protected boolean stop() {
+    	LOG(__CLASSNAME__, "stop()");
+    	
+		setRedraw(true);
+		
+		return super.stop();
+	}
+
+	@Override
+	protected boolean resume() {
+    	LOG(__CLASSNAME__, "resume()");
+    	
+		setRedraw(false);
+		
+		return super.resume();
+	}
+	
+	@Override
+	protected boolean play() {
+    	LOG(__CLASSNAME__, "play()");
+    	
+		setRedraw(false);
+		boolean ret = super.play();
+		
+		return ret;
+	}
+
+	protected boolean openPlay(String path) {
+		LOG(__CLASSNAME__, "openPlay()"+path+"()");
+		
+		boolean ret = false;
+		if (stop() && open(path)) {
+			ret = play();
+		}
+		
+		return ret;
+	}
+
+	@Override
+	protected boolean open(String path) {
+		File f = new File(path);
+		boolean exists = f.exists(); 
+		
+		LOG(__CLASSNAME__, "open(path) exists:"+exists+", path:"+path);
+		
+		if (exists) {
+			return super.open(path);
+		} else {
+			return false;
+		} 
+	}
+	
+	@Override
+	protected void onPause() {
+		LOG(__CLASSNAME__, "onPause()");
+		super.onPause();
+	}
+
+	@Override
+	protected void onRestart() {
+		LOG(__CLASSNAME__, "onRestart()");
+		super.onRestart();
+	}
+
+	@Override
+	protected void onResume() {
+		LOG(__CLASSNAME__, "onResume()");
+		super.onResume();
+	}
+
+	@Override
+	protected void onStart() {
+		LOG(__CLASSNAME__, "onStart()");
+		super.onStart();
+	}
+
+	@Override
+	protected void onStop() {
+		LOG(__CLASSNAME__, "onStop()");
+		super.onStop();
+	}
+
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+	}
+
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+	}
+	
+	FrameLayout mPlayerFrame = null;
+	@SuppressWarnings("deprecation")
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		setContentView(R.layout.player);
+		
+		ActivityPlay = Play.this;
+		
+		LOG(__CLASSNAME__, "onCreate()"+savedInstanceState+"()");
+		
+		DisplayMetrics dm = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+		int w = getWindowManager().getDefaultDisplay().getWidth();
+		int h = getWindowManager().getDefaultDisplay().getHeight();
+
+		LOG("DISPLAY()", "getMetrics()" + dm.toString() + "()" + dm.widthPixels + "()" + dm.heightPixels + "()" + w + "()" + h + "()");
+		
+		mPlayerFrame = (FrameLayout)findViewById(R.id.player_frame);
+
+		setPlayView(new PlayView(this));
+		mPlayerFrame.addView(getPlayView(), new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+
+		super.onCreate(savedInstanceState);
+		
+		// 메인 액티비티를 다시 상위로
+		Intent intent = new Intent(Play.this, Main.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		startActivity(intent);
+		
+		Main mainActivity = (Main)Main.ActivityMain;
+		if (mainActivity != null) {
+			mainActivity.StartPlaying();
+		}
+		
+        LOG(__CLASSNAME__, "onCreate()"+savedInstanceState+"()");		
+	}
+	
+	private void LOG(String tag, String msg) {
+		if (P_DEBUG == "debug") {
+			Log.i(tag, msg);
+		}
+	}
+}

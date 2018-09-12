@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:padding="@dimen/padding_large" >
+
+	<EditText
+		android:id="@+id/edt_profile_comment"
+		style="@style/TextMedium"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_margin="@dimen/margin_large"
+		android:layout_weight="1.0"
+		android:background="@drawable/bg_comment_light"
+		android:ems="10"
+		android:gravity="top"
+		android:hint="@string/hint_profile_commet"
+		android:padding="@dimen/padding_large"
+		android:textSize="@dimen/text_large" />
+
+	<LinearLayout
+		android:id="@+id/layout_profile_comment_save"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:gravity="center" >
+
+		<Button
+			android:id="@+id/btn_profile_comment_save"
+			style="@style/TextLarge"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/btn_normal_01"
+			android:clickable="true"
+			android:maxLines="1"
+			android:onClick="onClick"
+			android:text="@string/btn_title_save"
+			android:textColor="@color/solid_white"
+			android:textSize="@dimen/text_medium" />
+	</LinearLayout>
+
+</LinearLayout>

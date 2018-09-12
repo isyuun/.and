@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_myholic_firstbar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_input_bar"
+        android:paddingRight="@dimen/padding_input_bar" >
+
+        <kr.kymedia.karaoke.widget._ImageView
+            android:id="@+id/img_profile_country"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="@dimen/margin_input_bar"
+            android:contentDescription="@string/hint_profile_country"
+            android:src="@drawable/img_flag_kr" />
+
+        <TextView
+            android:id="@+id/txt_profile_nickname"
+            style="@style/TextMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_input_bar"
+            android:layout_weight="1.0"
+            android:gravity="center|left"
+            android:text="@string/hint_profile_nickname"
+            android:textColor="@color/solid_black" />
+
+        <LinearLayout
+            android:id="@+id/btn_star"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <CheckBox
+                android:id="@+id/chk_star"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:button="@drawable/chk_following"
+                android:checked="false"
+                android:onClick="onClick"
+                android:scaleType="fitCenter"
+                android:src="@drawable/btn_player_star" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/bg_myholic_secbar"
+        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/padding_large"
+        android:paddingRight="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_medium" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <kr.kymedia.karaoke.widget._ImageView
+                android:id="@+id/img_profile_image"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/hint_profile_image"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_sample_profile" />
+        </LinearLayout>
+
+        <!-- <RelativeLayout -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" > -->
+
+
+        <!-- <TextView -->
+        <!-- android:id="@+id/txt_profile_comment" -->
+        <!-- style="@style/TextMedium" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginLeft="@dimen/margin_small" -->
+        <!-- android:background="@drawable/dlg_top_message_01" -->
+        <!-- android:ellipsize="marquee" -->
+        <!-- android:maxLines="1" -->
+        <!-- android:paddingLeft="@dimen/padding_input_bar" -->
+        <!-- android:paddingRight="@dimen/padding_input_bar" -->
+        <!-- android:text="@string/hint_profile_commet" -->
+        <!-- android:textColor="@color/solid_white" -->
+        <!-- android:textStyle="bold" /> -->
+
+
+        <!-- <TextView -->
+        <!-- android:id="@+id/txt_profile_nickname" -->
+        <!-- style="@style/TextLarge" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignBottom="@+id/btn_star" -->
+        <!-- android:layout_below="@+id/txt_profile_comment" -->
+        <!-- android:layout_marginLeft="@dimen/margin_small" -->
+        <!-- android:layout_toLeftOf="@+id/btn_star" -->
+        <!-- android:layout_toRightOf="@+id/img_profile_country" -->
+        <!-- android:gravity="center_vertical" -->
+        <!-- android:text="@string/hint_profile_nickname" /> -->
+
+
+        <!-- <TextView -->
+        <!-- android:id="@+id/TextView01" -->
+        <!-- style="@style/TextLargeThick" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignLeft="@id/txt_profile_nickname" -->
+        <!-- android:layout_below="@+id/txt_profile_nickname" -->
+        <!-- android:text="@string/hint_profile_birthday" -->
+        <!-- android:visibility="gone" /> -->
+
+
+        <!-- <TextView -->
+        <!-- android:id="@+id/txt_profile_birthday" -->
+        <!-- style="@style/TextLargeThick" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_alignParentRight="true" -->
+        <!-- android:layout_alignTop="@+id/TextView01" -->
+        <!-- android:layout_marginLeft="@dimen/margin_input_bar" -->
+        <!-- android:layout_toRightOf="@id/TextView01" -->
+        <!-- android:text="@string/hint_profile_date" -->
+        <!-- android:visibility="gone" /> -->
+
+
+        <!-- <TextView -->
+        <!-- android:id="@+id/txt_profile_country" -->
+        <!-- style="@style/TextLargeThick" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginTop="@dimen/margin_small" -->
+        <!-- android:text="@string/hint_profile_country" -->
+        <!-- android:visibility="gone" /> -->
+
+
+        <!-- <kr.kymedia.karaoke.widget.ImageView -->
+        <!-- android:id="@+id/img_profile_country" -->
+        <!-- android:layout_width="20dp" -->
+        <!-- android:layout_height="20dp" -->
+        <!-- android:layout_alignLeft="@+id/txt_profile_comment" -->
+        <!-- android:layout_below="@+id/txt_profile_comment" -->
+        <!-- android:layout_marginTop="@dimen/margin_small" -->
+        <!-- android:contentDescription="@drawable/img_flag_kr" -->
+        <!-- android:src="@drawable/img_flag_kr" /> -->
+
+
+        <!-- <LinearLayout -->
+        <!-- android:id="@+id/btn_star" -->
+        <!-- android:layout_width="30dp" -->
+        <!-- android:layout_height="30dp" -->
+        <!-- android:layout_alignRight="@+id/txt_profile_comment" -->
+        <!-- android:layout_below="@+id/txt_profile_comment" -->
+        <!-- android:background="@drawable/btn_normal_04" -->
+        <!-- android:orientation="vertical" > -->
+
+
+        <!-- <CheckBox -->
+        <!-- android:id="@+id/chk_star" -->
+        <!-- android:layout_width="wrap_content" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginLeft="5dp" -->
+        <!-- android:layout_marginTop="2dp" -->
+        <!-- android:button="@drawable/btn_player_star" -->
+        <!-- android:checked="false" -->
+        <!-- android:onClick="onClick" -->
+        <!-- android:scaleType="fitCenter" -->
+        <!-- android:src="@drawable/btn_player_star" /> -->
+        <!-- </LinearLayout> -->
+        <!-- </RelativeLayout> -->
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_toRightOf="@+id/linearLayout1"
+            android:background="@drawable/bg_myholic_counter"
+            android:baselineAligned="false"
+            android:gravity="center"
+            android:paddingLeft="@dimen/padding_tiny"
+            android:paddingRight="@dimen/padding_medium"
+            android:paddingTop="@dimen/padding_small" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/txt_profile_hit"
+                    style="@style/TextTinyOrange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/hint_item_heart" />
+
+                <TextView
+                    style="@style/TextTinyThick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/name_item_hit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/txt_profile_follow"
+                    style="@style/TextTinyOrange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/hint_item_heart" />
+
+                <TextView
+                    style="@style/TextTinyThick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/name_item_follower" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/txt_profile_heart"
+                    style="@style/TextTinyOrange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/hint_item_heart" />
+
+                <TextView
+                    style="@style/TextTinyThick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/name_item_heart" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/linearLayout1"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_toRightOf="@+id/linearLayout1" >
+
+            <Button
+                android:id="@+id/menu_message_send"
+                style="@style/TextTinyWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_myholic"
+                android:text="@string/btn_title_message_send"
+                android:textStyle="bold" />
+
+            <!-- <Button -->
+            <!-- android:id="@+id/menu_audition" -->
+            <!-- style="@style/TextTinyWhite" -->
+            <!-- android:layout_width="0dp" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_marginLeft="@dimen/margin_small" -->
+            <!-- android:layout_weight="1.0" -->
+            <!-- android:background="@drawable/btn_myholic" -->
+            <!-- android:text="@string/menu_audition" -->
+            <!-- android:textStyle="bold" /> -->
+
+            <Button
+                android:id="@+id/menu_mysing"
+                style="@style/TextTinyWhite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_myholic"
+                android:text="@string/context_mysing"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

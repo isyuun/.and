@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/height_bottom_play_bar"
+    android:background="@drawable/bg_playzone2" >
+
+    <TextView
+        android:id="@+id/textPlay"
+        style="@style/TextTime3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="5.0dp"
+        android:text="@string/hint_item_time_msec"
+        android:textColor="@color/solid_red"
+        android:visibility="gone"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/cur"
+        style="@style/TextTime3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tot"
+        android:layout_alignBottom="@+id/tot"
+        android:layout_toLeftOf="@+id/tot"
+        android:paddingRight="5.0dp"
+        android:text="@string/hint_item_time" />
+
+    <TextView
+        android:id="@+id/tot"
+        style="@style/TextTime4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/seek"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="5.0dp"
+        android:text="@string/hint_item_time" />
+
+    <kr.kymedia.karaoke.widget._ImageButton
+        android:id="@+id/next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tot"
+        android:background="@drawable/actionbar_compat_item"
+        android:contentDescription="@drawable/btn_player_next"
+        android:src="@drawable/btn_player_next"
+        android:visibility="gone" />
+
+    <CheckBox
+        android:id="@+id/rec"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:button="@drawable/chk_record"
+        android:checked="true"
+        android:contentDescription="@drawable/chk_record"
+        android:onClick="onClick" />
+
+    <kr.kymedia.karaoke.widget.SeekBarClickThumb
+        android:id="@+id/seek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_toLeftOf="@+id/view3"
+        android:layout_toRightOf="@+id/rec"
+        android:background="@drawable/bg_playbar"
+        android:enabled="false"
+        android:onClick="onClick"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:progressDrawable="@drawable/seekbar_progress2"
+        android:thumb="@drawable/seekbar_thumb2"
+        android:thumbOffset="15dp" />
+
+    <LinearLayout
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/padding_small"
+        android:visibility="gone" >
+
+        <CheckBox
+            android:id="@+id/show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_player_show2"
+            android:button="@drawable/btn_player_show2"
+            android:checked="true"
+            android:onClick="onClick" />
+    </LinearLayout>
+
+    <kr.kymedia.karaoke.widget._ImageButton
+        android:id="@+id/up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_small"
+        android:background="@android:color/transparent"
+        android:contentDescription="@drawable/btn_player_upload"
+        android:src="@drawable/btn_upload"
+        android:visibility="gone" />
+
+</RelativeLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/include_player_title"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_large_play_bar"
+    android:background="@drawable/bg_list"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/padding_input_bar"
+    android:paddingRight="@dimen/padding_input_bar" >
+
+    <kr.kymedia.karaoke.widget._ImageView
+        android:id="@+id/image"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:contentDescription="@string/hint_item_image"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_menu_01" />
+
+    <!-- <kr.kymedia.karaoke.widget.ImageView -->
+    <!-- android:id="@+id/image" -->
+    <!-- android:layout_width="50dp" -->
+    <!-- android:layout_height="45dp" -->
+    <!-- android:layout_gravity="center_vertical" -->
+    <!-- android:contentDescription="@string/hint_item_image" -->
+    <!-- android:padding="2dp" -->
+    <!-- android:scaleType="fitXY" -->
+    <!-- android:src="@drawable/ic_menu_01" /> -->
+
+    <TextView
+        android:id="@+id/id"
+        style="@style/TextSmall"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/hint_item_song_id"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_input_bar"
+        android:layout_weight="1.0"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/hint_item_title"
+            android:textColor="@color/solid_black" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextTinyThick"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="top"
+            android:maxLines="1"
+            android:paddingTop="@dimen/padding_small"
+            android:text="@string/hint_item_name"
+            android:textColor="@color/solid_black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/heart"
+        style="@style/TextMediumDark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:gravity="center_vertical|right"
+        android:text="@string/hint_item_heart"
+        android:textColor="@color/solid_black" />
+
+    <CheckBox
+        android:id="@+id/chk_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:background="@drawable/chk_like"
+        android:button="@drawable/chk_like"
+        android:checked="false"
+        android:onClick="onClick"
+        android:visibility="visible" />
+
+    <kr.kymedia.karaoke.widget._ImageButton
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/actionbar_compat_item"
+        android:contentDescription="@string/name_item_arrow"
+        android:padding="@dimen/padding_medium"
+        android:src="@drawable/btn_player_arrow_left"
+        android:visibility="gone" />
+
+</LinearLayout>
