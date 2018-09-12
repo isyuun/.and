@@ -53,7 +53,7 @@ import android.content.Context;
  * @since 2015. 3. 12.
  * @version 1.0
  */
-class LyricsPlay4X extends LyricsPlay3X {
+class LyricsPlay4X extends LyricsPlay3 {
 	private final String __CLASSNAME__ = (new Exception()).getStackTrace()[0].getFileName();
 
 	private String _toString() {
@@ -84,9 +84,6 @@ class LyricsPlay4X extends LyricsPlay3X {
 		this.song = song;
 	}
 
-	/**
-	 * @see kr.kymedia.kykaraoke.tv.play.LyricsPlay2#isPlaying()
-	 */
 	@Override
 	public boolean isPlaying() {
 		if (song != null) {
@@ -96,9 +93,6 @@ class LyricsPlay4X extends LyricsPlay3X {
 		}
 	}
 
-	/**
-	 * @see kr.kymedia.kykaraoke.tv.play.LyricsPlay2#getCurrentPosition()
-	 */
 	@Override
 	public int getCurrentPosition() {
 
@@ -112,9 +106,6 @@ class LyricsPlay4X extends LyricsPlay3X {
 		return ret;
 	}
 
-	/**
-	 * @see kr.kymedia.kykaraoke.tv.play.LyricsPlay2#getDuration()
-	 */
 	@Override
 	public int getDuration() {
 

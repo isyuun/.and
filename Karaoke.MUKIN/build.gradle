@@ -4,8 +4,6 @@ android {
     useLibrary 'org.apache.http.legacy'
     compileSdkVersion 27
 
-
-
     defaultConfig {
         applicationId "kr.keumyoung.karaoke.mukin"
         minSdkVersion 15
@@ -18,10 +16,19 @@ android {
         multiDexEnabled true
     }
 
+    signingConfigs {
+        release {
+            storeFile file('../Karaoke/kr.keumyoung.karaoke.jks')
+            storePassword 'rmadudrmfnq1'
+            keyAlias 'keumyoung'
+            keyPassword 'rmadudrmfnq1'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), '../Karaoke.APP.PLAY/proguard-rules.pro', 'proguard-rules.pro'
         }
     }
 
@@ -34,6 +41,7 @@ dependencies {
     implementation project(':Karaoke.APP.PLAY3')
     implementation project(':Karaoke.APP.PLAY4')
     implementation project(':Karaoke.APP.WIDGET')
+    implementation project(':Karaoke.MUKIN.COUPON')
 
     implementation 'com.android.support:multidex:1.0.3'
     implementation fileTree(dir: 'libs', include: ['*.jar'])

@@ -34,6 +34,8 @@ package kr.keumyoung.karaoke.play;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.view.SurfaceView;
 import android.view.WindowManager;
 
