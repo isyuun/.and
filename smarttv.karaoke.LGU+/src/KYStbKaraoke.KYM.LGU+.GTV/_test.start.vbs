@@ -1,1 +1,0 @@
-CreateObject("Wscript.Shell").Run "_test.start.bat",0,True
