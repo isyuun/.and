@@ -40,7 +40,6 @@ public class PlayView7 extends PlayView6 {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        requestFocus();
     }
 
     @Override
@@ -77,6 +76,9 @@ public class PlayView7 extends PlayView6 {
 
             @Override
             public void onCenterClick(View v) {
+                if (!isPrepared()) {
+                    open(PlayView7.this.song_id);
+                }
                 setPitch(0);
                 setTempoPercent(0);
                 clearPitchTempoText();
@@ -85,7 +87,7 @@ public class PlayView7 extends PlayView6 {
 
         text_pitch_tempo = findViewById(R.id.text_pitch_tempo);
 
-        /*findViewById(R.id.back_ground).*/setOnClickListener(new OnClickListener() {
+        setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.e(__CLASSNAME__, "onClick()" + view);
@@ -93,27 +95,40 @@ public class PlayView7 extends PlayView6 {
             }
         });
 
-        //((TextView)findViewById(R.id.txt_pitch)).setText(R.string.example_pitch_0);
-        //((TextView)findViewById(R.id.txt_tempo)).setText(R.string.example_tempo_0);
-        setPitch(0);
-        setTempoPercent(0);
+        //setPitch(0);
+        //setTempoPercent(0);
         clearPitchTempoText();
 
         setOnKeyListener(new OnKeyListener() {
             @Override
-            public boolean 	onKey(View v, int code, KeyEvent event) {
-                Log.e(__CLASSNAME__, "onKey()" + v + "," + code + "," + event);
+            public boolean onKey(View v, int code, KeyEvent event) {
+                //Log.e(__CLASSNAME__, "onKey()" + v + "," + code + "," + event);
+                if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
                 switch (code) {
+                    case KeyEvent.KEYCODE_ENTER:
+                    case KeyEvent.KEYCODE_SPACE:
+                        if (isPlaying()) {
+                            if (!isPause()) {
+                                pause();
+                            } else {
+                                play();
+                            }
+                        }
+                        break;
                     case KeyEvent.KEYCODE_DPAD_UP:
+                        post(showPitchTempo);
                         setPitchUP();
                         break;
                     case KeyEvent.KEYCODE_DPAD_DOWN:
+                        post(showPitchTempo);
                         setPitchDN();
                         break;
                     case KeyEvent.KEYCODE_DPAD_LEFT:
+                        post(showPitchTempo);
                         setTempoDN();
                         break;
                     case KeyEvent.KEYCODE_DPAD_RIGHT:
+                        post(showPitchTempo);
                         setTempoUP();
                         break;
                 }
@@ -124,6 +139,7 @@ public class PlayView7 extends PlayView6 {
 
     @Override
     public void setPitch(int pitch) {
+        if (!isPlaying()) return;
         super.setPitch(pitch);
         setSeekPitchInfo();
         postDelayed(hidePitchTempo, TIMER_HIDE_PITCH_TEMPO);
@@ -131,6 +147,7 @@ public class PlayView7 extends PlayView6 {
 
     @Override
     public void setTempoPercent(int percent) {
+        if (!isPlaying()) return;
         super.setTempoPercent(percent);
         setSeekTempoInfo();
         postDelayed(hidePitchTempo, TIMER_HIDE_PITCH_TEMPO);
@@ -140,6 +157,8 @@ public class PlayView7 extends PlayView6 {
         String text = getString(R.string.label_pitch) + "\n" + getString(R.string.label_tempo);
         text_pitch_tempo.setText(text);
         seek_pitch_tempo.setProgress(0);
+        ((TextView)findViewById(R.id.txt_pitch)).setText(R.string.example_pitch_0);
+        ((TextView)findViewById(R.id.txt_tempo)).setText(R.string.example_tempo_0);
     }
 
     private static int TIMER_HIDE_PITCH_TEMPO = 3000;
@@ -162,7 +181,7 @@ public class PlayView7 extends PlayView6 {
     protected Runnable hidePitchTempo = new Runnable() {
         @Override
         public void run() {
-            showPitchTempo(false);
+            if (!seek_pitch_tempo.isLoading()) showPitchTempo(false);
         }
     };
 
@@ -215,6 +234,4 @@ public class PlayView7 extends PlayView6 {
         seek_pitch_tempo.stopLoading();
         return ret;
     }
-
-
 }
