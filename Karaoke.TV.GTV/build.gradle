@@ -11,10 +11,11 @@ apply plugin: 'com.android.application'
 
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
+    implementation project(':Karaoke')
     implementation project(':Karaoke.TV')
     //debugimplementation project(path:':Karaoke.TV', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.TV', configuration: 'release')
-    api fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

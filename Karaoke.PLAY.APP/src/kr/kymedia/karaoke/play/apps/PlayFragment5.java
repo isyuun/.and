@@ -264,7 +264,7 @@ public class PlayFragment5 extends PlayFragment4 {
 	}
 
 	@Override
-	public boolean open(final String path) throws Exception {
+	public boolean load(final String path) throws Exception {
 		Log.e(__CLASSNAME__, getMethodName() + path);
 
 
@@ -276,7 +276,7 @@ public class PlayFragment5 extends PlayFragment4 {
 			(new open()).execute(path);
 			return true;
 		} else {
-			return super.open(path);
+			return super.load(path);
 		}
 	}
 
@@ -295,7 +295,7 @@ public class PlayFragment5 extends PlayFragment4 {
 	}
 
 	private void open() {
-		songCast.open(getPath());
+		songCast.load(getPath());
 	}
 
 	@Override

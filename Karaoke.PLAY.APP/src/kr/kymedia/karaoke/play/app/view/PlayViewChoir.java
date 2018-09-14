@@ -93,7 +93,7 @@ public class PlayViewChoir extends PlayViewTempo {
 		if (isChoir && !isChoirInsertInPlaying && getPlayFragment().isPlaying()) {
 			isChoirInsertInPlaying = true;
 			try {
-				open(getPlayFragment().getPath());
+				load(getPlayFragment().getPath());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

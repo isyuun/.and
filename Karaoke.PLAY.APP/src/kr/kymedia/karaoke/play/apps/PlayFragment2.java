@@ -221,9 +221,9 @@ public class PlayFragment2 extends PlayFragment {
 	}
 
 	@Override
-	public boolean open(String path) throws Exception {
+	public boolean load(String path) throws Exception {
 
-		return super.open(path);
+		return super.load(path);
 	}
 
 	@Override

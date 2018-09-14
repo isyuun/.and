@@ -234,7 +234,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 	};
 
 	@Override
-	public boolean open(String path) {
+	public boolean load(String path) {
 
 		Log.w(_toString(), getMethodName() + "[ST]" + ":" + type + ":" + isPitchTempo + ":" + song);
 
@@ -260,7 +260,7 @@ class PlayView4X extends PlayView4 implements ISongPlay {
 					Log.i(_toString(), getMethodName() + "[setOnListener]");
 					song.setOnListener(this);
 					Log.i(_toString(), getMethodName() + "[open]");
-					ret = song.open(mp3);
+					ret = song.load(mp3);
 					Log.i(_toString(), getMethodName() + "[setIsRetry]");
 					setIsRetry(!song.isRetry());
 				}

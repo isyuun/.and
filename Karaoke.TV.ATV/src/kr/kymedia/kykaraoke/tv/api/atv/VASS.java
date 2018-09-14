@@ -409,7 +409,7 @@ public class VASS extends Thread implements _VASS {
 	private LinkedHashMap<String, TicketItem> items = new LinkedHashMap<>();
 
 	public void putTicketItems(LinkedHashMap<String, TicketItem> items) {
-		if (BuildConfig.DEBUG) kr.kymedia.karaoke.api.Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
+		if (BuildConfig.DEBUG) Log.d("[VASS]" + _toString(), getMethodName() + "" + items);
 		this.items = items;
 	}
 

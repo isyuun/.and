@@ -36,5 +36,6 @@ include ':SoundTouch-Android.2.0'
 //project(':KYStbKaraoke.KYM.LGU+.GTV').projectDir = new File('smarttv.karaoke.LGU+/src/KYStbKaraoke.KYM.LGU+.GTV')
 //project(':KYStbKaraoke.KYM.LGU+.OMA').projectDir = new File('smarttv.karaoke.LGU+/src/KYStbKaraoke.KYM.LGU+.OMA')
 include ':Karaoke.APP.PLAY'
+include ':Karaoke.KEUMYOUNG'
 include ':Karaoke.MUKIN'
 include ':Karaoke.MUKIN.COUPON'

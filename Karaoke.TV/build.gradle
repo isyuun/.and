@@ -10,29 +10,32 @@
 apply plugin: 'com.android.library'
 
 dependencies {
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    implementation project(':Karaoke')
+    //debugimplementation project(path:':Karaoke', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke', configuration: 'release')
+    implementation project(':Karaoke.API')
+    //debugimplementation project(path:':Karaoke.API', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.API', configuration: 'release')
+    implementation project(':Karaoke.APP')
+    //debugimplementation project(path:':Karaoke.APP', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP', configuration: 'release')
+    implementation project(':Karaoke.APP.WIDGET')
+    //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
+    implementation project(':Karaoke.APP.PLAY3')
+    //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
+    implementation project(':Karaoke.APP.PLAY4')
+    //debugimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'release')
+    implementation fileTree(dir: 'libs', include: '*.jar')
+
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.android.gms:play-services-gcm:15.0.1'
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
-    api project(':Karaoke')
-    //debugimplementation project(path:':Karaoke', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke', configuration: 'release')
-    api project(':Karaoke.API')
-    //debugimplementation project(path:':Karaoke.API', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke.API', configuration: 'release')
-    api project(':Karaoke.APP')
-    //debugimplementation project(path:':Karaoke.APP', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke.APP', configuration: 'release')
-    api project(':Karaoke.APP.WIDGET')
-    //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
-    api project(':Karaoke.APP.PLAY3')
-    //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
-    api project(':Karaoke.APP.PLAY4')
-    //debugimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'debug')
-    //releaseimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'release')
-    api fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {

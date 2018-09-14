@@ -88,9 +88,9 @@ public class _PlayView extends PlayView5 {
 	}
 
 	@Override
-	public boolean open(String path) {
+	public boolean load(String path) {
 
-		return super.open(path);
+		return super.load(path);
 	}
 
 	@Override

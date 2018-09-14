@@ -223,7 +223,7 @@ public class PlayViewFileDialogMulti extends PlayViewFileDialog {
 
 				stop();
 				try {
-					open(path);
+					load(path);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -265,7 +265,7 @@ public class PlayViewFileDialogMulti extends PlayViewFileDialog {
 
 				stop();
 				try {
-					open(path);
+					load(path);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

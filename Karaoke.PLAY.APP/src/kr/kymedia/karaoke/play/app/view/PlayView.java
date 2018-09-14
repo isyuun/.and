@@ -339,7 +339,7 @@ public class PlayView extends SongPlayView {
 	}
 
 	@Override
-	public boolean open(final String path) throws Exception {
+	public boolean load(final String path) throws Exception {
 
 		Log.d(__CLASSNAME__, getMethodName() + "count:" + count);
 
@@ -360,7 +360,7 @@ public class PlayView extends SongPlayView {
 			}
 		});
 
-		boolean ret = super.open(path);
+		boolean ret = super.load(path);
 
 		if (ret) {
 			if (path.equalsIgnoreCase(getPath())) {
