@@ -12,6 +12,15 @@ apply plugin: 'com.android.application'
 dependencies {
     implementation 'com.android.support:multidex:1.0.3'
     implementation project(':Karaoke')
+    implementation project(':Karaoke.APP')
+    //debugimplementation project(path:':Karaoke.APP', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP', configuration: 'release')
+    implementation project(':Karaoke.APP.PLAY3')
+    //debugimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY3.1', configuration: 'release')
+    implementation project(':Karaoke.APP.PLAY4')
+    //debugimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'debug')
+    //releaseimplementation project(path:':Karaoke.APP.PLAY4', configuration: 'release')
     implementation project(':Karaoke.TV')
     //debugimplementation project(path:':Karaoke.TV', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.TV', configuration: 'release')

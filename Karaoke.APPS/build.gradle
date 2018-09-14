@@ -10,11 +10,7 @@
 apply plugin: 'com.android.library'
 
 dependencies {
-    implementation 'com.android.support:multidex:1.0.3'
-    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
-    implementation 'com.android.support:gridlayout-v7:27.1.1'
-    implementation 'com.android.support:design:27.1.1'
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     implementation project(':Android-ViewPagerIndicator.library')
     implementation project(':QuickActionLib')
     implementation project(':RoundedImageView')
@@ -45,6 +41,11 @@ dependencies {
     //debugimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'debug')
     //releaseimplementation project(path:':Karaoke.APP.WIDGET', configuration: 'release')
     api fileTree(dir: 'libs', include: '*.jar')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.android.gms:play-services-gcm:15.0.1'
+    implementation 'com.android.support:gridlayout-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.android.gms:play-services-ads:15.0.1'
 }
 
 android {
