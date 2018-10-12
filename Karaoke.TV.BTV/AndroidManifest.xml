@@ -11,9 +11,7 @@
         android:required="false"/>
 
     <!-- December 2011: Android 4.0.3. ICE_CREAM_SANDWICH_MR1 = 15; -->
-    <uses-sdk
-        android:minSdkVersion="15"
-        android:targetSdkVersion="22"/>
+    <!--<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="22"/>-->
 
     <application
         android:name="kr.kymedia.kykaraoke.tv.app._Application"
